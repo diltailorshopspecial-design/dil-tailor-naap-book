@@ -213,5 +213,10 @@ function openParchi(r){
 function sendWA(){var m=document.getElementById('mobile').value; if(!m){alert('موبائل لکھیں');return;} var msg='*دل ٹیلر شاپ - دل حسن*%0A*03463604869*%0Aنام: '+document.getElementById('customerName').value+'%0Aسیریل: '+document.getElementById('serialNo').value+'%0Aسوٹ: '+(document.getElementById('suitQty').value||'1')+' نغ%0Aگلہ قسم: '+(SVAL.galaQisam||'')+'%0Aڈلیوری: '+document.getElementById('deliveryDate').value+'%0Aباقی: '+document.getElementById('baqaya').value+' روپے'; window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+msg,'_blank');}
 document.getElementById('orderDate').valueAsDate=new Date(); var dd=new Date(); dd.setDate(dd.getDate()+7); document.getElementById('deliveryDate').valueAsDate=dd; document.getElementById('serialNo').value=Date.now().toString().slice(-6); calcBaqaya();
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
 </body>
 </html>
