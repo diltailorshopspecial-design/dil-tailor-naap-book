@@ -56,13 +56,13 @@ img.prev{width:65px;height:65px;object-fit:cover;border-radius:10px;border:2px s
 <div class="card"><div class="head">🔍 کسٹمر تلاش</div>
 <div style="display:flex;gap:6px"><input id="q" placeholder="نام، موبائل، سیریل"><button onclick="searchData()" class="btn" style="background:#0A3D2E;color:#fff">تلاش</button><button onclick="clearSearch()" class="btn" style="background:#FFF3E0">صاف</button></div>
 <div id="results" style="margin-top:12px"></div>
-</div>
-<div id="viewModal" onclick="if(event.target.id=='viewModal') closeView()">
+</div><div id="viewModal" onclick="if(event.target.id=='viewModal') closeView()">
   <div class="view-box">
     <div id="viewContent" style="display:flex;flex-direction:column;max-height:90vh;width:100%"></div>
   </div>
 </div>
-<div id="net" class="net online">✅ آن لائن</div><div class="card"><div class="head">👤 کسٹمر معلومات + فوٹو</div>
+<div id="net" class="net online">✅ آن لائن</div>
+<div class="card"><div class="head">👤 کسٹمر معلومات + فوٹو</div>
 <div class="g2"><div><label>سیریل نمبر</label><input id="serialNo"></div><div><label>گاہک کا نام *</label><input id="customerName"></div></div>
 <div class="g2"><div><label>پتا / محلہ</label><input id="pata"></div><div><label>موبائل نمبر</label><input id="mobile"></div></div>
 <div class="g2"><div><label>آرڈر تاریخ</label><input id="orderDate" type="date"></div><div><label>ڈلیوری تاریخ</label><input id="deliveryDate" type="date"></div></div>
@@ -122,13 +122,13 @@ img.prev{width:65px;height:65px;object-fit:cover;border-radius:10px;border:2px s
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px"><button class="btn" style="background:#FEF3C7;border:2px solid #EAB308" onclick="printParchi()">🧾 پرچی</button><button class="btn" style="background:#25D366;color:#fff" onclick="sendWA()">📱 واٹس ایپ</button></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#E8F5E1;border:1px solid #86EFAC" onclick="newRecord()">+ نیا</button><button class="btn" style="background:#B71C1C;color:#fff" onclick="deleteCurrent()">🗑️ ڈیلیٹ</button></div>
 <div id="syncInfo" style="text-align:center;font-size:12px;margin-top:10px;color:#14532D;font-weight:700"></div>
-</div>
-
-<div class="card" style="background:#FFF7D6;border:2px solid #0A3D2E;text-align:center">
+</div><div class="card" style="background:#FFF7D6;border:2px solid #0A3D2E;text-align:center">
   <div style="font-size:13px;font-weight:700;color:#0A3D2E">💾 بیک اپ معلومات</div>
   <div id="backupEmailDisplay" style="font-size:12px;margin-top:6px;color:#14532D;background:#fff;padding:8px;border-radius:8px;border:1px dashed #0A3D2E"></div>
   <div style="font-size:10px;color:#666;margin-top:4px">یہ بیک اپ آپ کے موبائل میں محفوظ ہے - 5 ایمیل سسٹم</div>
-</div><script>
+</div>
+
+<script>
 var LOGO_URL="https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w200";
 var DB=JSON.parse(localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
 var SVAL={}; var JEB_ARR=[]; var custB64=null; var designB64=[];
@@ -136,12 +136,11 @@ function updateNet(){var el=document.getElementById('net'); if(navigator.onLine)
 function updateBackupDisplay(){
   var el=document.getElementById('backupEmailDisplay');
   if(!el) return;
-  var emails=["diltailorshop1@gmail.com","diltailorshop2@gmail.com","diltailorshop3@gmail.com","diltailorshop4@gmail.com","diltailorshop5@gmail.com"];
+  var emails=["diltailornaapbook@gmail.com","diltailornaapb@gmail.com","dilporaniid@gmail.com","diltailorshopspecial@gmail.com","dilhassanlasuri952@gmail.com"];
   var currentKey='dil_FINAL_5_EMAIL';
   var count=DB.length;
-  var activeEmail=emails[0];
-  try{ activeEmail=localStorage.getItem('dil_active_backup_email')||emails[0]; }catch(e){}
-  el.innerHTML='🔑 سٹوریج: <b>'+currentKey+'</b><br>📧 ایکٹیو بیک اپ ایمیل: <b style="color:#0A3D2E">'+activeEmail+'</b><br>📦 کل ریکارڈ: <b>'+count+'</b><br>🔄 سٹیٹس: '+(navigator.onLine?'آن لائن بیک اپ آن':'آف لائن - لوکل میں محفوظ');
+  var emailList=""; for(var i=0;i<emails.length;i++){ emailList+=(i+1)+". "+emails[i]+"<br>"; }
+  el.innerHTML='🔑 سٹوریج: <b>'+currentKey+'</b><br>📧 5 بیک اپ ایمیلز:<br><div style="text-align:left;direction:ltr;background:#FFFBEB;padding:6px;border-radius:6px;font-size:11px;margin:4px 0">'+emailList+'</div>📦 کل ریکارڈ: <b>'+count+'</b><br>🔄 سٹیٹس: '+(navigator.onLine?'آن لائن بیک اپ آن':'آف لائن - لوکل میں محفوظ');
 }
 updateNet(); window.addEventListener('online',updateNet); window.addEventListener('offline',updateNet);
 (function(){
@@ -296,7 +295,6 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 <script>
-// Screen ON Rakhe - Jab Tak App Khuli Hai
 let wakeLock = null;
 async function keepScreenOn() {
   try {
