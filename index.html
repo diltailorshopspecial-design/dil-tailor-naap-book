@@ -40,11 +40,12 @@ img.prev{width:65px;height:65px;object-fit:cover;border-radius:10px;border:2px s
 .view-row{display:flex;justify-content:space-between;border-bottom:1px dashed #EADDBB;padding:7px 4px;font-size:13px}
 .view-row b{color:#0A3D2E}
 .view-head{background:#0A3D2E;color:#fff;padding:12px;border-radius:15px 15px 0 0;text-align:center;font-size:16px}
+.search-full{background:#FFFBEB;border:1.5px solid #EADDBB;border-radius:10px;padding:8px;margin-top:8px}
 </style>
 </head>
 <body>
 <div class="top">
-  <img src="https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w200">
+  <img id="shopLogo" src="https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w200">
   <div>
     <b>دل ٹیلر شاپ ✂️</b><br>
     <span style="font-size:15px; color:#FFEB99;">دل حسن - Dil Hassan</span><br>
@@ -61,8 +62,7 @@ img.prev{width:65px;height:65px;object-fit:cover;border-radius:10px;border:2px s
     <div id="viewContent" style="display:flex;flex-direction:column;max-height:90vh;width:100%"></div>
   </div>
 </div>
-<div id="net" class="net online">✅ آن لائن</div>
-<div class="card"><div class="head">👤 کسٹمر معلومات + فوٹو</div>
+<div id="net" class="net online">✅ آن لائن</div><div class="card"><div class="head">👤 کسٹمر معلومات + فوٹو</div>
 <div class="g2"><div><label>سیریل نمبر</label><input id="serialNo"></div><div><label>گاہک کا نام *</label><input id="customerName"></div></div>
 <div class="g2"><div><label>پتا / محلہ</label><input id="pata"></div><div><label>موبائل نمبر</label><input id="mobile"></div></div>
 <div class="g2"><div><label>آرڈر تاریخ</label><input id="orderDate" type="date"></div><div><label>ڈلیوری تاریخ</label><input id="deliveryDate" type="date"></div></div>
@@ -123,12 +123,55 @@ img.prev{width:65px;height:65px;object-fit:cover;border-radius:10px;border:2px s
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button class="btn" style="background:#E8F5E1;border:1px solid #86EFAC" onclick="newRecord()">+ نیا</button><button class="btn" style="background:#B71C1C;color:#fff" onclick="deleteCurrent()">🗑️ ڈیلیٹ</button></div>
 <div id="syncInfo" style="text-align:center;font-size:12px;margin-top:10px;color:#14532D;font-weight:700"></div>
 </div>
-<script>
+
+<div class="card" style="background:#FFF7D6;border:2px solid #0A3D2E;text-align:center">
+  <div style="font-size:13px;font-weight:700;color:#0A3D2E">💾 بیک اپ معلومات</div>
+  <div id="backupEmailDisplay" style="font-size:12px;margin-top:6px;color:#14532D;background:#fff;padding:8px;border-radius:8px;border:1px dashed #0A3D2E"></div>
+  <div style="font-size:10px;color:#666;margin-top:4px">یہ بیک اپ آپ کے موبائل میں محفوظ ہے - 5 ایمیل سسٹم</div>
+</div><script>
 var LOGO_URL="https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w200";
 var DB=JSON.parse(localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
 var SVAL={}; var JEB_ARR=[]; var custB64=null; var designB64=[];
-function updateNet(){var el=document.getElementById('net'); if(navigator.onLine){el.className='net online'; el.textContent='✅ آن لائن - '+DB.length+' ریکارڈ';} else{el.className='net offline'; el.textContent='⚠️ آف لائن - '+DB.length;}}
+function updateNet(){var el=document.getElementById('net'); if(navigator.onLine){el.className='net online'; el.textContent='✅ آن لائن - '+DB.length+' ریکارڈ';} else{el.className='net offline'; el.textContent='⚠️ آف لائن - '+DB.length;} updateBackupDisplay();}
+function updateBackupDisplay(){
+  var el=document.getElementById('backupEmailDisplay');
+  if(!el) return;
+  var emails=["diltailorshop1@gmail.com","diltailorshop2@gmail.com","diltailorshop3@gmail.com","diltailorshop4@gmail.com","diltailorshop5@gmail.com"];
+  var currentKey='dil_FINAL_5_EMAIL';
+  var count=DB.length;
+  var activeEmail=emails[0];
+  try{ activeEmail=localStorage.getItem('dil_active_backup_email')||emails[0]; }catch(e){}
+  el.innerHTML='🔑 سٹوریج: <b>'+currentKey+'</b><br>📧 ایکٹیو بیک اپ ایمیل: <b style="color:#0A3D2E">'+activeEmail+'</b><br>📦 کل ریکارڈ: <b>'+count+'</b><br>🔄 سٹیٹس: '+(navigator.onLine?'آن لائن بیک اپ آن':'آف لائن - لوکل میں محفوظ');
+}
 updateNet(); window.addEventListener('online',updateNet); window.addEventListener('offline',updateNet);
+(function(){
+  var logoEl=document.getElementById('shopLogo');
+  var savedLogo=localStorage.getItem('dil_logo_b64');
+  if(savedLogo){ logoEl.src=savedLogo; }
+  function saveLogoOffline(){
+    try{
+      if(!navigator.onLine) return;
+      var img=new Image();
+      img.crossOrigin='anonymous';
+      img.onload=function(){
+        var canvas=document.createElement('canvas');
+        canvas.width=img.width; canvas.height=img.height;
+        var ctx=canvas.getContext('2d');
+        ctx.drawImage(img,0,0);
+        try{
+          var data=canvas.toDataURL('image/jpeg',0.8);
+          localStorage.setItem('dil_logo_b64',data);
+        }catch(e){}
+      };
+      img.src=LOGO_URL;
+    }catch(e){}
+  }
+  setTimeout(saveLogoOffline,2000);
+  logoEl.onerror=function(){
+    var b64=localStorage.getItem('dil_logo_b64');
+    if(b64) this.src=b64;
+  };
+})();
 function compressImage(file, cb){
   var r=new FileReader();
   r.onload=function(e){
@@ -163,10 +206,43 @@ function searchData(){
   var f=DB.filter(function(r){return (r.customerName+r.mobile+r.serialNo).toLowerCase().includes(q)});
   if(!f.length){res.innerHTML='<div style="color:#B91C1C">کوئی نہیں ملا</div>';return;}
   var h=''; f.reverse().slice(0,10).forEach(function(r){
-    h+='<div style="border:2px solid #0A3D2E;border-radius:12px;padding:10px;margin-bottom:8px;background:#fff"><b>'+r.serialNo+' - '+r.customerName+'</b> ('+r.mobile+')<br><small>باقی: '+r.baqaya+' | گلہ: '+(r.galaQisam||'')+' | سوٹ: '+(r.suitQty||'1')+'</small><br><div style="display:flex;gap:6px;margin-top:6px"><button onclick="viewFull(\''+r.serialNo+'\')" class="btn" style="background:#0A3D2E;color:#fff;flex:1">👁️ مکمل ناپ دیکھیں</button><button onclick="printParchiId(\''+r.serialNo+'\')" class="btn" style="background:#FEF3C7;flex:1">پرچی</button></div></div>';
+    var custImg=r.custPhoto?'<img src="'+r.custPhoto+'" style="width:45px;height:45px;border-radius:50%;border:2px solid #0A3D2E;object-fit:cover;margin-left:6px">':'<div style="width:45px;height:45px;border-radius:50%;background:#EADDBB;display:inline-flex;align-items:center;justify-content:center">👤</div>';
+    h+='<div style="border:2px solid #0A3D2E;border-radius:12px;padding:10px;margin-bottom:12px;background:#fff">';
+    h+='<div style="display:flex;align-items:center"><div>'+custImg+'</div><div><b>'+r.serialNo+' - '+r.customerName+'</b> ('+r.mobile+')<br><small>باقی: '+r.baqaya+' | گلہ: '+(r.galaQisam||'')+' | سوٹ: '+(r.suitQty||'1')+'</small></div></div>';
+    h+='<div class="search-full">';
+    h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:12px">';
+    h+='<div>قمیض: <b>'+(r.lambai||'-')+'</b></div>';
+    h+='<div>بازو: <b>'+(r.bazu||'-')+'</b></div>';
+    h+='<div>تیرا: <b>'+(r.teera||'-')+'</b></div>';
+    h+='<div>گلا: <b>'+(r.gala||'-')+'</b></div>';
+    h+='<div>چھاتی: <b>'+(r.chhati||'-')+'</b></div>';
+    h+='<div>کمر: <b>'+(r.kamar||'-')+'</b></div>';
+    h+='<div>گھیرا: <b>'+(r.gheera||'-')+'</b></div>';
+    h+='<div>شلوار: <b>'+(r.shalwarLambai||'-')+'</b></div>';
+    h+='<div>پانچہ: <b>'+(r.pouncha||'-')+'</b></div>';
+    h+='<div>کف: <b>'+(r.kaff||'-')+'</b></div>';
+    h+='</div>';
+    if(r.designPhotos && r.designPhotos.length){
+      h+='<div style="margin-top:6px">🎨 ';
+      r.designPhotos.slice(0,3).forEach(function(p){ h+='<img src="'+p+'" style="width:35px;height:35px;border-radius:6px;border:1px solid #C9A86A;margin:2px">'; });
+      h+='</div>';
+    }
+    h+='</div>';
+    h+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px">';
+    h+='<button onclick="viewFull(\''+r.serialNo+'\')" class="btn" style="background:#0A3D2E;color:#fff;font-size:11px;padding:8px">👁️ مکمل ناپ</button>';
+    h+='<button onclick="printParchiId(\''+r.serialNo+'\')" class="btn" style="background:#FEF3C7;border:1px solid #EAB308;font-size:11px;padding:8px">🧾 پرچی</button>';
+    h+='<button onclick="sendWAForId(\''+r.serialNo+'\')" class="btn" style="background:#25D366;color:#fff;font-size:11px;padding:8px">📱 واٹس ایپ</button>';
+    h+='</div>';
+    h+='</div>';
   }); res.innerHTML=h;
 }
 function clearSearch(){document.getElementById('q').value=''; document.getElementById('results').innerHTML='';}
+function sendWAForId(sno){
+  var r=DB.find(function(x){return x.serialNo==sno}); if(!r){alert('ریکارڈ نہیں ملا');return;}
+  var m=r.mobile||''; if(!m){alert('موبائل نہیں');return;}
+  var msg='*دل ٹیلر شاپ - دل حسن*%0A*03463604869*%0Aنام: '+r.customerName+'%0Aسیریل: '+r.serialNo+'%0Aسوٹ: '+(r.suitQty||'1')+' نغ%0Aقمیض لمبائی: '+(r.lambai||'')+'%0Aبازو: '+(r.bazu||'')+'%0Aگلہ قسم: '+(r.galaQisam||'')+'%0Aشلوار: '+(r.shalwarLambai||'')+'%0Aپانچہ: '+(r.pouncha||'')+'%0Aباقی: '+r.baqaya+' روپے%0Aڈلیوری: '+r.deliveryDate;
+  window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+msg,'_blank');
+}
 function viewFull(sno){
   var r=DB.find(function(x){return x.serialNo==sno}); if(!r) return;
   var html='';
@@ -207,7 +283,8 @@ function printParchi(){var r={serialNo:document.getElementById('serialNo').value
 function printParchiId(sno){var r=DB.find(function(x){return x.serialNo==sno}); if(r) openParchi(r);}
 function openParchi(r){
   var w=window.open('','_blank');
-  w.document.write('<html dir="rtl"><head><meta charset="UTF-8"><title>Parchi</title><link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600&display=swap" rel="stylesheet"><style>body{font-family:"Noto Nastaliq Urdu";text-align:center;border:2px dashed #000;padding:15px;max-width:380px;margin:auto;background:#fff} .line{border-top:2px dashed #000;margin:10px 0}</style></head><body><img src="'+LOGO_URL+'" width=70 style="border-radius:50%;border:2px solid #000"><h2 style="margin:5px 0">دل ٹیلر شاپ</h2><div>دل حسن - Dil Hassan</div><b style="font-size:18px;direction:ltr;display:inline-block">03463604869 / 03416604869</b><div class="line"></div><p style="font-weight:bold">رسید / RECEIPT</p><div class="line"></div><div style="text-align:right;line-height:32px;font-size:15px"><b>سیریل:</b> '+r.serialNo+'<br><b>نام:</b> '+r.customerName+'<br><b>موبائل:</b> '+r.mobile+'<br><b>سوٹ:</b> '+(r.suitQty||'1')+' نغ<br><b>گلہ:</b> '+(r.galaQisam||'')+'<br></div><div class="line"></div><div style="text-align:right;line-height:30px"><b>کل قیمت:</b> '+(r.totalPrice||'0')+'<br><b>ایڈوانس:</b> '+(r.advance||'0')+'<br><b>باقی:</b> <b style="color:red;font-size:22px">'+r.baqaya+' روپے</b><br><b>ڈلیوری:</b> '+r.deliveryDate+'</div><div class="line"></div><small>کپڑا لینے آتے وقت پرچی ساتھ لائیں</small><br><small>شکریہ!</small><br><br><button onclick="window.print()" style="padding:12px 24px;background:#0A3D2E;color:#fff;border:none;border-radius:8px">🖨️ پرنٹ کریں</button></body></html>');
+  var logoSrc=document.getElementById('shopLogo').src;
+  w.document.write('<html dir="rtl"><head><meta charset="UTF-8"><title>Parchi</title><link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600&display=swap" rel="stylesheet"><style>body{font-family:"Noto Nastaliq Urdu";text-align:center;border:2px dashed #000;padding:15px;max-width:380px;margin:auto;background:#fff} .line{border-top:2px dashed #000;margin:10px 0}</style></head><body><img src="'+logoSrc+'" width=70 style="border-radius:50%;border:2px solid #000"><h2 style="margin:5px 0">دل ٹیلر شاپ</h2><div>دل حسن - Dil Hassan</div><b style="font-size:18px;direction:ltr;display:inline-block">03463604869 / 03416604869</b><div class="line"></div><p style="font-weight:bold">رسید / RECEIPT</p><div class="line"></div><div style="text-align:right;line-height:32px;font-size:15px"><b>سیریل:</b> '+r.serialNo+'<br><b>نام:</b> '+r.customerName+'<br><b>موبائل:</b> '+r.mobile+'<br><b>سوٹ:</b> '+(r.suitQty||'1')+' نغ<br><b>گلہ:</b> '+(r.galaQisam||'')+'<br></div><div class="line"></div><div style="text-align:right;line-height:30px"><b>کل قیمت:</b> '+(r.totalPrice||'0')+'<br><b>ایڈوانس:</b> '+(r.advance||'0')+'<br><b>باقی:</b> <b style="color:red;font-size:22px">'+r.baqaya+' روپے</b><br><b>ڈلیوری:</b> '+r.deliveryDate+'</div><div class="line"></div><small>کپڑا لینے آتے وقت پرچی ساتھ لائیں</small><br><small>شکریہ!</small><br><br><button onclick="window.print()" style="padding:12px 24px;background:#0A3D2E;color:#fff;border:none;border-radius:8px">🖨️ پرنٹ کریں</button></body></html>');
   w.document.close();
 }
 function sendWA(){var m=document.getElementById('mobile').value; if(!m){alert('موبائل لکھیں');return;} var msg='*دل ٹیلر شاپ - دل حسن*%0A*03463604869*%0Aنام: '+document.getElementById('customerName').value+'%0Aسیریل: '+document.getElementById('serialNo').value+'%0Aسوٹ: '+(document.getElementById('suitQty').value||'1')+' نغ%0Aگلہ قسم: '+(SVAL.galaQisam||'')+'%0Aڈلیوری: '+document.getElementById('deliveryDate').value+'%0Aباقی: '+document.getElementById('baqaya').value+' روپے'; window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+msg,'_blank');}
@@ -217,6 +294,23 @@ document.getElementById('orderDate').valueAsDate=new Date(); var dd=new Date(); 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+</script>
+<script>
+// Screen ON Rakhe - Jab Tak App Khuli Hai
+let wakeLock = null;
+async function keepScreenOn() {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+    }
+  } catch (err) {}
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    keepScreenOn();
+  }
+});
+keepScreenOn();
 </script>
 </body>
 </html>
