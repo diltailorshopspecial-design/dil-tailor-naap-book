@@ -1,60 +1,209 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dil Tailor Final</title>
-<style>*{box-sizing:border-box;margin:0;padding:0}body{background:#FFF8E8;font-family:system-ui;padding-bottom:90px}.top{background:#0A3D2E;color:#fff;padding:10px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:100}.card{background:#fff;margin:7px;border-radius:14px;padding:12px;border:1.6px solid #EADDBB}.b{border:none;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer;font-size:12px}.o{border:1.6px solid #0A3D2E;border-radius:24px;padding:6px 12px;text-align:center;cursor:pointer;font-size:11px;background:#FFFBEB;margin:2px;display:inline-block}.o.a{background:#0A3D2E;color:#fff}input,select,textarea{width:100%;padding:9px;border:1.6px solid #C9A86A;border-radius:10px;margin-top:4px;font-size:13px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.view{display:none}.view.active{display:block}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2.5px solid #0A3D2E;display:flex;justify-content:space-around;padding:8px 0;z-index:999}.bottom div{text-align:center;font-size:10px;cursor:pointer;padding:6px 14px;border-radius:12px}.bottom div.active{background:#0A3D2E;color:#fff}#viewModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;padding:6px;overflow-y:auto}.view-box{background:#fff;margin:4px auto;max-width:520px;border-radius:16px;border:3px solid #0A3D2E;overflow:hidden;display:flex;flex-direction:column;max-height:96vh}#viewContent{overflow-y:auto;flex:1}.view-head{background:#0A3D2E;color:#fff;padding:12px;text-align:center;font-weight:700;position:sticky;top:0;z-index:2}.view-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px dashed #E5D5B0;font-size:12.5px}.chip-selected{background:#0A3D2E;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;display:inline-block;margin:2px}.qr-live{width:160px;height:160px;margin:10px auto;border:3px solid #0A3D2E;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}.section-title{background:#0A3D2E;color:#fff;text-align:center;padding:7px;border-radius:8px;margin:8px 0;font-weight:700;font-size:13px}</style></head><body>
-<div class="top"><div><b>دل ٹیلر شاپ</b><br><small>03463604869</small></div><div style="font-size:10px;background:#C9A86A;color:#0A3D2E;padding:5px 10px;border-radius:12px">5 Email ON</div></div>
-<div id="view-home" class="view active"><div class="card" style="background:linear-gradient(135deg,#FF6B00,#FF9A00);color:#fff"><h3>Manage Customers, Naap and KHATA</h3><button class="b" style="background:#fff;color:#FF6B00;margin-top:10px" onclick="showView('naap')">Naap Book کھولیں</button></div>
-<div class="g2" style="padding:6px"><div class="card" style="text-align:center;cursor:pointer" onclick="showView('customers')"><b>Customer<br>(کسٹمر)</b></div><div class="card" style="text-align:center;background:#FFE0B2;cursor:pointer" onclick="showView('naap')"><b>Add New<br>(نیا)</b></div><div class="card" style="text-align:center;cursor:pointer" onclick="showView('khata')"><b>Cash<br>(کھاتہ)</b></div><div class="card" style="text-align:center" onclick="showView('stock')"><b>Stock</b></div><div class="card" style="text-align:center" onclick="showView('staff')"><b>Staff</b></div><div class="card" style="text-align:center" onclick="showView('bills')"><b>Bills</b></div></div>
-<div class="card"><b>PAYMENTS</b><div class="g2" style="margin-top:8px"><div style="border:1.5px solid #0A3D2E;border-radius:10px;padding:10px;text-align:center;background:#FFF3E0" onclick="showView('khata')"><b>QR Code</b></div><div style="border:1.5px solid #0A3D2E;border-radius:10px;padding:10px;text-align:center" onclick="showView('khata')"><b>POS</b></div></div></div><div class="card" style="display:flex;justify-content:space-between"><span>آن لائن</span><span id="recordCount" style="background:#0A3D2E;color:#fff;padding:4px 12px;border-radius:14px">0</span></div></div>
-<div id="view-customers" class="view"><div class="card"><h3>تمام کسٹمر</h3><input id="q" placeholder="نام، موبائل..." oninput="searchData()"><div id="results" style="margin-top:8px"></div></div></div>
-<div id="view-naap" class="view">
-<div class="card"><h3>کسٹمر</h3><div class="g2"><div>سیریل<input id="serialNo"></div><div>سوٹ<select id="suitCount"><option>1 سوٹ</option><option>2 سوٹ</option></select></div></div><div>نام *<input id="customerName"></div><div class="g2"><div>موبائل<input id="mobile"></div><div>پتہ<input id="pata"></div></div><div class="g2"><div>آرڈر<input id="orderDate" type="date"></div><div>ڈلیوری<input id="deliveryDate" type="date"></div></div><div class="g2"><div>کپڑا<select id="kapdaQism"><option>واش اینڈ وئیر</option><option>کاٹن</option></select></div><div>سلائی<select id="silaiQism"><option>قمیض شلوار</option><option>1 پیس شلوار</option></select></div></div></div>
-<div class="card"><h3>فوٹو + ڈیزائن (5)</h3><button class="b o" onclick="document.getElementById('custFile').click()">کسٹمر فوٹو</button><input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><div id="custPrev"></div><button class="b o" style="margin-top:6px" onclick="document.getElementById('designFiles').click()">ڈیزائن (5)</button><input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><div id="designPrev" style="display:flex;gap:5px;flex-wrap:wrap"></div></div>
-<div class="card"><h3>قمیض</h3><div class="g2"><div>لمبائی<input id="lambai"></div><div>بازو<input id="bazu"></div></div><div class="g2"><div>تیرا<input id="teera"></div><div>گلہ<input id="gala"></div></div><div class="g2"><div>چھاتی<input id="chhati"></div><div>کمر<input id="kamar"></div></div><div class="g2"><div>گھیرا<input id="gheera"></div><div>موڈا<input id="moda"></div></div><div class="g2"><div>کف<input id="kaff"></div><div>کالر<br><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div></div>
-<div class="card"><h3>شلوار - کوندے پلے</h3><div class="g2"><div>لمبائی<input id="shalwarLambai"></div><div>پانچہ<input id="pouncha"></div></div><div class="g2"><div>کوندے پلے<input id="kondayTafseel"></div><div>قسم<br><div class="o" id="kondayBtn" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" onclick="setShalwar(this,'1 پیس')">1 پیس</div></div></div><div id="onePieceBox" style="display:none;background:#FFF3E0;border-radius:10px;padding:8px;margin-top:6px"><b>1 پیس شلوار</b><input id="onePieceDetail"></div></div>
-<div class="card"><h3>دیگر ڈیزائن</h3><div class="g2"><div>تیرا<br><div class="o" onclick="setOne(this,'teeraQisam','سادہ')">سادہ</div><div class="o" onclick="setOne(this,'teeraQisam','نوک والا')">نوک والا</div></div><div>سلائی<br><div class="o" onclick="setOne(this,'silaiDesign','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'silaiDesign','ڈبل')">ڈبل</div></div></div><div class="g2" style="margin-top:8px"><div>پانچہ جالی<br><div class="o" onclick="setOne(this,'pounchaJali','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'pounchaJali','ڈبل')">ڈبل</div></div><div>دامن<br><div class="o" onclick="setOne(this,'daman','گول')">گول</div><div class="o" onclick="setOne(this,'daman','چورس')">چورس</div></div></div><div style="margin-top:8px">جیب<br><div class="g2"><div class="o" onclick="toggleJeb('فرنٹ',this)">فرنٹ</div><div class="o" onclick="toggleJeb('سائیڈ',this)">سائیڈ</div><div class="o" onclick="toggleJeb('شلوار',this)">شلوار</div></div><div id="jebText" style="font-size:11px;margin-top:4px;color:#0A3D2E">کوئی نہیں</div></div></div>
-<div class="card"><h3>حساب</h3><div class="g2"><div>کل Rs<input id="totalPrice" type="number" oninput="calc()"></div><div>ایڈوانس<input id="advance" type="number" oninput="calc()"></div></div><div>باقی<input id="baqaya" readonly style="background:#FFE0B2"><b id="baqayaText"></b></div><textarea id="note" placeholder="نوٹ"></textarea><button class="b" style="background:#0A3D2E;color:#fff;width:100%;padding:14px" onclick="saveData()">محفوظ کریں</button></div></div>
-<div id="view-khata" class="view"><div class="card" style="background:#E8F5E9;border:2px solid #0A3D2E"><h3>میرا اکاؤنٹ</h3><div id="myAccountsList"></div><div class="g2" style="margin-top:8px"><select id="accType" onchange="updateQRPreview()"><option value="Easypaisa">EasyPaisa</option><option value="JazzCash">JazzCash</option><option value="Bank">Bank</option></select><input id="accNumber" placeholder="نمبر" oninput="updateQRPreview()"></div><input id="accName" placeholder="نام" style="margin-top:6px"><button class="b" style="background:#0A3D2E;color:#fff;width:100%;margin-top:6px" onclick="addMyAccount()">ایڈ کریں</button><div id="qrShow" class="qr-live">QR</div></div><div class="card"><h3>ہر کسٹمر کا کھاتہ</h3><input id="khataSearch" placeholder="سرچ..." oninput="renderKhata()"><div id="khataList"></div></div></div>
-<div id="view-stock" class="view"><div class="card"><h3>اسٹاک</h3><button class="b" style="background:#0A3D2E;color:#fff" onclick="showView('home')">واپس</button></div></div><div id="view-staff" class="view"><div class="card"><h3>کاریگر</h3><button class="b" style="background:#0A3D2E;color:#fff" onclick="showView('home')">واپس</button></div></div><div id="view-bills" class="view"><div class="card"><h3>پرچیاں</h3><div id="billsList"></div><button class="b" style="background:#0A3D2E;color:#fff" onclick="showView('home')">واپس</button></div></div>
-<div class="bottom"><div id="nav-home" class="active" onclick="showView('home')">Home</div><div id="nav-customers" onclick="showView('customers')">Customer</div><div id="nav-naap" onclick="showView('naap')">Naap</div><div id="nav-khata" onclick="showView('khata')">KHATA</div></div>
-<div id="viewModal" onclick="if(event.target.id==='viewModal')closeView()"><div class="view-box"><div class="view-head" id="modalHead"></div><div id="viewContent"></div></div></div>
+<html dir="rtl" lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Dil Tailor Shop - Fixed</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FDF6E3;font-family:sans-serif;overflow-x:hidden}
+.t{background:#0A3D2E;color:#fff;padding:8px 10px;display:flex;align-items:center;justify-content:space-between}
+.t .left{display:flex;align-items:center;gap:8px}
+.t img{width:48px;height:48px;border-radius:50%;border:2px solid #C9A86A;background:#fff;object-fit:cover;flex-shrink:0}
+.t b{font-size:14px}.t small{font-size:11px}
+.c{background:#fff;margin:6px;border-radius:10px;padding:8px;border:1px solid #EADDBB;overflow:hidden}
+input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-radius:7px;margin-top:3px;font-size:13px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.o{border:1.5px solid #0A3D2E;border-radius:20px;padding:5px;text-align:center;cursor:pointer;font-size:12px;background:#FFFBEB;white-space:nowrap}
+.o.a{background:#0A3D2E;color:#fff}.b{border:none;border-radius:7px;padding:7px 9px;font-weight:700;cursor:pointer;font-size:12px}
+.bs{background:#0A3D2E;color:#fff;width:100%;padding:11px;font-size:14px}
+#viewModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;padding:8px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.view-box{background:#fff;margin:5px auto;max-width:500px;border-radius:12px;border:3px solid #0A3D2E;overflow:hidden;width:100%}
+.view-head{background:#0A3D2E;color:#fff;padding:10px;text-align:center;font-size:13px}
+.view-row{display:flex;justify-content:space-between;border-bottom:1px dashed #ddd;padding:6px 8px;font-size:12px;gap:8px}
+.view-row span{color:#666;flex-shrink:0}.view-row b{word-break:break-word;text-align:left}
+#onePieceBox{display:none;background:#FFF3E0;border:1.5px solid #FF9800;border-radius:8px;padding:7px;margin-top:5px}
+/* FIXED EMAIL BOX - Chota */
+.email-compact{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:5px 7px;font-size:9px;line-height:1.4;max-height:75px;overflow-y:auto;word-break:break-all}
+.email-compact b{font-size:10px}
+.badge-small{font-size:8px;background:#C9A86A;color:#0A3D2E;padding:3px 6px;border-radius:8px;text-align:center;line-height:1.2;flex-shrink:0;max-width:90px}
+.record-bar{background:#E8F5E9;border-radius:8px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;gap:5px;flex-wrap:nowrap;overflow:hidden}
+.record-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+</style>
+</head>
+<body>
+<div class="t">
+  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869</small></div></div>
+  <div class="badge-small" id="badge">Email Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
+</div>
+
+<div class="c email-compact" id="allEmails"></div>
+
+<div class="c record-bar">
+<span id="online" style="font-weight:bold">✅ آن لائن</span>
+<span id="recordCount" style="background:#0A3D2E;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;flex-shrink:0">0 ریکارڈ</span>
+</div>
+
+<div class="c">
+<h3 style="font-size:13px">🔍 تلاش کریں</h3>
+<div class="g2"><input id="q" placeholder="نام، موبائل، سیریل" style="font-size:12px"><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div>
+<button onclick="clearSearch()" class="b" style="width:100%;margin-top:5px;border:1px solid #0A3D2E;font-size:11px">❌ صاف</button>
+<div id="results" style="margin-top:6px"></div>
+</div>
+
+<div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
+<div class="g2"><div style="font-size:11px">سیریل<input id="serialNo"></div><div style="font-size:11px">سوٹ<select id="suitCount"><option>1 سوٹ</option><option>2 سوٹ</option></select></div></div>
+<div style="font-size:11px">نام *<input id="customerName"></div>
+<div class="g2"><div style="font-size:11px">موبائل<input id="mobile"></div><div style="font-size:11px">پتہ<input id="pata"></div></div>
+<div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
+<div style="font-size:11px">کپڑا<select id="kapdaQism"><option>واش اینڈ وئیر</option><option>کاٹن</option><option>لٹھا</option><option>کھدر</option></select></div>
+<div style="font-size:11px">سلائی<select id="silaiQism"><option>قمیض شلوار</option><option>صرف قمیض</option><option>شرٹ</option><option>1 پیس شلوار</option></select></div>
+</div>
+
+<div class="c"><h3 style="font-size:13px">📸 فوٹو</h3>
+<div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('custCam').click()">📷 کیمرہ</button></div>
+<input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><input type="file" id="custCam" hidden accept="image/*" capture="environment" onchange="previewCust(event)">
+<div id="custPrev"></div>
+<div style="margin-top:6px;font-size:11px">🎨 ڈیزائن (5)<div class="g2"><button class="b o" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('designCam').click()">📷</button></div></div>
+<input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><input type="file" id="designCam" hidden accept="image/*" capture="environment" onchange="previewDesignOne(event)">
+<div id="designPrev" style="display:flex;gap:3px;flex-wrap:wrap;margin-top:4px"></div>
+</div>
+
+<div class="c"><h3 style="font-size:13px">📏 قمیض</h3>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai"></div><div style="font-size:11px">بازو<input id="bazu"></div></div>
+<div class="g2"><div style="font-size:11px">تیرا<input id="teera"></div><div style="font-size:11px">گلہ<input id="gala"></div></div>
+<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati"></div><div style="font-size:11px">کمر<input id="kamar"></div></div>
+<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera"></div><div style="font-size:11px">موڈا<input id="moda"></div></div>
+<div class="g2"><div style="font-size:11px">کف<input id="kaff"></div><div style="font-size:11px">کالر<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div>
+</div>
+
+<div class="c"><h3 style="font-size:13px">شلوار - کوندے پلے</h3>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai"></div><div style="font-size:11px">پانچہ<input id="pouncha"></div></div>
+<div class="g2"><div style="font-size:11px">کوندے پلے<input id="kondayTafseel"></div><div style="font-size:11px">قسم<div style="display:flex;gap:2px"><div class="o" id="kondayBtn" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" onclick="setShalwar(this,'1 پیس')">1 پیس</div></div></div></div>
+<div id="onePieceBox"><b style="font-size:11px">🔷 1 پیس شلوار</b><input id="onePieceDetail" placeholder="جیب والا، بیلٹ"><div style="display:flex;gap:2px;margin-top:4px"><div class="o" onclick="setOne(this,'onePieceJeb','جیب والا')">جیب والا</div><div class="o" onclick="setOne(this,'onePieceJeb','بغیر')">بغیر</div></div></div>
+</div>
+
+<div class="c"><h3 style="font-size:13px">دیگر ڈیزائن</h3>
+<div class="g2"><div style="font-size:11px">تیرا<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'teeraQisam','سادہ')">سادہ</div><div class="o" onclick="setOne(this,'teeraQisam','نوک')">نوک</div></div></div><div style="font-size:11px">سلائی<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'silaiDesign','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'silaiDesign','ڈبل')">ڈبل</div></div></div></div>
+<div class="g2" style="margin-top:4px"><div style="font-size:11px">پانچہ جالی<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'pounchaJali','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'pounchaJali','ڈبل')">ڈبل</div></div></div><div style="font-size:11px">دامن<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'daman','گول')">گول</div><div class="o" onclick="setOne(this,'daman','چورس')">چورس</div></div></div></div>
+<div style="margin-top:5px;font-size:11px">جیب<div class="g2"><div class="o" onclick="toggleJeb('فرنٹ',this)">فرنٹ</div><div class="o" onclick="toggleJeb('سائیڈ',this)">سائیڈ</div><div class="o" onclick="toggleJeb('شلوار',this)">شلوار</div></div><div id="jebText" style="font-size:11px">کوئی نہیں</div></div>
+</div>
+
+<div class="c">
+<div class="g2"><div style="font-size:11px">کل<input id="totalPrice" type="number" oninput="calc()"></div><div style="font-size:11px">ایڈوانس<input id="advance" type="number" oninput="calc()"></div></div>
+<div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
+<textarea id="note" placeholder="نوٹ" style="font-size:11px"></textarea>
+<button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
+<div style="display:flex;gap:4px;margin-top:5px">
+<button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
+<button class="b" style="background:#25D366;color:#fff;flex:1" onclick="sendWA()">📱 واٹس ایپ</button>
+<button class="b" style="flex:1" onclick="newRecord()">+ نیا</button>
+<button class="b" style="background:#B71C1C;color:#fff" onclick="deleteCurrent()">🗑️</button>
+</div>
+</div>
+
+<div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div id="viewContent"></div></div></div>
+
 <script>
-var DB_KEY='dil_FINAL_5_EMAIL';var ACC_KEY='dil_my_accounts';var LEDGER_KEY='dil_khata_ledger';
-var DB=JSON.parse(localStorage.getItem(DB_KEY)||"[]");var MY_ACCS=JSON.parse(localStorage.getItem(ACC_KEY)||"[]");var LEDGER=JSON.parse(localStorage.getItem(LEDGER_KEY)||"{}");var SVAL={},JEB=[],custB64=null,designB64=[];
-function showView(n){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('view-'+n).classList.add('active');document.querySelectorAll('.bottom div').forEach(b=>b.classList.remove('active'));var nb=document.getElementById('nav-'+n);if(nb)nb.classList.add('active');window.scrollTo(0,0);if(n==='customers')searchData();if(n==='khata'){renderMyAcc();renderKhata();}if(n==='bills')renderBills();}
-var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
-function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=600;c.height=600*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.55));};i.src=e.target.result;};r.readAsDataURL(f);}
-function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img src="'+c+'" width=90 style=border-radius:10px;border:2.5px solid #0A3D2E;margin-top:6px">';});}
-function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img src="'+c+'" width=60 style=border-radius:8px;margin:3px>';});})(fs[i]);}}
+var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
+var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
+var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
+var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
+var SVAL={},JEB=[],custB64=null,designB64=[];
+function showEmails(){
+document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
+var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
+EMAILS.forEach((em,i)=>{
+var short=em.split('@')[0].substring(0,18);
+h+=(i+1)+'. '+short+'@... '+(i===curIdx?' <b style=color:green>✅ ACTIVE</b>':' <span style=color:#999>○</span>')+'<br>';
+});
+h+='<span style=font-size:8px;color:#666>ایک فل ہو تو آٹو اگلی پر</span>';
+document.getElementById('allEmails').innerHTML=h;
+}
+showEmails();
+var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
+var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
+if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
+function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=500;c.height=500*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.5));};i.src=e.target.result;};r.readAsDataURL(f);}
+function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img src="'+c+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E>';});}
+function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img src="'+c+'" width=50 style=border-radius:5px;margin:2px>';});})(fs[i]);}}
+function previewDesignOne(e){var f=e.target.files[0];if(!f||designB64.length>=5)return;comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img src="'+c+'" width=50 style=border-radius:5px;margin:2px>';});}
 function setShalwar(el,v){document.querySelectorAll('#kondayBtn,#onePcsBtn').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL.shalwarQisam=v;document.getElementById('onePieceBox').style.display=v==='1 پیس'?'block':'none';}
 function setOne(el,k,v){el.parentElement.querySelectorAll('.o').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL[k]=v;}
 function toggleJeb(k,el){if(JEB.includes(k)){JEB=JEB.filter(x=>x!=k);el.classList.remove('a');}else{JEB.push(k);el.classList.add('a');}document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';}
-function calc(){var t=parseFloat(document.getElementById('totalPrice').value||0);var a=parseFloat(document.getElementById('advance').value||0);document.getElementById('baqaya').value=t-a;document.getElementById('baqayaText').textContent=t-a?' باقی: '+(t-a)+' Rs':'';}
-function saveData(){var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getElementById('kapdaQism').value,silaiQism:document.getElementById('silaiQism').value,suitCount:document.getElementById('suitCount').value,lambai:document.getElementById('lambai').value,bazu:document.getElementById('bazu').value,teera:document.getElementById('teera').value,gala:document.getElementById('gala').value,chhati:document.getElementById('chhati').value,kamar:document.getElementById('kamar').value,gheera:document.getElementById('gheera').value,moda:document.getElementById('moda').value,kaff:document.getElementById('kaff').value,shalwarLambai:document.getElementById('shalwarLambai').value,pouncha:document.getElementById('pouncha').value,kondayTafseel:document.getElementById('kondayTafseel').value,onePieceDetail:document.getElementById('onePieceDetail').value,totalPrice:document.getElementById('totalPrice').value,advance:document.getElementById('advance').value,baqaya:document.getElementById('baqaya').value,note:document.getElementById('note').value,galaQisam:SVAL.galaQisam||'',teeraQisam:SVAL.teeraQisam||'',silaiDesign:SVAL.silaiDesign||'',pounchaJali:SVAL.pounchaJali||'',daman:SVAL.daman||'',shalwarQisam:SVAL.shalwarQisam||'',onePieceJeb:SVAL.onePieceJeb||'',jeb:JEB.join(', '),custPhoto:custB64,designPhotos:designB64};if(!o.customerName){alert('نام لکھیں');return;}var idx=DB.findIndex(x=>x.serialNo==o.serialNo);if(idx>=0)DB[idx]=o;else DB.push(o);localStorage.setItem(DB_KEY,JSON.stringify(DB));if(!LEDGER[o.serialNo])LEDGER[o.serialNo]=[];localStorage.setItem(LEDGER_KEY,JSON.stringify(LEDGER));alert('محفوظ!');updateCount();showView('customers');}
-function searchData(){var q=(document.getElementById('q').value||'').toLowerCase();var r=document.getElementById('results');var f=q?DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q)):DB;var h='';f.slice(-50).reverse().forEach(function(o){var paidSum=(LEDGER[o.serialNo]||[]).reduce((s,p)=>s+parseFloat(p.amount||0),0);var total=parseFloat(o.totalPrice||0);var adv=parseFloat(o.advance||0);var remain=total-adv-paidSum;h+='<div style=border:1.5px solid #0A3D2E;padding:8px;margin-bottom:6px;border-radius:10px;background:#FFFBEB><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b><br><small>باقی:'+remain+'</small><br><button class=b style=background:#0A3D2E;color:#fff;margin-top:4px onclick=viewFull(\''+o.serialNo+'\')>مکمل ناپ</button></div>';});r.innerHTML=h||'کوئی نہیں';}
-function renderMyAcc(){var div=document.getElementById('myAccountsList');if(MY_ACCS.length===0){div.innerHTML='<div style=font-size:11px;background:#FFF3E0;padding:6px;border-radius:8px;text-align:center>کوئی اکاؤنٹ نہیں</div>';updateQRPreview();return;}var h='';MY_ACCS.forEach((a,i)=>{h+='<div style=border:1px solid #0A3D2E;padding:6px;margin-bottom:4px;border-radius:8px;background:#fff;display:flex;justify-content:space-between;font-size:11px"><div><b>'+a.type+' - '+a.name+'</b><br><small>'+a.number+'</small></div><div><button class=b style=background:#B71C1C;color:#fff;font-size:9px onclick=delAcc('+i+')>X</button></div></div>';});div.innerHTML=h;updateQRPreview();}
-function updateQRPreview(){var num=document.getElementById('accNumber').value||(MY_ACCS[0]?MY_ACCS[0].number:'03463604869');var type=document.getElementById('accType').value||(MY_ACCS[0]?MY_ACCS[0].type:'Easypaisa');var div=document.getElementById('qrShow');var data=type+':'+num;var url='https://api.qrserver.com/v1/create-qr-code/?size=160x160&data='+encodeURIComponent(data);div.innerHTML='<img src="'+url+'" style="width:160px;height:160px">';}
-function addMyAccount(){var t=document.getElementById('accType').value;var num=document.getElementById('accNumber').value;var name=document.getElementById('accName').value;if(!num||!name){alert('نمبر اور نام لکھیں');return;}MY_ACCS.push({type:t,number:num,name:name});localStorage.setItem(ACC_KEY,JSON.stringify(MY_ACCS));document.getElementById('accNumber').value='';document.getElementById('accName').value='';renderMyAcc();}
-function delAcc(i){MY_ACCS.splice(i,1);localStorage.setItem(ACC_KEY,JSON.stringify(MY_ACCS));renderMyAcc();}
-function renderKhata(){var q=(document.getElementById('khataSearch')?.value||'').toLowerCase();var div=document.getElementById('khataList');var f=q?DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q)):DB;var h='';f.slice(-40).reverse().forEach(function(o){var paidSum=(LEDGER[o.serialNo]||[]).reduce((s,p)=>s+parseFloat(p.amount||0),0);var total=parseFloat(o.totalPrice||0);var adv=parseFloat(o.advance||0);var remain=total-adv-paidSum;h+='<div style=border:1px solid #FF9800;padding:8px;margin-bottom:6px;border-radius:10px;background:#fff;display:flex;justify-content:space-between><div><b>'+o.customerName+'</b><br><small>باقی: Rs '+remain+'</small></div><div><button class=b style=background:#0A3D2E;color:#fff;font-size:10px onclick=openKhata(\''+o.serialNo+'\')>کھولیں</button></div></div>';});div.innerHTML=h||'کوئی کھاتہ نہیں';}
-function openKhata(id){var o=DB.find(x=>x.serialNo==id);if(!o)return;var paidSum=(LEDGER[id]||[]).reduce((s,p)=>s+parseFloat(p.amount||0),0);var total=parseFloat(o.totalPrice||0);var adv=parseFloat(o.advance||0);var remain=total-adv-paidSum;var html='<div style="padding:8px"><div style="background:#FFF3E0;border-radius:10px;padding:8px;text-align:center"><b>'+o.customerName+'</b><br><b>باقی Rs '+remain+'</b></div><div style="margin-top:8px"><input id="payAmount" type="number" placeholder="رقم"><select id="payMethod"><option>Cash</option><option>EasyPaisa</option><option>JazzCash</option></select><button class="b" style="background:#0A3D2E;color:#fff;width:100%;margin-top:6px" onclick="addPayment(\''+id+'\')">جمع کریں</button></div></div>';document.getElementById('modalHead').innerHTML='کھاتہ - '+o.customerName;document.getElementById('viewContent').innerHTML=html;document.getElementById('viewModal').style.display='block';}
-function addPayment(id){var amt=parseFloat(document.getElementById('payAmount').value||0);if(!amt){alert('رقم لکھیں');return;}if(!LEDGER[id])LEDGER[id]=[];LEDGER[id].push({amount:amt,method:document.getElementById('payMethod').value,date:new Date().toLocaleDateString(),ts:Date.now()});localStorage.setItem(LEDGER_KEY,JSON.stringify(LEDGER));closeView();renderKhata();}
-function viewFull(id){var o=DB.find(x=>x.serialNo==id);if(!o)return;var paidSum=(LEDGER[id]||[]).reduce((s,p)=>s+parseFloat(p.amount||0),0);var total=parseFloat(o.totalPrice||0);var adv=parseFloat(o.advance||0);var remain=total-adv-paidSum;var html='';function has(v){return v!==''&&v!==null&&v!==undefined&&v!=='0'&&v!=='کوئی نہیں';}function row(k,v){if(!has(v))return '';return '<div class=view-row><span>'+k+'</span><b>'+v+'</b></div>';}function chipRow(k,v){if(!has(v))return '';return '<div class=view-row><span>'+k+'</span><span><span class=chip-selected>'+v+'</span></span></div>';}
-html+='<div style="text-align:center;padding:10px;background:#FFF8E8;border-bottom:2.5px solid #0A3D2E"><b style="font-size:18px">'+o.customerName+'</b><br><small>'+o.mobile+' | Serial: '+o.serialNo+'</small>';
-if(o.custPhoto)html+='<div style="margin-top:12px"><div class=section-title style="margin:0">کسٹمر فوٹو</div><img src="'+o.custPhoto+'" style="width:160px;height:210px;object-fit:cover;border-radius:14px;border:3.5px solid #0A3D2E;margin-top:8px"></div>';
-if(o.designPhotos&&o.designPhotos.length){html+='<div style="margin-top:12px"><div class=section-title style="margin:0">ڈیزائن فوٹو</div><div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px">';o.designPhotos.forEach(p=>{html+='<img src="'+p+'" style="width:80px;height:105px;object-fit:cover;border-radius:10px;border:2px solid #C9A86A">';});html+='</div></div>';}html+='</div><div style="padding:6px">';
-html+='<div class=section-title>کسٹمر</div>'+row('نام',o.customerName)+row('موبائل',o.mobile)+row('پتہ',o.pata)+row('سوٹ',o.suitCount)+row('کپڑا',o.kapdaQism)+row('سلائی',o.silaiQism)+row('آرڈر',o.orderDate)+row('ڈلیوری',o.deliveryDate);
-var qHas=has(o.lambai)||has(o.bazu)||has(o.teera)||has(o.gala)||has(o.chhati)||has(o.kamar)||has(o.gheera)||has(o.moda)||has(o.kaff)||has(o.galaQisam);if(qHas){html+='<div class=section-title>قمیض</div>'+row('لمبائی',o.lambai)+row('بازو',o.bazu)+row('تیرا',o.teera)+row('گلہ',o.gala)+chipRow('کالر/بین',o.galaQisam)+row('چھاتی',o.chhati)+row('کمر',o.kamar)+row('گھیرا',o.gheera)+row('موڈا',o.moda)+row('کف',o.kaff);}
-var sHas=has(o.shalwarLambai)||has(o.pouncha)||has(o.kondayTafseel)||has(o.shalwarQisam);if(sHas){html+='<div class=section-title>شلوار - کوندے پلے</div>'+row('لمبائی',o.shalwarLambai)+row('پانچہ',o.pouncha)+row('کوندے پلے',o.kondayTafseel)+chipRow('قسم',o.shalwarQisam);if(o.shalwarQisam==='1 پیس'){html+=row('1 پیس تفصیل',o.onePieceDetail)+chipRow('جیب',o.onePieceJeb);}}
-var dHas=has(o.teeraQisam)||has(o.silaiDesign)||has(o.pounchaJali)||has(o.daman)||has(o.jeb);if(dHas){html+='<div class=section-title>دیگر ڈیزائن</div>'+chipRow('تیرا',o.teeraQisam)+chipRow('سلائی',o.silaiDesign)+chipRow('پانچہ جالی',o.pounchaJali)+chipRow('دامن',o.daman);if(has(o.jeb)&&o.jeb!=='کوئی نہیں')html+='<div class=view-row><span>جیب</span><span>'+o.jeb.split(',').map(j=>'<span class=chip-selected>'+j.trim()+'</span>').join(' ')+'</span></div>';}
-html+='<div class=section-title>حساب</div>'+row('کل',o.totalPrice?o.totalPrice+' Rs':'')+row('ایڈوانس',o.advance?o.advance+' Rs':'')+row('جمع شدہ کھاتہ',paidSum?paidSum+' Rs':'')+row('باقی',remain?remain+' Rs':'')+row('ڈلیوری',o.deliveryDate)+row('نوٹ',o.note)+'</div>';
-html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:14px;padding:0 8px"><button class="b" style="background:#FF9800;color:#fff;padding:13px" onclick="editId(\''+o.serialNo+'\')">✏️ ایڈٹ</button><button class="b" style="background:#25D366;color:#fff;padding:13px" onclick="sendWAId(\''+o.serialNo+'\')">WhatsApp</button><button class="b" style="background:#0084FF;color:#fff;padding:13px" onclick="sendSMSId(\''+o.serialNo+'\')">SMS</button><button class="b" style="background:#0A3D2E;color:#fff;padding:13px" onclick="openKhata(\''+o.serialNo+'\')">کھاتہ</button><button class="b" style="background:#FEF3C7;padding:13px" onclick="printSimple(\''+o.serialNo+'\')">پرچی</button><button class="b" style="border:1.5px solid #0A3D2E;padding:13px" onclick="closeView()">بند کریں</button></div><div style="height:30px"></div>';
-document.getElementById('modalHead').innerHTML='مکمل ناپ - '+o.customerName;document.getElementById('viewContent').innerHTML=html;document.getElementById('viewModal').style.display='block';}
-function closeView(){document.getElementById('viewModal').style.display='none';}
-function editId(id){closeView();var o=DB.find(x=>x.serialNo==id);if(!o)return;showView('naap');Object.keys(o).forEach(k=>{var el=document.getElementById(k);if(el)el.value=o[k];});if(o.shalwarQisam==='1 پیس')document.getElementById('onePieceBox').style.display='block';setTimeout(()=>{SVAL=o;JEB=o.jeb?o.jeb.split(',').map(s=>s.trim()).filter(s=>s&&s!=='کوئی نہیں'):[];document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';},100);if(o.custPhoto){custB64=o.custPhoto;document.getElementById('custPrev').innerHTML='<img src="'+o.custPhoto+'" width=90 style=border-radius:10px>';}if(o.designPhotos){designB64=o.designPhotos;document.getElementById('designPrev').innerHTML=o.designPhotos.map(p=>'<img src="'+p+'" width=60 style=border-radius:8px;margin:3px>').join('');}window.scrollTo(0,0);}
-function renderBills(){var div=document.getElementById('billsList');var h='';DB.slice(-20).reverse().forEach(o=>{h+='<div style=border:1px solid #ddd;padding:6px;margin-bottom:4px;border-radius:8px;font-size:11px;display:flex;justify-content:space-between><div>'+o.serialNo+' - '+o.customerName+'<br>Rs '+o.totalPrice+'</div><div><button class=b style=background:#FEF3C7;font-size:10px onclick=printSimple(\''+o.serialNo+'\')>پرچی</button></div></div>';});div.innerHTML=h||'کوئی پرچی نہیں';}
-function printSimple(id){var o=DB.find(x=>x.serialNo==id);if(!o)return;var w=window.open('','_blank');var html='<html dir=rtl><head><meta charset=UTF-8><style>body{font-family:sans-serif;padding:12px;text-align:center}.box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto}</style></head><body><div class=box><h2>دل ٹیلر شاپ</h2><p>03463604869</p><hr><p>نام: '+o.customerName+'</p><p>موبائل: '+o.mobile+'</p><p>کل: '+o.totalPrice+' | باقی: '+(parseFloat(o.totalPrice||0)-parseFloat(o.advance||0))+'</p><p>ڈلیوری: '+o.deliveryDate+'</p><p style=border:2px solid red;padding:5px>پرچی ساتھ لانا ضروری</p></div></body></html>';w.document.write(html);w.document.close();setTimeout(()=>w.print(),500);}
+function calc(){var t=parseFloat(document.getElementById('totalPrice').value||0);var a=parseFloat(document.getElementById('advance').value||0);document.getElementById('baqaya').value=t-a;document.getElementById('baqayaText').textContent=t-a;}
+function saveData(){var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getElementById('kapdaQism').value,silaiQism:document.getElementById('silaiQism').value,suitCount:document.getElementById('suitCount').value,lambai:document.getElementById('lambai').value,bazu:document.getElementById('bazu').value,teera:document.getElementById('teera').value,gala:document.getElementById('gala').value,chhati:document.getElementById('chhati').value,kamar:document.getElementById('kamar').value,gheera:document.getElementById('gheera').value,moda:document.getElementById('moda').value,kaff:document.getElementById('kaff').value,shalwarLambai:document.getElementById('shalwarLambai').value,pouncha:document.getElementById('pouncha').value,kondayTafseel:document.getElementById('kondayTafseel').value,onePieceDetail:document.getElementById('onePieceDetail').value,totalPrice:document.getElementById('totalPrice').value,advance:document.getElementById('advance').value,baqaya:document.getElementById('baqaya').value,note:document.getElementById('note').value,galaQisam:SVAL.galaQisam||'',teeraQisam:SVAL.teeraQisam||'',silaiDesign:SVAL.silaiDesign||'',pounchaJali:SVAL.pounchaJali||'',daman:SVAL.daman||'',shalwarQisam:SVAL.shalwarQisam||'',onePieceJeb:SVAL.onePieceJeb||'',jeb:JEB.join(', '),custPhoto:custB64,designPhotos:designB64,emailBackup:MY_EMAIL};if(!o.customerName){alert('نام لکھیں');return;}var idx=DB.findIndex(x=>x.serialNo==o.serialNo);if(idx>=0)DB[idx]=o;else DB.push(o);localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));alert('✅ محفوظ! '+MY_EMAIL.substring(0,15));updateCount();searchData();}
+function searchData(){var q=document.getElementById('q').value.toLowerCase();var r=document.getElementById('results');if(!q){r.innerHTML='';return;}var f=DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q));var h='';f.reverse().slice(0,20).forEach(function(o){h+='<div style=border:1.5px solid #0A3D2E;padding:7px;margin-bottom:5px;border-radius:9px;background:#FFFBEB;overflow:hidden><div style=font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b></div><div style=font-size:10px;color:#666>'+(o.silaiQism||'')+'</div><div style=display:flex;gap:3px;margin-top:4px;flex-wrap:wrap><button class=b style=background:#0A3D2E;color:#fff;flex:1;font-size:10px onclick=viewFull(\''+o.serialNo+'\')>👁️ مکمل</button><button class=b style=background:#25D366;color:#fff;font-size:10px onclick=sendWAId(\''+o.serialNo+'\')>WhatsApp</button><button class=b style=background:#FEF3C7;font-size:10px onclick=printSimple(\''+o.serialNo+'\')>پرچی</button><button class=b style=background:#E3F2FD;font-size:10px onclick=editId(\''+o.serialNo+'\')>Edit</button></div></div>';});r.innerHTML=h||'<div style=text-align:center;font-size:11px>کوئی نہیں</div>';}
+function clearSearch(){document.getElementById('q').value='';document.getElementById('results').innerHTML='';}
+function printSimple(id){
+var o=DB.find(x=>x.serialNo==id);if(!o)return;
+var w=window.open('','_blank');
+var html='<html dir=rtl><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;margin:0;padding:12px;text-align:center} .box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto} img.logo{width:80px;height:80px;border-radius:50%;border:2px solid #0A3D2E;object-fit:cover} h2{margin:6px 0;color:#0A3D2E;font-size:16px} .row{border-bottom:1px dashed #ccc;padding:6px 0;text-align:right;font-size:13px} .foot{margin-top:12px;font-weight:bold;color:#B71C1C;border:2px solid #B71C1C;padding:6px;border-radius:6px;font-size:13px}</style></head><body>'+
+'<div class=box><img src=logo.jpg class=logo><h2>دل ٹیلر شاپ - دل حسن</h2><p style=font-size:11px>03463604869 | '+MY_EMAIL+'</p><hr>'+
+'<div class=row><b>نام:</b> '+(o.customerName||'')+'</div>'+
+'<div class=row><b>موبائل:</b> '+(o.mobile||'')+'</div>'+
+'<div class=row><b>سلائی:</b> '+(o.silaiQism||'')+' ('+(o.suitCount||'')+')</div>'+
+'<div class=row><b>آرڈر:</b> '+(o.orderDate||'')+' | <b>ڈلیوری:</b> '+(o.deliveryDate||'')+'</div>'+
+'<div class=row><b>کل:</b> '+(o.totalPrice||0)+' | <b>ایڈوانس:</b> '+(o.advance||0)+' | <b>باقی:</b> '+(o.baqaya||0)+'</div>'+
+'<div class=foot>⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';
+w.document.write(html);w.document.close();setTimeout(()=>w.print(),500);
+}
 function printSimpleCurrent(){var id=document.getElementById('serialNo').value;if(id)printSimple(id);}
-function sendWAId(id){var o=DB.find(x=>x.serialNo==id);if(!o||!o.mobile)return;var remain=parseFloat(o.totalPrice||0)-parseFloat(o.advance||0);var txt='*السلام علیکم '+o.customerName+'*%0Aسوٹ تیار ہے - دل ٹیلر%0Aباقی: '+remain+'%0A'+(o.deliveryDate||'');window.open('https://wa.me/92'+o.mobile.replace(/^0/,'')+'?text='+txt,'_blank');}
-function sendSMSId(id){var o=DB.find(x=>x.serialNo==id);if(!o||!o.mobile)return;var remain=parseFloat(o.totalPrice||0)-parseFloat(o.advance||0);var txt='Suit tayar hai - Baqi '+remain+' Rs. Dil Tailor 03463604869';window.open('sms:+92'+o.mobile.replace(/^0/,'')+'?body='+encodeURIComponent(txt),'_blank');}
-function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();renderMyAcc();
-</script></body></html>
+function printFull(id){
+var o=DB.find(x=>x.serialNo==id);if(!o)return;
+var w=window.open('','_blank');
+var html='<html dir=rtl><head><meta charset=UTF-8><style>body{font-family:sans-serif;margin:0;padding:8px;font-size:11px} .head{text-align:center;border:2px solid #0A3D2E;padding:8px;border-radius:8px} .head img{width:60px;height:60px;border-radius:50%;border:2px solid #0A3D2E} table{width:100%;border-collapse:collapse;margin-top:6px} td{border:1px solid #000;padding:3px;font-size:10px} .hd{background:#0A3D2E;color:#fff;text-align:center;font-weight:bold}</style></head><body>'+
+'<div class=head><img src=logo.jpg><h3 style=margin:4px;font-size:13px>دل ٹیلر شاپ - مکمل ناپ</h3><p style=margin:0;font-size:10px>0346-3604869 | '+MY_EMAIL+'</p></div>'+
+'<div style=text-align:center;margin-top:5px;font-size:12px><b>'+o.customerName+' - سیریل '+o.serialNo+'</b></div>'+
+'<table><tr><td class=hd colspan=2>کسٹمر</td></tr>'+
+'<tr><td>نام: '+o.customerName+'</td><td>موبائل: '+o.mobile+'</td></tr>'+
+'<tr><td>سلائی: '+o.silaiQism+'</td><td>کپڑا: '+o.kapdaQism+' | سوٹ: '+o.suitCount+'</td></tr>'+
+'<tr><td>آرڈر: '+o.orderDate+'</td><td>ڈلیوری: '+o.deliveryDate+'</td></tr>'+
+'<tr><td class=hd colspan=2>📏 قمیض</td></tr>'+
+'<tr><td>لمبائی: '+o.lambai+'</td><td>بازو: '+o.bazu+'</td></tr>'+
+'<tr><td>تیرا: '+o.teera+'</td><td>گلہ: '+o.gala+' '+o.galaQisam+'</td></tr>'+
+'<tr><td>چھاتی: '+o.chhati+'</td><td>کمر: '+o.kamar+'</td></tr>'+
+'<tr><td>گھیرا: '+o.gheera+'</td><td>موڈا: '+o.moda+' | کف: '+o.kaff+'</td></tr>'+
+'<tr><td>تیرا ڈیزائن: '+o.teeraQisam+'</td><td>سلائی: '+o.silaiDesign+' | دامن: '+o.daman+'</td></tr>'+
+'<tr><td class=hd colspan=2>شلوار - کوندے پلے</td></tr>'+
+'<tr><td>لمبائی: '+o.shalwarLambai+'</td><td>پانچہ: '+o.pouncha+' '+o.pounchaJali+'</td></tr>'+
+'<tr><td>کوندے پلے: '+o.kondayTafseel+'</td><td>قسم: '+o.shalwarQisam+'</td></tr>'+
+(o.shalwarQisam==='1 پیس'?'<tr><td>1 پیس: '+o.onePieceDetail+'</td><td>جیب: '+o.onePieceJeb+'</td></tr>':'')+
+'<tr><td>جیب: '+o.jeb+'</td><td>نوٹ: '+(o.note||'')+'</td></tr>'+
+'<tr><td class=hd colspan=2>💰 کل: '+o.totalPrice+' | ایڈوانس: '+o.advance+' | باقی: '+o.baqaya+'</td></tr>'+
+'</table><p style=text-align:center;margin-top:6px;font-size:10px>پرچی ساتھ لانا ضروری ہے - شکریہ</p></body></html>';
+w.document.write(html);w.document.close();setTimeout(()=>w.print(),500);
+}
+function viewFull(id){
+var o=DB.find(x=>x.serialNo==id);if(!o)return;
+var html='<div class=view-head><img src=logo.jpg style=width:42px;height:42px;border-radius:50%;border:2px solid #fff><br><b>👁️ '+o.customerName+' - سیریل '+o.serialNo+'</b></div><div style=padding:6px>';
+function row(k,v){if(v===undefined||v===''||v===null)return '';return '<div class=view-row><span>'+k+'</span><b>'+v+'</b></div>';}
+html+=row('موبائل',o.mobile)+row('پتہ',o.pata)+row('سوٹ',o.suitCount)+row('کپڑا',o.kapdaQism)+row('سلائی',o.silaiQism);
+html+='<div style=background:#FFF8E1;padding:4px;text-align:center;font-weight:bold;margin-top:5px;font-size:11px>📏 قمیض</div>';
+html+=row('لمبائی',o.lambai)+row('بازو',o.bazu)+row('تیرا',o.teera)+row('گلہ',o.gala+' '+(o.galaQisam||''))+row('چھاتی',o.chhati)+row('کمر',o.kamar)+row('گھیرا',o.gheera)+row('موڈا',o.moda)+row('کف',o.kaff)+row('ڈیزائن',o.teeraQisam+' '+(o.silaiDesign||'')+' '+(o.daman||''));
+html+='<div style=background:#E8F5E9;padding:4px;text-align:center;font-weight:bold;margin-top:5px;font-size:11px>شلوار - کوندے پلے</div>';
+html+=row('لمبائی',o.shalwarLambai)+row('پانچہ',o.pouncha+' '+(o.pounchaJali||''))+row('کوندے پلے',o.kondayTafseel)+row('قسم',o.shalwarQisam);
+if(o.shalwarQisam==='1 پیس')html+=row('1 پیس',o.onePieceDetail+' '+(o.onePieceJeb||''));
+html+=row('جیب',o.jeb)+row('نوٹ',o.note);
+html+='<div style=background:#F3E5F5;padding:4px;text-align:center;font-weight:bold;margin-top:5px;font-size:11px>💰 حساب</div>';
+html+=row('کل',o.totalPrice)+row('ایڈوانس',o.advance)+row('باقی',o.baqaya)+row('آرڈر',o.orderDate)+row('ڈلیوری',o.deliveryDate);
+if(o.custPhoto)html+='<div style=text-align:center;margin-top:6px><img src="'+o.custPhoto+'" width=110 style=border-radius:7px;border:2px solid #0A3D2E></div>';
+if(o.designPhotos&&o.designPhotos.length){html+='<div style=text-align:center;margin-top:5px>';o.designPhotos.forEach(p=>{html+='<img src="'+p+'" width=55 style=margin:2px;border-radius:5px>';});html+='</div>';}
+html+='<div style=display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px"><button class=b style=background:#25D366;color:#fff onclick=sendWAId(\''+o.serialNo+'\')>📱 WhatsApp</button><button class=b style=background:#0A3D2E;color:#fff onclick=printFull(\''+o.serialNo+'\')>🖨️ مکمل پرنٹ</button><button class=b style=background:#FEF3C7 onclick=printSimple(\''+o.serialNo+'\')>🧾 سادہ پرچی</button><button class=b style=border:1px solid #0A3D2E onclick=closeView()>❌ بند</button></div>';
+html+='<button class=b style=width:100%;background:#B71C1C;color:#fff;margin-top:5px;font-size:11px onclick=deleteId(\''+o.serialNo+'\')>🗑️ ڈیلیٹ</button></div>';
+document.getElementById('viewContent').innerHTML=html;document.getElementById('viewModal').style.display='block';document.getElementById('viewModal').scrollTop=0;
+}
+function closeView(){document.getElementById('viewModal').style.display='none';}
+function editId(id){closeView();var o=DB.find(x=>x.serialNo==id);if(!o)return;Object.keys(o).forEach(k=>{var el=document.getElementById(k);if(el)el.value=o[k];});if(o.shalwarQisam==='1 پیس')document.getElementById('onePieceBox').style.display='block';window.scrollTo(0,0);}
+function deleteId(id){if(!confirm('ڈیلیٹ؟'))return;DB=DB.filter(x=>x.serialNo!=id);localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));updateCount();closeView();searchData();}
+function deleteCurrent(){var id=document.getElementById('serialNo').value;if(id)deleteId(id);}
+function sendWAId(id){var o=DB.find(x=>x.serialNo==id);if(!o||!o.mobile){alert('موبائل نہیں');return;}var txt='*السلام علیکم '+o.customerName+'*\n\nآپ کا سوٹ تیار ہے - *دل ٹیلر شاپ*\n\n📋 سیریل: '+o.serialNo+'\n👔 سلائی: '+(o.silaiQism||'')+'\n💰 کل: '+(o.totalPrice||0)+' | باقی: '+(o.baqaya||0)+' روپے\n📅 ڈلیوری: '+(o.deliveryDate||'')+'\n\n⚠️ پرچی ساتھ لانا ضروری ہے\n📞 03463604869';window.open('https://wa.me/92'+o.mobile.replace(/^0/,'')+'?text='+encodeURIComponent(txt),'_blank');}
+function sendWA(){var id=document.getElementById('serialNo').value;if(id&&DB.find(x=>x.serialNo==id))sendWAId(id);else{var m=document.getElementById('mobile').value;if(!m)return alert('موبائل');window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+encodeURIComponent('السلام علیکم آپ کا سوٹ تیار ہے - باقی '+(document.getElementById('baqaya').value||0)),'_blank');}}
+function newRecord(){var last=DB.length>0?parseInt(DB[DB.length-1].serialNo)||2:2;document.getElementById('serialNo').value=last+1;document.getElementById('customerName').value='';document.getElementById('mobile').value='';document.getElementById('custPrev').innerHTML='';document.getElementById('designPrev').innerHTML='';custB64=null;designB64=[];calc();}
+function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}
+function updateNet(){var el=document.getElementById('online');if(el)el.textContent=navigator.onLine?'✅ آن لائن - '+MY_EMAIL.split('@')[0].substring(0,10):'❌ آف لائن';}
+window.addEventListener('online',updateNet);window.addEventListener('offline',updateNet);updateNet();updateCount();
+var wakeLock=null;async function keepScreenOn(){try{if('wakeLock' in navigator) wakeLock=await navigator.wakeLock.request('screen');}catch(e){}}keepScreenOn();
+</script>
+</body>
+</html>
