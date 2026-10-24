@@ -2,20 +2,20 @@
   "name": "Dil Tailor Shop - Dil Hassan",
   "short_name": "Dil Tailor",
   "description": "Dil Tailor Shop Customer Measurement Book",
-  "start_url": "/dil-tailor-naap-book/",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0A3D2E",
+  "background_color": "#FDF6E3",
   "theme_color": "#0A3D2E",
   "icons": [
     {
-      "src": "https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w512",
+      "src": "logo.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "https://drive.google.com/thumbnail?id=1bzgOmeDhAh7G7IqbiGR5mJvCx1tq-2nR&sz=w512",
+      "src": "logo.jpg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }
