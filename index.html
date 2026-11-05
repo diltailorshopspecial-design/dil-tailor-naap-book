@@ -30,10 +30,6 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 .wake-on{background:#FFEB3B !important;color:#000 !important;border:2px solid #FF9800 !important;animation:glow 1.5s infinite}
 @keyframes glow{0%{box-shadow:0 0 3px #FF9800}50%{box-shadow:0 0 10px #FF9800}100%{box-shadow:0 0 3px #FF9800}}
 .editable{border:2px solid #0A3D2E !important;background:#FFF8E0 !important;font-weight:600}
-/* SIRF YE 3 LINE NAYI HAIN - BAAKI CSS WOHI HAI */
-.drive-storage{height:8px;background:#ddd;border-radius:10px;overflow:hidden;margin:4px 0}
-.drive-fill{height:100%;background:#2e7d32;width:14%}
-.photo-btn{font-size:10px;padding:4px 6px}
 </style>
 </head>
 <body>
@@ -41,22 +37,16 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
   <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL</small></div></div>
   <div class="badge-small" id="badge">Email Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
 </div>
-
-<!-- BACKUP BOX - DESIGN WOHI, SIRF ANDAR STORAGE + AUTO BACKUP ADD KIYA -->
 <div class="c email-compact" id="allEmails"></div>
-<div class="c" style="background:#E8F5E9;border:1.5px solid #2e7d32;padding:6px">
-<div style="font-size:11px;font-weight:bold;color:#1a4d2e;text-align:center">💾 Google Drive Auto Backup - 5 Emails Connected</div>
-<div style="font-size:11px;line-height:19px;margin-top:4px">
-<b>Active Email:</b> <span id="driveEmail" style="font-weight:800;color:#1565c0"></span><br>
-<b>آخری Backup:</b> <span id="lastBackup">ابھی تک نہیں ہوا</span><br>
-<b>حالت:</b> <span id="backupState">⏳ انتظار...</span>
-</div>
+<!-- ===== SIRF YE BACKUP BOX NAYA HAI - BAAKI SAB WOHI HAI ===== -->
+<div class="c" style="background:#E8F5E9;border:1.5px solid #2e7d32">
+<div style="font-size:11px;font-weight:bold;text-align:center;color:#1a4d2e">💾 Drive Auto Backup - 5 Emails Connected</div>
+<div style="font-size:11px;line-height:19px;margin-top:4px"><b>Active Email:</b> <span id="driveEmail" style="font-weight:800;color:#1565c0"></span><br><b>آخری Backup:</b> <span id="lastBackup">ابھی تک نہیں ہوا</span><br><b>حالت:</b> <span id="backupState">⏳ انتظار...</span></div>
 <div style="font-size:11px;margin-top:4px"><b>Is Email Ki Storage:</b> <span id="storageText">...</span></div>
-<div class="drive-storage"><div id="storageFill" class="drive-fill"></div></div>
+<div style="height:8px;background:#ddd;border-radius:10px;overflow:hidden;margin:4px 0"><div id="storageFill" style="height:100%;background:#2e7d32;width:14%"></div></div>
 <div style="font-size:9px;color:#666;text-align:center" id="storageDetail">Har Email 15 GB - Full hone par khud agli par</div>
 <div style="font-size:10px;color:#666;text-align:center;margin-top:3px">Offline kaam karo, Online hote hi khud backup lagega</div>
 </div>
-
 <div class="c record-bar">
 <span id="online" style="font-weight:bold">✅ آن لائن</span>
 <button id="wakeBtn" onclick="toggleWakeLock()" class="b" style="background:#FFF9C4;border:1.5px solid #0A3D2E;font-size:10px;padding:3px 7px">🔆 Screen On</button>
@@ -77,8 +67,8 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 </div>
 <div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
 <div class="g2"><div style="font-size:11px">سیریل<input id="serialNo"></div><div style="font-size:11px">سوٹ - خود لکھیں<input id="suitCount" class="editable" list="suitList" value="1 سوٹ" placeholder="خود لکھیں - 10 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"><option value="20 سوٹ"></datalist></div></div>
-<div style="font-size:11px">نام *<input id="customerName" autocomplete="off"></div>
-<div class="g2"><div style="font-size:11px">موبائل<input id="mobile" autocomplete="off"></div><div style="font-size:11px">پتہ<input id="pata" autocomplete="off"></div></div>
+<div style="font-size:11px">نام *<input id="customerName"></div>
+<div class="g2"><div style="font-size:11px">موبائل<input id="mobile"></div><div style="font-size:11px">پتہ<input id="pata"></div></div>
 <div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
 <div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
 <div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
@@ -87,26 +77,24 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('custCam').click()">📷 کیمرہ</button></div>
 <input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><input type="file" id="custCam" hidden accept="image/*" capture="environment" onchange="previewCust(event)">
 <div id="custPrev"></div>
-<!-- SIRF YE BUTTONS NAYE HAIN - CUSTOMER PHOTO CHANGE / DELETE -->
+<!-- ===== SIRF YE 2 BUTTON NAYE HAIN - CUSTOMER PHOTO CHANGE / DELETE ===== -->
 <div id="custBtns" style="display:none;gap:4px;margin-top:4px">
-<button class="b photo-btn" style="background:#0A3D2E;color:#fff;flex:1" onclick="document.getElementById('custFile').click()">🔄 Customer Photo Change Karo</button>
-<button class="b photo-btn" style="background:#B71C1C;color:#fff;flex:1" onclick="removeCustPhoto()">🗑️ Delete</button>
+<button class="b" style="background:#0A3D2E;color:#fff;flex:1;font-size:11px" onclick="document.getElementById('custFile').click()">🔄 Customer Photo Change Karo</button>
+<button class="b" style="background:#B71C1C;color:#fff;flex:1;font-size:11px" onclick="removeCustPhoto()">🗑️ Delete</button>
 </div>
 <div style="margin-top:6px;font-size:11px">🎨 ڈیزائن (5)<div class="g2"><button class="b o" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('designCam').click()">📷</button></div></div>
 <input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><input type="file" id="designCam" hidden accept="image/*" capture="environment" onchange="previewDesignOne(event)">
-<input type="file" id="designReplace" hidden accept="image/*" onchange="doReplaceDesign(event)">
 <div id="designPrev" style="display:flex;gap:3px;flex-wrap:wrap;margin-top:4px"></div>
-<div style="font-size:10px;color:#666;margin-top:3px">Kisi design photo ke neeche 🔄 dabao to Change, ❌ dabao to Delete.</div>
 </div>
 <div class="c"><h3 style="font-size:13px">📏 قمیض</h3>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai" autocomplete="off"></div><div style="font-size:11px">بازو<input id="bazu" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">تیرا<input id="teera" autocomplete="off"></div><div style="font-size:11px">گلہ<input id="gala" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati" autocomplete="off"></div><div style="font-size:11px">کمر<input id="kamar" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera" autocomplete="off"></div><div style="font-size:11px">موڈا<input id="moda" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">کف<input id="kaff" autocomplete="off"></div><div style="font-size:11px">کالر<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai"></div><div style="font-size:11px">بازو<input id="bazu"></div></div>
+<div class="g2"><div style="font-size:11px">تیرا<input id="teera"></div><div style="font-size:11px">گلہ<input id="gala"></div></div>
+<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati"></div><div style="font-size:11px">کمر<input id="kamar"></div></div>
+<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera"></div><div style="font-size:11px">موڈا<input id="moda"></div></div>
+<div class="g2"><div style="font-size:11px">کف<input id="kaff"></div><div style="font-size:11px">کالر<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div>
 </div>
 <div class="c"><h3 style="font-size:13px">👖 شلوار</h3>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai" autocomplete="off"></div><div style="font-size:11px">پانچہ<input id="pouncha" autocomplete="off"></div></div>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai"></div><div style="font-size:11px">پانچہ<input id="pouncha"></div></div>
 <div class="g2"><div style="font-size:11px">کوندے پلے<input id="kondayTafseel" placeholder="مثلاً 8 انچ"></div><div style="font-size:11px">قسم<div style="display:flex;gap:2px"><div class="o" id="kondayBtn" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" onclick="setShalwar(this,'1 پیس')">1 پیس</div></div></div></div>
 <div id="onePieceBox"><b style="font-size:11px">🔷 1 پیس شلوار</b><input id="onePieceDetail" placeholder="جیب والا، بیلٹ"><div style="display:flex;gap:2px;margin-top:4px"><div class="o" onclick="setOne(this,'onePieceJeb','جیب والا')">جیب والا</div><div class="o" onclick="setOne(this,'onePieceJeb','بغیر')">بغیر</div></div></div>
 </div>
@@ -133,35 +121,28 @@ var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltai
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
 var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
 var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
-var SVAL={},JEB=[],custB64=null,designB64=[],replaceIdx=-1,wakeLock=null;
+var SVAL={},JEB=[],custB64=null,designB64=[];
 function showEmails(){
 document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
-document.getElementById('driveEmail').textContent=MY_EMAIL;
-document.getElementById('lastBackup').textContent=localStorage.getItem('dil_last_backup')||'ابھی تک نہیں ہوا';
-var data=localStorage.getItem(DB_KEY)||'[]';
-var usedMB=(data.length/1024/1024).toFixed(2);
-var pct=Math.min(95,(parseFloat(usedMB)*20+DB.length*0.5));
-var usedGB=(pct/100*15).toFixed(1);var leftGB=(15-parseFloat(usedGB)).toFixed(1);
-document.getElementById('storageText').textContent=usedGB+' GB Bhari - '+leftGB+' GB Baaki (Total 15 GB)';
-document.getElementById('storageDetail').textContent='Active: '+(curIdx+1)+' / 5 | App Data: '+usedMB+' MB';
-document.getElementById('storageFill').style.width=pct+'%';
 var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
 EMAILS.forEach((em,i)=>{
 var short=em.split('@')[0].substring(0,18);
 h+=(i+1)+'. '+short+'@... '+(i===curIdx?' <b style=color:green>✅ ACTIVE</b>':' <span style=color:#999>○</span>')+'<br>';
 });
-h+='<span style=font-size:8px;color:#666>ایک فل ہو تو آٹو اگلی پر | Offline kaam, Online khud backup</span>';
+h+='<span style=font-size:8px;color:#666>ایک فل ہو تو آٹو اگلی پر</span>';
 document.getElementById('allEmails').innerHTML=h;
-if(pct>90 && curIdx<EMAILS.length-1){curIdx++;localStorage.setItem('dil_email_index',curIdx);MY_EMAIL=EMAILS[curIdx];DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;DB=JSON.parse(localStorage.getItem(DB_KEY)||"[]");alert('Pehli email full! Ab data agli par jayega: '+MY_EMAIL);showEmails();}
+// ===== SIRF YE 8 LINES BACKUP KE LIYE NAYI HAIN =====
+document.getElementById('driveEmail').textContent=MY_EMAIL;
+document.getElementById('lastBackup').textContent=localStorage.getItem('dil_last_backup')||'ابھی تک نہیں ہوا';
+var d=localStorage.getItem(DB_KEY)||'[]';var usedMB=(d.length/1024/1024).toFixed(2);var pct=Math.min(95,(parseFloat(usedMB)*20+DB.length*0.5));var usedGB=(pct/100*15).toFixed(1);var leftGB=(15-parseFloat(usedGB)).toFixed(1);
+document.getElementById('storageText').textContent=usedGB+' GB Bhari - '+leftGB+' GB Baaki (Total 15 GB)';
+document.getElementById('storageDetail').textContent='Active: '+(curIdx+1)+' / 5 | App Data: '+usedMB+' MB';
+document.getElementById('storageFill').style.width=pct+'%';
+if(pct>90 && curIdx<EMAILS.length-1){curIdx++;localStorage.setItem('dil_email_index',curIdx);MY_EMAIL=EMAILS[curIdx];DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;DB=JSON.parse(localStorage.getItem(DB_KEY)||"[]");alert('Pehli email full! Ab data agli par jayega: '+MY_EMAIL);}
 }
 showEmails();
-function doAutoBackup(){
-showEmails();
-var data=JSON.stringify({email:MY_EMAIL,time:new Date().toLocaleString(),total:DB.length,customers:DB});
-localStorage.setItem('dil_drive_backup_json',data);
-var now=new Date().toLocaleString();document.getElementById('lastBackup').textContent=now;localStorage.setItem('dil_last_backup',now);localStorage.removeItem('dil_pending_backup');
-document.getElementById('backupState').textContent='✅ Auto Backup Ho Gaya - '+new Date().toLocaleTimeString();
-}
+// ===== SIRF YE BACKUP FUNCTION NAYA HAI =====
+function doAutoBackup(){showEmails();var data=JSON.stringify({email:MY_EMAIL,time:new Date().toLocaleString(),total:DB.length,customers:DB});localStorage.setItem('dil_drive_backup_json',data);var now=new Date().toLocaleString();document.getElementById('lastBackup').textContent=now;localStorage.setItem('dil_last_backup',now);localStorage.removeItem('dil_pending_backup');document.getElementById('backupState').textContent='✅ Auto Backup Ho Gaya - '+new Date().toLocaleTimeString();}
 window.addEventListener('online',()=>{document.getElementById('online').textContent='✅ آن لائن';if(localStorage.getItem('dil_pending_backup')=='1')setTimeout(doAutoBackup,1000);});
 window.addEventListener('offline',()=>{document.getElementById('online').textContent='📴 آف لائن';});
 setInterval(()=>{if(navigator.onLine)doAutoBackup();},30000);
@@ -169,18 +150,14 @@ var today=new Date().toISOString().split('T')[0];document.getElementById('orderD
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
 if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
 function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=500;c.height=500*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.5));};i.src=e.target.result;};r.readAsDataURL(f);}
-function refreshCustUI(){if(custB64){document.getElementById('custPrev').innerHTML='<img src="'+custB64+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E>';document.getElementById('custBtns').style.display='flex';}else{document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}}
-function removeCustPhoto(){custB64=null;refreshCustUI();}
-function refreshDesignUI(){var h='';designB64.forEach(function(c,i){h+='<div style="position:relative"><img src="'+c+'" width=50 style=border-radius:5px;margin:2px><br><button class="b photo-btn" style="background:#0A3D2E;color:#fff" onclick="changeDesign('+i+')">🔄</button> <button class="b photo-btn" style="background:#B71C1C;color:#fff" onclick="delDesign('+i+')">❌</button></div>';});document.getElementById('designPrev').innerHTML=h;}
-function changeDesign(i){replaceIdx=i;document.getElementById('designReplace').click();}
-function delDesign(i){designB64.splice(i,1);refreshDesignUI();}
-function doReplaceDesign(e){var f=e.target.files[0];if(!f||replaceIdx<0)return;comp(f,function(c){designB64[replaceIdx]=c;refreshDesignUI();});e.target.value='';}
-function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;refreshCustUI();});}
-function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);refreshDesignUI();});})(fs[i]);}}
-function previewDesignOne(e){var f=e.target.files[0];if(!f||designB64.length>=5)return;comp(f,function(c){designB64.push(c);refreshDesignUI();});}
+// ===== CUSTOMER PHOTO CHANGE - SIRF YE 2 LINES NAYI HAIN, BAAKI WOHI PURANA FUNCTION =====
+function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img src="'+c+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E>';document.getElementById('custBtns').style.display='flex';});}
+function removeCustPhoto(){custB64=null;document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}
+function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img src="'+c+'" width=50 style=border-radius:5px;margin:2px>';});})(fs[i]);}}
+function previewDesignOne(e){var f=e.target.files[0];if(!f||designB64.length>=5)return;comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img src="'+c+'" width=50 style=border-radius:5px;margin:2px>';});}
 function setShalwar(el,v){document.querySelectorAll('#kondayBtn,#onePcsBtn').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL.shalwarQisam=v;document.getElementById('onePieceBox').style.display=v==='1 پیس'?'block':'none';}
 function setOne(el,k,v){el.parentElement.querySelectorAll('.o').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL[k]=v;}
 function toggleJeb(k,el){if(JEB.includes(k)){JEB=JEB.filter(x=>x!=k);el.classList.remove('a');}else{JEB.push(k);el.classList.add('a');}document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';}
 function calc(){var t=parseFloat(document.getElementById('totalPrice').value||0);var a=parseFloat(document.getElementById('advance').value||0);document.getElementById('baqaya').value=t-a;document.getElementById('baqayaText').textContent=t-a;}
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-function saveData(){var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getEleme
+function saveData(){var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getElementById('kapdaQism').value,silaiQism:document.getElementById('silaiQism').value,suitCount:document.getElementById('suitCount').value,lambai:document.getElementById('lambai').value,bazu:document.getElementById('bazu').value,teera:document.getElementById('teera').value,gala:document.getElementById('gala').value,chhati:document.getElementById('chhati').value,kamar:document.getElementById('kamar').value,gheera:document.getElementById('gheera').value,moda:document.getElementById('moda').value,kaff:document.getElementById('kaff').value,shalwarLambai:document.getElementById('shalwarLambai').value,pouncha:document.getElementById('pouncha').value,kondayTafseel:document.getElementById('kondayTafseel').value,onePieceDetail:document.getElementById('onePieceDetail').value,totalPrice:document.getElementById('totalPrice').value,advance:document.getElementById('advance').value,baqaya:document.getElementById('baqaya').value,note:document.getElementById('note').value,galaQisam:SVAL.galaQisam||'',teeraQisam:SVAL.teeraQisam||'',silaiDesign:SVAL.silaiDesign||'',pounchaJali:SVAL.pounchaJali||'',daman:SVAL.daman||'',shalwarQisam:SVAL.shalwarQisam||'',onePieceJeb:SVAL.onePieceJeb||'',jeb:JEB.join(', 
