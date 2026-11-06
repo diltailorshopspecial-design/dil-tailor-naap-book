@@ -62,17 +62,17 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے - سکرین خود بند ہو جائے گی</div>
 </div>
 <div class="c">
-<h3 style="font-size:13px">🔍 تلاش کریں</h3>
-<div class="g2"><input id="q" placeholder="نام، موبائل، سیریل" style="font-size:12px"><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div>
+<h3 style="font-size:13px">🔍 تلاش کریں - Ab Yahan Bhi Urdu Hoga</h3>
+<div class="g2"><input id="q" placeholder="English likho - Asad - khud Urdu hoga" style="font-size:12px"><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div>
 <button onclick="clearSearch()" class="b" style="width:100%;margin-top:5px;border:1px solid #0A3D2E;font-size:11px">❌ صاف</button>
 <div id="results" style="margin-top:6px"></div>
 </div>
 <div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
 <div style="display:flex;gap:5px;margin-bottom:6px">
 <button id="urduBtn" onclick="toggleUrdu()" class="b" style="background:#E8F5E9;border:1.5px solid #0A3D2E;flex:1;font-size:12px">ABC -&gt; اردو : OFF</button>
-<button onclick="convertNow()" class="b" style="background:#FF9800;color:#fff;flex:1;font-size:12px">🔄 اردو کرو</button>
+<button onclick="convertNow()" class="b" style="background:#FF9800;color:#fff;flex:1;font-size:12px">🔄 SB ko Urdu karo</button>
 </div>
-<div style="font-size:10px;color:#666;text-align:center;margin-bottom:5px">ON کرو تو English لکھو گے تو خود Urdu ہو جائے گا - جیسے Qaiser = قیصر</div>
+<div style="font-size:10px;color:#666;text-align:center;margin-bottom:5px">ON hai to SB jagah English likho ge to khud Urdu ho jayega - Search me bhi, Naam me bhi, Note me bhi</div>
 <div class="g2"><div style="font-size:11px">سیریل<input id="serialNo"></div><div style="font-size:11px">سوٹ - خود لکھیں<input id="suitCount" class="editable" list="suitList" value="1 سوٹ" placeholder="خود لکھیں - 10 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"><option value="20 سوٹ"></datalist></div></div>
 <div style="font-size:11px">نام *<input id="customerName" placeholder="English likho - Qaiser - khud Urdu ho jayega"></div>
 <div class="g2"><div style="font-size:11px">موبائل<input id="mobile"></div><div style="font-size:11px">پتہ<input id="pata" placeholder="Gujranwala likho"></div></div>
@@ -113,7 +113,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div class="c">
 <div class="g2"><div style="font-size:11px">کل<input id="totalPrice" type="number" oninput="calc()"></div><div style="font-size:11px">ایڈوانس<input id="advance" type="number" oninput="calc()"></div></div>
 <div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
-<textarea id="note" placeholder="نوٹ - English likho, Urdu ho jayega"></textarea>
+<textarea id="note" placeholder="Note - English likho, khud Urdu ho jayega"></textarea>
 <button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
 <div style="display:flex;gap:4px;margin-top:5px">
 <button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
@@ -206,7 +206,7 @@ function autoLoadFromDrive(){
 }
 setTimeout(autoLoadFromDrive, 800);
 window.addEventListener('online', function(){ autoSyncToDrive(); });
-// ===== URDU TRANSLITERATION - ABC -> URDU =====
+// ===== URDU - SB JAGAH =====
 var urduMode = localStorage.getItem('dil_urdu_mode')==='1';
 function updateUrduBtn(){
   var b=document.getElementById('urduBtn');
@@ -217,11 +217,11 @@ function toggleUrdu(){
   urduMode=!urduMode;
   localStorage.setItem('dil_urdu_mode', urduMode?'1':'0');
   updateUrduBtn();
-  if(urduMode) alert('✅ Urdu ON ho gaya! Ab English likho, khud Urdu ho jayega. Misal: Qaiser likho, space dabao - قیصر ban jayega');
+  if(urduMode) alert('✅ Urdu ON ho gaya! Ab SB jagah English likho, khud Urdu ho jayega. Search me bhi!');
 }
 updateUrduBtn();
 var ROMAN_MAP = {
-  'qaiser':'قیصر','asad':'اسد','ahmed':'احمد','ali':'علی','hassan':'حسن','husnain':'حسنین','bilal':'بلال','usman':'عثمان','umar':'عمر','umer':'عمر','younas':'یونس','younis':'یونس','khan':'خان','mirza':'مرزا','raza':'رضا','razaq':'رزاق','abdullah':'عبداللہ','muhammad':'محمد','mohammad':'محمد','ahmad':'احمد','naweed':'نوید','naveed':'نوید','dil':'دل','gujranwala':'گوجرانوالہ','gujranwla':'گوجرانوالہ','lahore':'لاہور','karachi':'کراچی','islamabad':'اسلام آباد','pindi':'پنڈی','sialkot':'سیالکوٹ','faisalabad':'فیصل آباد','multan':'ملتان','peshawar':'پشاور','quetta':'کوئٹہ','hyderabad':'حیدرآباد','sargodha':'سرگودھا','sahiwal':'ساہیوال','okara':'اوکاڑہ','kasur':'قصور','sheikhupura':'شیخوپورہ','jhelum':'جہلم','gujrat':'گجرات','mandi':'منڈی','burewala':'بورے والا','vehari':'وہاڑی','chichawatni':'چیچہ وطنی','ariz':'عارض','arizdil':'عارض دل'
+  'qaiser':'قیصر','asad':'اسد','ahmed':'احمد','ali':'علی','hassan':'حسن','husnain':'حسنین','bilal':'بلال','usman':'عثمان','umar':'عمر','umer':'عمر','younas':'یونس','younis':'یونس','khan':'خان','mirza':'مرزا','raza':'رضا','farhan':'فرحان','abdullah':'عبداللہ','muhammad':'محمد','mohammad':'محمد','ahmad':'احمد','naweed':'نوید','naveed':'نوید','dil':'دل','gujranwala':'گوجرانوالہ','lahore':'لاہور','karachi':'کراچی','islamabad':'اسلام آباد','pindi':'پنڈی','sialkot':'سیالکوٹ','faisalabad':'فیصل آباد','multan':'ملتان','peshawar':'پشاور','quetta':'کوئٹہ','hyderabad':'حیدرآباد','sargodha':'سرگودھا','sahiwal':'ساہیوال','okara':'اوکاڑہ','kasur':'قصور','sheikhupura':'شیخوپورہ','jhelum':'جہلم','gujrat':'گجرات','mandi':'منڈی','burewala':'بورے والا','vehari':'وہاڑی','chichawatni':'چیچہ وطنی','ariz':'عارض'
 };
 function romanToUrduWord(w){
   var low=w.toLowerCase();
@@ -246,15 +246,17 @@ function convertText(txt){
   }).join(' ');
 }
 function convertNow(){
-  ['customerName','pata','note','kapdaQism','silaiQism'].forEach(function(id){
+  var ids=['q','customerName','pata','note','kapdaQism','silaiQism','suitCount','kondayTafseel','onePieceDetail'];
+  ids.forEach(function(id){
     var el=document.getElementById(id);
     if(el && el.value) el.value=convertText(el.value);
   });
-  alert('✅ Urdu me kar diya!');
+  searchData();
+  alert('✅ SB ko Urdu kar diya!');
 }
-function attachUrdu(elId){
-  var el=document.getElementById(elId);
-  if(!el) return;
+function attachUrdu(el){
+  if(!el || el.dataset.urduAttached) return;
+  el.dataset.urduAttached='1';
   el.addEventListener('input', function(){
     if(!urduMode) return;
     var v=el.value;
@@ -263,7 +265,6 @@ function attachUrdu(elId){
       var lastWord=parts[parts.length-2];
       if(lastWord && /^[A-Za-z]+$/.test(lastWord)){
         parts[parts.length-2]=romanToUrduWord(lastWord);
-        var pos=el.selectionStart;
         el.value=parts.join(' ');
       }
     }
@@ -273,7 +274,12 @@ function attachUrdu(elId){
     if(el.value && /[A-Za-z]/.test(el.value)) el.value=convertText(el.value);
   });
 }
-attachUrdu('customerName'); attachUrdu('pata'); attachUrdu('note');
+function attachUrduAll(){
+  var ids=['q','customerName','pata','note','kapdaQism','silaiQism','suitCount','kondayTafseel','onePieceDetail'];
+  ids.forEach(function(id){ attachUrdu(document.getElementById(id)); });
+  document.querySelectorAll('input[type=text], textarea').forEach(function(el){ attachUrdu(el); });
+}
+attachUrduAll();
 var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
 if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
@@ -287,7 +293,17 @@ function setOne(el,k,v){el.parentElement.querySelectorAll('.o').forEach(o=>o.cla
 function toggleJeb(k,el){if(JEB.includes(k)){JEB=JEB.filter(x=>x!=k);el.classList.remove('a');}else{JEB.push(k);el.classList.add('a');}document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';}
 function calc(){var t=parseFloat(document.getElementById('totalPrice').value||0);var a=parseFloat(document.getElementById('advance').value||0);document.getElementById('baqaya').value=t-a;document.getElementById('baqayaText').textContent=t-a;}
 function saveData(){var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getElementById('kapdaQism').value,silaiQism:document.getElementById('silaiQism').value,suitCount:document.getElementById('suitCount').value,lambai:document.getElementById('lambai').value,bazu:document.getElementById('bazu').value,teera:document.getElementById('teera').value,gala:document.getElementById('gala').value,chhati:document.getElementById('chhati').value,kamar:document.getElementById('kamar').value,gheera:document.getElementById('gheera').value,moda:document.getElementById('moda').value,kaff:document.getElementById('kaff').value,shalwarLambai:document.getElementById('shalwarLambai').value,pouncha:document.getElementById('pouncha').value,kondayTafseel:document.getElementById('kondayTafseel').value,onePieceDetail:document.getElementById('onePieceDetail').value,totalPrice:document.getElementById('totalPrice').value,advance:document.getElementById('advance').value,baqaya:document.getElementById('baqaya').value,note:document.getElementById('note').value,galaQisam:SVAL.galaQisam||'',teeraQisam:SVAL.teeraQisam||'',silaiDesign:SVAL.silaiDesign||'',pounchaJali:SVAL.pounchaJali||'',daman:SVAL.daman||'',shalwarQisam:SVAL.shalwarQisam||'',onePieceJeb:SVAL.onePieceJeb||'',jeb:JEB.join(', '),custPhoto:custB64,designPhotos:designB64,emailBackup:MY_EMAIL};if(!o.customerName){alert('نام لکھیں');return;}var idx=DB.findIndex(x=>x.serialNo==o.serialNo);if(idx>=0)DB[idx]=o;else DB.push(o);localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));autoSyncToDrive();alert('✅ محفوظ! Auto Backup bhi ho gaya');updateCount();searchData();}
-function searchData(){var q=document.getElementById('q').value.toLowerCase();var r=document.getElementById('results');if(!q){r.innerHTML='';return;}var f=DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q));var h='';f.reverse().slice(0,20).forEach(function(o){h+='<div style=border:1.5px solid #0A3D2E;padding:7px;margin-bottom:5px;border-radius:9px;background:#FFFBEB;overflow:hidden><div style=font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b></div><div style=font-size:10px;color:#666>'+(o.silaiQism||'')+' | '+o.suitCount+'</div><div style=display:flex;gap:3px;margin-top:4px;flex-wrap:wrap><button class=b style=background:#0A3D2E;color:#fff;flex:1;font-size:10px onclick=viewFull(\''+o.serialNo+'\')>👁️ مکمل - Same Shape</button><button class=b style=background:#25D366;color:#fff;font-size:10px onclick=sendWAId(\''+o.serialNo+'\')>WhatsApp</button><button class=b style=background:#FEF3C7;font-size:10px onclick=printSimple(\''+o.serialNo+'\')>پرچی</button><button class=b style=background:#E3F2FD;font-size:10px onclick=editId(\''+o.serialNo+'\')>Edit</button></div></div>';});r.innerHTML=h||'<div style=text-align:center;font-size:11px>کوئی نہیں</div>';}
+function searchData(){
+  var qRaw=document.getElementById('q').value;
+  var q=qRaw.toLowerCase();
+  var qUrdu=convertText(qRaw).toLowerCase();
+  var r=document.getElementById('results');
+  if(!q){r.innerHTML='';return;}
+  var f=DB.filter(x=>{
+    var hay=(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase();
+    return hay.includes(q) || hay.includes(qUrdu);
+  });
+  var h='';f.reverse().slice(0,20).forEach(function(o){h+='<div style=border:1.5px solid #0A3D2E;padding:7px;margin-bottom:5px;border-radius:9px;background:#FFFBEB;overflow:hidden><div style=font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b></div><div style=font-size:10px;color:#666>'+(o.silaiQism||'')+' | '+o.suitCount+'</div><div style=display:flex;gap:3px;margin-top:4px;flex-wrap:wrap><button class=b style=background:#0A3D2E;color:#fff;flex:1;font-size:10px onclick=viewFull(\''+o.serialNo+'\')>👁️ مکمل - Same Shape</button><button class=b style=background:#25D366;color:#fff;font-size:10px onclick=sendWAId(\''+o.serialNo+'\')>WhatsApp</button><button class=b style=background:#FEF3C7;font-size:10px onclick=printSimple(\''+o.serialNo+'\')>پرچی</button><button class=b style=background:#E3F2FD;font-size:10px onclick=editId(\''+o.serialNo+'\')>Edit</button></div></div>';});r.innerHTML=h||'<div style=text-align:center;font-size:11px>کوئی نہیں</div>';}
 function clearSearch(){document.getElementById('q').value='';document.getElementById('results').innerHTML='';}
 function printSimple(id){var o=DB.find(x=>x.serialNo==id);if(!o)return;var w=window.open('','_blank');var html='<html dir=rtl><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;margin:0;padding:12px;text-align:center} .box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto} img.logo{width:80px;height:80px;border-radius:50%;border:2px solid #0A3D2E;object-fit:cover} h2{margin:6px 0;color:#0A3D2E;font-size:16px} .row{border-bottom:1px dashed #ccc;padding:6px 0;text-align:right;font-size:13px} .foot{margin-top:12px;font-weight:bold;color:#B71C1C;border:2px solid #B71C1C;padding:6px;border-radius:6px;font-size:13px}</style></head><body>'+'<div class=box><img src=logo.jpg class=logo><h2>دل ٹیلر شاپ - دل حسن</h2><p style=font-size:11px>03463604869 | '+MY_EMAIL+'</p><hr>'+'<div class=row><b>نام:</b> '+(o.customerName||'')+'</div>'+'<div class=row><b>موبائل:</b> '+(o.mobile||'')+'</div>'+'<div class=row><b>سلائی:</b> '+(o.silaiQism||'')+' ('+(o.suitCount||'')+')</div>'+'<div class=row><b>آرڈر:</b> '+(o.orderDate||'')+' | <b>ڈلیوری:</b> '+(o.deliveryDate||'')+'</div>'+'<div class=row><b>کل:</b> '+(o.totalPrice||0)+' | <b>ایڈوانس:</b> '+(o.advance||0)+' | <b>باقی:</b> '+(o.baqaya||0)+'</div>'+'<div class=foot>⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';w.document.write(html);w.document.close();setTimeout(()=>w.print(),500);}
 function printSimpleCurrent(){var id=document.getElementById('serialNo').value;if(id)printSimple(id);}
