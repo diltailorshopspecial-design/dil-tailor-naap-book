@@ -119,8 +119,8 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
 <script>
-// ===== APPS SCRIPT KA LINK YAHAN DALNA HAI - Ek dafa banao, phir auto chalega =====
-var DRIVE_URL = ""; // Yahan apna Apps Script ka Web App URL paste karo, misal: https://script.google.com/macros/s/XXXX/exec
+// ===== APPS SCRIPT KA LINK - AAP KA NAYA LINK YAHAN LAGA DIYA HAI =====
+var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
 var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
