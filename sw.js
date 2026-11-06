@@ -1,52 +1,13 @@
-const CACHE_NAME = 'dil-tailor-v8-final-offline';
-const urlsToCache = [
-  './',
-  './index.html',
-  './logo.jpg',
-  './manifest.json'
-];
-
-// Install - Cache sab files
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Caching files');
-        return cache.addAll(urlsToCache);
-      })
-  );
-  self.skipWaiting();
+var CACHE = 'dil-tailor-v8-final-offline';
+var FILES = ['./', './index.html', './manifest.json', './logo.jpg'];
+self.addEventListener('install', function(e){
+  e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(FILES); }).then(function(){ return self.skipWaiting(); }));
 });
-
-// Fetch - Offline se serve karo
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Agar cache mein hai to cache se do
-        if (response) {
-          return response;
-        }
-        // Nahi to internet se lao
-        return fetch(event.request);
-      }
-    )
-  );
+self.addEventListener('activate', function(e){
+  e.waitUntil(caches.keys().then(function(keys){
+    return Promise.all(keys.map(function(k){ if(k !== CACHE) return caches.delete(k); }));
+  }).then(function(){ return self.clients.claim(); }));
 });
-
-// Activate - Purane cache delete karo
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-  self.clients.claim();
+self.addEventListener('fetch', function(e){
+  e.respondWith(caches.match(e.request).then(function(r){ return r || fetch(e.request); }));
 });
