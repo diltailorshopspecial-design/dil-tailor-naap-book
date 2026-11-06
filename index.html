@@ -46,7 +46,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div style="font-size:11px;margin-top:4px">Storage: <span id="storageText">...</span></div>
 <div style="height:9px;background:#ddd;border-radius:10px;overflow:hidden;margin:4px 0"><div id="storageFill" style="height:100%;background:#2e7d32;width:1%"></div></div>
 <div style="font-size:9px;color:#666;text-align:center" id="storageDetail">Har Email 15 GB</div>
-<div style="font-size:9px;color:#666;text-align:center;margin-top:4px" dir="rtl">آپ کو کچھ دبانا نہیں پڑے گا، محفوظ کرتے ہی خود چلا جائے گا</div>
+<div style="font-size:9px;color:#666;text-align:center;margin-top:4px" dir="rtl">آپ کو کچھ دبانا نہیں پڑے گا، محفوظ کرتے ہی خود چلا جائے گا، نئے موبائل میں خود واپس آ جائے گا</div>
 </div>
 <div class="c record-bar">
 <span id="online" style="font-weight:bold">✅ آن لائن</span>
@@ -119,7 +119,6 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
 <script>
-// ===== APPS SCRIPT KA LINK - AAP KA NAYA LINK YAHAN LAGA DIYA HAI =====
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -153,7 +152,6 @@ document.getElementById('storageFill').style.background=pct>80?'#B71C1C':'#2e7d3
 showBackupInfo();
 function openPhoto(src){document.getElementById('photoBig').src=src;document.getElementById('photoModal').style.display='flex';}
 function closePhoto(){document.getElementById('photoModal').style.display='none';}
-// ===== AUTO DRIVE SYNC - Koi button nahi dabana =====
 function autoSyncToDrive(){
 var data=JSON.stringify({email:MY_EMAIL,time:new Date().toLocaleString(),total:DB.length,customers:DB});
 localStorage.setItem('dil_drive_backup_json',data);
@@ -173,6 +171,37 @@ fetch(DRIVE_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'applicati
   document.getElementById('backupState').textContent='⏳ Net slow hai - Baad me khud try hoga';
 });
 }
+// ===== NAYA - AUTO WAPSI - Naye mobile / laptop me khud aa jayega =====
+function autoLoadFromDrive(){
+  if(!DRIVE_URL || DRIVE_URL.length<10) return;
+  if(!navigator.onLine) return;
+  document.getElementById('backupState').textContent='⏳ Drive se purana data laaya ja raha hai...';
+  fetch(DRIVE_URL + "?email=" + encodeURIComponent(MY_EMAIL))
+  .then(function(r){ return r.text(); })
+  .then(function(txt){
+    try{
+      var d = JSON.parse(txt);
+      if(d && d.customers && d.customers.length>0){
+        // Agar is mobile me data khaali hai, ya Drive me zyada hai, to Drive wala le lo
+        if(DB.length===0 || d.total > DB.length){
+          DB = d.customers;
+          localStorage.setItem(DB_KEY, JSON.stringify(DB));
+          localStorage.setItem('dil_FINAL_5_EMAIL', JSON.stringify(DB));
+          document.getElementById('backupState').textContent='✅ Drive se '+DB.length+' record wapis aa gaye - '+new Date().toLocaleTimeString();
+          updateCount(); showBackupInfo();
+          if(DB.length>0){ document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1; }
+          alert('✅ Drive se '+DB.length+' record khud ba khud wapis aa gaye!');
+        } else {
+          document.getElementById('backupState').textContent='✅ Auto ON hai - Sab data pehle se maujood hai';
+        }
+      } else {
+        document.getElementById('backupState').textContent='✅ Auto ON hai - Naya mobile, Drive me abhi data nahi';
+      }
+    }catch(e){ document.getElementById('backupState').textContent='✅ Auto ON hai'; }
+  }).catch(function(){ document.getElementById('backupState').textContent='✅ Auto ON hai'; });
+}
+// App khulte hi khud Drive se le aao
+setTimeout(autoLoadFromDrive, 800);
 window.addEventListener('online', function(){ autoSyncToDrive(); });
 var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
