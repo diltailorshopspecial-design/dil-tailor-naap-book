@@ -1,21 +1,12 @@
 {
   "name": "Dil Tailor Shop - Dil Hassan",
   "short_name": "Dil Tailor",
-  "description": "Dil Tailor Shop Customer Measurement Book",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#FDF6E3",
+  "background_color": "#0A3D2E",
   "theme_color": "#0A3D2E",
   "icons": [
-    {
-      "src": "logo.jpg",
-      "sizes": "192x192",
-      "type": "image/jpeg"
-    },
-    {
-      "src": "logo.jpg",
-      "sizes": "512x512",
-      "type": "image/jpeg"
-    }
+    { "src": "logo.jpg", "sizes": "192x192", "type": "image/jpeg", "purpose": "any" },
+    { "src": "logo.jpg", "sizes": "512x512", "type": "image/jpeg", "purpose": "any" }
   ]
 }
