@@ -6,8 +6,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V5</title>
-<link rel="manifest" href="manifest.json?v=v5">
+<title>Dil Tailor Shop - MUKAMMAL FINAL V6</title>
+<link rel="manifest" href="manifest.json?v=v6">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -39,7 +39,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 </head>
 <body>
 <div class="t">
-  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V5</small></div></div>
+  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V6</small></div></div>
   <div class="badge-small" id="badge">Auto Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
 </div>
 <div class="c email-compact" id="allEmails"></div>
@@ -124,7 +124,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
 <script>
-var APP_VERSION='v5';
+var APP_VERSION='v6';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -132,7 +132,6 @@ var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
 var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
 var SVAL={},JEB=[],custB64=null,designB64=[];
 var URDU_ON=true;
-// === MUKAMMAL URDU - Koi bhi lafz ===
 var URDU_NAMES={"asad":"اسد","ahmed":"احمد","ali":"علی","bilal":"بلال","usman":"عثمان","umar":"عمر","hamza":"حمزہ","hassan":"حسن","hussain":"حسین","muhammad":"محمد","mohammad":"محمد","ahmad":"احمد","abdullah":"عبداللہ","ibrahim":"ابراہیم","yusuf":"یوسف","kashif":"کاشف","naveed":"نوید","naweed":"نوید","imran":"عمران","kamran":"کامران","farhan":"فرحان","zeeshan":"ذیشان","adil":"عادل","arshad":"ارشد","nasir":"ناصر","waseem":"وسیم","tariq":"طارق","shahid":"شاہد","akram":"اکرم","saleem":"سلیم","rashid":"راشد","javed":"جاوید","ashfaq":"اشفاق","rizwan":"رضوان","tanveer":"تنویر","shafiq":"شفیق","dil":"دل","dilawar":"دلاور","lasuri":"لاسوری","lasoori":"لاسوری","fix":"فکس","open":"اوپن","close":"کلوز","gol":"گول","choras":"چورس","sada":"سادہ","nok":"نوک","single":"سنگل","double":"ڈبل","front":"فرنٹ","side":"سائیڈ","shalwar":"شلوار","qaiser":"قیصر","chorran":"چوراں","wallah":"والا","choranwallah":"چوراں والا","kalan":"کلاں","ona":"اونہ","kh":"کھ","gujranwala":"گوجرانوالہ","gujrat":"گجرات","lahore":"لاہور","sialkot":"سیالکوٹ","kameez":"قمیض","bazu":"بازو","lambai":"لمبائی","teera":"تیرا","gala":"گلہ","chhati":"چھاتی","kamar":"کمر","gheera":"گھیرا","moda":"موڈا","kaff":"کف","collar":"کالر","ben":"بین","jeb":"جیب","pouncha":"پانچہ","daman":"دامن","jali":"جالی","silai":"سلائی","kapda":"کپڑا","suit":"سوٹ","wash":"واش","wear":"وئیر","cotton":"کاٹن","latha":"لٹھا","khaddar":"کھدر","boski":"بوسکی"};
 var LETTER_MAP={"a":"ا","b":"ب","c":"ک","d":"د","e":"ے","f":"ف","g":"گ","h":"ھ","i":"ی","j":"ج","k":"ک","l":"ل","m":"م","n":"ن","o":"و","p":"پ","q":"ق","r":"ر","s":"س","t":"ت","u":"و","v":"و","w":"و","x":"کس","y":"ی","z":"ز","ch":"چ","sh":"ش","kh":"خ","gh":"غ","ph":"پھ","th":"تھ","aa":"آ"};
 function romanToUrdu(word){var w=word.toLowerCase().trim();if(!w)return w;if(URDU_NAMES[w])return URDU_NAMES[w];var out="";var i=0;while(i<w.length){var two=w.substr(i,2);if(LETTER_MAP[two]){out+=LETTER_MAP[two];i+=2;continue;}var one=w[i];if(LETTER_MAP[one])out+=LETTER_MAP[one];else out+=one;i++;}return out;}
@@ -148,7 +147,7 @@ function convertInputValue(el){if(!URDU_ON)return;var v=el.value;if(!/[a-zA-Z]/.
 function convertOnBlur(el){if(!URDU_ON)return;var v=el.value.trim();if(!v)return;if(!/[a-zA-Z]/.test(v))return;el.value=v.split(/\s+/).map(convertOneToken).join(" ");}
 function convertAllFields(){if(!URDU_ON)return;var els=document.querySelectorAll('input[type="text"], input:not([type]), textarea');els.forEach(function(el){if(el.id==='mobile'||el.id==='serialNo'||el.id==='totalPrice'||el.id==='advance'||el.id==='baqaya'||el.id==='orderDate'||el.id==='deliveryDate')return;convertOnBlur(el);});}
 function toggleUrdu(){URDU_ON=!URDU_ON;document.getElementById('urduToggleText').textContent=URDU_ON?'ON ✅':'OFF';document.getElementById('urduBtn').textContent=URDU_ON?'SB ko Urdu karo - ON':'SB ko Urdu karo - OFF';}
-function clearAllUrduCache(){if('caches' in window){caches.keys().then(function(names){names.forEach(function(n){caches.delete(n);});});}if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(regs){regs.forEach(function(r){r.unregister();});});}localStorage.setItem('dil_force_update','v5');alert('✅ Purani Cache saaf ho gayi! Ab app band karke dobara kholo, nayi wali khulegi.');setTimeout(function(){location.reload(true);},800);}
+function clearAllUrduCache(){if('caches' in window){caches.keys().then(function(names){names.forEach(function(n){caches.delete(n);});});}if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(regs){regs.forEach(function(r){r.unregister();});});}localStorage.setItem('dil_force_update','v6');alert('✅ Purani Cache saaf ho gayi! Ab app band karke dobara kholo, nayi wali khulegi.');setTimeout(function(){location.reload(true);},800);}
 function showEmails(){
 document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
 var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
@@ -227,7 +226,6 @@ window.addEventListener('online', function(){ autoSyncToDrive(); });
 var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
 if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
-// SAB JAGAH URDU - Search, Naam, Pata, Note, Kuff, Lambai, sab
 ['q','customerName','pata','note','kondayTafseel','onePieceDetail','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kapdaQism','silaiQism','suitCount'].forEach(function(id){var el=document.getElementById(id);if(!el)return;el.addEventListener('input',function(){convertInputValue(this);});el.addEventListener('blur',function(){convertOnBlur(this);});el.addEventListener('change',function(){convertOnBlur(this);});});
 document.getElementById('q').addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){convertInputValue(this);searchData();}});
 function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=500;c.height=500*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.5));};i.src=e.target.result;};r.readAsDataURL(f);}
@@ -376,8 +374,8 @@ document.addEventListener('visibilitychange', async ()=>{
   }
 });
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v5').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
-if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v5'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v5')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v5'); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v6').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
+if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v6'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v6')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v6'); }
 </script>
 </body>
 </html>
