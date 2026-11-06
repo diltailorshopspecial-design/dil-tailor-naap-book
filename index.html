@@ -32,6 +32,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 .editable{border:2px solid #0A3D2E !important;background:#FFF8E0 !important;font-weight:600}
 #photoModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;align-items:center;justify-content:center;padding:10px}
 #photoModal img{max-width:95vw;max-height:85vh;border-radius:12px;border:3px solid #C9A86A;object-fit:contain}
+.urdu-on{background:#FF9800 !important;color:#fff !important}
 </style>
 </head>
 <body>
@@ -67,9 +68,14 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="results" style="margin-top:6px"></div>
 </div>
 <div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
+<div style="display:flex;gap:5px;margin-bottom:6px">
+<button id="urduBtn" onclick="toggleUrdu()" class="b" style="background:#E8F5E9;border:1.5px solid #0A3D2E;flex:1;font-size:12px">ABC -&gt; اردو : OFF</button>
+<button onclick="convertNow()" class="b" style="background:#FF9800;color:#fff;flex:1;font-size:12px">🔄 اردو کرو</button>
+</div>
+<div style="font-size:10px;color:#666;text-align:center;margin-bottom:5px">ON کرو تو English لکھو گے تو خود Urdu ہو جائے گا - جیسے Qaiser = قیصر</div>
 <div class="g2"><div style="font-size:11px">سیریل<input id="serialNo"></div><div style="font-size:11px">سوٹ - خود لکھیں<input id="suitCount" class="editable" list="suitList" value="1 سوٹ" placeholder="خود لکھیں - 10 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"><option value="20 سوٹ"></datalist></div></div>
-<div style="font-size:11px">نام *<input id="customerName"></div>
-<div class="g2"><div style="font-size:11px">موبائل<input id="mobile"></div><div style="font-size:11px">پتہ<input id="pata"></div></div>
+<div style="font-size:11px">نام *<input id="customerName" placeholder="English likho - Qaiser - khud Urdu ho jayega"></div>
+<div class="g2"><div style="font-size:11px">موبائل<input id="mobile"></div><div style="font-size:11px">پتہ<input id="pata" placeholder="Gujranwala likho"></div></div>
 <div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
 <div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
 <div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
@@ -107,7 +113,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div class="c">
 <div class="g2"><div style="font-size:11px">کل<input id="totalPrice" type="number" oninput="calc()"></div><div style="font-size:11px">ایڈوانس<input id="advance" type="number" oninput="calc()"></div></div>
 <div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
-<textarea id="note" placeholder="نوٹ" style="font-size:11px"></textarea>
+<textarea id="note" placeholder="نوٹ - English likho, Urdu ho jayega"></textarea>
 <button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
 <div style="display:flex;gap:4px;margin-top:5px">
 <button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
@@ -171,7 +177,6 @@ fetch(DRIVE_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'applicati
   document.getElementById('backupState').textContent='⏳ Net slow hai - Baad me khud try hoga';
 });
 }
-// ===== NAYA - AUTO WAPSI - Naye mobile / laptop me khud aa jayega =====
 function autoLoadFromDrive(){
   if(!DRIVE_URL || DRIVE_URL.length<10) return;
   if(!navigator.onLine) return;
@@ -182,7 +187,6 @@ function autoLoadFromDrive(){
     try{
       var d = JSON.parse(txt);
       if(d && d.customers && d.customers.length>0){
-        // Agar is mobile me data khaali hai, ya Drive me zyada hai, to Drive wala le lo
         if(DB.length===0 || d.total > DB.length){
           DB = d.customers;
           localStorage.setItem(DB_KEY, JSON.stringify(DB));
@@ -200,9 +204,76 @@ function autoLoadFromDrive(){
     }catch(e){ document.getElementById('backupState').textContent='✅ Auto ON hai'; }
   }).catch(function(){ document.getElementById('backupState').textContent='✅ Auto ON hai'; });
 }
-// App khulte hi khud Drive se le aao
 setTimeout(autoLoadFromDrive, 800);
 window.addEventListener('online', function(){ autoSyncToDrive(); });
+// ===== URDU TRANSLITERATION - ABC -> URDU =====
+var urduMode = localStorage.getItem('dil_urdu_mode')==='1';
+function updateUrduBtn(){
+  var b=document.getElementById('urduBtn');
+  if(urduMode){ b.textContent='ABC -> اردو : ON ✅'; b.classList.add('urdu-on'); }
+  else { b.textContent='ABC -> اردو : OFF'; b.classList.remove('urdu-on'); }
+}
+function toggleUrdu(){
+  urduMode=!urduMode;
+  localStorage.setItem('dil_urdu_mode', urduMode?'1':'0');
+  updateUrduBtn();
+  if(urduMode) alert('✅ Urdu ON ho gaya! Ab English likho, khud Urdu ho jayega. Misal: Qaiser likho, space dabao - قیصر ban jayega');
+}
+updateUrduBtn();
+var ROMAN_MAP = {
+  'qaiser':'قیصر','asad':'اسد','ahmed':'احمد','ali':'علی','hassan':'حسن','husnain':'حسنین','bilal':'بلال','usman':'عثمان','umar':'عمر','umer':'عمر','younas':'یونس','younis':'یونس','khan':'خان','mirza':'مرزا','raza':'رضا','razaq':'رزاق','abdullah':'عبداللہ','muhammad':'محمد','mohammad':'محمد','ahmad':'احمد','naweed':'نوید','naveed':'نوید','dil':'دل','gujranwala':'گوجرانوالہ','gujranwla':'گوجرانوالہ','lahore':'لاہور','karachi':'کراچی','islamabad':'اسلام آباد','pindi':'پنڈی','sialkot':'سیالکوٹ','faisalabad':'فیصل آباد','multan':'ملتان','peshawar':'پشاور','quetta':'کوئٹہ','hyderabad':'حیدرآباد','sargodha':'سرگودھا','sahiwal':'ساہیوال','okara':'اوکاڑہ','kasur':'قصور','sheikhupura':'شیخوپورہ','jhelum':'جہلم','gujrat':'گجرات','mandi':'منڈی','burewala':'بورے والا','vehari':'وہاڑی','chichawatni':'چیچہ وطنی','ariz':'عارض','arizdil':'عارض دل'
+};
+function romanToUrduWord(w){
+  var low=w.toLowerCase();
+  if(ROMAN_MAP[low]) return ROMAN_MAP[low];
+  var out=''; var i=0;
+  var two={'kh':'خ','gh':'غ','ch':'چ','sh':'ش','th':'تھ','ph':'پھ','bh':'بھ','dh':'دھ','zh':'ژ','ai':'ی','ei':'ی','ee':'ی','oo':'و','au':'و','ou':'و','aa':'ا'};
+  var one={'a':'ا','b':'ب','c':'ک','d':'د','e':'ے','f':'ف','g':'گ','h':'ھ','i':'ی','j':'ج','k':'ک','l':'ل','m':'م','n':'ن','o':'و','p':'پ','q':'ق','r':'ر','s':'س','t':'ت','u':'و','v':'و','w':'و','x':'کس','y':'ی','z':'ز'};
+  while(i<low.length){
+    var t=low.substr(i,2);
+    if(two[t]){ out+=two[t]; i+=2; continue; }
+    var c=low[i];
+    if(one[c]) out+=one[c]; else out+=c;
+    i++;
+  }
+  return out;
+}
+function convertText(txt){
+  if(!txt) return txt;
+  return txt.split(' ').map(function(word){
+    if(/^[A-Za-z]+$/.test(word)) return romanToUrduWord(word);
+    return word;
+  }).join(' ');
+}
+function convertNow(){
+  ['customerName','pata','note','kapdaQism','silaiQism'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el && el.value) el.value=convertText(el.value);
+  });
+  alert('✅ Urdu me kar diya!');
+}
+function attachUrdu(elId){
+  var el=document.getElementById(elId);
+  if(!el) return;
+  el.addEventListener('input', function(){
+    if(!urduMode) return;
+    var v=el.value;
+    if(v.endsWith(' ')){
+      var parts=v.split(' ');
+      var lastWord=parts[parts.length-2];
+      if(lastWord && /^[A-Za-z]+$/.test(lastWord)){
+        parts[parts.length-2]=romanToUrduWord(lastWord);
+        var pos=el.selectionStart;
+        el.value=parts.join(' ');
+      }
+    }
+  });
+  el.addEventListener('blur', function(){
+    if(!urduMode) return;
+    if(el.value && /[A-Za-z]/.test(el.value)) el.value=convertText(el.value);
+  });
+}
+attachUrdu('customerName'); attachUrdu('pata'); attachUrdu('note');
 var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
 if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
