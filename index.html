@@ -6,8 +6,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V7</title>
-<link rel="manifest" href="manifest.json?v=v7">
+<title>Dil Tailor Shop - MUKAMMAL FINAL V8</title>
+<link rel="manifest" href="manifest.json?v=v8">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -39,7 +39,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 </head>
 <body>
 <div class="t">
-  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V7</small></div></div>
+  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V8</small></div></div>
   <div class="badge-small" id="badge">Auto Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
 </div>
 <div class="c email-compact" id="allEmails"></div>
@@ -63,18 +63,22 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 </div>
 <div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے - سکرین خود بند ہو جائے گی</div>
 </div>
+<!-- NAYI TARTEEB V8 - Pehle Urdu Button, Phir Search -->
+<div class="c" style="background:#FFF3E0;border:2px solid #FF9800">
+<div style="font-size:11px;font-weight:bold;text-align:center">Pehle poora English likho, phir Space / Next dabao - khud Urdu ho jayega - <span id="urduToggleText">ON ✅</span></div>
+<button onclick="toggleUrdu()" class="b" style="width:100%;background:#FF9800;color:#fff;font-size:13px;padding:10px;margin-top:5px" id="urduBtn">SB ko Urdu karo - ON</button>
+<div style="font-size:9px;text-align:center;color:#666;margin-top:3px">Is ko OFF mat karna, ON hi rehne do</div>
+</div>
 <div class="c">
 <h3 style="font-size:13px">🔍 تلاش کریں - Ab Yahan Bhi Urdu Hoga</h3>
-<div style="font-size:10px;color:#0A3D2E;font-weight:bold;text-align:center;background:#E8F5E9;padding:4px;border-radius:6px;margin-bottom:4px">Pehle poora English likho, phir Space dabao - khud Urdu ho jayega - <span id="urduToggleText">ON ✅</span></div>
 <div class="g2"><input id="q" inputmode="text" enterkeyhint="search" placeholder="نام، موبائل، سیریل - Asad = اسد" style="font-size:12px"><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div>
 <button onclick="clearSearch()" class="b" style="width:100%;margin-top:5px;border:1px solid #0A3D2E;font-size:11px">❌ صاف</button>
-<div style="display:flex;gap:4px;margin-top:5px"><button onclick="toggleUrdu()" class="b" style="width:100%;background:#FF9800;color:#fff;font-size:11px" id="urduBtn">SB ko Urdu karo - ON</button></div>
 <div id="results" style="margin-top:6px"></div>
 </div>
 <div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
 <div class="g2"><div style="font-size:11px">سیریل<input id="serialNo" inputmode="numeric" enterkeyhint="next"></div><div style="font-size:11px">سوٹ - خود لکھیں<input id="suitCount" inputmode="text" enterkeyhint="next" class="editable" list="suitList" value="1 سوٹ" placeholder="خود لکھیں - 10 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"><option value="20 سوٹ"></datalist></div></div>
-<div style="font-size:11px">نام *<input id="customerName" inputmode="text" enterkeyhint="next" placeholder="Pehle poora naam English me likho, phir Space dabao - Ali = علی" autocomplete="off"></div>
-<div class="g2"><div style="font-size:11px">موبائل<input id="mobile" inputmode="tel" enterkeyhint="next"></div><div style="font-size:11px">پتہ<input id="pata" inputmode="text" enterkeyhint="next" placeholder="Poora pata English me likho, phir Space dabao - Lasuri = لاسوری" autocomplete="off"></div></div>
+<div style="font-size:11px">نام *<input id="customerName" inputmode="text" enterkeyhint="next" placeholder="Pehle poora naam English me likho, phir Space / Next dabao - Ali = علی" autocomplete="off"></div>
+<div class="g2"><div style="font-size:11px">موبائل<input id="mobile" inputmode="tel" enterkeyhint="next"></div><div style="font-size:11px">پتہ<input id="pata" inputmode="text" enterkeyhint="next" placeholder="Poora pata English me likho, phir Space / Next dabao - Lasuri = لاسوری" autocomplete="off"></div></div>
 <div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
 <div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" inputmode="text" enterkeyhint="next" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
 <div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" inputmode="text" enterkeyhint="next" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
@@ -92,15 +96,16 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><input type="file" id="designCam" hidden accept="image/*" capture="environment" onchange="previewDesignOne(event)">
 <div id="designPrev" style="display:flex;gap:3px;flex-wrap:wrap;margin-top:4px"></div>
 </div>
-<div class="c"><h3 style="font-size:13px">📏 قمیض - Yahan Calculator wala keyboard hi rahega</h3>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai" inputmode="decimal" enterkeyhint="next" placeholder="40" autocomplete="off"></div><div style="font-size:11px">بازو<input id="bazu" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">تیرا<input id="teera" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">گلہ<input id="gala" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">کمر<input id="kamar" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">موڈا<input id="moda" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
+<div class="c"><h3 style="font-size:13px">📏 قمیض - Pehle Calculator aayega, Button se ABC bhi ho jayega</h3>
+<div style="display:flex;gap:4px;margin-bottom:6px"><button id="kbdBtn" onclick="toggleNumKeyboard()" class="b" style="width:100%;background:#0A3D2E;color:#fff;font-size:12px;padding:9px">⌨️ Keyboard: 123 Calculator - ABC ke liye dabao</button></div>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai" class="num-field" inputmode="decimal" enterkeyhint="next" placeholder="40" autocomplete="off"></div><div style="font-size:11px">بازو<input id="bazu" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
+<div class="g2"><div style="font-size:11px">تیرا<input id="teera" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">گلہ<input id="gala" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
+<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">کمر<input id="kamar" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
+<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">موڈا<input id="moda" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
 <div class="g2"><div style="font-size:11px">کف<input id="kaff" inputmode="text" enterkeyhint="next" placeholder="8fix = 8 فکس" autocomplete="off"></div><div style="font-size:11px">کالر<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div>
 </div>
 <div class="c"><h3 style="font-size:13px">👖 شلوار</h3>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">پانچہ<input id="pouncha" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
+<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">پانچہ<input id="pouncha" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
 <div class="g2"><div style="font-size:11px">کوندے پلے<input id="kondayTafseel" inputmode="text" enterkeyhint="next" placeholder="مثلاً 8 انچ" autocomplete="off"></div><div style="font-size:11px">قسم<div style="display:flex;gap:2px"><div class="o" id="kondayBtn" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" onclick="setShalwar(this,'1 پیس')">1 پیس</div></div></div></div>
 <div id="onePieceBox"><b style="font-size:11px">🔷 1 پیس شلوار</b><input id="onePieceDetail" inputmode="text" enterkeyhint="next" placeholder="جیب والا، بیلٹ" autocomplete="off"><div style="display:flex;gap:2px;margin-top:4px"><div class="o" onclick="setOne(this,'onePieceJeb','جیب والا')">جیب والا</div><div class="o" onclick="setOne(this,'onePieceJeb','بغیر')">بغیر</div></div></div>
 </div>
@@ -112,7 +117,7 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div class="c">
 <div class="g2"><div style="font-size:11px">کل<input id="totalPrice" type="number" inputmode="decimal" oninput="calc()"></div><div style="font-size:11px">ایڈوانس<input id="advance" type="number" inputmode="decimal" oninput="calc()"></div></div>
 <div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
-<textarea id="note" inputmode="text" enterkeyhint="done" placeholder="نوٹ - Poora English likho, phir Space dabao, khud Urdu ho jayega" style="font-size:11px" autocomplete="off"></textarea>
+<textarea id="note" inputmode="text" enterkeyhint="done" placeholder="نوٹ - Poora English likho, phir Space / Next dabao, khud Urdu ho jayega" style="font-size:11px" autocomplete="off"></textarea>
 <button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
 <div style="display:flex;gap:4px;margin-top:5px">
 <button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
@@ -124,14 +129,15 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
 <script>
-var APP_VERSION='v7';
+var APP_VERSION='v8';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
 var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
 var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
 var SVAL={},JEB=[],custB64=null,designB64=[];
-var URDU_ON=true;
+var URDU_ON = localStorage.getItem('dil_urdu_on')!== 'OFF';
+var NUM_MODE = localStorage.getItem('dil_kbd_mode') || 'decimal';
 var URDU_NAMES={"asad":"اسد","ahmed":"احمد","ali":"علی","bilal":"بلال","usman":"عثمان","umar":"عمر","hamza":"حمزہ","hassan":"حسن","hussain":"حسین","muhammad":"محمد","mohammad":"محمد","ahmad":"احمد","abdullah":"عبداللہ","ibrahim":"ابراہیم","yusuf":"یوسف","kashif":"کاشف","naveed":"نوید","naweed":"نوید","imran":"عمران","kamran":"کامران","farhan":"فرحان","zeeshan":"ذیشان","adil":"عادل","arshad":"ارشد","nasir":"ناصر","waseem":"وسیم","tariq":"طارق","shahid":"شاہد","akram":"اکرم","saleem":"سلیم","rashid":"راشد","javed":"جاوید","ashfaq":"اشفاق","rizwan":"رضوان","tanveer":"تنویر","shafiq":"شفیق","dil":"دل","dilawar":"دلاور","lasuri":"لاسوری","lasoori":"لاسوری","fix":"فکس","open":"اوپن","close":"کلوز","gol":"گول","choras":"چورس","sada":"سادہ","nok":"نوک","single":"سنگل","double":"ڈبل","front":"فرنٹ","side":"سائیڈ","shalwar":"شلوار","qaiser":"قیصر","chorran":"چوراں","wallah":"والا","choranwallah":"چوراں والا","kalan":"کلاں","ona":"اونہ","kh":"کھ","gujranwala":"گوجرانوالہ","gujrat":"گجرات","lahore":"لاہور","sialkot":"سیالکوٹ","kameez":"قمیض","bazu":"بازو","lambai":"لمبائی","teera":"تیرا","gala":"گلہ","chhati":"چھاتی","kamar":"کمر","gheera":"گھیرا","moda":"موڈا","kaff":"کف","collar":"کالر","ben":"بین","jeb":"جیب","pouncha":"پانچہ","daman":"دامن","jali":"جالی","silai":"سلائی","kapda":"کپڑا","suit":"سوٹ","wash":"واش","wear":"وئیر","cotton":"کاٹن","latha":"لٹھا","khaddar":"کھدر","boski":"بوسکی"};
 var LETTER_MAP={"a":"ا","b":"ب","c":"ک","d":"د","e":"ے","f":"ف","g":"گ","h":"ھ","i":"ی","j":"ج","k":"ک","l":"ل","m":"م","n":"ن","o":"و","p":"پ","q":"ق","r":"ر","s":"س","t":"ت","u":"و","v":"و","w":"و","x":"کس","y":"ی","z":"ز","ch":"چ","sh":"ش","kh":"خ","gh":"غ","ph":"پھ","th":"تھ","aa":"آ"};
 function romanToUrdu(word){var w=word.toLowerCase().trim();if(!w)return w;if(URDU_NAMES[w])return URDU_NAMES[w];var out="";var i=0;while(i<w.length){var two=w.substr(i,2);if(LETTER_MAP[two]){out+=LETTER_MAP[two];i+=2;continue;}var one=w[i];if(LETTER_MAP[one])out+=LETTER_MAP[one];else out+=one;i++;}return out;}
@@ -143,11 +149,24 @@ function convertOneToken(tok){
   if(m2){ return romanToUrdu(m2[1]) + " " + m2[2]; }
   return romanToUrdu(tok);
 }
-// NAYA TAREEKA - Likhne ke beech me kuch nahi badlega, sirf Space / Next / Bahar jaane par badlega
-function convertOnBlur(el){if(!URDU_ON)return;if(!el||!el.value)return;var v=el.value.trim();if(!v)return;if(!/[a-zA-Z]/.test(v))return;var newV=v.split(/\s+/).map(convertOneToken).join(" ");if(newV!==el.value){var pos=el.selectionStart;el.value=newV;try{el.setSelectionRange(pos,pos);}catch(e){}}}
+function convertOnBlur(el){if(!URDU_ON)return;if(!el||!el.value)return;var v=el.value.trim();if(!v)return;if(!/[a-zA-Z]/.test(v))return;var newV=v.split(/\s+/).map(convertOneToken).join(" ");if(newV!==el.value){el.value=newV;}}
 function convertOnSpace(el){if(!URDU_ON)return;if(!el||!el.value)return;var v=el.value;if(!/[a-zA-Z]/.test(v))return;var parts=v.split(" ");for(var i=0;i<parts.length;i++){parts[i]=convertOneToken(parts[i]);}var newV=parts.join(" ");if(newV!==v){el.value=newV;}}
 function convertAllFields(){if(!URDU_ON)return;var els=document.querySelectorAll('input[type="text"], input:not([type]), textarea');els.forEach(function(el){if(el.id==='mobile'||el.id==='serialNo'||el.id==='totalPrice'||el.id==='advance'||el.id==='baqaya'||el.id==='orderDate'||el.id==='deliveryDate')return;convertOnBlur(el);});}
-function toggleUrdu(){URDU_ON=!URDU_ON;document.getElementById('urduToggleText').textContent=URDU_ON?'ON ✅':'OFF';document.getElementById('urduBtn').textContent=URDU_ON?'SB ko Urdu karo - ON':'SB ko Urdu karo - OFF';}
+function applyUrduUI(){document.getElementById('urduToggleText').textContent=URDU_ON?'ON ✅':'OFF';document.getElementById('urduBtn').textContent=URDU_ON?'SB ko Urdu karo - ON':'SB ko Urdu karo - OFF';document.getElementById('urduBtn').style.background=URDU_ON?'#FF9800':'#999';}
+function toggleUrdu(){URDU_ON=!URDU_ON;localStorage.setItem('dil_urdu_on',URDU_ON?'ON':'OFF');applyUrduUI();if(URDU_ON)convertAllFields();}
+function toggleNumKeyboard(){
+  NUM_MODE = NUM_MODE==='decimal' ? 'text' : 'decimal';
+  localStorage.setItem('dil_kbd_mode',NUM_MODE);
+  applyKbdUI();
+  var active=document.activeElement;
+  if(active && active.classList && active.classList.contains('num-field')){ active.blur(); setTimeout(function(){active.focus();},80); }
+}
+function applyKbdUI(){
+  document.querySelectorAll('.num-field').forEach(function(el){ el.setAttribute('inputmode',NUM_MODE); });
+  var b=document.getElementById('kbdBtn');
+  if(b){ b.textContent = NUM_MODE==='decimal' ? '⌨️ Keyboard: 123 Calculator - ABC ke liye dabao' : '⌨️ Keyboard: ABC Urdu / English - Calculator ke liye dabao'; b.style.background = NUM_MODE==='decimal' ? '#0A3D2E' : '#FF9800'; }
+}
+applyUrduUI(); applyKbdUI();
 function showEmails(){
 document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
 var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
@@ -226,8 +245,7 @@ window.addEventListener('online', function(){ autoSyncToDrive(); });
 var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
 var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
 if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
-// SAB JAGAH - Sirf Space / Enter / Bahar jaane par Urdu hoga, likhte waqt nahi - Keyboard bhi wahi rahega
-['q','customerName','pata','note','kondayTafseel','onePieceDetail','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kapdaQism','silaiQism','suitCount'].forEach(function(id){var el=document.getElementById(id);if(!el)return;el.addEventListener('keydown',function(e){if(e.key===' '){setTimeout(function(){convertOnSpace(el);},10);} if(e.key==='Enter'){convertOnBlur(el);}});el.addEventListener('blur',function(){convertOnBlur(this);});el.addEventListener('change',function(){convertOnBlur(this);});});
+['q','customerName','pata','note','kondayTafseel','onePieceDetail','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kapdaQism','silaiQism','suitCount'].forEach(function(id){var el=document.getElementById(id);if(!el)return;el.addEventListener('keydown',function(e){if(e.key===' '){setTimeout(function(){convertOnSpace(el);},10);} if(e.key==='Enter'){convertOnBlur(el);}});el.addEventListener('keyup',function(e){if(e.key==='Enter'||e.key==='Tab'){convertOnBlur(this);}});el.addEventListener('blur',function(){convertOnBlur(this);});el.addEventListener('change',function(){convertOnBlur(this);});el.addEventListener('focusout',function(){convertOnBlur(this);});});
 document.getElementById('q').addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){convertOnSpace(this);searchData();}});
 function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=500;c.height=500*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.5));};i.src=e.target.result;};r.readAsDataURL(f);}
 function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';document.getElementById('custBtns').style.display='flex';});}
@@ -375,8 +393,8 @@ document.addEventListener('visibilitychange', async ()=>{
   }
 });
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v7').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
-if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v7'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v7')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v7'); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v8').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
+if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v8'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v8')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v8'); }
 </script>
 </body>
 </html>
