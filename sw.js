@@ -1,7 +1,8 @@
-var CACHE = 'dil-tailor-v14-final-offline';
+var CACHE = 'dil-tailor-v16-final-offline';
 var FILES = ['./', './index.html', './manifest.json', './logo.jpg'];
 self.addEventListener('install', function(e){
-  e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(FILES); }).then(function(){ return self.skipWaiting(); }));
+  self.skipWaiting();
+  e.waitUntil(caches.open(CACHE).then(function(c){ return c.addAll(FILES); }).catch(function(){}));
 });
 self.addEventListener('activate', function(e){
   e.waitUntil(caches.keys().then(function(keys){
@@ -9,5 +10,12 @@ self.addEventListener('activate', function(e){
   }).then(function(){ return self.clients.claim(); }));
 });
 self.addEventListener('fetch', function(e){
-  e.respondWith(caches.match(e.request).then(function(r){ return r || fetch(e.request); }));
+  if(e.request.method !== 'GET') return;
+  e.respondWith(
+    fetch(e.request).then(function(res){
+      var copy = res.clone();
+      caches.open(CACHE).then(function(c){ c.put(e.request, copy); });
+      return res;
+    }).catch(function(){ return caches.match(e.request).then(function(m){ return m || caches.match('./index.html'); }); })
+  );
 });
