@@ -6,8 +6,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V15</title>
-<link rel="manifest" href="manifest.json?v=v15">
+<title>Dil Tailor Shop - MUKAMMAL FINAL V14</title>
+<link rel="manifest" href="manifest.json?v=v14">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -35,15 +35,13 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 .editable{border:2px solid #0A3D2E !important;background:#FFF8E0 !important;font-weight:600}
 #photoModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;align-items:center;justify-content:center;padding:10px}
 #photoModal img{max-width:95vw;max-height:85vh;border-radius:12px;border:3px solid #C9A86A;object-fit:contain}
-#camModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:10001;align-items:center;justify-content:center;padding:10px;flex-direction:column}
-#camVideo{width:100%;max-width:500px;border-radius:12px;border:3px solid #C9A86A;background:#000;max-height:70vh;object-fit:cover}
 details summary{cursor:pointer;list-style:none}
 details summary::-webkit-details-marker{display:none}
 </style>
 </head>
 <body>
 <div class="t">
-  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V15</small></div></div>
+  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V14</small></div></div>
   <div class="badge-small" id="badge">Auto Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
 </div>
 <div class="c email-compact" id="allEmails"></div>
@@ -67,6 +65,7 @@ details summary::-webkit-details-marker{display:none}
 </div>
 <div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے - سکرین خود بند ہو جائے گی</div>
 </div>
+<!-- V14 - Bara dabba khatam, Neela heading khatam, sirf choti line -->
 <div class="c" style="padding:4px 8px;background:#F9F9F9;border:1px solid #ddd">
 <details>
 <summary style="font-size:11px;color:#666;text-align:center">ℹ️ Urdu ka tareeqa - dekhne ke liye dabao</summary>
@@ -93,17 +92,17 @@ Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu 
 <div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" inputmode="text" enterkeyhint="next" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
 <div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" inputmode="text" enterkeyhint="next" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
 </div>
-<div class="c"><h3 style="font-size:13px">📸 فوٹو - Laptop pe Live Camera ab chalega</h3>
-<div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" style="background:#0A3D2E;color:#fff" onclick="openCamera('cust')">📷 Live Camera</button></div>
-<input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)">
+<div class="c"><h3 style="font-size:13px">📸 فوٹو</h3>
+<div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('custCam').click()">📷 کیمرہ</button></div>
+<input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><input type="file" id="custCam" hidden accept="image/*" capture="environment" onchange="previewCust(event)">
 <div id="custPrev"></div>
 <div id="custBtns" style="display:none;gap:4px;margin-top:4px">
 <button class="b" style="background:#0A3D2E;color:#fff;flex:1;font-size:11px" onclick="document.getElementById('custFile').click()">🔄 فوٹو چینج کرو</button>
 <button class="b" style="background:#B71C1C;color:#fff;flex:1;font-size:11px" onclick="removeCustPhoto()">🗑️ ڈیلیٹ کرو</button>
 </div>
-<div style="font-size:9px;color:#666;text-align:center;margin-top:3px">Laptop pe Live Camera dabao - camera khulega - Photo Lo dabao - ho jayega | Mobile pe bhi chalega</div>
-<div style="margin-top:6px;font-size:11px">🎨 ڈیزائن (5)<div class="g2"><button class="b o" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button><button class="b o" style="background:#0A3D2E;color:#fff" onclick="openCamera('design')">📷 Live Camera</button></div></div>
-<input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)">
+<div style="font-size:9px;color:#666;text-align:center;margin-top:3px">فوٹو پر کلک کرو تو بڑی ہو جائے گی</div>
+<div style="margin-top:6px;font-size:11px">🎨 ڈیزائن (5)<div class="g2"><button class="b o" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('designCam').click()">📷</button></div></div>
+<input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><input type="file" id="designCam" hidden accept="image/*" capture="environment" onchange="previewDesignOne(event)">
 <div id="designPrev" style="display:flex;gap:3px;flex-wrap:wrap;margin-top:4px"></div>
 </div>
 <div class="c"><h3 style="font-size:13px">📏 قمیض</h3>
@@ -138,19 +137,8 @@ Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu 
 </div>
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
-<!-- V15 - Laptop Live Camera Modal -->
-<div id="camModal">
-<div style="color:#fff;font-weight:bold;margin-bottom:8px" id="camTitle">📷 Live Camera</div>
-<video id="camVideo" autoplay playsinline></video>
-<div id="camError" style="color:#FFCDD2;font-size:12px;margin:8px;text-align:center"></div>
-<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;justify-content:center">
-<button class="b" style="background:#25D366;color:#fff;padding:12px 18px;font-size:14px" onclick="takePhoto()">📸 Photo Lo</button>
-<button class="b" style="background:#fff;padding:12px 18px" onclick="closeCamera()">❌ Band Karo</button>
-</div>
-<div style="color:#ccc;font-size:11px;margin-top:8px;text-align:center">Pehli dafa Allow dabana hai - Agar Block daba diya to camera nahi khulega</div>
-</div>
 <script>
-var APP_VERSION='v15';
+var APP_VERSION='v14';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -174,6 +162,7 @@ function goNext(currentId){
   }
   return false;
 }
+// V14 - FULL Hidden Harf System - Bara = Bhari
 var CAPITAL_MAP={"A":"ع","S":"ص","D":"ڈ","G":"غ","Z":"ظ","T":"ٹ","H":"ح","Q":"ق","K":"ک","N":"ں","R":"ڑ","B":"ب","E":"ع","J":"ج","F":"ف","L":"ل","M":"م","W":"و","Y":"ی","C":"چ","P":"پ"};
 var URDU_NAMES={"asad":"اسد","ahmed":"احمد","ali":"علی","bilal":"بلال","usman":"عثمان","umar":"عمر","hamza":"حمزہ","hassan":"حسن","hussain":"حسین","muhammad":"محمد","mohammad":"محمد","ahmad":"احمد","abdullah":"عبداللہ","ibrahim":"ابراہیم","yusuf":"یوسف","kashif":"کاشف","naveed":"نوید","naweed":"نوید","imran":"عمران","kamran":"کامران","farhan":"فرحان","zeeshan":"ذیشان","adil":"عادل","arshad":"ارشد","nasir":"ناصر","waseem":"وسیم","tariq":"طارق","shahid":"شاہد","akram":"اکرم","saleem":"سلیم","rashid":"راشد","javed":"جاوید","ashfaq":"اشفاق","rizwan":"رضوان","tanveer":"تنویر","shafiq":"شفیق","dil":"دل","dilawar":"دلاور","lasuri":"لاسوری","lasoori":"لاسوری","fix":"فکس","open":"اوپن","close":"کلوز","gol":"گول","choras":"چورس","sada":"سادہ","nok":"نوک","single":"سنگل","double":"ڈبل","front":"فرنٹ","side":"سائیڈ","shalwar":"شلوار","qaiser":"قیصر","chorran":"چوراں","wallah":"والا","choranwallah":"چوراں والا","kalan":"کلاں","ona":"اونہ","kh":"کھ","gujranwala":"گوجرانوالہ","gujrat":"گجرات","lahore":"لاہور","sialkot":"سیالکوٹ","kameez":"قمیض","bazu":"بازو","lambai":"لمبائی","teera":"تیرا","gala":"گلہ","chhati":"چھاتی","kamar":"کمر","gheera":"گھیرا","moda":"موڈا","kaff":"کف","collar":"کالر","ben":"بین","jeb":"جیب","pouncha":"پانچہ","daman":"دامن","jali":"جالی","silai":"سلائی","kapda":"کپڑا","suit":"سوٹ","wash":"واش","wear":"وئیر","cotton":"کاٹن","latha":"لٹھا","khaddar":"کھدر","boski":"بوسکی","zafar":"ظفر","zahid":"ظاہد","zahoor":"ظہور","zulfiqar":"ظلفیقار","zaheer":"ظہیر","sadiq":"صادق","sadik":"صادق","saeed":"سعید","salman":"سلمان","arif":"عارف","azeem":"عظیم","ghafour":"غفور","ghafoor":"غفور","ghulam":"غلام","tahir":"طاہر","talha":"طلحہ","hamid":"حامد","habib":"حبیب","noor":"نور","san":"ساں","jaan":"جاں"};
 var LETTER_MAP={"a":"ا","b":"ب","c":"ک","d":"د","e":"ے","f":"ف","g":"گ","h":"ھ","i":"ی","j":"ج","k":"ک","l":"ل","m":"م","n":"ن","o":"و","p":"پ","q":"ق","r":"ر","s":"س","t":"ت","u":"و","v":"و","w":"و","x":"کس","y":"ی","z":"ز","ch":"چ","sh":"ش","kh":"خ","gh":"غ","ph":"پھ","th":"تھ","aa":"آ","zh":"ظ","dh":"ض","rh":"ڑ","nh":"ں"};
@@ -192,6 +181,7 @@ function romanToUrdu(word){
     if(i+1<orig.length){
       var two=orig.substr(i,2);
       var twoLow=two.toLowerCase();
+      // Do-harf wale pehle - Dh=ض, Zh=ذ, Th=ث, Kh=خ, Gh=غ, Ch=چ, Sh=ش, Nh=ں, Rh=ڑ
       if(twoLow==='dh'){ out+="ض"; i+=2; continue; }
       if(twoLow==='zh'){ out+="ذ"; i+=2; continue; }
       if(twoLow==='th'){ out+="ث"; i+=2; continue; }
@@ -238,53 +228,6 @@ function applyKbdUI(){
   if(b){ b.textContent = NUM_MODE==='decimal' ? '⌨️ Keyboard: 123 Calculator - ABC ke liye dabao' : '⌨️ Keyboard: ABC Urdu / English - Calculator ke liye dabao'; b.style.background = NUM_MODE==='decimal' ? '#0A3D2E' : '#FF9800'; }
 }
 applyKbdUI();
-// ===== V15 - LAPTOP + MOBILE LIVE CAMERA =====
-var camStream=null; var camMode='cust';
-async function openCamera(mode){
-  camMode=mode||'cust';
-  document.getElementById('camTitle').textContent = camMode==='cust' ? '📷 Live Camera - Customer Photo' : '📷 Live Camera - Design Photo';
-  document.getElementById('camError').textContent='';
-  document.getElementById('camModal').style.display='flex';
-  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-    document.getElementById('camError').textContent='Is browser me camera support nahi hai. Chrome use karo aur https wali link kholo. Ya Gallery se photo daalo.';
-    return;
-  }
-  try{
-    camStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false});
-    var v=document.getElementById('camVideo');
-    v.srcObject=camStream;
-    await v.play();
-  }catch(e){
-    var msg='';
-    if(e.name==='NotAllowedError') msg='Aap ne Camera Block kar diya hai! Upar address bar me Camera wale icon par click karke Allow karo, phir dobara try karo.';
-    else if(e.name==='NotFoundError') msg='Laptop me camera nahi mila! Is laptop me camera hai hi nahi ya driver nahi hai. Gallery se photo daalo.';
-    else if(e.name==='NotReadableError') msg='Camera kisi aur app me khula hua hai (Zoom / Camera app). Us ko band karke dobara try karo.';
-    else msg='Camera nahi khula: '+e.message+' - Gallery se photo daal lo.';
-    document.getElementById('camError').textContent=msg;
-  }
-}
-function closeCamera(){
-  document.getElementById('camModal').style.display='none';
-  if(camStream){ camStream.getTracks().forEach(function(t){t.stop();}); camStream=null; }
-  var v=document.getElementById('camVideo'); v.srcObject=null;
-}
-function takePhoto(){
-  var v=document.getElementById('camVideo');
-  if(!v || !v.videoWidth){ alert('Pehle camera khulne do'); return; }
-  var c=document.createElement('canvas'); c.width=500; c.height=500*v.videoHeight/v.videoWidth;
-  c.getContext('2d').drawImage(v,0,0,c.width,c.height);
-  var data=c.toDataURL('image/jpeg',0.6);
-  if(camMode==='cust'){
-    custB64=data;
-    document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+data+'\')" src="'+data+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';
-    document.getElementById('custBtns').style.display='flex';
-  }else{
-    if(designB64.length>=5){ alert('5 ho gayi hain'); return; }
-    designB64.push(data);
-    document.getElementById('designPrev').innerHTML+='<img onclick="openPhoto(\''+data+'\')" src="'+data+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';
-  }
-  closeCamera();
-}
 function showEmails(){
 document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
 var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
@@ -386,6 +329,7 @@ function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image(
 function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';document.getElementById('custBtns').style.display='flex';});}
 function removeCustPhoto(){custB64=null;document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}
 function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';});})(fs[i]);}}
+function previewDesignOne(e){var f=e.target.files[0];if(!f||designB64.length>=5)return;comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';});}
 function setShalwar(el,v){document.querySelectorAll('#kondayBtn,#onePcsBtn').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL.shalwarQisam=v;document.getElementById('onePieceBox').style.display=v==='1 پیس'?'block':'none';}
 function setOne(el,k,v){el.parentElement.querySelectorAll('.o').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL[k]=v;}
 function toggleJeb(k,el){if(JEB.includes(k)){JEB=JEB.filter(x=>x!=k);el.classList.remove('a');}else{JEB.push(k);el.classList.add('a');}document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';}
@@ -527,8 +471,8 @@ document.addEventListener('visibilitychange', async ()=>{
   }
 });
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v15').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
-if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v15'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v15')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v15'); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v14').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
+if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v14'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v14')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v14'); }
 </script>
 </body>
 </html>
