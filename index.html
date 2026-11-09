@@ -6,8 +6,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V14</title>
-<link rel="manifest" href="manifest.json?v=v14">
+<title>Dil Tailor Shop - MUKAMMAL FINAL V16</title>
+<link rel="manifest" href="manifest.json?v=v16">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -41,7 +41,7 @@ details summary::-webkit-details-marker{display:none}
 </head>
 <body>
 <div class="t">
-  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V14</small></div></div>
+  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V16</small></div></div>
   <div class="badge-small" id="badge">Auto Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
 </div>
 <div class="c email-compact" id="allEmails"></div>
@@ -65,7 +65,6 @@ details summary::-webkit-details-marker{display:none}
 </div>
 <div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے - سکرین خود بند ہو جائے گی</div>
 </div>
-<!-- V14 - Bara dabba khatam, Neela heading khatam, sirf choti line -->
 <div class="c" style="padding:4px 8px;background:#F9F9F9;border:1px solid #ddd">
 <details>
 <summary style="font-size:11px;color:#666;text-align:center">ℹ️ Urdu ka tareeqa - dekhne ke liye dabao</summary>
@@ -92,7 +91,7 @@ Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu 
 <div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" inputmode="text" enterkeyhint="next" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
 <div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" inputmode="text" enterkeyhint="next" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
 </div>
-<div class="c"><h3 style="font-size:13px">📸 فوٹو</h3>
+<div class="c"><h3 style="font-size:13px">📸 فوٹو - V14 Wala Mobile Camera</h3>
 <div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('custCam').click()">📷 کیمرہ</button></div>
 <input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><input type="file" id="custCam" hidden accept="image/*" capture="environment" onchange="previewCust(event)">
 <div id="custPrev"></div>
@@ -138,7 +137,7 @@ Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu 
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
 <script>
-var APP_VERSION='v14';
+var APP_VERSION='v16';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -162,7 +161,6 @@ function goNext(currentId){
   }
   return false;
 }
-// V14 - FULL Hidden Harf System - Bara = Bhari
 var CAPITAL_MAP={"A":"ع","S":"ص","D":"ڈ","G":"غ","Z":"ظ","T":"ٹ","H":"ح","Q":"ق","K":"ک","N":"ں","R":"ڑ","B":"ب","E":"ع","J":"ج","F":"ف","L":"ل","M":"م","W":"و","Y":"ی","C":"چ","P":"پ"};
 var URDU_NAMES={"asad":"اسد","ahmed":"احمد","ali":"علی","bilal":"بلال","usman":"عثمان","umar":"عمر","hamza":"حمزہ","hassan":"حسن","hussain":"حسین","muhammad":"محمد","mohammad":"محمد","ahmad":"احمد","abdullah":"عبداللہ","ibrahim":"ابراہیم","yusuf":"یوسف","kashif":"کاشف","naveed":"نوید","naweed":"نوید","imran":"عمران","kamran":"کامران","farhan":"فرحان","zeeshan":"ذیشان","adil":"عادل","arshad":"ارشد","nasir":"ناصر","waseem":"وسیم","tariq":"طارق","shahid":"شاہد","akram":"اکرم","saleem":"سلیم","rashid":"راشد","javed":"جاوید","ashfaq":"اشفاق","rizwan":"رضوان","tanveer":"تنویر","shafiq":"شفیق","dil":"دل","dilawar":"دلاور","lasuri":"لاسوری","lasoori":"لاسوری","fix":"فکس","open":"اوپن","close":"کلوز","gol":"گول","choras":"چورس","sada":"سادہ","nok":"نوک","single":"سنگل","double":"ڈبل","front":"فرنٹ","side":"سائیڈ","shalwar":"شلوار","qaiser":"قیصر","chorran":"چوراں","wallah":"والا","choranwallah":"چوراں والا","kalan":"کلاں","ona":"اونہ","kh":"کھ","gujranwala":"گوجرانوالہ","gujrat":"گجرات","lahore":"لاہور","sialkot":"سیالکوٹ","kameez":"قمیض","bazu":"بازو","lambai":"لمبائی","teera":"تیرا","gala":"گلہ","chhati":"چھاتی","kamar":"کمر","gheera":"گھیرا","moda":"موڈا","kaff":"کف","collar":"کالر","ben":"بین","jeb":"جیب","pouncha":"پانچہ","daman":"دامن","jali":"جالی","silai":"سلائی","kapda":"کپڑا","suit":"سوٹ","wash":"واش","wear":"وئیر","cotton":"کاٹن","latha":"لٹھا","khaddar":"کھدر","boski":"بوسکی","zafar":"ظفر","zahid":"ظاہد","zahoor":"ظہور","zulfiqar":"ظلفیقار","zaheer":"ظہیر","sadiq":"صادق","sadik":"صادق","saeed":"سعید","salman":"سلمان","arif":"عارف","azeem":"عظیم","ghafour":"غفور","ghafoor":"غفور","ghulam":"غلام","tahir":"طاہر","talha":"طلحہ","hamid":"حامد","habib":"حبیب","noor":"نور","san":"ساں","jaan":"جاں"};
 var LETTER_MAP={"a":"ا","b":"ب","c":"ک","d":"د","e":"ے","f":"ف","g":"گ","h":"ھ","i":"ی","j":"ج","k":"ک","l":"ل","m":"م","n":"ن","o":"و","p":"پ","q":"ق","r":"ر","s":"س","t":"ت","u":"و","v":"و","w":"و","x":"کس","y":"ی","z":"ز","ch":"چ","sh":"ش","kh":"خ","gh":"غ","ph":"پھ","th":"تھ","aa":"آ","zh":"ظ","dh":"ض","rh":"ڑ","nh":"ں"};
@@ -181,7 +179,6 @@ function romanToUrdu(word){
     if(i+1<orig.length){
       var two=orig.substr(i,2);
       var twoLow=two.toLowerCase();
-      // Do-harf wale pehle - Dh=ض, Zh=ذ, Th=ث, Kh=خ, Gh=غ, Ch=چ, Sh=ش, Nh=ں, Rh=ڑ
       if(twoLow==='dh'){ out+="ض"; i+=2; continue; }
       if(twoLow==='zh'){ out+="ذ"; i+=2; continue; }
       if(twoLow==='th'){ out+="ث"; i+=2; continue; }
@@ -471,8 +468,8 @@ document.addEventListener('visibilitychange', async ()=>{
   }
 });
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v14').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
-if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v14'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v14')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v14'); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v16').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
+if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v16'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v16')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v16'); }
 </script>
 </body>
 </html>
