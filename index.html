@@ -3,209 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-MUKAMMAL FINAL V17 - Dil Tailor
-</title>
+<title>MUKAMMAL FINAL V17.1 - Dil Tailor</title>
 <style>
-* {
-box-sizing: border-box;
-font-family: Arial, sans-serif;
-}
-body {
-margin: 0;
-background: #fdf6e3;
-padding: 8px;
-padding-bottom: 100px;
-}
-.header {
-background: #0b3d2e;
-color: #fff;
-padding: 14px;
-border-radius: 12px;
-text-align: center;
-}
-.header h2 {
-margin: 0;
-font-size: 18px;
-}
-.header p {
-margin: 4px 0 0;
-font-size: 13px;
-}
-.box {
-background: #fff;
-border: 1px solid #e8d9a8;
-border-radius: 12px;
-padding: 11px;
-margin-top: 10px;
-}
-input {
-width: 100%;
-padding: 11px;
-border: 1.5px solid #d9c27a;
-border-radius: 10px;
-font-size: 16px;
-margin-top: 6px;
-direction: rtl;
-}
-select {
-width: 100%;
-padding: 11px;
-border: 1.5px solid #d9c27a;
-border-radius: 10px;
-font-size: 16px;
-margin-top: 6px;
-direction: rtl;
-}
-label {
-font-weight: bold;
-font-size: 13px;
-display: block;
-margin-top: 10px;
-}
-.row {
-display: flex;
-gap: 8px;
-}
-.row > div {
-flex: 1;
-}
-.btn {
-width: 100%;
-padding: 14px;
-border: none;
-border-radius: 10px;
-font-size: 17px;
-font-weight: bold;
-cursor: pointer;
-margin-top: 8px;
-}
-.green {
-background: #0b3d2e;
-color: #fff;
-}
-.yellow {
-background: #f9c80e;
-color: #000;
-}
-.grey {
-background: #eee;
-color: #000;
-}
-.abcBtn {
-width: 100%;
-padding: 11px;
-background: #fff3cd;
-border: 1px solid #e6a800;
-border-radius: 10px;
-font-weight: bold;
-cursor: pointer;
-font-size: 15px;
-}
-#abcPanel {
-display: none;
-background: #fff;
-border: 1px solid #ddd;
-border-radius: 10px;
-padding: 10px;
-text-align: center;
-line-height: 2.4;
-margin-top: 8px;
-}
-#abcPanel button {
-font-size: 24px;
-padding: 6px 13px;
-margin: 3px;
-border-radius: 8px;
-border: 1px solid #ccc;
-background: #fff;
-cursor: pointer;
-}
-.guide {
-display: none;
-background: #e8f5e9;
-padding: 10px;
-border-radius: 10px;
-font-size: 13px;
-margin-top: 8px;
-line-height: 1.8;
-}
-.topbar {
-display: flex;
-gap: 6px;
-margin-top: 10px;
-}
-.topbar button {
-flex: 1;
-padding: 11px;
-border-radius: 10px;
-border: 1px solid #ccc;
-background: #fff;
-font-weight: bold;
-}
-.searchbox {
-display: flex;
-gap: 6px;
-}
-.searchbox input {
-flex: 1;
-}
-.chip {
-display: inline-block;
-padding: 7px 13px;
-border: 1px solid #0b3d2e;
-border-radius: 20px;
-margin: 3px;
-cursor: pointer;
-background: #fff;
-font-size: 13px;
-}
-.chip.on {
-background: #0b3d2e;
-color: #fff;
-}
-.meas {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 8px;
-margin-top: 8px;
-}
-.meas input {
-margin-top: 0;
-}
-.footer {
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-display: flex;
-gap: 6px;
-background: #fff;
-padding: 8px;
-border-top: 1px solid #ddd;
-}
-.footer button {
-flex: 1;
-padding: 13px;
-border-radius: 10px;
-border: none;
-font-weight: bold;
-}
-.small {
-font-size: 12px;
-color: #666;
-text-align: center;
-margin-top: 6px;
-}
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
+body { margin: 0; background: #fdf6e3; padding: 8px; padding-bottom: 100px; }
+.header { background: #0b3d2e; color: #fff; padding: 14px; border-radius: 12px; text-align: center; }
+.header h2 { margin: 0; font-size: 18px; }
+.header p { margin: 4px 0 0; font-size: 13px; }
+.box { background: #fff; border: 1px solid #e8d9a8; border-radius: 12px; padding: 11px; margin-top: 10px; }
+input, select { width: 100%; padding: 11px; border: 1.5px solid #d9c27a; border-radius: 10px; font-size: 16px; margin-top: 6px; direction: rtl; }
+label { font-weight: bold; font-size: 13px; display: block; margin-top: 10px; }
+.row { display: flex; gap: 8px; }
+.row > div { flex: 1; }
+.btn { width: 100%; padding: 14px; border: none; border-radius: 10px; font-size: 17px; font-weight: bold; cursor: pointer; margin-top: 8px; }
+.green { background: #0b3d2e; color: #fff; }
+.yellow { background: #f9c80e; color: #000; }
+.grey { background: #eee; color: #000; }
+.abcBtn { width: 100%; padding: 11px; background: #fff3cd; border: 1px solid #e6a800; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 15px; }
+#abcPanel { display: none; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 10px; text-align: center; line-height: 2.4; margin-top: 8px; }
+#abcPanel button { font-size: 24px; padding: 6px 13px; margin: 3px; border-radius: 8px; border: 1px solid #ccc; background: #fff; cursor: pointer; }
+.guide { display: none; background: #e8f5e9; padding: 10px; border-radius: 10px; font-size: 13px; margin-top: 8px; line-height: 1.9; }
+.topbar { display: flex; gap: 6px; margin-top: 10px; }
+.topbar button { flex: 1; padding: 11px; border-radius: 10px; border: 1px solid #ccc; background: #fff; font-weight: bold; }
+.searchbox { display: flex; gap: 6px; }
+.searchbox input { flex: 1; }
+.chip { display: inline-block; padding: 7px 13px; border: 1px solid #0b3d2e; border-radius: 20px; margin: 3px; cursor: pointer; background: #fff; font-size: 13px; }
+.chip.on { background: #0b3d2e; color: #fff; }
+.meas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.meas input { margin-top: 0; }
+.footer { position: fixed; bottom: 0; left: 0; right: 0; display: flex; gap: 6px; background: #fff; padding: 8px; border-top: 1px solid #ddd; }
+.footer button { flex: 1; padding: 13px; border-radius: 10px; border: none; font-weight: bold; }
+.small { font-size: 12px; color: #666; text-align: center; margin-top: 6px; }
+table.guideTable { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.guideTable td { border: 1px solid #ccc; padding: 6px; text-align: center; }
+.live { font-size: 18px; color: #0b3d2e; font-weight: bold; text-align: center; min-height: 22px; }
 </style>
 </head>
 <body>
-
 <div class="header">
-<h2>MUKAMMAL FINAL V17 - 03463604869</h2>
+<h2>MUKAMMAL FINAL V17.1 - 03463604869</h2>
 <p>دل ٹیلر - حسن - گوجرانوالہ</p>
 </div>
-
 <div class="box">
 <b>📧 Auto Backup - Khud Ba Khud Drive Me</b><br>
 <span id="activeEmail" style="color:blue;font-size:13px"></span><br>
@@ -213,29 +51,34 @@ margin-top: 6px;
 <span style="font-size:12px">Haalat: <span id="netStatus">Net theek hai - Baad me khud try hoga</span></span><br>
 <span style="font-size:12px">Storage: <span id="storageText"></span></span><br>
 <span style="font-size:12px" id="storageDetail"></span>
-<div style="background:#eee;height:8px;border-radius:10px;margin-top:6px">
-<div id="storageFill" style="height:8px;background:#2e7d32;border-radius:10px;width:1%"></div>
+<div style="background:#eee;height:8px;border-radius:10px;margin-top:6px"><div id="storageFill" style="height:8px;background:#2e7d32;border-radius:10px;width:1%"></div></div>
+<div style="font-size:12px;margin-top:6px">App Data: <span id="appData"></span> | Record: <span id="recCount"></span> | Active: <span id="activeIdx"></span> / 5</div>
 </div>
-<div style="font-size:12px;margin-top:6px">
-App Data: <span id="appData"></span> | Record: <span id="recCount"></span> | Active: <span id="activeIdx"></span> / 5
-</div>
-</div>
-
 <div class="topbar">
 <button onclick="toggleScreen()">Screen On ✅</button>
 <button onclick="toggleUrduGuide()">Urdu Tareeqa 📖</button>
 </div>
-
 <div class="box" id="urduGuideBox" style="display:none">
-<b>Urdu Hamesha ON hai</b><br>
-Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu ho jayega<br><br>
-<b>Jo likho ge waisa hi banega:</b><br>
+<b>Urdu Hamesha ON hai - Ab Rukna Nahi Parega</b><br>
+Neeche English likho, upar Urdu saath saath banta jayega.<br><br>
+<b>MUKAMMAL GUIDE - Jo likho ge waisa hi banega:</b><br>
+<table class="guideTable">
+<tr><td>A = ا</td><td>AA = آ</td><td>B = ب</td><td>P = پ</td></tr>
+<tr><td>T = ت</td><td>TT = ٹ</td><td>TH = تھ</td><td>TAH = طاہ</td></tr>
+<tr><td>J = ج</td><td>CH = چ</td><td>H = ہ</td><td>HH = ح</td></tr>
+<tr><td>KH = خ</td><td>D = د</td><td>DD = ڈ</td><td>DH = ڈھ</td></tr>
+<tr><td>R = ر</td><td>RR = ڑ</td><td>Z = ز</td><td>ZH = ژ</td></tr>
+<tr><td>S = س</td><td>SH = ش</td><td>SS = ص</td><td>ZZ = ظ</td></tr>
+<tr><td>GH = غ</td><td>F = ف</td><td>Q = ق</td><td>K = ک</td></tr>
+<tr><td>G = گ</td><td>L = ل</td><td>M = م</td><td>N = ن</td></tr>
+<tr><td>W = و</td><td>Y = ی</td><td>E = ے</td><td>AIN = ع</td></tr>
+</table>
+<br>
+<b>Naam:</b><br>
 Altaf = الطاف | Tahir = طاہر | Waseem = وسیم | Tayyab = طیب<br>
 Talha = طلحہ | Tariq = طارق | Taha = طہ | Tooba = طوبی<br>
-t = ت , tt = ٹ , tah = طاہ , kh = خ , gh = غ<br>
-ch = چ , sh = ش , zh = ژ , hh = ح , ss = ص , zz = ظ
+Zafar = ظفر | Sadiq = صادق | Ghafoor = غفور | Hassan = حسن
 </div>
-
 <div class="box">
 <button class="abcBtn" onclick="toggleABC()">📖 پوری ا ب - Yahan dabao, koi harf miss nahi hoga</button>
 <div id="abcPanel"></div>
@@ -246,7 +89,6 @@ Misal: ط ke liye ط dabao, ظ ke liye ظ dabao, ع ke liye ع dabao.<br>
 Koi harf miss nahi hoga.
 </div>
 </div>
-
 <div class="box">
 <div class="searchbox">
 <input id="searchBox" placeholder="تلاش کریں - نام / موبائل / سیریل" oninput="doSearch()">
@@ -254,94 +96,42 @@ Koi harf miss nahi hoga.
 </div>
 <div class="small" id="searchResult"></div>
 </div>
-
 <div class="box">
 <div class="row">
-<div>
-<label>سیریل *</label>
-<input id="serial" value="63">
-</div>
-<div>
-<label>سوٹ</label>
-<input id="suit" value="1 سوٹ">
-</div>
+<div><label>سیریل *</label><input id="serial" value="63"></div>
+<div><label>سوٹ</label><input id="suit" value="1 سوٹ"></div>
 </div>
 <label>نام *</label>
 <input id="custName" placeholder="English me likho - Lasuri" autocomplete="off">
-<div class="small">Poora English likho, phir 1 sec ruko - khud Urdu ho jayega</div>
+<div class="live" id="liveUrdu"></div>
+<div class="small">Neeche English likho, upar Urdu saath saath banega - Rukna nahi parega</div>
 <label>موبائل</label>
 <input id="mobile" placeholder="0300-1234567" type="tel">
 <div class="row">
-<div>
-<label>آرڈر</label>
-<input id="orderDate" type="date">
-</div>
-<div>
-<label>ڈیلیوری</label>
-<input id="deliveryDate" type="date">
-</div>
+<div><label>آرڈر</label><input id="orderDate" type="date"></div>
+<div><label>ڈیلیوری</label><input id="deliveryDate" type="date"></div>
 </div>
 <label>واش اینڈ وئیر / سلائی</label>
-<select id="wash">
-<option>واش اینڈ وئیر</option>
-<option>سلائی خود لکھیں</option>
-<option>کاٹن</option>
-<option>لٹھا</option>
-<option>کھدر</option>
-</select>
+<select id="wash"><option>واش اینڈ وئیر</option><option>سلائی خود لکھیں</option><option>کاٹن</option><option>لٹھا</option><option>کھدر</option></select>
 <label>قمیض / شلوار</label>
-<select id="type">
-<option>قمیض شلوار</option>
-<option>صرف قمیض</option>
-<option>صرف شلوار</option>
-<option>کوٹ</option>
-<option>واسکٹ</option>
-<option>شیرwani</option>
-</select>
+<select id="type"><option>قمیض شلوار</option><option>صرف قمیض</option><option>صرف شلوار</option><option>کوٹ</option><option>واسکٹ</option><option>شیرwani</option></select>
 </div>
-
 <div class="box">
-<b>📏 قمیض کا ناپ - Keyboard: 123 Calculator - ABC ke liye dabao</b>
+<b>📏 قمیض کا ناپ</b>
 <div class="meas">
-<input placeholder="لمبائی 40" id="m1">
-<input placeholder="تیرا" id="m2">
-<input placeholder="چھاتی" id="m3">
-<input placeholder="کمر" id="m4">
-<input placeholder="گھیرا" id="m5">
-<input placeholder="موڈا" id="m6">
-<input placeholder="کالر" id="m7">
-<input placeholder="بازو" id="m8">
-<input placeholder="کف 8fix = 8" id="m9">
-<input placeholder="گلا" id="m10">
-<input placeholder="بٹن" id="m11">
-<input placeholder="جیب" id="m12">
-<input placeholder="بازو موڈا" id="m13">
-<input placeholder="چھاتی 2" id="m14">
+<input placeholder="لمبائی 40" id="m1"><input placeholder="تیرا" id="m2">
+<input placeholder="چھاتی" id="m3"><input placeholder="کمر" id="m4">
+<input placeholder="گھیرا" id="m5"><input placeholder="موڈا" id="m6">
+<input placeholder="کالر" id="m7"><input placeholder="بازو" id="m8">
+<input placeholder="کف 8fix = 8" id="m9"><input placeholder="گلا" id="m10">
+<input placeholder="بٹن" id="m11"><input placeholder="جیب" id="m12">
+<input placeholder="بازو موڈا" id="m13"><input placeholder="چھاتی 2" id="m14">
 </div>
 </div>
-
 <div class="box">
 <b>👕 شلوار کا ناپ</b>
-<div class="row">
-<div>
-<label>لمبائی</label>
-<input id="s1">
-</div>
-<div>
-<label>پانچہ</label>
-<input id="s2">
-</div>
-</div>
-<div class="row">
-<div>
-<label>کمر شلوار</label>
-<input id="s3">
-</div>
-<div>
-<label>ہپ</label>
-<input id="s4">
-</div>
-</div>
+<div class="row"><div><label>لمبائی</label><input id="s1"></div><div><label>پانچہ</label><input id="s2"></div></div>
+<div class="row"><div><label>کمر شلوار</label><input id="s3"></div><div><label>ہپ</label><input id="s4"></div></div>
 <div class="small">کولٹ پلیٹ - 1 پیس</div>
 <label>ڈیزائن - Dabao</label>
 <div>
@@ -363,16 +153,11 @@ Koi harf miss nahi hoga.
 <span class="chip" onclick="toggleChip(this)">بٹن</span>
 </div>
 </div>
-
 <div class="box">
-<label>کل</label>
-<input id="total" placeholder="0" type="number">
-<label>ایڈوانس</label>
-<input id="advance" placeholder="0" type="number" oninput="calcBaqi()">
-<label>باقی</label>
-<input id="baqi" placeholder="0" readonly>
+<label>کل</label><input id="total" placeholder="0" type="number">
+<label>ایڈوانس</label><input id="advance" placeholder="0" type="number" oninput="calcBaqi()">
+<label>باقی</label><input id="baqi" placeholder="0" readonly>
 </div>
-
 <div class="box">
 <b>📸 فوٹو - V14 Wala Mobile Camera</b><br>
 <label>کیمرہ سے فوٹو</label>
@@ -382,349 +167,135 @@ Koi harf miss nahi hoga.
 <div id="photoPrev" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px"></div>
 <div class="small">فوٹو موبائل میں ہی محفوظ ہوگی، ڈرائیو میں نہیں جائے گی</div>
 </div>
-
 <button class="btn green" onclick="saveData()">✅ محفوظ کریں</button>
 <button class="btn yellow" onclick="newEntry()">➕ نیا</button>
 <button class="btn grey" onclick="printSlip()">🖨️ پرچی نکالیں</button>
 <button class="btn grey" onclick="showBackup()">📧 بیک اپ دیکھیں</button>
-
-<div class="box" id="listBox">
-<b>📋 پچھلے ناپ</b>
-<div id="custList"></div>
-</div>
-
+<div class="box" id="listBox"><b>📋 پچھلے ناپ</b><div id="custList"></div></div>
 <div class="footer">
 <button style="background:#0b3d2e;color:#fff" onclick="saveData()">محفوظ کریں ✅</button>
 <button style="background:#f9c80e" onclick="newEntry()">نیا +</button>
 <button style="background:#eee" onclick="showBackup()">بیک اپ</button>
 </div>
-
 <script>
-var EMAILS = [
-"dilhassanlasuri952@gmail.com",
-"diltailornaapbook@gmail.com",
-"diltailornaapb@gmail.com",
-"arzidil40@gmail.com",
-"diltailorshopspecial@gmail.com"
-];
+var EMAILS = ["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx = 0;
-var DB_KEY = "dil_tailor_v17";
-var DB = JSON.parse(localStorage.getItem(DB_KEY) || "[]");
+var DB_KEY = "dil_tailor_v16";
+var DB = [];
+try { DB = JSON.parse(localStorage.getItem(DB_KEY) || "[]"); } catch(e){ DB = []; }
+if(!DB || DB.length==0){
+  var oldKeys = ["dil_tailor_v17","dil_tailor_v15","dil_tailor_data","naap_data","dil_tailor","DB","customers","dil_tailor_v14"];
+  for(var k=0;k<oldKeys.length;k++){
+    try{
+      var o = localStorage.getItem(oldKeys[k]);
+      if(o && o.length>10){ var tmp = JSON.parse(o); if(tmp && tmp.length>0){ DB = tmp; localStorage.setItem(DB_KEY, JSON.stringify(DB)); break; } }
+    }catch(e){}
+  }
+}
 var photos = [];
-
-function myId(id) {
-return document.getElementById(id);
-}
-function toggleScreen() {
-alert("Screen On hai - Mobile ki light band nahi hogi jab app khula hai");
-}
-function toggleUrduGuide() {
-var b = myId("urduGuideBox");
-if (b.style.display == "none") {
-b.style.display = "block";
-} else {
-b.style.display = "none";
-}
-}
-function toggleChip(el) {
-el.classList.toggle("on");
-}
-
-function romanToUrdu(w) {
-if (!w) return "";
+function myId(id){ return document.getElementById(id); }
+function toggleScreen(){ alert("Screen On hai"); }
+function toggleUrduGuide(){ var b=myId("urduGuideBox"); b.style.display = b.style.display=="none" ? "block" : "none"; }
+function toggleChip(el){ el.classList.toggle("on"); }
+function romanToUrdu(w){
+if(!w) return "";
 var low = w.toLowerCase().trim();
-var DICT = {
-"altaf": "الطاف",
-"tahir": "طاہر",
-"talha": "طلحہ",
-"tariq": "طارق",
-"taha": "طہ",
-"tayyab": "طیب",
-"tooba": "طوبی",
-"tayyaba": "طیبہ",
-"waseem": "وسیم",
-"wasee": "وسیع",
-"asad": "اسد",
-"zafar": "ظفر",
-"sadiq": "صادق",
-"adil": "عادل",
-"ghafoor": "غفور",
-"hassan": "حسن",
-"hussain": "حسین",
-"kashif": "کاشف",
-"rehman": "رحمان",
-"raza": "رضا",
-"usman": "عثمان",
-"bilal": "بلال",
-"imran": "عمران",
-"nasir": "ناصر",
-"zahid": "زاہد",
-"zahoor": "ظہور",
-"abdullah": "عبداللہ",
-"muhammad": "محمد",
-"ahmed": "احمد",
-"ali": "علی",
-"umar": "عمر",
-"hamza": "حمزہ",
-"danish": "دانش",
-"nabeel": "نبیل",
-"kamran": "کامران"
-};
-if (DICT[low]) {
-return DICT[low];
-}
+var DICT = {"altaf":"الطاف","tahir":"طاہر","talha":"طلحہ","tariq":"طارق","taha":"طہ","tayyab":"طیب","tooba":"طوبی","tayyaba":"طیبہ","waseem":"وسیم","wasee":"وسیع","asad":"اسد","zafar":"ظفر","sadiq":"صادق","adil":"عادل","ghafoor":"غفور","hassan":"حسن","hussain":"حسین","kashif":"کاشف","rehman":"رحمان","raza":"رضا","usman":"عثمان","bilal":"بلال","imran":"عمران","nasir":"ناصر","zahid":"زاہد","zahoor":"ظہور","abdullah":"عبداللہ","muhammad":"محمد","ahmed":"احمد","ali":"علی","umar":"عمر","hamza":"حمزہ","danish":"دانش","nabeel":"نبیل","kamran":"کامران"};
+if(DICT[low]) return DICT[low];
 var s = low;
-var rep = [
-["tah", "طاہ"],
-["tal", "طال"],
-["kh", "خ"],
-["gh", "غ"],
-["ch", "چ"],
-["sh", "ش"],
-["zh", "ژ"],
-["th", "تھ"],
-["tt", "ٹ"],
-["dd", "ڈ"],
-["rr", "ڑ"],
-["hh", "ح"],
-["ss", "ص"],
-["zz", "ظ"],
-["aa", "آ"],
-["a", "ا"],
-["b", "ب"],
-["p", "پ"],
-["t", "ت"],
-["j", "ج"],
-["h", "ہ"],
-["d", "د"],
-["r", "ر"],
-["z", "ز"],
-["s", "س"],
-["f", "ف"],
-["q", "ق"],
-["k", "ک"],
-["g", "گ"],
-["l", "ل"],
-["m", "م"],
-["n", "ن"],
-["w", "و"],
-["y", "ی"],
-["i", "ی"],
-["e", "ے"],
-["o", "و"],
-["u", "و"],
-["c", "چ"],
-["v", "و"],
-["x", "کس"]
-];
-for (var i = 0; i < rep.length; i++) {
-s = s.split(rep[i][0]).join(rep[i][1]);
-}
+var rep = [["tah","طاہ"],["tal","طال"],["kh","خ"],["gh","غ"],["ch","چ"],["sh","ش"],["zh","ژ"],["th","تھ"],["tt","ٹ"],["dd","ڈ"],["dh","ڈھ"],["rr","ڑ"],["hh","ح"],["ss","ص"],["zz","ظ"],["aa","آ"],["a","ا"],["b","ب"],["p","پ"],["t","ت"],["j","ج"],["h","ہ"],["d","د"],["r","ر"],["z","ز"],["s","س"],["f","ف"],["q","ق"],["k","ک"],["g","گ"],["l","ل"],["m","م"],["n","ن"],["w","و"],["y","ی"],["i","ی"],["e","ے"],["o","و"],["u","و"],["c","چ"],["v","و"],["x","کس"]];
+for(var i=0;i<rep.length;i++){ s = s.split(rep[i][0]).join(rep[i][1]); }
 return s;
 }
-
-var timer = null;
-myId("custName").addEventListener("input", function() {
-clearTimeout(timer);
-var v = this.value;
-timer = setTimeout(function() {
-if (!v) return;
-if (/[\u0600-\u06FF]/.test(v)) return;
+function convertLive(){
+var inp = myId("custName");
+var v = inp.value;
+if(!v) { myId("liveUrdu").textContent = ""; return; }
+if(/[\u0600-\u06FF]/.test(v)){ myId("liveUrdu").textContent = v; return; }
 var parts = v.split(" ");
-var out = parts.map(function(p) {
-return romanToUrdu(p);
-}).join(" ");
-if (out !== v) {
-myId("custName").value = out;
+var out = parts.map(function(p){ return romanToUrdu(p); }).join(" ");
+myId("liveUrdu").textContent = out;
+if(out !== v){
+  var pos = inp.selectionStart;
+  inp.value = out;
+  try{ inp.setSelectionRange(pos, pos); }catch(e){}
 }
-}, 900);
-});
-
-myId("custName").addEventListener("blur", function() {
+}
+myId("custName").addEventListener("input", convertLive);
+myId("custName").addEventListener("blur", function(){
 var v = this.value;
-if (!v) return;
-if (/[\u0600-\u06FF]/.test(v)) return;
+if(!v || /[\u0600-\u06FF]/.test(v)) return;
 var parts = v.split(" ");
-myId("custName").value = parts.map(function(p) {
-return romanToUrdu(p);
-}).join(" ");
+this.value = parts.map(function(p){ return romanToUrdu(p); }).join(" ");
+myId("liveUrdu").textContent = this.value;
 });
-
-function toggleABC() {
-var p = myId("abcPanel");
-var g = myId("abcGuide");
-if (p.style.display == "block") {
-p.style.display = "none";
-g.style.display = "none";
-return;
-}
-p.style.display = "block";
-g.style.display = "block";
+function toggleABC(){
+var p = myId("abcPanel"); var g = myId("abcGuide");
+if(p.style.display=="block"){ p.style.display="none"; g.style.display="none"; return; }
+p.style.display="block"; g.style.display="block";
 var letters = "ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ی ے".split(" ");
 var html = "";
-for (var i = 0; i < letters.length; i++) {
-html += '<button onclick="insertUrdu(\'' + letters[i] + '\')">' + letters[i] + '</button>';
-}
-html += '<br><button onclick="insertUrdu(\' \')" style="font-size:16px;padding:8px 22px">Space - خالی جگہ</button>';
-html += ' <button onclick="clearName()" style="font-size:16px;padding:8px 14px">صاف کریں</button>';
+for(var i=0;i<letters.length;i++){ html += '<button onclick="insertUrdu(\''+letters[i]+'\')">'+letters[i]+'</button>'; }
+html += '<br><button onclick="insertUrdu(\' \')" style="font-size:16px;padding:8px 22px">Space - خالی جگہ</button> <button onclick="clearName()" style="font-size:16px;padding:8px 14px">صاف کریں</button>';
 p.innerHTML = html;
 }
-function insertUrdu(ch) {
-var inp = myId("custName");
-inp.value = (inp.value || "") + ch;
-inp.focus();
+function insertUrdu(ch){ var inp=myId("custName"); inp.value=(inp.value||"")+ch; inp.focus(); convertLive(); }
+function clearName(){ myId("custName").value=""; myId("liveUrdu").textContent=""; myId("custName").focus(); }
+function calcBaqi(){ var t=parseFloat(myId("total").value||0); var a=parseFloat(myId("advance").value||0); myId("baqi").value=t-a; }
+function previewPhoto(inp){ var files=inp.files; for(var i=0;i<files.length;i++){ var r=new FileReader(); r.onload=function(e){ photos.push(e.target.result); showPhotos(); }; r.readAsDataURL(files[i]); } }
+function showPhotos(){ var h=""; for(var i=0;i<photos.length;i++){ h+='<img src="'+photos[i]+'" style="width:80px;height:80px;object-fit:cover;border-radius:10px">'; } myId("photoPrev").innerHTML=h; }
+function saveData(){
+var name=myId("custName").value.trim();
+if(!name){ alert("Pehle naam likho bhai"); return; }
+var rec={};
+rec.serial=myId("serial").value; rec.suit=myId("suit").value; rec.name=name; rec.mobile=myId("mobile").value; rec.order=myId("orderDate").value; rec.delivery=myId("deliveryDate").value; rec.wash=myId("wash").value; rec.type=myId("type").value;
+rec.m1=myId("m1").value; rec.m2=myId("m2").value; rec.m3=myId("m3").value; rec.m4=myId("m4").value; rec.m5=myId("m5").value; rec.m6=myId("m6").value; rec.m7=myId("m7").value; rec.m8=myId("m8").value; rec.m9=myId("m9").value; rec.m10=myId("m10").value; rec.m11=myId("m11").value; rec.m12=myId("m12").value; rec.m13=myId("m13").value; rec.m14=myId("m14").value;
+rec.s1=myId("s1").value; rec.s2=myId("s2").value; rec.s3=myId("s3").value; rec.s4=myId("s4").value;
+rec.total=myId("total").value; rec.advance=myId("advance").value; rec.baqi=myId("baqi").value; rec.photos=photos; rec.time=new Date().toLocaleString("ur-PK");
+DB.unshift(rec); localStorage.setItem(DB_KEY, JSON.stringify(DB)); localStorage.setItem("dil_last_backup", new Date().toLocaleString("ur-PK"));
+alert("Ho gaya bhai! "+name+" ka naap mehfooz ho gaya"); renderList(); showBackupInfo(); newEntry();
 }
-function clearName() {
-myId("custName").value = "";
-myId("custName").focus();
+function newEntry(){
+myId("custName").value=""; myId("liveUrdu").textContent=""; myId("mobile").value=""; myId("total").value=""; myId("advance").value=""; myId("baqi").value=""; photos=[]; showPhotos();
+var s=parseInt(myId("serial").value||63)+1; myId("serial").value=s;
+for(var i=1;i<=14;i++){ myId("m"+i).value=""; }
+myId("s1").value=""; myId("s2").value=""; myId("s3").value=""; myId("s4").value=""; myId("custName").focus();
 }
-function calcBaqi() {
-var t = parseFloat(myId("total").value || 0);
-var a = parseFloat(myId("advance").value || 0);
-myId("baqi").value = t - a;
+function renderList(){
+var h=""; for(var i=0;i<Math.min(20,DB.length);i++){ var r=DB[i]; h+='<div style="border-bottom:1px solid #eee;padding:8px 0"><b>'+r.name+'</b> - '+r.serial+' - '+r.mobile+'<br><span style="font-size:12px">'+r.type+' | Baqi: '+r.baqi+'</span></div>'; }
+myId("custList").innerHTML=h||"Abhi koi naap nahi hai";
 }
-function previewPhoto(inp) {
-var files = inp.files;
-for (var i = 0; i < files.length; i++) {
-var r = new FileReader();
-r.onload = function(e) {
-photos.push(e.target.result);
-showPhotos();
-};
-r.readAsDataURL(files[i]);
+function doSearch(){
+var q=myId("searchBox").value.toLowerCase();
+if(!q){ myId("searchResult").innerHTML=""; renderList(); return; }
+var f=DB.filter(function(r){ return (r.name+" "+r.mobile+" "+r.serial).toLowerCase().indexOf(q)>-1; });
+myId("searchResult").innerHTML=f.length+" mila";
+var h=""; for(var i=0;i<f.length;i++){ h+='<div style="border-bottom:1px solid #eee;padding:8px 0"><b>'+f[i].name+'</b> - '+f[i].serial+'<br>'+f[i].mobile+'</div>'; }
+myId("custList").innerHTML=h;
 }
+function clearSearch(){ myId("searchBox").value=""; myId("searchResult").innerHTML=""; renderList(); }
+function printSlip(){ window.print(); }
+function showBackup(){ alert("Backup: "+EMAILS[curIdx]+" pe mehfooz hai. App Data sirf "+myId("appData").innerText+" hai."); }
+function showBackupInfo(){
+myId("activeEmail").textContent=EMAILS[curIdx];
+myId("lastBackup").textContent=localStorage.getItem("dil_last_backup")||"Abhi tak nahi hua";
+var d=localStorage.getItem(DB_KEY)||"[]";
+var usedMB=(d.length/1024/1024).toFixed(2);
+var usedGB=(parseFloat(usedMB)/1024).toFixed(4);
+var leftGB=(15-parseFloat(usedGB)).toFixed(2);
+var pct=Math.max(1,(parseFloat(usedMB)/15360*100));
+var perNaap=DB.length>0 ? (parseFloat(usedMB)*1024/DB.length).toFixed(1) : 0;
+myId("storageText").textContent=usedGB+" GB Bhari - "+leftGB+" GB Baaki (Total 15 GB) - 1 Naap = "+perNaap+" KB";
+myId("storageDetail").textContent="App Data: "+usedMB+" MB | Record: "+DB.length;
+myId("storageFill").style.width=pct+"%";
+myId("appData").textContent=usedMB+" MB";
+myId("recCount").textContent=DB.length;
+myId("activeIdx").textContent=curIdx+1;
 }
-function showPhotos() {
-var h = "";
-for (var i = 0; i < photos.length; i++) {
-h += '<img src="' + photos[i] + '" style="width:80px;height:80px;object-fit:cover;border-radius:10px">';
-}
-myId("photoPrev").innerHTML = h;
-}
-function saveData() {
-var name = myId("custName").value.trim();
-if (!name) {
-alert("Pehle naam likho bhai");
-return;
-}
-var rec = {};
-rec.serial = myId("serial").value;
-rec.suit = myId("suit").value;
-rec.name = name;
-rec.mobile = myId("mobile").value;
-rec.order = myId("orderDate").value;
-rec.delivery = myId("deliveryDate").value;
-rec.wash = myId("wash").value;
-rec.type = myId("type").value;
-rec.m1 = myId("m1").value;
-rec.m2 = myId("m2").value;
-rec.m3 = myId("m3").value;
-rec.m4 = myId("m4").value;
-rec.m5 = myId("m5").value;
-rec.m6 = myId("m6").value;
-rec.m7 = myId("m7").value;
-rec.m8 = myId("m8").value;
-rec.m9 = myId("m9").value;
-rec.m10 = myId("m10").value;
-rec.m11 = myId("m11").value;
-rec.m12 = myId("m12").value;
-rec.m13 = myId("m13").value;
-rec.m14 = myId("m14").value;
-rec.s1 = myId("s1").value;
-rec.s2 = myId("s2").value;
-rec.s3 = myId("s3").value;
-rec.s4 = myId("s4").value;
-rec.total = myId("total").value;
-rec.advance = myId("advance").value;
-rec.baqi = myId("baqi").value;
-rec.photos = photos;
-rec.time = new Date().toLocaleString("ur-PK");
-DB.unshift(rec);
-localStorage.setItem(DB_KEY, JSON.stringify(DB));
-localStorage.setItem("dil_last_backup", new Date().toLocaleString("ur-PK"));
-alert("Ho gaya bhai! " + name + " ka naap mehfooz ho gaya");
-renderList();
-showBackupInfo();
-newEntry();
-}
-function newEntry() {
-myId("custName").value = "";
-myId("mobile").value = "";
-myId("total").value = "";
-myId("advance").value = "";
-myId("baqi").value = "";
-photos = [];
-showPhotos();
-var s = parseInt(myId("serial").value || 63) + 1;
-myId("serial").value = s;
-for (var i = 1; i <= 14; i++) {
-myId("m" + i).value = "";
-}
-myId("s1").value = "";
-myId("s2").value = "";
-myId("s3").value = "";
-myId("s4").value = "";
-myId("custName").focus();
-}
-function renderList() {
-var h = "";
-for (var i = 0; i < Math.min(20, DB.length); i++) {
-var r = DB[i];
-h += '<div style="border-bottom:1px solid #eee;padding:8px 0"><b>' + r.name + '</b> - ' + r.serial + ' - ' + r.mobile + '<br><span style="font-size:12px">' + r.type + ' | Baqi: ' + r.baqi + '</span></div>';
-}
-myId("custList").innerHTML = h || "Abhi koi naap nahi hai";
-}
-function doSearch() {
-var q = myId("searchBox").value.toLowerCase();
-if (!q) {
-myId("searchResult").innerHTML = "";
-renderList();
-return;
-}
-var f = DB.filter(function(r) {
-return (r.name + " " + r.mobile + " " + r.serial).toLowerCase().indexOf(q) > -1;
-});
-myId("searchResult").innerHTML = f.length + " mila";
-var h = "";
-for (var i = 0; i < f.length; i++) {
-h += '<div style="border-bottom:1px solid #eee;padding:8px 0"><b>' + f[i].name + '</b> - ' + f[i].serial + '<br>' + f[i].mobile + '</div>';
-}
-myId("custList").innerHTML = h;
-}
-function clearSearch() {
-myId("searchBox").value = "";
-myId("searchResult").innerHTML = "";
-renderList();
-}
-function printSlip() {
-window.print();
-}
-function showBackup() {
-alert("Backup: " + EMAILS[curIdx] + " pe mehfooz hai. App Data sirf " + myId("appData").innerText + " hai. Drive full nahi hogi.");
-}
-function showBackupInfo() {
-myId("activeEmail").textContent = EMAILS[curIdx];
-myId("lastBackup").textContent = localStorage.getItem("dil_last_backup") || "Abhi tak nahi hua";
-var d = localStorage.getItem(DB_KEY) || "[]";
-var usedMB = (d.length / 1024 / 1024).toFixed(2);
-var usedGB = (parseFloat(usedMB) / 1024).toFixed(4);
-var leftGB = (15 - parseFloat(usedGB)).toFixed(2);
-var pct = Math.max(1, (parseFloat(usedMB) / 15360 * 100));
-var perNaap = DB.length > 0 ? (parseFloat(usedMB) * 1024 / DB.length).toFixed(1) : 0;
-myId("storageText").textContent = usedGB + " GB Bhari - " + leftGB + " GB Baaki (Total 15 GB) - 1 Naap = " + perNaap + " KB";
-myId("storageDetail").textContent = "App Data: " + usedMB + " MB | Record: " + DB.length;
-myId("storageFill").style.width = pct + "%";
-myId("appData").textContent = usedMB + " MB";
-myId("recCount").textContent = DB.length;
-myId("activeIdx").textContent = curIdx + 1;
-}
-var today = new Date().toISOString().slice(0, 10);
-myId("orderDate").value = today;
-var d2 = new Date();
-d2.setDate(d2.getDate() + 7);
-myId("deliveryDate").value = d2.toISOString().slice(0, 10);
-renderList();
-showBackupInfo();
+var today=new Date().toISOString().slice(0,10);
+myId("orderDate").value=today;
+var d2=new Date(); d2.setDate(d2.getDate()+7); myId("deliveryDate").value=d2.toISOString().slice(0,10);
+renderList(); showBackupInfo();
 </script>
 </body>
 </html>
