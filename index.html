@@ -1,536 +1,309 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ur">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V17</title>
-<link rel="manifest" href="manifest.json?v=v17">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دل ٹیلر شاپ - مکمل فائنل V18</title>
+<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0A3D2E">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#FDF6E3;font-family:sans-serif;overflow-x:hidden}
-.t{background:#0A3D2E;color:#fff;padding:8px 10px;display:flex;align-items:center;justify-content:space-between}
-.t .left{display:flex;align-items:center;gap:8px}
-.t img{width:48px;height:48px;border-radius:50%;border:2px solid #C9A86A;background:#fff;object-fit:cover;flex-shrink:0}
-.t b{font-size:14px}.t small{font-size:11px}
-.c{background:#fff;margin:6px;border-radius:10px;padding:8px;border:1px solid #EADDBB;overflow:hidden}
-input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-radius:7px;margin-top:3px;font-size:13px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.o{border:1.5px solid #0A3D2E;border-radius:20px;padding:5px;text-align:center;cursor:pointer;font-size:12px;background:#FFFBEB;white-space:nowrap}
-.o.a{background:#0A3D2E;color:#fff}.b{border:none;border-radius:7px;padding:7px 9px;font-weight:700;cursor:pointer;font-size:12px}
-.bs{background:#0A3D2E;color:#fff;width:100%;padding:11px;font-size:14px}
-#viewModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;padding:8px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.view-box{background:#FDF6E3;margin:5px auto;max-width:500px;border-radius:12px;border:3px solid #0A3D2E;overflow:hidden;width:100%;max-height:95vh;overflow-y:auto}
-.view-head{background:#0A3D2E;color:#fff;padding:10px;text-align:center;font-size:14px;font-weight:bold;position:sticky;top:0;z-index:10}
-.view-input{width:100%;padding:7px;border:1.5px solid #0A3D2E;border-radius:7px;margin-top:3px;font-size:13px;background:#FFFBEB;font-weight:600;color:#000;min-height:34px;display:flex;align-items:center}
-.email-compact{background:#f5f5f5;border:1px solid #ddd;border-radius:8px;padding:5px 7px;font-size:9px;line-height:1.4;max-height:75px;overflow-y:auto;word-break:break-all}
-.badge-small{font-size:8px;background:#C9A86A;color:#0A3D2E;padding:3px 6px;border-radius:8px;text-align:center;line-height:1.2;flex-shrink:0;max-width:90px}
-.record-bar{background:#E8F5E9;border-radius:8px;padding:5px 8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;gap:5px;flex-wrap:nowrap;overflow:hidden}
-#onePieceBox{display:none;background:#FFF3E0;border:1.5px solid #FF9800;border-radius:8px;padding:7px;margin-top:5px}
-.wake-on{background:#FFEB3B !important;color:#000 !important;border:2px solid #FF9800 !important;animation:glow 1.5s infinite}
-@keyframes glow{0%{box-shadow:0 0 3px #FF9800}50%{box-shadow:0 0 10px #FF9800}100%{box-shadow:0 0 3px #FF9800}}
-.editable{border:2px solid #0A3D2E !important;background:#FFF8E0 !important;font-weight:600}
-#photoModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;align-items:center;justify-content:center;padding:10px}
-#photoModal img{max-width:95vw;max-height:85vh;border-radius:12px;border:3px solid #C9A86A;object-fit:contain}
-details summary{cursor:pointer;list-style:none}
-details summary::-webkit-details-marker{display:none}
-.abc-btn{width:100%;padding:9px;background:#FFF3CD;border:1.5px solid #E6A800;border-radius:8px;font-weight:bold;font-size:12px;cursor:pointer;margin-top:5px}
-#abcPanel{display:none;background:#fff;border:1px solid #ddd;border-radius:8px;padding:8px;text-align:center;line-height:2.3;margin-top:5px}
-#abcPanel button{font-size:22px;padding:5px 11px;margin:3px;border-radius:7px;border:1px solid #ccc;background:#fff;cursor:pointer}
-table.guideTable{width:100%;border-collapse:collapse;font-size:11px;margin-top:5px}
-table.guideTable td, table.guideTable th{border:1px solid #ccc;padding:5px;text-align:center}
-table.guideTable th{background:#0A3D2E;color:#fff}
+*{box-sizing:border-box;font-family:system-ui}
+body{margin:0;background:#FDF6E3;color:#222}
+.h{background:#0A3D2E;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:10}
+.h b{font-size:18px}
+.h small{display:block;font-size:11px;opacity:.9}
+.wrap{max-width:520px;margin:auto;padding:10px}
+.card{background:#fff;border:1.5px solid #C9A86A;border-radius:12px;padding:10px;margin-bottom:10px}
+label{font-size:12px;font-weight:bold;display:block;margin-top:8px}
+input,select{width:100%;padding:10px;border:1.5px solid #C9A86A;border-radius:8px;margin-top:3px;font-size:15px}
+.b{border:none;border-radius:8px;padding:11px;font-weight:bold;cursor:pointer;font-size:14px}
+.g{background:#0A3D2E;color:#fff}
+.r{background:#B71C1C;color:#fff}
+.gr{background:#E8F5E9}
+.row{display:flex;gap:6px}
+.row>*{flex:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.grid label{margin-top:4px}
+.small{font-size:11px;color:#666;text-align:center}
+.kb{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:6px}
+.kb button{padding:8px 10px;border:1px solid #C9A86A;background:#FFF8E1;border-radius:6px;font-size:16px}
+.topbtn{position:fixed;bottom:10px;left:10px;right:10px;display:flex;gap:6px;z-index:20}
+img{max-width:100%}
 </style>
 </head>
 <body>
-<div class="t">
-  <div class="left"><img src="logo.jpg"><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMMAL FINAL V17</small></div></div>
-  <div class="badge-small" id="badge">Auto Backup<br>ON<br><span id="curEmailShort" style="font-size:7px"></span></div>
+<div class="h"><b>دل ٹیلر شاپ - حسن</b><small>MUKAMMAL FINAL V18 - 03463604869 - گوجرانوالہ</small></div>
+
+<div class="wrap">
+
+<!-- تلاش -->
+<div class="card">
+<label>🔍 تلاش کریں</label>
+<input id="searchBox" placeholder="نام یا موبائل لکھیں..." oninput="doSearch()">
+<div id="searchList"></div>
 </div>
-<div class="c email-compact" id="allEmails"></div>
-<div class="c" dir="ltr" style="background:#E8F5E9;border:1.5px solid #2e7d32;text-align:left">
-<div style="font-size:11px;font-weight:bold;text-align:center;color:#1a4d2e">💾 Auto Backup - Khud Ba Khud Drive Me</div>
-<div style="font-size:11px;line-height:19px;margin-top:4px">Active Email: <b id="driveEmail" style="color:#1565c0"></b><br>Last Auto Backup: <span id="lastBackup">Abhi tak nahi hua</span><br>Haalat: <span id="backupState">✅ Auto ON hai - Click ki zaroorat nahi</span></div>
-<div style="font-size:11px;margin-top:4px">Storage: <span id="storageText">...</span></div>
-<div style="height:9px;background:#ddd;border-radius:10px;overflow:hidden;margin:4px 0"><div id="storageFill" style="height:100%;background:#2e7d32;width:1%"></div></div>
-<div style="font-size:9px;color:#666;text-align:center" id="storageDetail">Har Email 15 GB</div>
-<div style="font-size:9px;color:#666;text-align:center;margin-top:4px" dir="rtl">آپ کو کچھ دبانا نہیں پڑے گا، محفوظ کرتے ہی خود چلا جائے گا، نئے موبائل میں خود واپس آ جائے گا</div>
+
+<!-- کسٹمر -->
+<div class="card">
+<b>👤 کسٹمر</b>
+<label>سریل *</label><input id="serial" type="number" value="63">
+<label>نام *</label><input id="custName" placeholder="نام لکھیں - جیسے Sadiq / Zafar">
+<label>موبائل</label><input id="mobile" placeholder="0300-1234567">
+<div class="row">
+<div><label>آرڈر</label><input id="orderDate" type="date"></div>
+<div><label>ڈیلیوری</label><input id="deliveryDate" type="date"></div>
 </div>
-<div class="c record-bar">
-<span id="online" style="font-weight:bold">✅ آن لائن</span>
-<button id="wakeBtn" onclick="toggleWakeLock()" class="b" style="background:#FFF9C4;border:1.5px solid #0A3D2E;font-size:10px;padding:3px 7px">🔆 Screen On</button>
-<span id="recordCount" style="background:#0A3D2E;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;flex-shrink:0">0 ریکارڈ</span>
+<label>پتہ / نوٹ</label><input id="address" placeholder="پتہ لکھیں">
 </div>
-<div class="c" style="background:#FFF8E0;border:1.5px dashed #FF9800">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<span style="font-size:11px;font-weight:bold">🔆 سکرین آن رکھیں؟ (ناپ لیتے وقت بند نہ ہو)</span>
-<button id="wakeBtn2" onclick="toggleWakeLock()" class="b" style="background:#0A3D2E;color:#fff;font-size:11px;padding:5px 10px">OFF - بند ہے</button>
+
+<!-- کسٹمر فوٹو - جیسا آپ کا تھا -->
+<div class="card">
+<b>📸 کسٹمر فوٹو</b>
+<input type="file" id="custFile" accept="image/*" capture="environment" hidden onchange="previewCust(event)">
+<div id="custPrev" style="text-align:center;margin-top:6px"></div>
+<div id="custBtns" style="display:none" class="row">
+<button class="b g" onclick="document.getElementById('custFile').click()">📸 فوٹو چینج کرو</button>
+<button class="b r" onclick="removeCustPhoto()">🗑️ ڈیلیٹ کرو</button>
 </div>
-<div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے - سکرین خود بند ہو جائے گی</div>
-</div>
-<div class="c" style="padding:4px 8px;background:#F9F9F9;border:1px solid #ddd">
-<details open>
-<summary style="font-size:11px;color:#666;text-align:center">ℹ️ Urdu ka tareeqa - A se Z tak mukammal tarkeeb - dekhne ke liye dabao, dobara dabao to band</summary>
-<div style="font-size:11px;text-align:center;margin-top:5px;line-height:20px">
-<b style="color:#1a4d2e">✅ Urdu Hamesha ON hai</b><br>
-Pehle poora English likho, phir 1 second ruko ya Space / Next dabao - khud Urdu ho jayega<br>
-<b style="color:#B71C1C">Bara = Bhari - N=ں | T=ٹ | D=ڈ | R=ڑ | S=ص | Z=ظ | A=ع | G=غ | H=ح | Q=ق</b><br>
-<span style="color:#666">Do harf wale: Kh=خ | Gh=غ | Ch=چ | Sh=ش | Dh=ض | Zh=ذ | Th=ث | Ph=پھ | Nh=ں | Rh=ڑ</span><br>
-<span style="color:#666">Misal: Sadiq=صادق | Zafar=ظفر | Adil=عادل | Ghafoor=غفور | Tahir=طاہر | Hassan=حسن | RaDha=رضا</span>
-<table class="guideTable">
-<tr><th>English likho</th><th>Urdu banega</th><th>Misal</th></tr>
-<tr><td>a = ا , A = آ</td><td>ا / آ</td><td>altaf = الطاف , aam = آم</td></tr>
-<tr><td>b = ب , B = بھ</td><td>ب</td><td>bilal = بلال</td></tr>
-<tr><td>c = ک , C = چ</td><td>ک / چ</td><td>chota = چھوٹا</td></tr>
-<tr><td>d = د , D = ڈ</td><td>د / ڈ</td><td>danish = دانش , Daba = ڈبہ</td></tr>
-<tr><td>dh = دھ , DH = ڈھ</td><td>دھ / ڈھ</td><td>dhaga = دھاگا , DHol = ڈھول</td></tr>
-<tr><td>e = ے , E = ع</td><td>ے</td><td>waseem = وسیم</td></tr>
-<tr><td>f = ف</td><td>ف</td><td>farhan = فرحان</td></tr>
-<tr><td>g = گ , G = غ</td><td>گ / غ</td><td>ghafoor = غفور</td></tr>
-<tr><td>h = ہ , H = ح</td><td>ہ / ح</td><td>hassan = حسن , Hamza = حمزہ</td></tr>
-<tr><td>i = ی , I = ع</td><td>ی</td><td>imran = عمران</td></tr>
-<tr><td>j = ج</td><td>ج</td><td>jawad = جواد</td></tr>
-<tr><td>k = ک , K = کھ</td><td>ک</td><td>kashif = کاشف</td></tr>
-<tr><td>kh = خ</td><td>خ</td><td>khalid = خالد</td></tr>
-<tr><td>l = ل</td><td>ل</td><td>lasuri = لاسوری</td></tr>
-<tr><td>m = م</td><td>م</td><td>muhammad = محمد</td></tr>
-<tr><td>n = ن , N = ں</td><td>ن / ں</td><td>nasir = ناصر , jaaN = جاں</td></tr>
-<tr><td>o = و</td><td>و</td><td>tooba = طوبی</td></tr>
-<tr><td>p = پ , P = پھ</td><td>پ</td><td>pak = پاک</td></tr>
-<tr><td>q = ق , Q = ق</td><td>ق</td><td>qasim = قاسم</td></tr>
-<tr><td>r = ر , R = ڑ</td><td>ر / ڑ</td><td>raza = رضا , larka = لڑکا</td></tr>
-<tr><td>s = س , S = ص</td><td>س / ص</td><td>sadiq = صادق</td></tr>
-<tr><td>sh = ش</td><td>ش</td><td>shahid = شاہد</td></tr>
-<tr><td>t = ت , T = ٹ</td><td>ت / ٹ</td><td>tariq = طارق , Tota = ٹوٹا</td></tr>
-<tr><td>th = تھ , Th = ث</td><td>تھ / ث</td><td>thanda = تھنڈا</td></tr>
-<tr><td>tah = طاہ , tal = طال</td><td>طاہ</td><td>tahir = طاہر , talha = طلحہ</td></tr>
-<tr><td>u = و</td><td>و</td><td>usman = عثمان</td></tr>
-<tr><td>w = و</td><td>و</td><td>waseem = وسیم</td></tr>
-<tr><td>y = ی</td><td>ی</td><td>yusuf = یوسف</td></tr>
-<tr><td>z = ز , Z = ظ</td><td>ز / ظ</td><td>zahid = زاہد , zafar = ظفر</td></tr>
-<tr><td>zh = ذ , gh = غ</td><td>ذ / غ</td><td>ghafoor = غفور</td></tr>
-</table>
-<div style="font-size:10px;color:#B71C1C;margin-top:4px"><b>Yaad rakhen:</b> Mobile pehla harf khud bara kar deta hai, jaise Altaf me A. Code usko khud chota samjhega, is liye Altaf se الطاف hi banega, علطاف nahi banega.</div>
-</div>
-</details>
-<button class="abc-btn" onclick="toggleABC()">📖 پوری ا ب - Yahan dabao, koi harf miss nahi hoga - Dobara dabao to band</button>
-<div id="abcPanel"></div>
-<div id="abcGuide" style="display:none;font-size:11px;text-align:center;line-height:18px;margin-top:5px">Agar koi harf samajh na aaye to upar wale harf pe dabao, wo naam me aa jayega. Misal: ط ke liye ط dabao, ظ ke liye ظ dabao, ع ke liye ع dabao.</div>
-</div>
-<div class="c">
-<h3 style="font-size:13px">🔍 تلاش کریں</h3>
-<div class="g2"><input id="q" inputmode="text" enterkeyhint="search" placeholder="نام، موبائل، سیریل - Asad = اسد" style="font-size:12px"><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div>
-<button onclick="clearSearch()" class="b" style="width:100%;margin-top:5px;border:1px solid #0A3D2E;font-size:11px">❌ صاف</button>
-<div id="results" style="margin-top:6px"></div>
-</div>
-<div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
-<div class="g2"><div style="font-size:11px">سیریل<input id="serialNo" inputmode="numeric" enterkeyhint="next"></div><div style="font-size:11px">سوٹ - خود لکھیں<input id="suitCount" inputmode="text" enterkeyhint="next" class="editable" list="suitList" value="1 سوٹ" placeholder="خود لکھیں - 10 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"><option value="20 سوٹ"></datalist></div></div>
-<div style="font-size:11px">نام *<input id="customerName" inputmode="text" enterkeyhint="next" placeholder="Sadiq=صادق | Zafar=ظفر" autocomplete="off"></div>
-<div class="g2"><div style="font-size:11px">موبائل<input id="mobile" inputmode="tel" enterkeyhint="next"></div><div style="font-size:11px">پتہ<input id="pata" inputmode="text" enterkeyhint="next" placeholder="Poora pata English me likho - Lasuri = لاسوری" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date" enterkeyhint="next"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date" enterkeyhint="next"></div></div>
-<div style="font-size:11px">کپڑا - خود لکھیں<input id="kapdaQism" inputmode="text" enterkeyhint="next" class="editable" list="kapdaList" value="واش اینڈ وئیر"><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
-<div style="font-size:11px">سلائی - خود لکھیں<input id="silaiQism" inputmode="text" enterkeyhint="next" class="editable" list="silaiList" value="قمیض شلوار"><datalist id="silaiList"><option value="قمیض شلوار"><option value="صرف قمیض"><option value="شرٹ"><option value="1 پیس شلوار"></datalist></div>
-</div>
-<div class="c"><h3 style="font-size:13px">📸 فوٹو - V14 Wala Mobile Camera</h3>
-<div class="g2"><button class="b o" onclick="document.getElementById('custFile').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('custCam').click()">📷 کیمرہ</button></div>
-<input type="file" id="custFile" hidden accept="image/*" onchange="previewCust(event)"><input type="file" id="custCam" hidden accept="image/*" capture="environment" onchange="previewCust(event)">
-<div id="custPrev"></div>
-<div id="custBtns" style="display:none;gap:4px;margin-top:4px">
-<button class="b" style="background:#0A3D2E;color:#fff;flex:1;font-size:11px" onclick="document.getElementById('custFile').click()">🔄 فوٹو چینج کرو</button>
-<button class="b" style="background:#B71C1C;color:#fff;flex:1;font-size:11px" onclick="removeCustPhoto()">🗑️ ڈیلیٹ کرو</button>
-</div>
-<div style="font-size:9px;color:#666;text-align:center;margin-top:3px">فوٹو پر کلک کرو تو بڑی ہو جائے گی</div>
-<div style="margin-top:6px;font-size:11px">🎨 ڈیزائن (5)<div class="g2"><button class="b o" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button><button class="b o" onclick="document.getElementById('designCam').click()">📷</button></div></div>
-<input type="file" id="designFiles" hidden multiple accept="image/*" onchange="previewDesign(event)"><input type="file" id="designCam" hidden accept="image/*" capture="environment" onchange="previewDesignOne(event)">
-<div id="designPrev" style="display:flex;gap:3px;flex-wrap:wrap;margin-top:4px"></div>
-</div>
-<div class="c"><h3 style="font-size:13px">📏 قمیض</h3>
-<div style="display:flex;gap:4px;margin-bottom:6px"><button id="kbdBtn" onclick="toggleNumKeyboard()" class="b" style="width:100%;background:#0A3D2E;color:#fff;font-size:12px;padding:9px">⌨️ Keyboard: 123 Calculator - ABC ke liye dabao</button></div>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="lambai" class="num-field" inputmode="decimal" enterkeyhint="next" placeholder="40" autocomplete="off"></div><div style="font-size:11px">بازو<input id="bazu" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">تیرا<input id="teera" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">گلہ<input id="gala" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">چھاتی<input id="chhati" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">کمر<input id="kamar" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">گھیرا<input id="gheera" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">موڈا<input id="moda" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">کف<input id="kaff" inputmode="text" enterkeyhint="next" placeholder="8fix = 8 فکس" autocomplete="off"></div><div style="font-size:11px">کالر<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'galaQisam','کالر')">کالر</div><div class="o" onclick="setOne(this,'galaQisam','بین')">بین</div></div></div></div>
-</div>
-<div class="c"><h3 style="font-size:13px">👖 شلوار</h3>
-<div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div><div style="font-size:11px">پانچہ<input id="pouncha" class="num-field" inputmode="decimal" enterkeyhint="next" autocomplete="off"></div></div>
-<div class="g2"><div style="font-size:11px">کوندے پلے<input id="kondayTafseel" inputmode="text" enterkeyhint="next" placeholder="مثلاً 8 انچ" autocomplete="off"></div><div style="font-size:11px">قسم<div style="display:flex;gap:2px"><div class="o" id="kondayBtn" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" onclick="setShalwar(this,'1 پیس')">1 پیس</div></div></div></div>
-<div id="onePieceBox"><b style="font-size:11px">🔷 1 پیس شلوار</b><input id="onePieceDetail" inputmode="text" enterkeyhint="next" placeholder="جیب والا، بیلٹ" autocomplete="off"><div style="display:flex;gap:2px;margin-top:4px"><div class="o" onclick="setOne(this,'onePieceJeb','جیب والا')">جیب والا</div><div class="o" onclick="setOne(this,'onePieceJeb','بغیر')">بغیر</div></div></div>
-</div>
-<div class="c"><h3 style="font-size:13px">✨ دیگر ڈیزائن</h3>
-<div class="g2"><div style="font-size:11px">تیرا<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'teeraQisam','سادہ')">سادہ</div><div class="o" onclick="setOne(this,'teeraQisam','نوک')">نوک</div></div></div><div style="font-size:11px">سلائی<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'silaiDesign','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'silaiDesign','ڈبل')">ڈبل</div></div></div></div>
-<div class="g2" style="margin-top:4px"><div style="font-size:11px">پانچہ جالی<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'pounchaJali','سنگل')">سنگل</div><div class="o" onclick="setOne(this,'pounchaJali','ڈبل')">ڈبل</div></div></div><div style="font-size:11px">دامن<div style="display:flex;gap:2px"><div class="o" onclick="setOne(this,'daman','گول')">گول</div><div class="o" onclick="setOne(this,'daman','چورس')">چورس</div></div></div></div>
-<div style="margin-top:5px;font-size:11px">جیب<div class="g2"><div class="o" onclick="toggleJeb('فرنٹ',this)">فرنٹ</div><div class="o" onclick="toggleJeb('سائیڈ',this)">سائیڈ</div><div class="o" onclick="toggleJeb('شلوار',this)">شلوار</div></div><div id="jebText" style="font-size:11px">کوئی نہیں</div></div>
-</div>
-<div class="c">
-<div class="g2"><div style="font-size:11px">کل<input id="totalPrice" type="number" inputmode="decimal" enterkeyhint="next" oninput="calc()"></div><div style="font-size:11px">ایڈوانس<input id="advance" type="number" inputmode="decimal" enterkeyhint="next" oninput="calc()"></div></div>
-<div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
-<textarea id="note" inputmode="text" enterkeyhint="done" placeholder="نوٹ - Poora English likho, phir 1 sec ruko, khud Urdu ho jayega" style="font-size:11px" autocomplete="off"></textarea>
-<button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
-<div style="display:flex;gap:4px;margin-top:5px">
-<button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
-<button class="b" style="background:#25D366;color:#fff;flex:1" onclick="sendWA()">📱 واٹس ایپ</button>
-<button class="b" style="flex:1" onclick="newRecord()">+ نیا</button>
-<button class="b" style="background:#B71C1C;color:#fff" onclick="deleteCurrent()">🗑️</button>
+<div class="small">فوٹو پر کلک کر کے بڑا کر کے دیکھ سکتے ہو</div>
+<div style="margin-top:6px" class="row">
+<button class="b g" onclick="document.getElementById('custFile').click()">📸 گیلری</button>
+<button class="b" style="background:#FFF8E1" onclick="document.getElementById('custFile').click()">📷 کیمرہ</button>
 </div>
 </div>
-<div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ - Same Shape</div><div id="viewContent" style="padding:6px"></div></div></div>
-<div id="photoModal" onclick="closePhoto()"><div style="text-align:center"><img id="photoBig" src=""><br><button class="b" style="background:#fff;margin-top:8px" onclick="closePhoto()">❌ بند کریں</button></div></div>
+
+<!-- ڈیزائن فوٹو - اب بالکل کسٹمر جیسا -->
+<div class="card">
+<b>🎨 ڈیزائن (5) - ڈیزائن والی فوٹو</b>
+<input type="file" id="designFiles" accept="image/*" multiple hidden onchange="previewDesign(event)">
+<input type="file" id="designOne" accept="image/*" capture="environment" hidden onchange="previewDesignOne(event)">
+<div id="designPrev" style="text-align:center;min-height:40px"></div>
+
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="b g" style="flex:1" onclick="document.getElementById('designFiles').click()">📸 فوٹو چینج کرو / اور لگاؤ</button>
+<button class="b r" style="flex:1" onclick="deleteAllDesignPhotos()">🗑️ ڈیلیٹ کرو</button>
+</div>
+<div style="display:flex;gap:6px;margin-top:6px">
+<button class="b" style="background:#FFF8E1;flex:1" onclick="document.getElementById('designFiles').click()">🖼️ گیلری</button>
+<button class="b" style="background:#FFF8E1;flex:1" onclick="document.getElementById('designOne').click()">📷 کیمرہ</button>
+</div>
+<div class="small">فوٹو پر کلک کر کے بڑا کر کے دیکھ سکتے ہو - ہر فوٹو کے نیچے الگ Delete بھی ہے</div>
+</div>
+
+<!-- قمیض -->
+<div class="card">
+<b>👕 قمیض</b>
+<div class="grid">
+<div><label>لمبائی</label><input id="qLambai" type="number" value="40"></div>
+<div><label>بازو</label><input id="qBazu"></div>
+<div><label>تیرا</label><input id="qTira"></div>
+<div><label>گلا</label><input id="qGala"></div>
+<div><label>چھاتی</label><input id="qChati"></div>
+<div><label>کمر</label><input id="qKamar"></div>
+<div><label>گھیرا</label><input id="qGhera"></div>
+<div><label>کف</label><input id="qCuff"></div>
+</div>
+</div>
+
+<!-- شلوار -->
+<div class="card">
+<b>👖 شلوار</b>
+<div class="grid">
+<div><label>لمبائی</label><input id="sLambai"></div>
+<div><label>پانچہ</label><input id="sPancha"></div>
+<div><label>کمر</label><input id="sKamar"></div>
+</div>
+<label>قسم</label>
+<select id="shalwarType"><option>سادہ</option><option>پٹی والا</option><option>چوڑی دار</option></select>
+</div>
+
+<!-- حساب -->
+<div class="card">
+<b>💰 حساب</b>
+<div class="grid">
+<div><label>کل</label><input id="total" type="number"></div>
+<div><label>ایڈوانس</label><input id="advance" type="number" oninput="calcBaqi()"></div>
+</div>
+<label>باقی</label><input id="baqi" readonly>
+<label>نوٹ</label><input id="note" placeholder="Poora English likho, phir 1 sec ruko, khud Urdu ho jayega">
+</div>
+
+<div class="row" style="margin-bottom:70px">
+<button class="b g" style="flex:2" onclick="saveRecord()">✅ محفوظ کریں</button>
+<button class="b" style="background:#FFEBEE;flex:1" onclick="newRecord()">+ نیا</button>
+</div>
+
+<div class="card"><b>📋 ریکارڈ</b><div id="list"></div></div>
+
+</div>
+
+<!-- فوٹو بڑا دیکھنے والا -->
+<div id="photoView" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:99;text-align:center" onclick="this.style.display='none'">
+<img id="bigPhoto" style="max-width:95%;max-height:90%;margin-top:20px;border-radius:10px">
+<div style="color:#fff">بند کرنے کے لیے کہیں بھی دبائیں</div>
+</div>
+
 <script>
-var APP_VERSION='v17';
-var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
-var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
-var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
-var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
-var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
-var SVAL={},JEB=[],custB64=null,designB64=[];
-var NUM_MODE = localStorage.getItem('dil_kbd_mode') || 'decimal';
-var FIELD_ORDER=['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','note'];
-function goNext(currentId){
-  var idx=FIELD_ORDER.indexOf(currentId);
-  if(idx===-1) return false;
-  for(var i=idx+1;i<FIELD_ORDER.length;i++){
-    var nid=FIELD_ORDER[i];
-    var nel=document.getElementById(nid);
-    if(!nel) continue;
-    if(nid==='onePieceDetail' && document.getElementById('onePieceBox').style.display!=='block') continue;
-    if(nid==='baqaya') continue;
-    nel.scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(function(){ nel.focus(); if(nel.select) { try{nel.select();}catch(e){} } },120);
-    return true;
-  }
-  return false;
+var APP_VERSION='v18';
+var designB64=[];
+var custB64=null;
+var editId=null;
+var allData=JSON.parse(localStorage.getItem('dil_v18')||'[]');
+
+function comp(f,cb){
+  var r=new FileReader();
+  r.onload=function(e){
+    var img=new Image();
+    img.onload=function(){
+      var c=document.createElement('canvas');
+      var max=800; var w=img.width,h=img.height;
+      if(w>max){h=h*max/w;w=max;}
+      c.width=w;c.height=h;
+      c.getContext('2d').drawImage(img,0,0,w,h);
+      cb(c.toDataURL('image/jpeg',0.75));
+    };
+    img.src=e.target.result;
+  };
+  r.readAsDataURL(f);
 }
-function toggleABC(){
-  var p=document.getElementById('abcPanel');
-  var g=document.getElementById('abcGuide');
-  if(p.style.display==='block'){ p.style.display='none'; g.style.display='none'; return; }
-  p.style.display='block'; g.style.display='block';
-  var letters="ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ی ے".split(" ");
+function openPhoto(src){document.getElementById('bigPhoto').src=src;document.getElementById('photoView').style.display='block';}
+
+// --- کسٹمر فوٹو ---
+function previewCust(e){
+  var f=e.target.files[0]; if(!f) return;
+  comp(f,function(c){
+    custB64=c;
+    document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=120 style="border-radius:10px;border:2px solid #C9A86A;cursor:pointer">';
+    document.getElementById('custBtns').style.display='flex';
+  });
+}
+function removeCustPhoto(){
+  if(!confirm('کسٹمر والی فوٹو ڈیلیٹ کرنی ہے بھائی؟')) return;
+  custB64=null;
+  document.getElementById('custPrev').innerHTML='';
+  document.getElementById('custBtns').style.display='none';
+}
+
+// --- ڈیزائن فوٹو - مکمل سیٹنگ ---
+function renderDesignPhotos(){
   var h='';
-  for(var i=0;i<letters.length;i++){ h+='<button onclick="insertUrdu(\''+letters[i]+'\')">'+letters[i]+'</button>'; }
-  h+='<br><button onclick="insertUrdu(\' \')" style="font-size:14px;padding:8px 20px">Space - خالی جگہ</button>';
-  p.innerHTML=h;
-}
-function insertUrdu(ch){
-  var el=document.activeElement;
-  if(!el || (el.tagName!=='INPUT' && el.tagName!=='TEXTAREA')){ el=document.getElementById('customerName'); }
-  if(el){ var s=el.selectionStart||el.value.length; el.value=el.value.slice(0,s)+ch+el.value.slice(s); el.focus(); try{el.setSelectionRange(s+1,s+1);}catch(e){} }
-}
-var CAPITAL_MAP={"A":"ع","S":"ص","D":"ڈ","G":"غ","Z":"ظ","T":"ٹ","H":"ح","Q":"ق","K":"ک","N":"ں","R":"ڑ","B":"ب","E":"ع","J":"ج","F":"ف","L":"ل","M":"م","W":"و","Y":"ی","C":"چ","P":"پ"};
-var URDU_NAMES={"asad":"اسد","ahmed":"احمد","ali":"علی","bilal":"بلال","usman":"عثمان","umar":"عمر","hamza":"حمزہ","hassan":"حسن","hussain":"حسین","muhammad":"محمد","mohammad":"محمد","ahmad":"احمد","abdullah":"عبداللہ","ibrahim":"ابراہیم","yusuf":"یوسف","kashif":"کاشف","naveed":"نوید","naweed":"نوید","imran":"عمران","kamran":"کامران","farhan":"فرحان","zeeshan":"ذیشان","adil":"عادل","arshad":"ارشد","nasir":"ناصر","waseem":"وسیم","tariq":"طارق","shahid":"شاہد","akram":"اکرم","saleem":"سلیم","rashid":"راشد","javed":"جاوید","ashfaq":"اشفاق","rizwan":"رضوان","tanveer":"تنویر","shafiq":"شفیق","dil":"دل","dilawar":"دلاور","lasuri":"لاسوری","lasoori":"لاسوری","fix":"فکس","open":"اوپن","close":"کلوز","gol":"گول","choras":"چورس","sada":"سادہ","nok":"نوک","single":"سنگل","double":"ڈبل","front":"فرنٹ","side":"سائیڈ","shalwar":"شلوار","qaiser":"قیصر","chorran":"چوراں","wallah":"والا","choranwallah":"چوراں والا","kalan":"کلاں","ona":"اونہ","kh":"کھ","gujranwala":"گوجرانوالہ","gujrat":"گجرات","lahore":"لاہور","sialkot":"سیالکوٹ","kameez":"قمیض","bazu":"بازو","lambai":"لمبائی","teera":"تیرا","gala":"گلہ","chhati":"چھاتی","kamar":"کمر","gheera":"گھیرا","moda":"موڈا","kaff":"کف","collar":"کالر","ben":"بین","jeb":"جیب","pouncha":"پانچہ","daman":"دامن","jali":"جالی","silai":"سلائی","kapda":"کپڑا","suit":"سوٹ","wash":"واش","wear":"وئیر","cotton":"کاٹن","latha":"لٹھا","khaddar":"کھدر","boski":"بوسکی","zafar":"ظفر","zahid":"ظاہد","zahoor":"ظہور","zulfiqar":"ظلفیقار","zaheer":"ظہیر","sadiq":"صادق","sadik":"صادق","saeed":"سعید","salman":"سلمان","arif":"عارف","azeem":"عظیم","ghafour":"غفور","ghafoor":"غفور","ghulam":"غلام","tahir":"طاہر","talha":"طلحہ","tayyab":"طیب","tayyaba":"طیبہ","altaf":"الطاف","tooba":"طوبی","taha":"طہ","hamid":"حامد","habib":"حبیب","noor":"نور","san":"ساں","jaan":"جاں"};
-var LETTER_MAP={"a":"ا","b":"ب","c":"ک","d":"د","e":"ے","f":"ف","g":"گ","h":"ہ","i":"ی","j":"ج","k":"ک","l":"ل","m":"م","n":"ن","o":"و","p":"پ","q":"ق","r":"ر","s":"س","t":"ت","u":"و","v":"و","w":"و","x":"کس","y":"ی","z":"ز","ch":"چ","sh":"ش","kh":"خ","gh":"غ","ph":"پھ","th":"تھ","aa":"آ","zh":"ظ","dh":"ض","rh":"ڑ","nh":"ں"};
-function romanToUrdu(word){
-  if(!word) return word;
-  var orig=word.trim();
-  if(!orig) return orig;
-  var lowAll=orig.toLowerCase();
-  if(URDU_NAMES[lowAll]) return URDU_NAMES[lowAll];
-  var firstIsAutoCap = orig.length>1 && orig[0]>='A' && orig[0]<='Z' && orig[1]>='a' && orig[1]<='z';
-  var work = orig;
-  if(firstIsAutoCap){ work = orig[0].toLowerCase() + orig.slice(1); }
-  var out=""; var i=0;
-  while(i<work.length){
-    var ch=work[i];
-    if(i+1<work.length){
-      var two=work.substr(i,2);
-      var twoLow=two.toLowerCase();
-      if(twoLow==='tah'){ out+="طاہ"; i+=3; continue; }
-      if(twoLow==='tal'){ out+="طال"; i+=3; continue; }
-      if(twoLow==='dh'){ out+="ض"; i+=2; continue; }
-      if(twoLow==='zh'){ out+="ذ"; i+=2; continue; }
-      if(twoLow==='th'){ out+="ث"; i+=2; continue; }
-      if(twoLow==='kh'){ out+="خ"; i+=2; continue; }
-      if(twoLow==='gh'){ out+="غ"; i+=2; continue; }
-      if(twoLow==='ch'){ out+="چ"; i+=2; continue; }
-      if(twoLow==='sh'){ out+="ش"; i+=2; continue; }
-      if(twoLow==='nh'){ out+="ں"; i+=2; continue; }
-      if(twoLow==='rh'){ out+="ڑ"; i+=2; continue; }
-      if(twoLow==='aa'){ out+="آ"; i+=2; continue; }
-      if(twoLow==='ph'){ out+="پھ"; i+=2; continue; }
-    }
-    if(ch>='A' && ch<='Z' && CAPITAL_MAP[ch]){
-      out+=CAPITAL_MAP[ch]; i++; continue;
-    }
-    var lowCh=ch.toLowerCase();
-    if(LETTER_MAP[lowCh]) out+=LETTER_MAP[lowCh];
-    else out+=ch;
-    i++;
+  for(var i=0;i<designB64.length;i++){
+    h+='<div style="display:inline-block;margin:3px;text-align:center;vertical-align:top">'
+      +'<img onclick="openPhoto(\''+designB64[i]+'\')" src="'+designB64[i]+'" width=60 style="border-radius:6px;border:1.5px solid #C9A86A;cursor:pointer;display:block">'
+      +'<button style="background:#B71C1C;color:#fff;border:none;border-radius:6px;font-size:10px;font-weight:bold;padding:5px 0;margin-top:3px;width:60px" onclick="deleteDesignPhoto('+i+')">❌ Delete</button>'
+      +'</div>';
   }
-  return out;
+  document.getElementById('designPrev').innerHTML=h;
 }
-function convertOneToken(tok){
-  if(!tok || !/[a-zA-Z]/.test(tok)) return tok;
-  var m = tok.match(/^(\d+)([a-zA-Z]+)$/);
-  if(m){ return m[1] + " " + romanToUrdu(m[2]); }
-  var m2 = tok.match(/^([a-zA-Z]+)(\d+)$/);
-  if(m2){ return romanToUrdu(m2[1]) + " " + m2[2]; }
-  return romanToUrdu(tok);
+function deleteDesignPhoto(idx){
+  if(!confirm('یہ والی ڈیزائن فوٹو ڈیلیٹ کرنی ہے بھائی؟')) return;
+  designB64.splice(idx,1);
+  renderDesignPhotos();
 }
-function convertOnBlur(el){if(!el||!el.value)return;var v=el.value.trim();if(!v)return;if(!/[a-zA-Z]/.test(v))return;var newV=v.split(/\s+/).map(convertOneToken).join(" ");if(newV!==el.value){el.value=newV;}}
-function convertOnSpace(el){if(!el||!el.value)return;var v=el.value;if(!/[a-zA-Z]/.test(v))return;var parts=v.split(" ");for(var i=0;i<parts.length;i++){parts[i]=convertOneToken(parts[i]);}var newV=parts.join(" ");if(newV!==v){el.value=newV;}}
-function convertAllFields(){var els=document.querySelectorAll('input[type="text"], input:not([type]), textarea');els.forEach(function(el){if(el.id==='mobile'||el.id==='serialNo'||el.id==='totalPrice'||el.id==='advance'||el.id==='baqaya'||el.id==='orderDate'||el.id==='deliveryDate')return;convertOnBlur(el);});}
-function toggleNumKeyboard(){
-  NUM_MODE = NUM_MODE==='decimal' ? 'text' : 'decimal';
-  localStorage.setItem('dil_kbd_mode',NUM_MODE);
-  applyKbdUI();
-  var active=document.activeElement;
-  if(active && active.classList && active.classList.contains('num-field')){ active.blur(); setTimeout(function(){active.focus();},80); }
+function deleteAllDesignPhotos(){
+  if(designB64.length==0){alert('کوئی ڈیزائن فوٹو لگی ہی نہیں ہے بھائی');return;}
+  if(!confirm('ساری ڈیزائن فوٹو ڈیلیٹ کرنی ہیں بھائی؟')) return;
+  designB64=[];
+  renderDesignPhotos();
 }
-function applyKbdUI(){
-  document.querySelectorAll('.num-field').forEach(function(el){ el.setAttribute('inputmode',NUM_MODE); });
-  var b=document.getElementById('kbdBtn');
-  if(b){ b.textContent = NUM_MODE==='decimal' ? '⌨️ Keyboard: 123 Calculator - ABC ke liye dabao' : '⌨️ Keyboard: ABC Urdu / English - Calculator ke liye dabao'; b.style.background = NUM_MODE==='decimal' ? '#0A3D2E' : '#FF9800'; }
-}
-applyKbdUI();
-function showEmails(){
-document.getElementById('curEmailShort').textContent=MY_EMAIL.split('@')[0].substring(0,12);
-var h='<b style=color:#0A3D2E>📧 5 Emails Auto Switch:</b><br>';
-EMAILS.forEach((em,i)=>{
-var short=em.split('@')[0].substring(0,18);
-h+=(i+1)+'. '+short+'@... '+(i===curIdx?' <b style=color:green>✅ ACTIVE</b>':' <span style=color:#999>○</span>')+'<br>';
-});
-h+='<span style=font-size:8px;color:#666>ایک فل ہو تو آٹو اگلی پر</span>';
-document.getElementById('allEmails').innerHTML=h;
-}
-showEmails();
-function showBackupInfo(){
-document.getElementById('driveEmail').textContent=MY_EMAIL;
-document.getElementById('lastBackup').textContent=localStorage.getItem('dil_last_backup')||'Abhi tak nahi hua';
-var d=localStorage.getItem(DB_KEY)||'[]';
-var usedMB=(d.length/1024/1024).toFixed(2);
-var usedGB=(parseFloat(usedMB)/1024).toFixed(4);
-var leftGB=(15-parseFloat(usedGB)).toFixed(2);
-var pct=Math.max(1,(parseFloat(usedMB)/15360*100));
-document.getElementById('storageText').textContent=usedGB+' GB Bhari - '+leftGB+' GB Baaki (Total 15 GB)';
-document.getElementById('storageDetail').textContent='App Data: '+usedMB+' MB | Record: '+DB.length+' | Active: '+(curIdx+1)+' / 5';
-document.getElementById('storageFill').style.width=pct+'%';
-document.getElementById('storageFill').style.background=pct>80?'#B71C1C':'#2e7d32';
-}
-showBackupInfo();
-function openPhoto(src){document.getElementById('photoBig').src=src;document.getElementById('photoModal').style.display='flex';}
-function closePhoto(){document.getElementById('photoModal').style.display='none';}
-function autoSyncToDrive(){
-var data=JSON.stringify({email:MY_EMAIL,time:new Date().toLocaleString(),total:DB.length,customers:DB});
-localStorage.setItem('dil_drive_backup_json',data);
-var now=new Date().toLocaleString();
-localStorage.setItem('dil_last_backup',now);
-document.getElementById('lastBackup').textContent=now;
-if(!DRIVE_URL || DRIVE_URL.length<10){
-  document.getElementById('backupState').textContent='✅ Auto Backup Mobile Me Ho Gaya - Drive ke liye Apps Script link lagao';
-  showBackupInfo(); return;
-}
-if(!navigator.onLine){ document.getElementById('backupState').textContent='⏳ Offline ho - Net aate hi khud Drive me chala jayega'; showBackupInfo(); return; }
-document.getElementById('backupState').textContent='⏳ Drive me bheja ja raha hai...';
-fetch(DRIVE_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:data}).then(function(){
-  document.getElementById('backupState').textContent='✅ Auto Backup Drive Me Ho Gaya - '+new Date().toLocaleTimeString();
-  showBackupInfo();
-}).catch(function(){
-  document.getElementById('backupState').textContent='⏳ Net slow hai - Baad me khud try hoga';
-});
-}
-function autoLoadFromDrive(){
-  if(!DRIVE_URL || DRIVE_URL.length<10) return;
-  if(!navigator.onLine) return;
-  document.getElementById('backupState').textContent='⏳ Drive se purana data laaya ja raha hai...';
-  fetch(DRIVE_URL + "?email=" + encodeURIComponent(MY_EMAIL))
-  .then(function(r){ return r.text(); })
-  .then(function(txt){
-    try{
-      var d = JSON.parse(txt);
-      if(d && d.customers && d.customers.length>0){
-        if(DB.length===0 || d.total > DB.length){
-          DB = d.customers;
-          localStorage.setItem(DB_KEY, JSON.stringify(DB));
-          localStorage.setItem('dil_FINAL_5_EMAIL', JSON.stringify(DB));
-          document.getElementById('backupState').textContent='✅ Drive se '+DB.length+' record wapis aa gaye - '+new Date().toLocaleTimeString();
-          updateCount(); showBackupInfo();
-          if(DB.length>0){ document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1; }
-          alert('✅ Drive se '+DB.length+' record khud ba khud wapis aa gaye!');
-        } else {
-          document.getElementById('backupState').textContent='✅ Auto ON hai - Sab data pehle se maujood hai';
-        }
-      } else {
-        document.getElementById('backupState').textContent='✅ Auto ON hai - Naya mobile, Drive me abhi data nahi';
-      }
-    }catch(e){ document.getElementById('backupState').textContent='✅ Auto ON hai'; }
-  }).catch(function(){ document.getElementById('backupState').textContent='✅ Auto ON hai'; });
-}
-setTimeout(autoLoadFromDrive, 800);
-window.addEventListener('online', function(){ autoSyncToDrive(); });
-var today=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today;
-var next=new Date();next.setDate(next.getDate()+7);document.getElementById('deliveryDate').value=next.toISOString().split('T')[0];
-if(DB.length>0){document.getElementById('serialNo').value=(parseInt(DB[DB.length-1].serialNo)||0)+1;}else{document.getElementById('serialNo').value=3;}
-var _debounceTimers={};
-FIELD_ORDER.concat(['q']).forEach(function(id){var el=document.getElementById(id);if(!el)return;
-el.addEventListener('input',function(){var self=this;clearTimeout(_debounceTimers[id]);_debounceTimers[id]=setTimeout(function(){convertOnBlur(self);},300);});
-el.addEventListener('keydown',function(e){
-  if(e.key===' '){setTimeout(function(){convertOnSpace(el);},10);}
-  if(e.key==='Enter'){
-    e.preventDefault();
-    convertOnBlur(el);
-    if(id==='q'){ searchData(); return; }
-    if(id==='note'){ saveData(); return; }
-    goNext(id);
+function previewDesign(e){
+  var fs=e.target.files;
+  for(var i=0;i<fs.length;i++){
+    if(designB64.length>=5){alert('صرف 5 ڈیزائن فوٹو لگ سکتی ہیں بھائی');break;}
+    (function(f){comp(f,function(c){designB64.push(c);renderDesignPhotos();});})(fs[i]);
   }
-});
-el.addEventListener('keyup',function(e){if(e.key==='Enter'||e.key==='Tab'){convertOnBlur(this);}});
-el.addEventListener('blur',function(){convertOnBlur(this);});
-el.addEventListener('change',function(){convertOnBlur(this);});
-el.addEventListener('focusout',function(){convertOnBlur(this);});
-});
-document.getElementById('q').addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){convertOnSpace(this);searchData();}});
-function comp(f,cb){var r=new FileReader();r.onload=function(e){var i=new Image();i.onload=function(){var c=document.createElement('canvas');c.width=500;c.height=500*i.height/i.width;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',0.5));};i.src=e.target.result;};r.readAsDataURL(f);}
-function previewCust(e){var f=e.target.files[0];if(!f)return;comp(f,function(c){custB64=c;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';document.getElementById('custBtns').style.display='flex';});}
-function removeCustPhoto(){custB64=null;document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}
-function previewDesign(e){var fs=e.target.files;for(var i=0;i<fs.length&&designB64.length<5;i++){((f)=>{comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';});})(fs[i]);}}
-function previewDesignOne(e){var f=e.target.files[0];if(!f||designB64.length>=5)return;comp(f,function(c){designB64.push(c);document.getElementById('designPrev').innerHTML+='<img onclick="openPhoto(\''+c+'\')" src="'+c+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';});}
-function setShalwar(el,v){document.querySelectorAll('#kondayBtn,#onePcsBtn').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL.shalwarQisam=v;document.getElementById('onePieceBox').style.display=v==='1 پیس'?'block':'none';}
-function setOne(el,k,v){el.parentElement.querySelectorAll('.o').forEach(o=>o.classList.remove('a'));el.classList.add('a');SVAL[k]=v;}
-function toggleJeb(k,el){if(JEB.includes(k)){JEB=JEB.filter(x=>x!=k);el.classList.remove('a');}else{JEB.push(k);el.classList.add('a');}document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';}
-function calc(){var t=parseFloat(document.getElementById('totalPrice').value||0);var a=parseFloat(document.getElementById('advance').value||0);document.getElementById('baqaya').value=t-a;document.getElementById('baqayaText').textContent=t-a;}
-function saveData(){convertAllFields();var o={serialNo:document.getElementById('serialNo').value,customerName:document.getElementById('customerName').value,mobile:document.getElementById('mobile').value,pata:document.getElementById('pata').value,orderDate:document.getElementById('orderDate').value,deliveryDate:document.getElementById('deliveryDate').value,kapdaQism:document.getElementById('kapdaQism').value,silaiQism:document.getElementById('silaiQism').value,suitCount:document.getElementById('suitCount').value,lambai:document.getElementById('lambai').value,bazu:document.getElementById('bazu').value,teera:document.getElementById('teera').value,gala:document.getElementById('gala').value,chhati:document.getElementById('chhati').value,kamar:document.getElementById('kamar').value,gheera:document.getElementById('gheera').value,moda:document.getElementById('moda').value,kaff:document.getElementById('kaff').value,shalwarLambai:document.getElementById('shalwarLambai').value,pouncha:document.getElementById('pouncha').value,kondayTafseel:document.getElementById('kondayTafseel').value,onePieceDetail:document.getElementById('onePieceDetail').value,totalPrice:document.getElementById('totalPrice').value,advance:document.getElementById('advance').value,baqaya:document.getElementById('baqaya').value,note:document.getElementById('note').value,galaQisam:SVAL.galaQisam||'',teeraQisam:SVAL.teeraQisam||'',silaiDesign:SVAL.silaiDesign||'',pounchaJali:SVAL.pounchaJali||'',daman:SVAL.daman||'',shalwarQisam:SVAL.shalwarQisam||'',onePieceJeb:SVAL.onePieceJeb||'',jeb:JEB.join(', '),custPhoto:custB64,designPhotos:designB64,emailBackup:MY_EMAIL};if(!o.customerName){alert('نام لکھیں');return;}var idx=DB.findIndex(x=>x.serialNo==o.serialNo);if(idx>=0)DB[idx]=o;else DB.push(o);localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));autoSyncToDrive();alert('✅ محفوظ! Auto Backup bhi ho gaya');updateCount();searchData();}
-function searchData(){convertOnBlur(document.getElementById('q'));var q=document.getElementById('q').value.toLowerCase();var r=document.getElementById('results');if(!q){r.innerHTML='';return;}var f=DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q));var h='';f.reverse().slice(0,20).forEach(function(o){h+='<div style=border:1.5px solid #0A3D2E;padding:7px;margin-bottom:5px;border-radius:9px;background:#FFFBEB;overflow:hidden><div style=font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b></div><div style=font-size:10px;color:#666>'+(o.silaiQism||'')+' | '+o.suitCount+'</div><div style=display:flex;gap:3px;margin-top:4px;flex-wrap:wrap><button class=b style=background:#0A3D2E;color:#fff;flex:1;font-size:10px onclick=viewFull(\''+o.serialNo+'\')>👁️ مکمل - Same Shape</button><button class=b style=background:#25D366;color:#fff;font-size:10px onclick=sendWAId(\''+o.serialNo+'\')>WhatsApp</button><button class=b style=background:#FEF3C7;font-size:10px onclick=printSimple(\''+o.serialNo+'\')>پرچی</button><button class=b style=background:#E3F2FD;font-size:10px onclick=editId(\''+o.serialNo+'\')>Edit</button></div></div>';});r.innerHTML=h||'<div style=text-align:center;font-size:11px>کوئی نہیں</div>';}
-function clearSearch(){document.getElementById('q').value='';document.getElementById('results').innerHTML='';}
-function printSimple(id){var o=DB.find(x=>x.serialNo==id);if(!o)return;var w=window.open('','_blank');var html='<html dir=rtl><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;margin:0;padding:12px;text-align:center} .box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto} img.logo{width:80px;height:80px;border-radius:50%;border:2px solid #0A3D2E;object-fit:cover} h2{margin:6px 0;color:#0A3D2E;font-size:16px} .row{border-bottom:1px dashed #ccc;padding:6px 0;text-align:right;font-size:13px} .foot{margin-top:12px;font-weight:bold;color:#B71C1C;border:2px solid #B71C1C;padding:6px;border-radius:6px;font-size:13px}</style></head><body>'+'<div class=box><img src=logo.jpg class=logo><h2>دل ٹیلر شاپ - دل حسن</h2><p style=font-size:11px>03463604869 | '+MY_EMAIL+'</p><hr>'+'<div class=row><b>نام:</b> '+(o.customerName||'')+'</div>'+'<div class=row><b>موبائل:</b> '+(o.mobile||'')+'</div>'+'<div class=row><b>سلائی:</b> '+(o.silaiQism||'')+' ('+(o.suitCount||'')+')</div>'+'<div class=row><b>آرڈر:</b> '+(o.orderDate||'')+' | <b>ڈلیوری:</b> '+(o.deliveryDate||'')+'</div>'+'<div class=row><b>کل:</b> '+(o.totalPrice||0)+' | <b>ایڈوانس:</b> '+(o.advance||0)+' | <b>باقی:</b> '+(o.baqaya||0)+'</div>'+'<div class=foot>⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';w.document.write(html);w.document.close();setTimeout(()=>w.print(),500);}
-function printSimpleCurrent(){var id=document.getElementById('serialNo').value;if(id)printSimple(id);}
-function sendWAId(id){var o=DB.find(x=>x.serialNo==id);if(!o||!o.mobile){alert('موبائل نہیں');return;}var txt='*السلام علیکم '+o.customerName+'*%0Aسوٹ تیار ہے - دل ٹیلر%0Aباقی: '+(o.baqaya||0)+'%0A'+(o.deliveryDate||'');window.open('https://wa.me/92'+o.mobile.replace(/^0/,'')+'?text='+txt,'_blank');}
-function sendWA(){var id=document.getElementById('serialNo').value;var o=DB.find(x=>x.serialNo==id);if(o)sendWAId(id);else{var m=document.getElementById('mobile').value;if(!m)return alert('موبائل');window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+encodeURIComponent('Suit tayar hai - Baqi '+(document.getElementById('baqaya').value||0)),'_blank');}}
-function viewFull(id){
-  var o=DB.find(x=>x.serialNo==id);if(!o)return;
-  function has(v){return v!==''&&v!==null&&v!==undefined&&v!=='0'&&v!=='کوئی نہیں'&&v!=='undefined'&&String(v).trim()!=='';}
-  function inpBox(label, val){
-    if(!has(val)) return '';
-    return '<div style="font-size:11px">'+label+'<div class="view-input">'+val+'</div></div>';
-  }
-  function chipOnly(val){
-    if(!has(val)) return '';
-    return '<div class="o a" style="cursor:default">'+val+'</div>';
-  }
-  var html='';
-  html+='<div class="c"><h3 style="font-size:13px">👤 کسٹمر - '+o.customerName+' - '+o.serialNo+'</h3>';
-  if(o.custPhoto){ html+='<div style="text-align:center"><img onclick="openPhoto(\''+o.custPhoto+'\')" src="'+o.custPhoto+'" style="width:120px;height:150px;object-fit:cover;border-radius:10px;border:2.5px solid #0A3D2E;cursor:pointer"><div style="font-size:9px;color:#666">فوٹو پر کلک کرو تو بڑی ہوگی</div></div>'; }
-  html+='<div class="g2" style="margin-top:5px">';
-  html+=inpBox('نام', o.customerName);
-  html+=inpBox('موبائل', o.mobile);
-  html+=inpBox('سوٹ', o.suitCount);
-  html+=inpBox('کپڑا', o.kapdaQism);
-  html+=inpBox('سلائی', o.silaiQism);
-  html+=inpBox('آرڈر', o.orderDate);
-  html+=inpBox('ڈلیوری', o.deliveryDate);
-  html+=inpBox('پتہ', o.pata);
-  html+='</div></div>';
-  if(o.designPhotos && o.designPhotos.length){
-    html+='<div class="c"><h3 style="font-size:13px">🎨 ڈیزائن ('+o.designPhotos.length+')</h3><div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center">';
-    o.designPhotos.forEach(p=>{html+='<img onclick="openPhoto(\''+p+'\')" src="'+p+'" style="width:70px;height:85px;object-fit:cover;border-radius:7px;border:2px solid #C9A86A;cursor:pointer">';});
-    html+='</div></div>';
-  }
-  var qameezHas = has(o.lambai)||has(o.bazu)||has(o.teera)||has(o.gala)||has(o.chhati)||has(o.kamar)||has(o.gheera)||has(o.moda)||has(o.kaff)||has(o.galaQisam);
-  if(qameezHas){
-    html+='<div class="c"><h3 style="font-size:13px">📏 قمیض</h3>';
-    html+='<div class="g2">';
-    html+=inpBox('لمبائی', o.lambai);
-    html+=inpBox('بازو', o.bazu);
-    html+=inpBox('تیرا', o.teera);
-    html+=inpBox('گلہ', o.gala);
-    html+=inpBox('چھاتی', o.chhati);
-    html+=inpBox('کمر', o.kamar);
-    html+=inpBox('گھیرا', o.gheera);
-    html+=inpBox('موڈا', o.moda);
-    html+=inpBox('کف', o.kaff);
-    if(has(o.galaQisam)){
-      html+='<div style="font-size:11px">کالر<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.galaQisam)+'</div></div>';
-    }
-    html+='</div></div>';
-  }
-  var shalwarHas = has(o.shalwarLambai)||has(o.pouncha)||has(o.kondayTafseel)||has(o.shalwarQisam)||has(o.onePieceDetail);
-  if(shalwarHas){
-    html+='<div class="c"><h3 style="font-size:13px">👖 شلوار</h3>';
-    html+='<div class="g2">';
-    html+=inpBox('لمبائی', o.shalwarLambai);
-    html+=inpBox('پانچہ', o.pouncha);
-    html+=inpBox('کوندے پلے', o.kondayTafseel);
-    if(has(o.shalwarQisam)){
-      html+='<div style="font-size:11px">قسم<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.shalwarQisam)+'</div></div>';
-    }
-    if(o.shalwarQisam==='1 پیس'){
-      html+=inpBox('1 پیس تفصیل', o.onePieceDetail);
-      if(has(o.onePieceJeb)){ html+='<div style="font-size:11px">جیب<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.onePieceJeb)+'</div></div>'; }
-    }
-    html+='</div></div>';
-  }
-  var deegarHas = has(o.teeraQisam)||has(o.silaiDesign)||has(o.pounchaJali)||has(o.daman)||has(o.jeb);
-  if(deegarHas){
-    html+='<div class="c"><h3 style="font-size:13px">✨ دیگر ڈیزائن</h3>';
-    html+='<div class="g2">';
-    if(has(o.teeraQisam)){ html+='<div style="font-size:11px">تیرا<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.teeraQisam)+'</div></div>'; }
-    if(has(o.silaiDesign)){ html+='<div style="font-size:11px">سلائی<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.silaiDesign)+'</div></div>'; }
-    if(has(o.pounchaJali)){ html+='<div style="font-size:11px">پانچہ جالی<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.pounchaJali)+'</div></div>'; }
-    if(has(o.daman)){ html+='<div style="font-size:11px">دامن<div style="display:flex;gap:2px;margin-top:3px">'+chipOnly(o.daman)+'</div></div>'; }
-    html+='</div>';
-    if(has(o.jeb)){
-      html+='<div style="margin-top:6px;font-size:11px">جیب<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px">';
-      o.jeb.split(',').forEach(j=>{ var t=j.trim(); if(t && t!=='کوئی نہیں'){ html+='<div class="o a" style="flex:1;min-width:80px;padding:8px 5px;text-align:center">'+t+'</div>'; } });
-      html+='</div></div>';
-    }
-    html+='</div>';
-  }
-  html+='<div class="c"><h3 style="font-size:13px">💰 حساب</h3><div class="g2">';
-  html+=inpBox('کل', o.totalPrice?o.totalPrice+' Rs':'');
-  html+=inpBox('ایڈوانس', o.advance?o.advance+' Rs':'');
-  html+=inpBox('باقی', o.baqaya?o.baqaya+' Rs':'');
-  html+=inpBox('نوٹ', o.note);
-  html+='</div></div>';
-  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:8px;background:#FDF6E3;position:sticky;bottom:0">';
-  html+='<button class="b" style="background:#FF9800;color:#fff;padding:10px" onclick="editId(\''+o.serialNo+'\')">✏️ ایڈٹ</button>';
-  html+='<button class="b" style="background:#25D366;color:#fff;padding:10px" onclick="sendWAId(\''+o.serialNo+'\')">📱 WhatsApp</button>';
-  html+='<button class="b" style="background:#FEF3C7;padding:10px" onclick="printSimple(\''+o.serialNo+'\')">🖨️ پرچی</button>';
-  html+='<button class="b" style="background:#0A3D2E;color:#fff;padding:10px" onclick="closeView()">❌ بند</button>';
-  html+='</div>';
-  document.getElementById('viewHead').innerHTML='مکمل ناپ - '+o.customerName+' - Same Shape';
-  document.getElementById('viewContent').innerHTML=html;
-  document.getElementById('viewModal').style.display='block';
 }
-function closeView(){document.getElementById('viewModal').style.display='none';}
-function editId(id){closeView();var o=DB.find(x=>x.serialNo==id);if(!o)return;document.getElementById('serialNo').value=o.serialNo;document.getElementById('suitCount').value=o.suitCount||'1 سوٹ';document.getElementById('customerName').value=o.customerName||'';document.getElementById('mobile').value=o.mobile||'';document.getElementById('pata').value=o.pata||'';document.getElementById('orderDate').value=o.orderDate||'';document.getElementById('deliveryDate').value=o.deliveryDate||'';document.getElementById('kapdaQism').value=o.kapdaQism||'واش اینڈ وئیر';document.getElementById('silaiQism').value=o.silaiQism||'قمیض شلوار';document.getElementById('lambai').value=o.lambai||'';document.getElementById('bazu').value=o.bazu||'';document.getElementById('teera').value=o.teera||'';document.getElementById('gala').value=o.gala||'';document.getElementById('chhati').value=o.chhati||'';document.getElementById('kamar').value=o.kamar||'';document.getElementById('gheera').value=o.gheera||'';document.getElementById('moda').value=o.moda||'';document.getElementById('kaff').value=o.kaff||'';document.getElementById('shalwarLambai').value=o.shalwarLambai||'';document.getElementById('pouncha').value=o.pouncha||'';document.getElementById('kondayTafseel').value=o.kondayTafseel||'';document.getElementById('onePieceDetail').value=o.onePieceDetail||'';document.getElementById('totalPrice').value=o.totalPrice||'';document.getElementById('advance').value=o.advance||'';document.getElementById('baqaya').value=o.baqaya||'';document.getElementById('note').value=o.note||'';SVAL={galaQisam:o.galaQisam||'',teeraQisam:o.teeraQisam||'',silaiDesign:o.silaiDesign||'',pounchaJali:o.pounchaJali||'',daman:o.daman||'',shalwarQisam:o.shalwarQisam||'',onePieceJeb:o.onePieceJeb||''};JEB=o.jeb?o.jeb.split(',').map(function(s){return s.trim();}).filter(function(s){return s&&s!=='کوئی نہیں';}):[];document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';if(o.shalwarQisam==='1 پیس')document.getElementById('onePieceBox').style.display='block';else document.getElementById('onePieceBox').style.display='none';if(o.custPhoto){custB64=o.custPhoto;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+o.custPhoto+'\')" src="'+o.custPhoto+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';document.getElementById('custBtns').style.display='flex';}if(o.designPhotos){designB64=o.designPhotos;document.getElementById('designPrev').innerHTML=o.designPhotos.map(function(p){return '<img onclick="openPhoto(\''+p+'\')" src="'+p+'" width=50 style=border-radius:5px;margin:2px;cursor:pointer>';}).join('');}setTimeout(function(){document.querySelectorAll('.o').forEach(function(el){var txt=el.textContent.trim();if(txt===o.galaQisam||txt===o.shalwarQisam||txt===o.teeraQisam||txt===o.silaiDesign||txt===o.pounchaJali||txt===o.daman||txt===o.onePieceJeb||JEB.indexOf(txt)>=0){el.classList.add('a');}});},100);calc();window.scrollTo(0,0);}
-function newRecord(){var last=DB.length>0?parseInt(DB[DB.length-1].serialNo)||2:2;document.getElementById('serialNo').value=last+1;document.getElementById('customerName').value='';document.getElementById('mobile').value='';document.getElementById('pata').value='';document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';document.getElementById('designPrev').innerHTML='';custB64=null;designB64=[];SVAL={};JEB=[];document.querySelectorAll('.o').forEach(function(o){o.classList.remove('a');});document.getElementById('jebText').textContent='کوئی نہیں';calc();window.scrollTo(0,0);}
-function deleteCurrent(){var id=document.getElementById('serialNo').value;if(!id)return;if(!confirm('Delete '+id+'?'))return;DB=DB.filter(function(x){return x.serialNo!=id;});localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));alert('Deleted');updateCount();clearSearch();}
-let wakeLock=null;let wakeIsOn=false;
-async function toggleWakeLock(){
-  const btn1=document.getElementById('wakeBtn');
-  const btn2=document.getElementById('wakeBtn2');
-  const status=document.getElementById('wakeStatus');
-  try{
-    if(wakeIsOn){
-      if(wakeLock){ await wakeLock.release(); wakeLock=null; }
-      wakeIsOn=false;
-      btn1.textContent='🔆 Screen On'; btn1.classList.remove('wake-on');
-      btn2.textContent='OFF - بند ہے'; btn2.style.background='#0A3D2E';
-      status.textContent='بند ہے - سکرین خود بند ہو جائے گی'; status.style.color='#666';
-    } else {
-      if('wakeLock' in navigator){
-        wakeLock = await navigator.wakeLock.request('screen');
-        wakeIsOn=true;
-        btn1.textContent='🌞 Screen ON ہے'; btn1.classList.add('wake-on');
-        btn2.textContent='ON - روشن ہے'; btn2.style.background='#FF9800';
-        status.textContent='✅ آن ہے - سکرین بند نہیں ہوگی، ناپ آرام سے لیں'; status.style.color='green'; status.style.fontWeight='bold';
-      } else {
-        alert('آپ کے موبائل میں یہ فیچر سپورٹ نہیں، Settings میں Screen Timeout 10 minute کر دیں');
-      }
-    }
-  }catch(e){ alert('Error: '+e.message); }
+function previewDesignOne(e){
+  var f=e.target.files[0];
+  if(!f) return;
+  if(designB64.length>=5){alert('صرف 5 ڈیزائن فوٹو لگ سکتی ہیں بھائی');return;}
+  comp(f,function(c){designB64.push(c);renderDesignPhotos();});
 }
-document.addEventListener('visibilitychange', async ()=>{
-  if(wakeIsOn && document.visibilityState==='visible'){
-    try{ wakeLock = await navigator.wakeLock.request('screen'); }catch(e){}
-  }
-});
-function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js?v=v17').then(function(reg){reg.update();}); navigator.serviceWorker.addEventListener('controllerchange', function(){ if(!window._reloaded){window._reloaded=true; location.reload(true);} }); }
-if('caches' in window){ var savedVer=localStorage.getItem('dil_app_version'); if(savedVer && savedVer!=='v17'){ caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v17')===-1) caches.delete(n);});}); } localStorage.setItem('dil_app_version','v17'); }
+
+// --- حساب ---
+function calcBaqi(){
+  var t=parseFloat(document.getElementById('total').value||0);
+  var a=parseFloat(document.getElementById('advance').value||0);
+  document.getElementById('baqi').value=t-a;
+}
+function newRecord(){
+  editId=null; designB64=[]; custB64=null;
+  document.getElementById('designPrev').innerHTML='';
+  document.getElementById('custPrev').innerHTML='';
+  document.getElementById('custBtns').style.display='none';
+  ['custName','mobile','address','total','advance','baqi','note','qLambai','qBazu','qTira','qGala','qChati','qKamar','qGhera','qCuff','sLambai','sPancha','sKamar'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('qLambai').value='40';
+  document.getElementById('serial').value=allData.length+63;
+  window.scrollTo(0,0);
+}
+function saveRecord(){
+  var name=document.getElementById('custName').value.trim();
+  if(!name){alert('نام لکھیں بھائی');return;}
+  var o={
+    id:editId||Date.now(),
+    serial:document.getElementById('serial').value,
+    name:name,
+    mobile:document.getElementById('mobile').value,
+    orderDate:document.getElementById('orderDate').value,
+    deliveryDate:document.getElementById('deliveryDate').value,
+    address:document.getElementById('address').value,
+    custPhoto:custB64,
+    designPhotos:designB64.slice(),
+    q:{l:document.getElementById('qLambai').value,b:document.getElementById('qBazu').value,t:document.getElementById('qTira').value},
+    total:document.getElementById('total').value,
+    advance:document.getElementById('advance').value,
+    baqi:document.getElementById('baqi').value,
+    note:document.getElementById('note').value
+  };
+  if(editId){
+    allData=allData.map(function(x){return x.id==editId?o:x;});
+  } else { allData.unshift(o); }
+  localStorage.setItem('dil_v18',JSON.stringify(allData));
+  alert('محفوظ ہو گیا بھائی ✅');
+  renderList(); newRecord();
+}
+function editIdFn(id){
+  var o=allData.find(function(x){return x.id==id;}); if(!o) return;
+  editId=id;
+  document.getElementById('serial').value=o.serial||'';
+  document.getElementById('custName').value=o.name||'';
+  document.getElementById('mobile').value=o.mobile||'';
+  document.getElementById('orderDate').value=o.orderDate||'';
+  document.getElementById('deliveryDate').value=o.deliveryDate||'';
+  document.getElementById('address').value=o.address||'';
+  document.getElementById('total').value=o.total||'';
+  document.getElementById('advance').value=o.advance||'';
+  document.getElementById('baqi').value=o.baqi||'';
+  document.getElementById('note').value=o.note||'';
+  if(o.custPhoto){custB64=o.custPhoto;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+o.custPhoto+'\')" src="'+o.custPhoto+'" width=120 style="border-radius:10px;border:2px solid #C9A86A">';document.getElementById('custBtns').style.display='flex';}
+  else {custB64=null;document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}
+  if(o.designPhotos){designB64=o.designPhotos.slice();renderDesignPhotos();}
+  else {designB64=[];renderDesignPhotos();}
+  window.scrollTo(0,0);
+}
+function delRec(id){
+  if(!confirm('یہ ریکارڈ ڈیلیٹ کرنا ہے؟')) return;
+  allData=allData.filter(function(x){return x.id!=id;});
+  localStorage.setItem('dil_v18',JSON.stringify(allData));
+  renderList();
+}
+function renderList(){
+  var h='';
+  allData.forEach(function(o){
+    h+='<div style="border-bottom:1px solid #eee;padding:8px 0"><b>'+o.name+'</b> - '+o.serial+' - باقی: '+(o.baqi||0)+'<br><button class="b g" onclick="editIdFn('+o.id+')">دیکھیں / ایڈٹ</button> <button class="b r" onclick="delRec('+o.id+')">ڈیلیٹ</button></div>';
+  });
+  document.getElementById('list').innerHTML=h||'کوئی ریکارڈ نہیں';
+}
+function doSearch(){
+  var q=document.getElementById('searchBox').value.toLowerCase();
+  if(!q){renderList();return;}
+  var f=allData.filter(function(o){return (o.name+' '+o.mobile).toLowerCase().indexOf(q)>-1;});
+  var h='';
+  f.forEach(function(o){h+='<div style="padding:6px;border:1px solid #eee;border-radius:6px;margin-top:4px" onclick="editIdFn('+o.id+')">👉 '+o.name+' - '+o.mobile+'</div>';});
+  document.getElementById('searchList').innerHTML=h;
+}
+renderList();
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=v18');}
 </script>
 </body>
 </html>
