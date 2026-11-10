@@ -1,4 +1,4 @@
-var CACHE = 'dil-tailor-v16-final-offline';
+var CACHE = 'dil-tailor-v17-final-offline';
 var FILES = ['./', './index.html', './manifest.json', './logo.jpg'];
 self.addEventListener('install', function(e){
   self.skipWaiting();
