@@ -1,8 +1,8 @@
-var CACHE_NAME = 'dil-tailor-v18';
+var CACHE_NAME = 'dil-tailor-v17-new-voice-easypaisa';
 var urlsToCache = [
   './',
   './index.html',
-  './manifest.json?v=v18',
+  './manifest.json?v=v17',
   './logo.jpg'
 ];
 
