@@ -1373,5 +1373,85 @@ localStorage.setItem('dil_app_version','v18');
   }, 500);
 })();
 </script>
+<script>
+// FINAL PHONE FIX - فون نمبر اب سیدھا لکھے گا، 03 سے شروع ہوگا
+(function(){
+  // پرانے سارے مائک بٹن کے کلک ختم کر دو
+  document.querySelectorAll('.mic-btn').forEach(function(btn){
+    var newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+  });
+
+  function isPhone(inp){
+    if(!inp) return false;
+    var parent = inp.closest('div');
+    var txt = parent ? parent.textContent : '';
+    return txt.includes('موبائل') || (inp.placeholder||'').includes('موبائل');
+  }
+
+  function startMicFor(inp, btn){
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SR){ inp.focus(); return; }
+    var rec = new SR();
+    // فون والے خانے کے لیے انگریزی، باقی کے لیے اردو
+    rec.lang = isPhone(inp) ? 'en-US' : 'ur-PK';
+    rec.interimResults = false;
+    if(btn) btn.textContent = '🔴';
+    rec.onresult = function(e){
+      var txt = e.results[0][0].transcript;
+      // انگریزی میں بولے ہوئے نمبر کو ہندسوں میں کرو
+      var map = {'zero':'0','oh':'0','one':'1','two':'2','three':'3','four':'4','five':'5','six':'6','seven':'7','eight':'8','nine':'9','صفر':'0','ایک':'1','دو':'2','تین':'3','چار':'4','پانچ':'5','چھ':'6','سات':'7','آٹھ':'8','نو':'9'};
+      var digits = '';
+      txt.toLowerCase().split(/[\s,-]+/).forEach(function(w){
+        w = w.trim();
+        if(!w) return;
+        if(map[w] !== undefined) digits += map[w];
+        else if(/^[0-9]+$/.test(w)) digits += w;
+      });
+
+      if(isPhone(inp)){
+        // اگر نمبر الٹا آیا ہے، یعنی 69 سے شروع ہو رہا ہے اور 03 سے نہیں، تو پورا الٹا کر دو
+        // جیسے 69481600348 آیا ہے تو اس کو الٹا کرو -> 84300618496 نہیں، اس لیے ہم digits کو سیدھا رکھیں گے
+        // اب ہم digits کو ویسے ہی لگائیں گے جیسے بولا ہے، خالی جگہ کے بغیر
+        inp.setAttribute('dir','ltr');
+        inp.style.direction = 'ltr';
+        inp.style.textAlign = 'left';
+        // پرانا غلط نمبر صاف کر کے نیا سیدھا لکھو
+        inp.value = digits;
+        inp.focus();
+        inp.dispatchEvent(new Event('input'));
+        inp.dispatchEvent(new Event('change'));
+      } else {
+        // نام وغیرہ کے لیے ویسے ہی اردو
+        inp.value = inp.value + txt;
+        inp.focus();
+      }
+      if(btn) btn.textContent = '🎤';
+    };
+    rec.onerror = function(){ if(btn) btn.textContent = '🎤'; };
+    rec.onend = function(){ if(btn) btn.textContent = '🎤'; };
+    try{ rec.start(); }catch(e){}
+  }
+
+  setTimeout(function(){
+    document.querySelectorAll('.mic-btn').forEach(function(btn){
+      btn.textContent = '🎤';
+      btn.onclick = function(ev){
+        ev.preventDefault(); ev.stopPropagation();
+        var inp = btn.parentNode.querySelector('input, textarea');
+        if(inp) inp.focus();
+        // موبائل والے خانے کو پہلے سے ہی سیدھا کر دو
+        if(isPhone(inp)){
+          inp.setAttribute('dir','ltr');
+          inp.style.direction = 'ltr';
+          inp.style.textAlign = 'left';
+          inp.value = ''; // پرانا غلط نمبر صاف کر دو
+        }
+        startMicFor(inp, btn);
+      };
+    });
+  }, 300);
+})();
+</script>
 </body>
 </html>
