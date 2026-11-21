@@ -1,47 +1,45 @@
-var CACHE_NAME = 'dil-tailor-v17-new-voice-easypaisa';
-var urlsToCache = [
+var CACHE_NAME = 'dil-tailor-v17';
+var FILES = [
   './',
   './index.html',
-  './manifest.json?v=v17',
+  './manifest.json',
   './logo.jpg'
 ];
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-      .then(function() {
-        return self.skipWaiting();
-      })
+self.addEventListener('install', function(e) {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(FILES);
+    }).then(function() {
+      return self.skipWaiting();
+    })
   );
 });
 
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
+self.addEventListener('activate', function(e) {
+  e.waitUntil(
+    caches.keys().then(function(keys) {
+      return Promise.all(keys.map(function(k) {
+        if (k !== CACHE_NAME) {
+          return caches.delete(k);
+        }
+      }));
     }).then(function() {
       return self.clients.claim();
     })
   );
 });
 
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      })
+self.addEventListener('fetch', function(e) {
+  e.respondWith(
+    fetch(e.request).then(function(response) {
+      var copy = response.clone();
+      caches.open(CACHE_NAME).then(function(cache) {
+        cache.put(e.request, copy);
+      });
+      return response;
+    }).catch(function() {
+      return caches.match(e.request);
+    })
   );
 });
