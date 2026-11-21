@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dil-tailor-v17';
+var CACHE_NAME = 'dil-tailor-v18';
 var FILES = [
   './',
   './index.html',
