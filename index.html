@@ -1185,132 +1185,62 @@ if(sv&&sv!=='v18'){caches.keys().then(function(ns){ns.forEach(function(n){if(n.i
 localStorage.setItem('dil_app_version','v18');
 }
 </script>
-<!-- OFFLINE FAST MODE - V19 -->
-<style>
-#offlineBar{background:#0A3D2E;color:#fff;padding:8px;text-align:center;font-size:12px;font-weight:bold;border-radius:8px;margin:6px}
-#offlineKbd{display:none;background:#fff;border:2px solid #0A3D2E;border-radius:10px;padding:6px;margin:6px;text-align:center;position:sticky;bottom:0;z-index:999}
-#offlineKbd button{font-size:20px;padding:8px 10px;margin:2px;border-radius:8px;border:1px solid #ccc;background:#FFFBEB}
-#offlineKbd .sp{font-size:12px;padding:8px 18px;background:#0A3D2E;color:#fff}
-</style>
-<div id="offlineBar">⚡ OFFLINE FAST MODE ON ہے - انٹرنیٹ سلو ہو بھی تو ٹائپنگ تیز چلے گی</div>
-<div id="offlineKbd"></div>
 <script>
-// 1. آف لائن ہو تو ڈرائیو کو بار بار نہ ڈھونڈے - یہی سلو کرتا تھا
-var _oldSync = window.autoSyncToDrive;
-window.autoSyncToDrive = function(){
-  if(!navigator.onLine){ 
-    var b=document.getElementById('backupState');
-    if(b) b.textContent='⚡ Offline Fast - ڈیٹا موبائل میں محفوظ ہے، نیٹ آتے ہی ڈرائیو میں جائے گا';
-    return; 
-  }
-  if(_oldSync) _oldSync();
-};
-// 2. QR کو صرف پرچی پر لوڈ کرے، ہر بار نہیں
-// 3. آف لائن اردو کیبورڈ - بغیر انٹرنیٹ، فوراً لکھے
-var _lastField = null;
-document.addEventListener('focusin', function(e){
-  var t=e.target;
-  if(t && (t.tagName==='INPUT' || t.tagName==='TEXTAREA')){
-    _lastField = t;
-    if(t.id!=='orderDate' && t.id!=='deliveryDate'){
-      document.getElementById('offlineKbd').style.display='block';
-    }
-  }
-});
-function buildOfflineKbd(){
-  var L="ا آ ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ھ ی ے".split(" ");
-  var h='';
-  L.forEach(function(ch){
-    h+='<button type="button" onclick="typeOffline(\''+ch+'\')">'+ch+'</button>';
-  });
-  h+='<br><button type="button" class="sp" onclick="typeOffline(\' \')">Space</button>';
-  h+='<button type="button" class="sp" style="background:#B71C1C" onclick="backOffline()">⌫ مٹاؤ</button>';
-  h+='<button type="button" class="sp" style="background:#666" onclick="document.getElementById(\'offlineKbd\').style.display=\'none\'">❌ بند</button>';
-  document.getElementById('offlineKbd').innerHTML=h;
-}
-function typeOffline(ch){
-  if(!_lastField) _lastField=document.getElementById('customerName');
-  if(!_lastField) return;
-  var s=_lastField.selectionStart;
-  if(s==null) s=_lastField.value.length;
-  _lastField.value=_lastField.value.slice(0,s)+ch+_lastField.value.slice(s);
-  _lastField.focus();
-  try{_lastField.setSelectionRange(s+1,s+1);}catch(e){}
-  _lastField.dispatchEvent(new Event('input'));
-}
-function backOffline(){
-  if(!_lastField) return;
-  _lastField.value=_lastField.value.slice(0,-1);
-  _lastField.focus();
-  _lastField.dispatchEvent(new Event('input'));
-}
-buildOfflineKbd();
-// 4. مائک آف لائن والا - گوگل والا نہیں، موبائل کے کیبورڈ والا مائک کھولے گا، اس لیے آف لائن بھی تیز چلے گا
-function openOfflineMic(inp){
-  if(!inp) return;
-  inp.focus();
-  // کیبورڈ کھول کر اس کا مائک استعمال ہوگا - یہی آف لائن پر چلتا ہے
-  try{ inp.click(); }catch(e){}
-  alert('اب نیچے کیبورڈ کا 🎤 دباؤ اور بولو - یہ آف لائن پر بھی چلے گا، کیونکہ یہ موبائل کا اپنا مائک ہے');
-}
-// پرانے مائک بٹن کو آف لائن والے سے بدل دو
-setTimeout(function(){
-  document.querySelectorAll('.mic-btn').forEach(function(btn){
-    btn.onclick=function(){
-      var inp=btn.parentNode.querySelector('input, textarea');
-      openOfflineMic(inp);
-    };
-  });
-},1500);
-</script>
-<script>
-// FIX - صحیح والا مائک - بول کر لکھے گا
+// FINAL FIX - بڑا کیبورڈ ختم، چھوٹا مائک ہر خانے کے ساتھ رہے گا
 (function(){
-  function startRealMic(inp, btn){
+  // 1. اگر پرانا بڑا کیبورڈ کہیں رہ گیا ہو تو اس کو ختم کر دو
+  function killKbd(){
+    ['offlineKbd','offlineBar','offlineKbdWrap'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.remove();
+    });
+  }
+  killKbd();
+  setInterval(killKbd, 1000);
+
+  // 2. ہر خانے کے ساتھ والا چھوٹا سا مائک - اس کو ٹھیک کرو
+  function startMic(inp, btn){
     var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if(!SR){ alert('اس Chrome میں مائک نہیں ہے، Windows + H دباؤ'); return; }
+    if(!SR){
+      // اگر موبائل میں یہ نہ ہو تو موبائل والا کیبورڈ کھولو، وہاں سے مائک دباؤ
+      if(inp){ inp.focus(); inp.click(); }
+      return;
+    }
     var rec = new SR();
     rec.lang = 'ur-PK';
     rec.interimResults = false;
-    rec.continuous = false;
-    if(btn){ btn.textContent='🔴 سن رہا ہوں... بولو'; btn.style.background='#B71C1C'; btn.style.color='#fff'; }
+    if(btn){ btn.textContent = '🔴'; }
     rec.onresult = function(e){
       var txt = e.results[0][0].transcript;
       if(inp){
-        // اگر ناپ والی جگہ ہے تو نمبر بنا دو
-        if(inp.classList.contains('num-field') || inp.id==='lambai' || inp.id==='bazu' || inp.id==='teera' || inp.id==='gala' || inp.id==='chhati' || inp.id==='kamar' || inp.id==='gheera' || inp.id==='moda' || inp.id==='shalwarLambai' || inp.id==='pouncha'){
-          var n = txt.replace(/[^0-9.]/g,'');
-          if(n) txt = n;
-        }
         var s = inp.selectionStart;
-        if(s==null) s = inp.value.length;
+        if(s == null) s = inp.value.length;
         inp.value = inp.value.slice(0,s) + txt + inp.value.slice(s);
         inp.focus();
         inp.dispatchEvent(new Event('input'));
         inp.dispatchEvent(new Event('change'));
       }
-      if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; }
+      if(btn){ btn.textContent = '🎤'; }
     };
-    rec.onerror = function(e){
-      if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; }
-      if(e.error==='not-allowed'){ alert('مائک کی اجازت بند ہے بھائی - اوپر Address Bar میں مائک والے نشان پر کلک کر کے Allow کرو'); }
-      else if(e.error==='no-speech'){ alert('آواز نہیں آئی بھائی، دوبارہ بولو'); }
-      else if(e.error==='network'){ alert('بھائی، یہ والا مائک انٹرنیٹ مانگتا ہے، انٹرنیٹ ON کر کے بولو، یا Windows + H دباؤ وہ آف لائن بھی چلتا ہے'); }
+    rec.onerror = function(){
+      if(btn){ btn.textContent = '🎤'; }
+      if(inp){ inp.focus(); }
     };
-    rec.onend = function(){ if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; } };
-    try{ rec.start(); }catch(err){}
+    rec.onend = function(){ if(btn){ btn.textContent = '🎤'; } };
+    try{ rec.start(); }catch(e){}
   }
-  // سارے مائک بٹن کو صحیح والے سے جوڑ دو
+
   setTimeout(function(){
     document.querySelectorAll('.mic-btn').forEach(function(btn){
+      btn.textContent = '🎤';
+      btn.style.fontSize = '16px';
+      btn.style.padding = '2px 6px';
       btn.onclick = function(ev){
         ev.preventDefault(); ev.stopPropagation();
         var inp = btn.parentNode.querySelector('input, textarea');
-        if(!inp){
-          // اگر بٹن الگ ہے تو آخری والی جگہ لو
-          inp = document.activeElement;
-        }
-        startRealMic(inp, btn);
+        if(!inp) inp = document.activeElement;
+        if(inp) inp.focus();
+        startMic(inp, btn);
       };
     });
   }, 500);
