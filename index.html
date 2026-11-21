@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Dil Tailor Shop - MUKAMMAL FINAL V17</title>
-<link rel="manifest" href="manifest.json?v=v17">
+<title>Dil Tailor Shop - MUKAMMAL FINAL V18</title>
+<link rel="manifest" href="manifest.json?v=v18">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -50,15 +50,19 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 #collarBox{display:none;background:#E8F5E9;border:1.5px solid #0A3D2E;border-radius:8px;padding:6px;margin-top:5px}
 .zoom-btn{background:#fff;color:#000;border:none;border-radius:50%;width:44px;height:44px;font-size:22px;font-weight:bold;cursor:pointer}
 .payqr{width:150px;height:150px;margin:6px auto;border:2px solid #0A3D2E;border-radius:10px;background:#fff;display:block}
+.mic-wrap{display:flex;gap:4px;align-items:center}
+.mic-wrap input,.mic-wrap textarea{flex:1}
+.mic-btn{width:38px;height:38px;min-width:38px;border-radius:50%;border:1.5px solid #0A3D2E;background:#fff;font-size:19px;cursor:pointer;line-height:1;flex-shrink:0}
+.mic-btn.rec{background:#B71C1C;color:#fff}
 </style>
 </head>
 <body>
 <div class="t">
 <div class="left">
-<img src="logo.jpg">
+<img id="topLogo" src="logo.jpg">
 <div>
 <b>دل ٹیلر شاپ - دل حسن</b><br>
-<small>03463604869 - MUKAMMAL FINAL V17</small><br>
+<small>03463604869 - MUKAMMAL FINAL V18</small><br>
 <small style="background:#FFD700;color:#000;padding:1px 8px;border-radius:10px;font-weight:800">Easypaisa: 03463604869 - Dil Hassan</small>
 </div>
 </div>
@@ -86,7 +90,8 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 <b style="color:#1a4d2e">✅ Urdu Hamesha ON hai</b><br>
 English likho, 1 sec ruko ya Space dabao - khud Urdu ho jayega<br>
 <b style="color:#B71C1C">N=ں | T=ٹ | D=ڈ | R=ڑ | S=ص | Z=ظ | A=ع | G=غ | H=ح | Q=ق</b><br>
-<span style="color:#666">Sadiq=صادق | Zafar=ظفر | Adil=عادل | Ghafoor=غفور | Tahir=طاہر | Hassan=حسن</span>
+<span style="color:#666">Sadiq=صادق | Zafar=ظفر | Adil=عادل | Ghafoor=غفور | Tahir=طاہر | Hassan=حسن</span><br>
+<span style="color:#1a4d2e;font-weight:bold">🎤 ہر جگہ مائک ہے - بولو، خود لکھ جائے گا - نام، ناپ، نوٹ سب میں</span>
 </div>
 </details>
 <button class="abc-btn" onclick="toggleABC()">📖 پوری ا ب - یہاں دباؤ</button>
@@ -110,7 +115,7 @@ English likho, 1 sec ruko ya Space dabao - khud Urdu ho jayega<br>
 <div style="font-size:11px">سیریل<input id="serialNo" inputmode="numeric"></div>
 <div style="font-size:11px">سوٹ<input id="suitCount" class="editable" list="suitList" value="1 سوٹ"><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"></datalist></div>
 </div>
-<div style="font-size:11px">نام *<input id="customerName" placeholder="Sadiq=صادق | Zafar=ظفر"></div>
+<div style="font-size:11px">نام *<input id="customerName" placeholder="Sadiq=صادق | Zafar=ظفر - 🎤 دباؤ، بولو"></div>
 <div class="g2">
 <div style="font-size:11px">موبائل<input id="mobile" inputmode="tel"></div>
 <div style="font-size:11px">پتہ<input id="pata" placeholder="Lasuri = لاسوری"></div>
@@ -161,7 +166,7 @@ English likho, 1 sec ruko ya Space dabao - khud Urdu ho jayega<br>
 <div id="voicePlay" style="text-align:center;margin-top:4px"></div>
 </div>
 <div class="c">
-<h3 style="font-size:13px">📏 قمیض</h3>
+<h3 style="font-size:13px">📏 قمیض - 🎤 ہر ناپ میں مائک ہے، بولو تو لکھ جائے گا</h3>
 <div style="display:flex;gap:4px;margin-bottom:6px"><button id="kbdBtn" onclick="toggleNumKeyboard()" class="b" style="width:100%;background:#0A3D2E;color:#fff;font-size:12px;padding:9px">⌨️ Keyboard: 123 Calculator - ABC ke liye dabao</button></div>
 <div class="g2">
 <div style="font-size:11px">لمبائی<input id="lambai" class="num-field" inputmode="decimal" placeholder="40"></div>
@@ -251,7 +256,7 @@ English likho, 1 sec ruko ya Space dabao - khud Urdu ho jayega<br>
 <div style="font-size:11px">ایڈوانس<input id="advance" type="number" oninput="calc()"></div>
 </div>
 <div style="font-size:11px">باقی<input id="baqaya" readonly><b id="baqayaText" style="margin-right:6px">0</b></div>
-<textarea id="note" placeholder="نوٹ - English likho, khud Urdu ho jayega" style="font-size:11px"></textarea>
+<textarea id="note" placeholder="نوٹ - 🎤 دباؤ، بولو - English likho, khud Urdu ho jayega" style="font-size:11px"></textarea>
 <button class="b bs" onclick="saveData()">✅ محفوظ کریں</button>
 <div style="display:flex;gap:4px;margin-top:5px">
 <button class="b" style="background:#FEF3C7;flex:1" onclick="printSimpleCurrent()">🖨️ پرچی</button>
@@ -294,6 +299,23 @@ var voiceChunks=[];
 var isRecording=false;
 var NUM_MODE=localStorage.getItem('dil_kbd_mode')||'decimal';
 var FIELD_ORDER=['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','note'];
+function getLogoSrc(){var c=localStorage.getItem('dil_logo_b64');if(c&&c.length>100)return c;return LOGO_URL;}
+function saveLogoOffline(){
+try{
+var saved=localStorage.getItem('dil_logo_b64');
+if(saved&&saved.length>100){var top=document.getElementById('topLogo');if(top)top.src=saved;return;}
+fetch('logo.jpg').then(function(r){return r.blob();}).then(function(b){
+var fr=new FileReader();
+fr.onload=function(){try{localStorage.setItem('dil_logo_b64',fr.result);var top2=document.getElementById('topLogo');if(top2)top2.src=fr.result;}catch(e){}};
+fr.readAsDataURL(b);
+}).catch(function(){});
+}catch(e){}
+}
+saveLogoOffline();
+document.getElementById('topLogo').addEventListener('error',function(){
+var c=localStorage.getItem('dil_logo_b64');
+if(c&&this.src!==c)this.src=c;
+});
 function getPayQR(o){
 return 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent('Easypaisa '+EASY_NUM+' '+EASY_NAME+' Amount '+(o.baqaya||0)+' Serial '+(o.serialNo||''));
 }
@@ -828,7 +850,7 @@ var o=DB.find(function(x){return x.serialNo==id;});
 if(!o)return;
 var qr=getPayQR(o);
 var w=window.open('','_blank');
-var html='<html dir=rtl><head><meta charset=UTF-8><style>body{font-family:sans-serif;margin:0;padding:12px;text-align:center} .box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto} h2{margin:6px 0;color:#0A3D2E;font-size:16px} .row{border-bottom:1px dashed #ccc;padding:6px 0;text-align:right;font-size:13px} .foot{margin-top:12px;font-weight:bold;color:#B71C1C;border:2px solid #B71C1C;padding:6px;border-radius:6px;font-size:13px}</style></head><body><div class=box><img src="'+LOGO_URL+'" style="width:70px;height:70px;object-fit:cover;border-radius:50%;border:2px solid #0A3D2E"><h2>دل ٹیلر شاپ - دل حسن</h2><p style=font-size:11px>03463604869 | Easypaisa: 03463604869 - Dil Hassan</p><hr><div class=row><b>نام:</b> '+(o.customerName||'')+'</div><div class=row><b>موبائل:</b> '+(o.mobile||'')+'</div><div class=row><b>سلائی:</b> '+(o.silaiQism||'')+' ('+(o.suitCount||'')+')</div><div class=row><b>آرڈر:</b> '+(o.orderDate||'')+' | <b>ڈلیوری:</b> '+(o.deliveryDate||'')+'</div><div class=row><b>کل:</b> '+(o.totalPrice||0)+' | <b>ایڈوانس:</b> '+(o.advance||0)+' | <b>باقی:</b> '+(o.baqaya||0)+'</div><div style=margin-top:8px><b>ایزی پیسہ سے پیمنٹ کے لیے QR اسکین کریں</b><br><img src="'+qr+'" style="width:150px;height:150px;border:2px solid #000;margin-top:4px"><br><b>Easypaisa: 03463604869 - Dil Hassan</b><br><span style=font-size:11px>بقایا: '+(o.baqaya||0)+' روپے</span></div><div class=foot>⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';
+var html='<html dir=rtl><head><meta charset=UTF-8><style>body{font-family:sans-serif;margin:0;padding:12px;text-align:center} .box{border:3px solid #0A3D2E;border-radius:12px;padding:12px;max-width:380px;margin:0 auto} h2{margin:6px 0;color:#0A3D2E;font-size:16px} .row{border-bottom:1px dashed #ccc;padding:6px 0;text-align:right;font-size:13px} .foot{margin-top:12px;font-weight:bold;color:#B71C1C;border:2px solid #B71C1C;padding:6px;border-radius:6px;font-size:13px}</style></head><body><div class=box><img src="'+getLogoSrc()+'" style="width:70px;height:70px;object-fit:cover;border-radius:50%;border:2px solid #0A3D2E"><h2>دل ٹیلر شاپ - دل حسن</h2><p style=font-size:11px>03463604869 | Easypaisa: 03463604869 - Dil Hassan</p><hr><div class=row><b>نام:</b> '+(o.customerName||'')+'</div><div class=row><b>موبائل:</b> '+(o.mobile||'')+'</div><div class=row><b>سلائی:</b> '+(o.silaiQism||'')+' ('+(o.suitCount||'')+')</div><div class=row><b>آرڈر:</b> '+(o.orderDate||'')+' | <b>ڈلیوری:</b> '+(o.deliveryDate||'')+'</div><div class=row><b>کل:</b> '+(o.totalPrice||0)+' | <b>ایڈوانس:</b> '+(o.advance||0)+' | <b>باقی:</b> '+(o.baqaya||0)+'</div><div style=margin-top:8px><b>ایزی پیسہ سے پیمنٹ کے لیے QR اسکین کریں</b><br><img src="'+qr+'" style="width:150px;height:150px;border:2px solid #000;margin-top:4px"><br><b>Easypaisa: 03463604869 - Dil Hassan</b><br><span style=font-size:11px>بقایا: '+(o.baqaya||0)+' روپے</span></div><div class=foot>⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';
 w.document.write(html);
 w.document.close();
 setTimeout(function(){w.print();},500);
@@ -855,7 +877,7 @@ var dSec=r2('تیرا',o.teeraQisam)+r2('سلائی',o.silaiDesign)+r2('پانچ
 var hSec=r2('کل',o.totalPrice)+r2('ایڈوانس',o.advance)+r2('باقی',o.baqaya)+r2('نوٹ',o.note);
 var photoHtml=o.custPhoto?'<img src="'+o.custPhoto+'" style="width:62px;height:76px;object-fit:cover;border-radius:6px;border:2px solid #0A3D2E">':'<div style="width:62px;height:76px;border:1.5px dashed #999;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#999">فوٹو نہیں</div>';
 var qr=getPayQR(o);
-var h='<html dir=rtl><head><meta charset=UTF-8><title>مکمل ناپ - '+o.customerName+'</title><style>@page{size:A5 portrait;margin:5mm} *{box-sizing:border-box} body{font-family:sans-serif;margin:0;padding:0} .box{border:2px solid #0A3D2E;border-radius:8px;padding:5px;max-width:100%} .top{display:flex;gap:6px;align-items:flex-start} .topInfo{flex:1;text-align:center} h2{margin:0;color:#0A3D2E;font-size:15px;line-height:1.2} p{margin:0;font-size:9px;line-height:1.3} @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class=box><div style="text-align:center"><img src="'+LOGO_URL+'" style="width:60px;height:60px;object-fit:cover;border-radius:50%;border:2px solid #0A3D2E"></div><div class=top><div>'+photoHtml+'</div><div class=topInfo><h2>دل ٹیلر شاپ - دل حسن</h2><p>03463604869 | مکمل ناپ - ایک ہی پیج | Easypaisa: 03463604869</p><p><b>'+o.customerName+' - سیریل '+o.serialNo+'</b></p></div></div>'+sec('👤 کسٹمر',custSec)+sec('📏 قمیض',qSec)+sec('👖 شلوار',sSec)+sec('✨ دیگر ڈیزائن',dSec)+sec('💰 حساب',hSec)+'<div style="margin-top:4px;text-align:center;border:1.5px dashed #0A3D2E;padding:4px;border-radius:6px"><b style="font-size:11px">ایزی پیسہ سے پیمنٹ کے لیے QR اسکین کریں - بقایا '+(o.baqaya||0)+' روپے</b><br><img src="'+qr+'" style="width:110px;height:110px;border:1.5px solid #000;margin-top:3px"><br><b style="font-size:11px">Easypaisa: 03463604869 - Dil Hassan</b></div>'+'<div style="margin-top:3px;text-align:center;font-weight:bold;color:#B71C1C;border:1.5px solid #B71C1C;padding:2px;border-radius:4px;font-size:10px;line-height:1.3">⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';
+var h='<html dir=rtl><head><meta charset=UTF-8><title>مکمل ناپ - '+o.customerName+'</title><style>@page{size:A5 portrait;margin:5mm} *{box-sizing:border-box} body{font-family:sans-serif;margin:0;padding:0} .box{border:2px solid #0A3D2E;border-radius:8px;padding:5px;max-width:100%} .top{display:flex;gap:6px;align-items:flex-start} .topInfo{flex:1;text-align:center} h2{margin:0;color:#0A3D2E;font-size:15px;line-height:1.2} p{margin:0;font-size:9px;line-height:1.3} @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body><div class=box><div style="text-align:center"><img src="'+getLogoSrc()+'" style="width:60px;height:60px;object-fit:cover;border-radius:50%;border:2px solid #0A3D2E"></div><div class=top><div>'+photoHtml+'</div><div class=topInfo><h2>دل ٹیلر شاپ - دل حسن</h2><p>03463604869 | مکمل ناپ - ایک ہی پیج | Easypaisa: 03463604869</p><p><b>'+o.customerName+' - سیریل '+o.serialNo+'</b></p></div></div>'+sec('👤 کسٹمر',custSec)+sec('📏 قمیض',qSec)+sec('👖 شلوار',sSec)+sec('✨ دیگر ڈیزائن',dSec)+sec('💰 حساب',hSec)+'<div style="margin-top:4px;text-align:center;border:1.5px dashed #0A3D2E;padding:4px;border-radius:6px"><b style="font-size:11px">ایزی پیسہ سے پیمنٹ کے لیے QR اسکین کریں - بقایا '+(o.baqaya||0)+' روپے</b><br><img src="'+qr+'" style="width:110px;height:110px;border:1.5px solid #000;margin-top:3px"><br><b style="font-size:11px">Easypaisa: 03463604869 - Dil Hassan</b></div>'+'<div style="margin-top:3px;text-align:center;font-weight:bold;color:#B71C1C;border:1.5px solid #B71C1C;padding:2px;border-radius:4px;font-size:10px;line-height:1.3">⚠️ پرچی ساتھ لانا ضروری ہے - شکریہ</div></div></body></html>';
 var w=window.open('','_blank');
 w.document.write(h);
 w.document.close();
@@ -1077,16 +1099,90 @@ if(document.visibilityState==='visible'){wakeLock=null;await ensureWakeLock();}
 });
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}
 updateCount();
+// ===== 🎤 VOICE TO TEXT - HAR JAGAH MIC - V18 =====
+var VOICE_NUM_MAP={"zero":"0","ek":"1","do":"2","teen":"3","char":"4","chaar":"4","panch":"5","paanch":"5","che":"6","chhe":"6","saat":"7","aath":"8","aathh":"8","nau":"9","nau":"9","das":"10","gyarah":"11","barah":"12","terah":"13","chodah":"14","chaudah":"14","pandrah":"15","pandra":"15","solah":"16","satrah":"17","sattrah":"17","atharah":"18","athara":"18","unnis":"19","bees":"20","bees":"20","ikkees":"21","baees":"22","taees":"23","chobees":"24","pachees":"25","pachis":"25","chabees":"26","sataees":"27","athaeess":"28","untees":"29","tees":"30","teees":"30","iktees":"31","batees":"32","tantees":"33","chontees":"34","pantees":"35","chatees":"36","santees":"37","arthtees":"38","untalees":"39","chalis":"40","chalees":"40","iktalis":"41","bayalis":"42","tentalis":"43","chawalis":"44","paintalis":"45","chayalis":"46","santalis":"47","arthalis":"48","unchaas":"49","unchaas":"49","pachas":"50","pachaas":"50","one":"1","two":"2","three":"3","four":"4","five":"5","six":"6","seven":"7","eight":"8","nine":"9","ten":"10","eleven":"11","twelve":"12","thirteen":"13","fourteen":"14","fifteen":"15","sixteen":"16","seventeen":"17","eighteen":"18","nineteen":"19","twenty":"20","twenty one":"21","twenty two":"22","twenty three":"23","twenty four":"24","twenty five":"25","twenty six":"26","twenty seven":"27","twenty eight":"28","twenty nine":"29","thirty":"30","thirty one":"31","thirty two":"32","thirty three":"33","thirty four":"34","thirty five":"35","thirty six":"36","thirty seven":"37","thirty eight":"38","thirty nine":"39","forty":"40","forty one":"41","forty two":"42","forty three":"43","forty four":"44","forty five":"45","forty six":"46","forty seven":"47","forty eight":"48","forty nine":"49","fifty":"50","sawa":"1.25","dedh":"1.5","paune":"0.75","adha":"0.5","pona":"0.75"};
+function spokenToNumber(txt){
+if(!txt)return txt;
+var t=txt.toLowerCase().trim();
+if(/^[0-9]+(\.[0-9]+)?$/.test(t))return t;
+if(VOICE_NUM_MAP[t])return VOICE_NUM_MAP[t];
+var parts=t.split(/\s+/);
+var outParts=[];
+var i=0;
+while(i<parts.length){
+var two=parts[i]+(parts[i+1]?" "+parts[i+1]:"");
+if(VOICE_NUM_MAP[two]){outParts.push(VOICE_NUM_MAP[two]);i+=2;continue;}
+if(VOICE_NUM_MAP[parts[i]]){outParts.push(VOICE_NUM_MAP[parts[i]]);i++;continue;}
+if(parts[i]==="point"||parts[i]==="dot"||parts[i]==="ashariya"){outParts.push(".");i++;continue;}
+outParts.push(parts[i]);i++;
+}
+var joined=outParts.join(" ");
+joined=joined.replace(/(\d)\s+\.\s+(\d)/g,"$1.$2");
+if(/^[0-9]+(\.[0-9]+)?$/.test(joined))return joined;
+return txt;
+}
+function addMicButtons(){
+var ids=['customerName','pata','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','note','q','mobile','totalPrice','advance'];
+ids.forEach(function(id){
+var inp=document.getElementById(id);
+if(!inp||inp.dataset.micDone)return;
+inp.dataset.micDone="1";
+var wrap=document.createElement('div');
+wrap.className='mic-wrap';
+inp.parentNode.insertBefore(wrap,inp);
+wrap.appendChild(inp);
+var btn=document.createElement('button');
+btn.type='button';
+btn.className='mic-btn';
+btn.textContent='🎤';
+btn.title='بولو، لکھ جائے گا';
+btn.onclick=function(e){
+e.preventDefault();e.stopPropagation();
+var Rec=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(!Rec){alert('Chrome میں کھولو، اس میں وائس چلے گی');return;}
+var rec=new Rec();
+rec.lang='ur-PK';
+rec.interimResults=false;
+rec.maxAlternatives=1;
+btn.textContent='🔴';btn.classList.add('rec');
+rec.onresult=function(ev){
+var text=ev.results[0][0].transcript||'';
+var isNum=['lambai','bazu','teera','gala','chhati','kamar','gheera','moda','shalwarLambai','pouncha','totalPrice','advance','mobile'].indexOf(id)>=0;
+if(isNum){
+var numVal=spokenToNumber(text);
+if(/^[0-9]+(\.[0-9]+)?$/.test(numVal)){inp.value=numVal;}
+else{
+var dig=text.replace(/[^0-9.]/g,'');
+if(dig)inp.value=dig;else inp.value=text;
+}
+}else{
+inp.value=text;
+convertOnBlur(inp);
+}
+inp.dispatchEvent(new Event('input',{bubbles:true}));
+inp.dispatchEvent(new Event('change',{bubbles:true}));
+if(id==='totalPrice'||id==='advance')calc();
+btn.textContent='🎤';btn.classList.remove('rec');
+};
+rec.onerror=function(){btn.textContent='🎤';btn.classList.remove('rec');try{var rec2=new Rec();rec2.lang='en-US';rec2.onresult=rec.onresult;rec2.start();}catch(err){}};
+rec.onend=function(){btn.textContent='🎤';btn.classList.remove('rec');};
+try{rec.start();}catch(err){btn.textContent='🎤';btn.classList.remove('rec');}
+};
+wrap.appendChild(btn);
+});
+}
+addMicButtons();
+setInterval(addMicButtons,1500);
 if('serviceWorker' in navigator){
-navigator.serviceWorker.register('sw.js?v=v17').then(function(reg){reg.update();});
+navigator.serviceWorker.register('sw.js?v=v18').then(function(reg){reg.update();});
 navigator.serviceWorker.addEventListener('controllerchange',function(){
 if(!window._reloaded){window._reloaded=true;location.reload(true);}
 });
 }
 if('caches' in window){
 var sv=localStorage.getItem('dil_app_version');
-if(sv&&sv!=='v17'){caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v17')===-1)caches.delete(n);});});}
-localStorage.setItem('dil_app_version','v17');
+if(sv&&sv!=='v18'){caches.keys().then(function(ns){ns.forEach(function(n){if(n.indexOf('v18')===-1)caches.delete(n);});});}
+localStorage.setItem('dil_app_version','v18');
 }
 </script>
 </body>
