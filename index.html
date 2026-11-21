@@ -1263,5 +1263,58 @@ setTimeout(function(){
   });
 },1500);
 </script>
+<script>
+// FIX - صحیح والا مائک - بول کر لکھے گا
+(function(){
+  function startRealMic(inp, btn){
+    var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SR){ alert('اس Chrome میں مائک نہیں ہے، Windows + H دباؤ'); return; }
+    var rec = new SR();
+    rec.lang = 'ur-PK';
+    rec.interimResults = false;
+    rec.continuous = false;
+    if(btn){ btn.textContent='🔴 سن رہا ہوں... بولو'; btn.style.background='#B71C1C'; btn.style.color='#fff'; }
+    rec.onresult = function(e){
+      var txt = e.results[0][0].transcript;
+      if(inp){
+        // اگر ناپ والی جگہ ہے تو نمبر بنا دو
+        if(inp.classList.contains('num-field') || inp.id==='lambai' || inp.id==='bazu' || inp.id==='teera' || inp.id==='gala' || inp.id==='chhati' || inp.id==='kamar' || inp.id==='gheera' || inp.id==='moda' || inp.id==='shalwarLambai' || inp.id==='pouncha'){
+          var n = txt.replace(/[^0-9.]/g,'');
+          if(n) txt = n;
+        }
+        var s = inp.selectionStart;
+        if(s==null) s = inp.value.length;
+        inp.value = inp.value.slice(0,s) + txt + inp.value.slice(s);
+        inp.focus();
+        inp.dispatchEvent(new Event('input'));
+        inp.dispatchEvent(new Event('change'));
+      }
+      if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; }
+    };
+    rec.onerror = function(e){
+      if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; }
+      if(e.error==='not-allowed'){ alert('مائک کی اجازت بند ہے بھائی - اوپر Address Bar میں مائک والے نشان پر کلک کر کے Allow کرو'); }
+      else if(e.error==='no-speech'){ alert('آواز نہیں آئی بھائی، دوبارہ بولو'); }
+      else if(e.error==='network'){ alert('بھائی، یہ والا مائک انٹرنیٹ مانگتا ہے، انٹرنیٹ ON کر کے بولو، یا Windows + H دباؤ وہ آف لائن بھی چلتا ہے'); }
+    };
+    rec.onend = function(){ if(btn){ btn.textContent='🎤'; btn.style.background='#fff'; btn.style.color='#000'; } };
+    try{ rec.start(); }catch(err){}
+  }
+  // سارے مائک بٹن کو صحیح والے سے جوڑ دو
+  setTimeout(function(){
+    document.querySelectorAll('.mic-btn').forEach(function(btn){
+      btn.onclick = function(ev){
+        ev.preventDefault(); ev.stopPropagation();
+        var inp = btn.parentNode.querySelector('input, textarea');
+        if(!inp){
+          // اگر بٹن الگ ہے تو آخری والی جگہ لو
+          inp = document.activeElement;
+        }
+        startRealMic(inp, btn);
+      };
+    });
+  }, 500);
+})();
+</script>
 </body>
 </html>
