@@ -1307,5 +1307,71 @@ localStorage.setItem('dil_app_version','v18');
   });
 })();
 </script>
+<script>
+// FIX - فون نمبر الٹا نہیں لکھے گا، سیدھا 03003604869 لکھے گا
+(function(){
+  function isPhoneInput(inp){
+    if(!inp) return false;
+    var ph = (inp.placeholder || '').toLowerCase();
+    var parentText = inp.closest('div') ? inp.closest('div').textContent : '';
+    // موبائل والا خانہ
+    if(ph.includes('موبائل') || ph.includes('فون') || ph.includes('نمبر')) return true;
+    if(parentText.includes('موبائل')) return true;
+    // یا وہ خانہ جس میں ابھی 69 48 034360 لکھا ہوا ہے
+    if(inp.value && inp.value.includes('69')) return true;
+    return false;
+  }
+
+  function fixPhoneValue(inp){
+    if(!isPhoneInput(inp)) return;
+    var v = inp.value.trim();
+    if(!v) return;
+    // 1. اردو والے ہندسوں کو انگریزی میں کرو
+    var urduNums = {'۰':'0','۱':'1','۲':'2','۳':'3','۴':'4','۵':'5','۶':'6','۷':'7','۸':'8','۹':'9'};
+    v = v.split('').map(function(c){ return urduNums[c] || c; }).join('');
+
+    // 2. اگر اس میں خالی جگہ ہے تو اس کو الٹا کر کے جوڑ دو
+    // جیسے "69 48 034360" -> الٹا کرو -> "034360 48 69" -> جوڑ دو -> "0343604869"
+    if(v.includes(' ')){
+      var parts = v.split(' ').filter(function(p){ return p.trim() !== ''; });
+      // صرف تب الٹا کرو جب پہلا ٹکڑا چھوٹا ہو اور آخری بڑا ہو، مطلب الٹا لکھا گیا ہے
+      // جیسے 69 48 034360 میں پہلا 69 ہے، آخری 034360 ہے، تو یہ الٹا ہے
+      if(parts.length >= 2){
+        parts = parts.reverse();
+      }
+      v = parts.join('');
+      // اب خالی جگہ ختم، نمبر ایک ساتھ
+      inp.value = v;
+    }
+
+    // 3. خانے کو ہمیشہ بائیں سے دائیں رکھو، تاکہ دوبارہ الٹا نہ ہو
+    inp.setAttribute('dir','ltr');
+    inp.style.direction = 'ltr';
+    inp.style.textAlign = 'left';
+    inp.style.unicodeBidi = 'plaintext';
+  }
+
+  // ہر بار جب مائک کچھ لکھے تو فوراً سیدھا کر دو
+  document.addEventListener('input', function(e){
+    if(e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')){
+      fixPhoneValue(e.target);
+    }
+  }, true);
+
+  // پہلے سے لکھے ہوئے غلط نمبر کو بھی ابھی سیدھا کر دو
+  setTimeout(function(){
+    document.querySelectorAll('input').forEach(function(inp){
+      // موبائل والا خانہ ڈھونڈو
+      var parent = inp.closest('div');
+      if(parent && parent.textContent.includes('موبائل')){
+        inp.setAttribute('dir','ltr');
+        inp.style.direction = 'ltr';
+        inp.style.textAlign = 'left';
+        fixPhoneValue(inp);
+      }
+    });
+  }, 500);
+})();
+</script>
 </body>
 </html>
