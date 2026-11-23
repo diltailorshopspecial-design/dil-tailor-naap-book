@@ -1246,83 +1246,26 @@ localStorage.setItem('dil_app_version','v18');
   }, 500);
 })();
 </script>
-<!-- پرچی اسکین والا بٹن - اس کو محفوظ کریں کے اوپر لگا دو -->
-<div style="text-align:center; margin:10px;">
-  <button id="scanParchiBtn" style="background:#0b6e4f; color:white; padding:10px 20px; border:none; border-radius:10px; font-size:16px;">📷 پرچی اسکین کریں</button>
-  <input type="file" id="parchiCamera" accept="image/*" capture="environment" style="display:none;">
-  <div id="scanResult" style="font-size:13px; color:#333; margin-top:5px;"></div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script>
-// SCAN PARCHI - صرف جو لکھا ہوگا وہی بھرے گا، باقی خالی رہے گا
+// SCAN TEST - صرف پڑھ کر دکھائے گا، بھرے گا نہیں
 (function(){
-  var btn = document.getElementById('scanParchiBtn');
   var fileInput = document.getElementById('parchiCamera');
   var resultDiv = document.getElementById('scanResult');
-  if(!btn) return;
-
-  btn.onclick = function(){ fileInput.click(); };
+  if(!fileInput) return;
 
   fileInput.onchange = async function(){
     var file = fileInput.files[0];
     if(!file) return;
-    resultDiv.textContent = 'پڑھ رہا ہوں... تھوڑا رکو...';
+    resultDiv.textContent = 'پڑھ رہا ہوں... 15 سیکنڈ رکو، کاٹنا نہیں...';
     var imgUrl = URL.createObjectURL(file);
     try{
-      var res = await Tesseract.recognize(imgUrl, 'urd+eng', { logger: function(m){} });
+      var res = await Tesseract.recognize(imgUrl, 'eng', { logger: function(m){} });
       var text = res.data.text;
-      console.log('SCAN:', text);
-      resultDiv.textContent = 'مل گیا: ' + text.slice(0,120);
-
-      // صرف نمبر نکالو، ترتیب سے - قمیض، بازو، تیرا، گلہ، لمبائی، شلوار، پانچہ
-      // آپ کی پرچی میں ترتیب یہی ہے
-      var numbers = text.match(/\d+(\.\d+)?(\s*[½¼¾\/]\s*\d+)?/g) || [];
-
-      // اب خانے ڈھونڈو
-      function fillIfEmpty(placeholderPart, value){
-        if(!value) return;
-        var inputs = document.querySelectorAll('input');
-        for(var i=0;i<inputs.length;i++){
-          var inp = inputs[i];
-          var parentText = inp.closest('div') ? inp.closest('div').textContent : '';
-          if(parentText.includes(placeholderPart) && !inp.value){
-            inp.value = value;
-            inp.dispatchEvent(new Event('input'));
-            break;
-          }
-        }
-      }
-
-      // نام - اگر نام لکھا ہو تو صرف نام بھرے گا
-      var nameMatch = text.match(/نام[:\s]*([^\n0-9]+)/);
-      if(nameMatch && nameMatch[1].trim().length > 2){
-        fillIfEmpty('نام', nameMatch[1].trim());
-      }
-
-      // فون نمبر - اگر 03 سے شروع ہونے والا 11 ہندسوں والا نمبر ملے تو وہی بھرے گا
-      var phoneMatch = text.match(/03\d{9}/);
-      if(phoneMatch){
-        fillIfEmpty('موبائل', phoneMatch[0]);
-      }
-
-      // باقی ناپ - اگر صرف 1-2 خانے لکھے ہیں تو صرف وہی بھریں گے
-      // مثال: اگر پرچی پر صرف قمیض 40 لکھا ہے تو صرف قمیض 40 بھرے گا
-      // یہاں ہم نمبروں کو ترتیب سے لگائیں گے
-      var fieldsOrder = ['قمیض','بازو','تیرا','گلہ','لمبائی','چھاتی','کمر','گھیرا','شلوار','پانچہ'];
-      // پہلے 2 نمبر تاریخ اور سیریل ہو سکتے ہیں، اس لیے ان کو چھوڑ دو
-      // اگر نمبر زیادہ ہیں تو ان کو بھر دو
-      if(numbers.length >= 3){
-        // تاریخ والا پہلا نمبر چھوڑو
-        var napNumbers = numbers.slice(1);
-        fieldsOrder.forEach(function(field, idx){
-          if(napNumbers[idx]) fillIfEmpty(field, napNumbers[idx].trim());
-        });
-      }
-
-      resultDiv.textContent = 'ہو گیا! جو لکھا تھا وہ بھر دیا ہے، ایک بار چیک کر لو، اگر نام غلط ہو تو خود ٹھیک کر لو۔';
+      // یہی اصل چیز ہے، یہ دیکھنا ہے اس نے کیا پڑھا
+      resultDiv.innerHTML = 'اس نے یہ پڑھا ہے:<br><b style="background:yellow; padding:5px; display:block;">' + text + '</b><br>اس کی فوٹو مجھے بھیجو، میں بتا دوں گا کیوں نہیں بھر رہا۔';
+      console.log('SCAN RAW:', text);
     }catch(e){
-      resultDiv.textContent = 'اسکین نہیں ہوا، دوبارہ صاف روشنی میں فوٹو لو۔';
+      resultDiv.textContent = 'اسکین ہی نہیں ہوا، روشنی میں دوبارہ لو۔';
     }
   };
 })();
