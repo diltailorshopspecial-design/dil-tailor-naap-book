@@ -1246,25 +1246,5 @@ localStorage.setItem('dil_app_version','v18');
   }, 500);
 })();
 </script>
-<script>
-// SCAN - صرف نمبر دکھائے گا، اردو والا کچرا نہیں
-(function(){
-  var fileInput = document.getElementById('parchiCamera');
-  var resultDiv = document.getElementById('scanResult');
-  if(!fileInput) return;
-  fileInput.onchange = async function(){
-    var file = fileInput.files[0];
-    if(!file) return;
-    resultDiv.textContent = 'صرف نمبر پڑھ رہا ہوں... رکو...';
-    var imgUrl = URL.createObjectURL(file);
-    try{
-      var res = await Tesseract.recognize(imgUrl, 'eng', { tessedit_char_whitelist: '0123456789./' });
-      var text = res.data.text;
-      var numbers = text.match(/\d+(\.\d+)?/g) || [];
-      resultDiv.innerHTML = 'صرف یہ نمبر ملے ہیں:<br><b style="background:yellow; padding:8px; display:block; font-size:18px;">' + numbers.join(' , ') + '</b><br>اگر یہ نمبر صحیح ہیں تو ان کو ہاتھ سے بھر لو، اگر غلط ہیں تو سمجھ لو اس پرچی پر اسکین نہیں چلے گا۔';
-    }catch(e){ resultDiv.textContent = 'نہیں ہوا، دوبارہ لو۔'; }
-  };
-})();
-</script>
 </body>
 </html>
