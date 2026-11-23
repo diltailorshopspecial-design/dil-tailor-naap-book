@@ -1246,12 +1246,22 @@ localStorage.setItem('dil_app_version','v18');
   }, 500);
 })();
 </script>
+<!-- SCAN BUTTON - یہ نظر آئے گا -->
+<div style="text-align:center; margin:10px;">
+  <button id="scanParchiBtn" style="background:#0b6e4f; color:white; padding:10px 20px; border:none; border-radius:10px; font-size:16px;">📷 پرچی اسکین کریں</button>
+  <input type="file" id="parchiCamera" accept="image/*" capture="environment" style="display:none;">
+  <div id="scanResult" style="font-size:13px; color:#333; margin-top:5px;"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script>
-// SCAN TEST - صرف پڑھ کر دکھائے گا، بھرے گا نہیں
+// SCAN TEST - صرف پڑھ کر دکھائے گا
 (function(){
+  var btn = document.getElementById('scanParchiBtn');
   var fileInput = document.getElementById('parchiCamera');
   var resultDiv = document.getElementById('scanResult');
-  if(!fileInput) return;
+  if(!btn) return;
+  btn.onclick = function(){ fileInput.click(); };
 
   fileInput.onchange = async function(){
     var file = fileInput.files[0];
@@ -1261,8 +1271,7 @@ localStorage.setItem('dil_app_version','v18');
     try{
       var res = await Tesseract.recognize(imgUrl, 'eng', { logger: function(m){} });
       var text = res.data.text;
-      // یہی اصل چیز ہے، یہ دیکھنا ہے اس نے کیا پڑھا
-      resultDiv.innerHTML = 'اس نے یہ پڑھا ہے:<br><b style="background:yellow; padding:5px; display:block;">' + text + '</b><br>اس کی فوٹو مجھے بھیجو، میں بتا دوں گا کیوں نہیں بھر رہا۔';
+      resultDiv.innerHTML = 'اس نے یہ پڑھا ہے:<br><b style="background:yellow; padding:5px; display:block;">' + text + '</b><br>اس کی فوٹو مجھے بھیجو۔';
       console.log('SCAN RAW:', text);
     }catch(e){
       resultDiv.textContent = 'اسکین ہی نہیں ہوا، روشنی میں دوبارہ لو۔';
