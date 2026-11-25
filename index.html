@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Dil Tailor Shop - FINAL EDIT SAVE FIX</title>
-<link rel="manifest" href="manifest.json?v=finaleditfix">
+<title>Dil Tailor Shop - FINAL LOCK SERIAL</title>
+<link rel="manifest" href="manifest.json?v=lockserial">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -24,6 +24,10 @@ input,select,textarea{width:100%;padding:7px;border:1.5px solid #C9A86A;border-r
 .mic-row{display:flex;gap:4px;align-items:flex-end}
 .mic-row input,.mic-row textarea{flex:1}
 .mic-btn{width:42px;height:38px;background:#FFCC00;border:1.5px solid #0A3D2E;border-radius:8px;font-size:18px;cursor:pointer}
+.search-row{display:flex;gap:6px;align-items:flex-end}
+.search-row input{flex:1}
+.search-big{width:78px !important;height:52px !important;font-size:22px !important;background:#0A3D2E !important;color:#fff !important;border-radius:10px !important;padding:0 !important;flex:none !important}
+.search-mic{width:56px !important;height:52px !important;font-size:22px !important;flex:none !important}
 .voice-box{background:#FFF8E0;border:1.5px dashed #FF9800;border-radius:8px;padding:6px;margin-top:5px;text-align:center}
 .voice-btn{width:100%;padding:9px;background:#FF9800;border:none;border-radius:8px;font-weight:bold;font-size:12px;cursor:pointer}
 .sub-box{display:none;background:#FFF3E0;border:1.5px solid #FF9800;border-radius:8px;padding:6px;margin-top:5px}
@@ -56,7 +60,7 @@ details summary::-webkit-details-marker{display:none}
 </head>
 <body>
 <div class="t" onclick="tapLogo()">
-  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - FINAL EDIT SAVE FIX</small></div></div>
+  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - FINAL LOCK SERIAL</small></div></div>
   <div class="badge-small">Auto Backup<br>ON</div>
 </div>
 <div id="editBanner">✏️ EDIT MODE</div>
@@ -70,9 +74,9 @@ details summary::-webkit-details-marker{display:none}
 <div class="c record-bar"><span id="online">✅ آن لائن</span><button id="wakeBtn" onclick="toggleWakeLock()" class="b" style="background:#FFF9C4;border:1.5px solid #0A3D2E;font-size:10px">🔆 Screen On</button><span id="recordCount" style="background:#0A3D2E;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px">0 ریکارڈ</span></div>
 <div class="c" style="background:#FFF8E0;border:1.5px dashed #FF9800"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;font-weight:bold">🔆 سکرین آن رکھیں؟</span><button id="wakeBtn2" onclick="toggleWakeLock()" class="b" style="background:#0A3D2E;color:#fff;font-size:11px">OFF - بند ہے</button></div><div id="wakeStatus" style="font-size:9px;color:#666;margin-top:3px">بند ہے</div></div>
 <div class="c" style="padding:4px 8px;background:#F9F9F9"><details><summary style="font-size:11px;color:#666;text-align:center">ℹ️ Urdu ka tareeqa</summary><div style="font-size:11px;text-align:center;margin-top:5px">✅ Urdu Hamesha ON hai - English likho, khud Urdu ho jayega<br><b style="color:#B71C1C">N=ں | T=ٹ | D=ڈ | R=ڑ | S=ص | Z=ظ | A=ع | G=غ | H=ح | Q=ق</b></div></details><button class="abc-btn" onclick="toggleABC()">📖 پوری ا ب</button><div id="abcPanel"></div><div id="abcGuide" style="display:none;font-size:11px;text-align:center;margin-top:5px">Harf pe dabao, wo naam me aa jayega.</div></div>
-<div class="c"><h3 style="font-size:13px">🔍 تلاش کریں</h3><div class="mic-row"><input id="q" placeholder="نام، موبائل، سیریل"><button class="mic-btn" onclick="voiceTo('q',this)">🎤</button><button onclick="searchData()" class="b" style="background:#0A3D2E;color:#fff">🔍</button></div><button onclick="clearSearch()" class="b" style="width:100%;margin-top:5px;border:1px solid #0A3D2E">❌ صاف</button><div id="results" style="margin-top:6px"></div><button id="allRecBtn" class="all-btn" onclick="toggleAllRecords()">📋 سارے ناپ دیکھو - ترتیب وار</button><div id="allRecordsBox"></div></div>
+<div class="c"><h3 style="font-size:13px">🔍 تلاش کریں</h3><div class="search-row"><input id="q" placeholder="نام، موبائل، سیریل"><button class="mic-btn search-mic" onclick="voiceTo('q',this)">🎤</button><button onclick="searchData()" class="b search-big">🔍</button></div><button onclick="clearSearch()" class="b" style="width:100%;margin-top:6px;padding:10px;border:1px solid #0A3D2E">❌ صاف</button><div id="results" style="margin-top:6px"></div><button id="allRecBtn" class="all-btn" onclick="toggleAllRecords()">📋 سارے ناپ دیکھو - ترتیب وار</button><div id="allRecordsBox"></div></div>
 <div class="c"><h3 style="font-size:13px">👤 کسٹمر</h3>
-<div class="g2"><div style="font-size:11px">سیریل <span style="font-size:9px;color:#B71C1C" id="serialHint">(نیا خود آئے گا)</span><input id="serialNo" inputmode="numeric" oninput="lockSerialCheck()" onfocus="lockSerialCheck()"></div><div style="font-size:11px">سوٹ<div class="mic-row"><input id="suitCount" class="editable" list="suitList" value="1 سوٹ"><button class="mic-btn" onclick="voiceTo('suitCount',this)">🎤</button></div><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"></datalist></div></div>
+<div class="g2"><div style="font-size:11px">سیریل <span style="font-size:9px;color:#B71C1C" id="serialHint">(نیا خود آئے گا - Edit میں لاک)</span><input id="serialNo" inputmode="numeric" oninput="lockSerialCheck()" onfocus="lockSerialCheck()" onkeydown="if(EDIT_SERIAL) return false;"></div><div style="font-size:11px">سوٹ<div class="mic-row"><input id="suitCount" class="editable" list="suitList" value="1 سوٹ"><button class="mic-btn" onclick="voiceTo('suitCount',this)">🎤</button></div><datalist id="suitList"><option value="1 سوٹ"><option value="2 سوٹ"><option value="3 سوٹ"><option value="4 سوٹ"><option value="5 سوٹ"><option value="10 سوٹ"></datalist></div></div>
 <div style="font-size:11px">نام *<div class="mic-row"><input id="customerName" placeholder="Sadiq=صادق | Zafar=ظفر"><button class="mic-btn" onclick="voiceTo('customerName',this)">🎤</button></div></div>
 <div class="g2"><div style="font-size:11px">موبائل<input id="mobile" inputmode="tel"></div><div style="font-size:11px">پتہ<div class="mic-row"><input id="pata" placeholder="Poora pata"><button class="mic-btn" onclick="voiceTo('pata',this)">🎤</button></div></div></div>
 <div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
@@ -116,19 +120,51 @@ details summary::-webkit-details-marker{display:none}
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal"><button class="closeBtn" onclick="closePhoto()">❌</button><img id="photoBig" src=""><div class="hint">2 انگلی سے Zoom - 1 انگلی سے ہلاؤ</div></div>
 <script>
-var APP_VERSION='finaleditfix';
+var APP_VERSION='lockserial';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
 var MY_EMAIL=EMAILS[curIdx];var DB_KEY='dil_FINAL_5_EMAIL_'+curIdx;
 var DB=JSON.parse(localStorage.getItem(DB_KEY)||localStorage.getItem('dil_FINAL_5_EMAIL')||"[]");
 var EDIT_SERIAL=null;
-function dedupeDB(list){var map={};var out=[];list.forEach(function(r){if(!r||!r.serialNo)return;var k=String(r.serialNo).trim();if(!map[k]){map[k]=r;out.push(r);}else{var old=map[k];if(JSON.stringify(r||{}).length>JSON.stringify(old||{}).length){var idx=out.indexOf(old);out[idx]=r;map[k]=r;}}});out.sort(function(a,b){return (parseInt(a.serialNo)||0)-(parseInt(b.serialNo)||0);});return out;}
+function normName(s){return String(s||'').trim().toLowerCase().replace(/\s+/g,' ');}
+function dedupeDB(list){
+  var bySerial={}; var out=[];
+  list.forEach(function(r){ if(!r||!r.serialNo) return; var k=String(r.serialNo).trim(); if(!bySerial[k]){bySerial[k]=r; out.push(r);} else { if(JSON.stringify(r||{}).length>JSON.stringify(bySerial[k]||{}).length){ var idx=out.indexOf(bySerial[k]); out[idx]=r; bySerial[k]=r; } } });
+  out.sort(function(a,b){return (parseInt(a.serialNo)||0)-(parseInt(b.serialNo)||0);}); return out;
+}
+function dedupeByName(list){
+  // 129,132,133 ایک ہی نام کے ہوں تو صرف پہلا والا رکھو - سب سے چھوٹا سیریل
+  var seen={}; var out=[];
+  var sorted=list.slice().sort(function(a,b){return (parseInt(a.serialNo)||0)-(parseInt(b.serialNo)||0);});
+  sorted.forEach(function(r){
+    var key=normName(r.customerName)+'|'+String(r.mobile||'').trim();
+    if(!key||key==='|'){ out.push(r); return; }
+    if(!seen[key]){ seen[key]=r; out.push(r); }
+    else {
+      // پرانے والے میں نیا ڈیٹا ملا دو اگر نیا بڑا ہے تو
+      var old=seen[key];
+      if(JSON.stringify(r||{}).length>JSON.stringify(old||{}).length){
+        var idx=out.indexOf(old); out[idx]=r; seen[key]=r;
+      }
+    }
+  });
+  out.sort(function(a,b){return (parseInt(a.serialNo)||0)-(parseInt(b.serialNo)||0);}); return out;
+}
 DB=dedupeDB(DB);localStorage.setItem(DB_KEY,JSON.stringify(DB));
 var tapCount=0,lastTap=0;
 function tapLogo(){var now=Date.now();if(now-lastTap>1500)tapCount=0;lastTap=now;tapCount++;if(tapCount>=5){document.getElementById('driveBox').classList.toggle('open');tapCount=0;}}
-function cleanDouble(){var before=DB.length;DB=dedupeDB(DB);localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));updateCount();alert('🧹 صاف ہو گیا - پہلے '+before+' تھے، اب '+DB.length+' رہ گئے');autoSyncToDrive(false);}
-function lockSerialCheck(){if(!EDIT_SERIAL)return;var el=document.getElementById('serialNo');if(String(el.value)!==String(EDIT_SERIAL)){el.value=EDIT_SERIAL;}}
+function cleanDouble(){
+  var before=DB.length;
+  // پہلے سیریل سے صاف، پھر نام سے - 129,132,133 ایک ہی نام کے ہوں تو 129 ہی رہے گا
+  var bySerial=dedupeDB(DB);
+  var byName=dedupeByName(bySerial);
+  DB=byName;
+  localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));updateCount();
+  alert('🧹 صاف ہو گیا - پہلے '+before+' تھے، اب '+DB.length+' رہ گئے - 129 والا 1 ہی رہے گا، 132,133 ڈبل ختم');
+  autoSyncToDrive(false);
+}
+function lockSerialCheck(){ if(!EDIT_SERIAL) return; var el=document.getElementById('serialNo'); if(String(el.value)!==String(EDIT_SERIAL)){ el.value=EDIT_SERIAL; } }
 var SVAL={},JEB=[],custB64=null,designB64=[],voiceCustB64=null,voiceDesignB64=null,mediaRecorder=null,recordingType=null,audioChunks=[];
 var NUM_MODE=localStorage.getItem('dil_kbd_mode')||'decimal';
 var FIELD_ORDER=['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','note'];
@@ -207,12 +243,12 @@ function saveData(){
     else { DB.push(o); DB=dedupeDB(DB); }
     EDIT_SERIAL=null;
     document.getElementById('editBanner').style.display='none';
-    document.getElementById('serialNo').classList.remove('locked');
-    document.getElementById('serialHint').textContent='(نیا خود آئے گا)';
+    var sn=document.getElementById('serialNo'); sn.readOnly=false; sn.classList.remove('locked');
+    document.getElementById('serialHint').textContent='(نیا خود آئے گا - Edit میں لاک)';
     document.getElementById('serialNo').value=String((parseInt(DB[DB.length-1].serialNo)||0)+1);
     localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));
     autoSyncToDrive(false);updateCount();searchData();
-    if(isEdit) alert('✅ Edit ہو گیا - وہی والا اپنی جگہ پر ہی اپڈیٹ ہوا، نیا نہیں بنا');
+    if(isEdit) alert('✅ Edit ہو گیا - '+serialVal+' ہی رہے گا، 100 بار Edit کرو، 1 ہی رہے گا');
     else alert('✅ محفوظ ہو گیا');
   }catch(err){ alert('Save me masla: '+err.message); }
 }
@@ -229,19 +265,19 @@ function editId(id){
   closeView();
   EDIT_SERIAL=String(id);
   document.getElementById('editBanner').style.display='block';
-  document.getElementById('editBanner').textContent='✏️ EDIT MODE - '+id+' والا Edit ہو رہا ہے - سیریل لاک ہے';
-  document.getElementById('serialNo').classList.add('locked');
-  document.getElementById('serialHint').textContent='(لاک ہے)';
+  document.getElementById('editBanner').textContent='✏️ EDIT MODE - '+id+' والا Edit ہو رہا ہے - سیریل لاک ہے، بدل نہیں سکے گا - 100 بار Edit کرو، یہی 1 رہے گا';
+  var sn=document.getElementById('serialNo'); sn.classList.add('locked'); sn.readOnly=true;
+  document.getElementById('serialHint').textContent='(لاک ہے - بدل نہیں سکے گا)';
   var o=DB.find(x=>String(x.serialNo)===String(id));if(!o)return;
-  ['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','baqaya','note'].forEach(function(k){var el=document.getElementById(k);if(el&&el.type!=='file')el.value=o[k]||'';});
+  ['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','baqaya','note'].forEach(function(k){var el=document.getElementById(k);if(el&&el.type!=='file'){ if(k==='serialNo'){el.value=id;} else el.value=o[k]||''; }});
   document.getElementById('serialNo').value=id;
   SVAL={galaQisam:o.galaQisam||'',collarSize:o.collarSize||'',frontPocketDesign:o.frontPocketDesign||'',teeraQisam:o.teeraQisam||'',silaiDesign:o.silaiDesign||'',pounchaJali:o.pounchaJali||'',daman:o.daman||'',shalwarQisam:o.shalwarQisam||'',onePieceJeb:o.onePieceJeb||'',kaajQisam:o.kaajQisam||'',rangarQisam:o.rangarQisam||''};JEB=o.jeb?o.jeb.split(',').map(s=>s.trim()).filter(s=>s&&s!=='کوئی نہیں'):[];document.getElementById('jebText').textContent=JEB.join(', ')||'کوئی نہیں';if(o.custPhoto){custB64=o.custPhoto;document.getElementById('custPrev').innerHTML='<img onclick="openPhoto(\''+o.custPhoto+'\')" src="'+o.custPhoto+'" width=75 style=border-radius:7px;border:2px solid #0A3D2E;cursor:pointer>';document.getElementById('custBtns').style.display='flex';}else{custB64=null;document.getElementById('custPrev').innerHTML='';document.getElementById('custBtns').style.display='none';}if(o.designPhotos){designB64=o.designPhotos.slice();renderDesignPhotos();}else{designB64=[];renderDesignPhotos();}voiceCustB64=o.voiceCust||null;voiceDesignB64=o.voiceDesign||null;renderVoice('cust');renderVoice('design');restoreTicks();calc();window.scrollTo(0,0);
 }
 function newRecord(){
   EDIT_SERIAL=null;
   document.getElementById('editBanner').style.display='none';
-  document.getElementById('serialNo').classList.remove('locked');
-  document.getElementById('serialHint').textContent='(نیا خود آئے گا)';
+  var sn=document.getElementById('serialNo'); sn.readOnly=false; sn.classList.remove('locked');
+  document.getElementById('serialHint').textContent='(نیا خود آئے گا - Edit میں لاک)';
   clearFormOnly();
   var last=DB.length>0?parseInt(DB[DB.length-1].serialNo)||2:2;
   document.getElementById('serialNo').value=last+1;
@@ -250,12 +286,12 @@ function newRecord(){
   document.getElementById('customerName').focus();
   window.scrollTo(0,0);
 }
-function deleteCurrent(){var id=document.getElementById('serialNo').value;if(!id)return;if(!confirm('Delete '+id+'?'))return;DB=DB.filter(x=>String(x.serialNo).trim()!==String(id).trim());EDIT_SERIAL=null;document.getElementById('editBanner').style.display='none';document.getElementById('serialNo').classList.remove('locked');localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));alert('Deleted');updateCount();clearSearch();newRecord();}
+function deleteCurrent(){var id=document.getElementById('serialNo').value;if(!id)return;if(!confirm('Delete '+id+'?'))return;DB=DB.filter(x=>String(x.serialNo).trim()!==String(id).trim());EDIT_SERIAL=null;document.getElementById('editBanner').style.display='none';var sn=document.getElementById('serialNo');sn.readOnly=false;sn.classList.remove('locked');localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));alert('Deleted');updateCount();clearSearch();newRecord();}
 let wakeLock=null,wakeIsOn=false;
 async function toggleWakeLock(){var b1=document.getElementById('wakeBtn');var b2=document.getElementById('wakeBtn2');var st=document.getElementById('wakeStatus');try{if(wakeIsOn){if(wakeLock)await wakeLock.release();wakeLock=null;wakeIsOn=false;b1.textContent='🔆 Screen On';b2.textContent='OFF - بند ہے';st.textContent='بند ہے';}else{if('wakeLock' in navigator){wakeLock=await navigator.wakeLock.request('screen');wakeIsOn=true;b1.textContent='🌞 Screen ON ہے';b1.classList.add('wake-on');b2.textContent='ON - روشن ہے';st.textContent='✅ آن ہے';}else alert('Settings me Screen Timeout 10 minute kar dein');}}catch(e){}}
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=finaleditfix').then(r=>r.update());}
-if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='finaleditfix'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('finaleditfix')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','finaleditfix');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=lockserial').then(r=>r.update());}
+if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='lockserial'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('lockserial')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','lockserial');}
 </script>
 </body>
 </html>
