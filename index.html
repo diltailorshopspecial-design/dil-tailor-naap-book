@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Dil Tailor Shop - WAISTCOAT COAT SHERWANI SHIRT</title>
-<link rel="manifest" href="manifest.json?v=waistcoat1">
+<title>Dil Tailor Shop - MUKAMAL FIX</title>
+<link rel="manifest" href="manifest.json?v=mukamalfix">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -72,7 +72,7 @@ details summary::-webkit-details-marker{display:none}
 </head>
 <body>
 <div class="t" onclick="tapLogo()">
-  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - WAISTCOAT COAT</small></div></div>
+  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - MUKAMAL FIX</small></div></div>
   <div class="badge-small">Auto Backup<br>ON</div>
 </div>
 <div id="editBanner">✏️ EDIT MODE</div>
@@ -93,9 +93,8 @@ details summary::-webkit-details-marker{display:none}
 <div class="g2"><div style="font-size:11px">موبائل<input id="mobile" inputmode="tel"></div><div style="font-size:11px">پتہ<div class="mic-row"><input id="pata" placeholder="Poora pata"><button class="mic-btn" onclick="voiceTo('pata',this)">🎤</button></div></div></div>
 <div class="g2"><div style="font-size:11px">آرڈر<input id="orderDate" type="date"></div><div style="font-size:11px">ڈلیوری<input id="deliveryDate" type="date"></div></div>
 <div style="font-size:11px">کپڑا<div class="mic-row"><input id="kapdaQism" class="editable" list="kapdaList" value="واش اینڈ وئیر"><button class="mic-btn" onclick="voiceTo('kapdaQism',this)">🎤</button></div><datalist id="kapdaList"><option value="واش اینڈ وئیر"><option value="کاٹن"><option value="لٹھا"><option value="کھدر"><option value="بوسکی"></datalist></div>
-<!-- SILAI QISM - 5 OPTION - CLICK KARO TO NEECHE SIRF US KA NAAP AAYEGA -->
 <div style="font-size:11px">سلائی - کس چیز کا ناپ ہے؟<div class="mic-row"><input id="silaiQism" class="editable" list="silaiList" value="قمیض شلوار" oninput="onSilaiChange()" onchange="onSilaiChange()"><button class="mic-btn" onclick="voiceTo('silaiQism',this)">🎤</button></div>
-<div class="silai-row"><div class="o" id="btnQameez" data-tick="قمیض شلوار" onclick="setSilai('قمیض شلوار')">قمیض شلوار</div><div class="o" id="btnWaist" data-tick="واسکٹ" onclick="setSilai('واسکٹ')">واسکٹ</div><div class="o" id="btnCoat" data-tick="کوٹ" onclick="setSilai('کوٹ')">کوٹ</div><div class="o" id="btnSherwani" data-tick="شیروانی" onclick="setSilai('شیروانی')">شیروانی</div><div class="o" id="btnShirt" data-tick="شرٹ" onclick="setSilai('شرٹ')">شرٹ</div></div>
+<div class="silai-row"><div class="o" id="btnQameez" onclick="setSilai('قمیض شلوار')">قمیض شلوار</div><div class="o" id="btnWaist" onclick="setSilai('واسکٹ')">واسکٹ</div><div class="o" id="btnCoat" onclick="setSilai('کوٹ')">کوٹ</div><div class="o" id="btnSherwani" onclick="setSilai('شیروانی')">شیروانی</div><div class="o" id="btnShirt" onclick="setSilai('شرٹ')">شرٹ</div></div>
 <datalist id="silaiList"><option value="قمیض شلوار"><option value="واسکٹ"><option value="کوٹ"><option value="شیروانی"><option value="شرٹ"><option value="صرف قمیض"><option value="1 پیس شلوار"></datalist></div>
 </div>
 <div class="c"><h3 style="font-size:13px">📸 کسٹمر فوٹو</h3>
@@ -112,7 +111,6 @@ details summary::-webkit-details-marker{display:none}
 <div class="voice-box"><div style="font-size:11px;font-weight:bold">🎙️ ڈیزائن کی آواز</div><button id="voiceBtnDesign" class="voice-btn" onclick="toggleVoice('design')">🎙️ Design Voice Record</button><div id="voiceDesignPlayer"></div><button class="b" style="background:#B71C1C;color:#fff;font-size:10px;display:none" id="voiceDesignDel" onclick="deleteVoice('design')">🗑️ Voice Delete</button></div>
 </div>
 
-<!-- ===== QAMEEZ SECTION - SIRF QAMEEZ SHALWAR PAR ===== -->
 <div class="c" id="qameezSection"><h3 style="font-size:13px">📏 قمیض</h3>
 <div style="display:flex;gap:4px;margin-bottom:6px"><button id="kbdBtn" onclick="toggleNumKeyboard()" class="b" style="width:100%;background:#0A3D2E;color:#fff">⌨️ Keyboard: 123 Calculator</button></div>
 <div class="g2"><div style="font-size:11px">لمبائی<input id="lambai" class="num-field" inputmode="decimal" placeholder="40"></div><div style="font-size:11px">بازو<input id="bazu" class="num-field" inputmode="decimal"></div></div>
@@ -122,7 +120,6 @@ details summary::-webkit-details-marker{display:none}
 <div class="g2"><div style="font-size:11px">کف<div class="mic-row"><input id="kaff" placeholder="8fix = 8 فکس"><button class="mic-btn" onclick="voiceTo('kaff',this)">🎤</button></div></div><div style="font-size:11px">گلہ<div style="display:flex;gap:2px"><div class="o" data-tick="کالر" onclick="setGala(this,'کالر')">کالر</div><div class="o" data-tick="بین" onclick="setGala(this,'بین')">بین</div></div><div id="collarBox" class="sub-box"><div class="sub-title">کالر کیسا ہو؟</div><div style="display:flex;gap:4px"><div class="o" data-tick="نارمل کالر" style="flex:1" onclick="setOne(this,'collarSize','نارمل کالر')">نارمل</div><div class="o" data-tick="چھوٹا کالر" style="flex:1" onclick="setOne(this,'collarSize','چھوٹا کالر')">چھوٹا</div><div class="o" data-tick="بڑا کالر" style="flex:1" onclick="setOne(this,'collarSize','بڑا کالر')">بڑا</div></div></div></div></div>
 </div>
 
-<!-- ===== WAISTCOAT SECTION ===== -->
 <div class="c" id="waistcoatSection" style="display:none;background:#FFF8E0;border:2px solid #FF9800"><h3 style="font-size:13px">🦺 واسکٹ کا ناپ</h3>
 <div class="g2"><div style="font-size:11px">واسکٹ لمبائی<input id="waistLambai" class="num-field" inputmode="decimal" placeholder="24"></div><div style="font-size:11px">چھاتی<input id="waistChhati" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">کمر<input id="waistKamar" class="num-field" inputmode="decimal"></div><div style="font-size:11px">تیرا<input id="waistTeera" class="num-field" inputmode="decimal"></div></div>
@@ -131,7 +128,6 @@ details summary::-webkit-details-marker{display:none}
 <div style="font-size:11px;margin-top:6px">واسکٹ گلہ - کونسا گلہ؟<div style="display:flex;gap:4px;margin-top:3px;flex-wrap:wrap"><div class="o" data-tick="گول گلہ" style="flex:1" onclick="setOne(this,'waistGalaQism','گول گلہ')">گول گلہ</div><div class="o" data-tick="گھیرا گلہ" style="flex:1" onclick="setOne(this,'waistGalaQism','گھیرا گلہ')">گھیرا گلہ</div></div><div style="display:flex;gap:4px;margin-top:4px"><div class="o" data-tick="چھوٹا کالر" style="flex:1" onclick="setOne(this,'waistGalaQism','چھوٹا کالر')">چھوٹا کالر</div><div class="o" data-tick="V-Shape" style="flex:1" onclick="setOne(this,'waistGalaQism','V-Shape')">V-Shape / V گلہ</div></div></div>
 </div>
 
-<!-- ===== COAT SECTION ===== -->
 <div class="c" id="coatSection" style="display:none;background:#E3F2FD;border:2px solid #1565C0"><h3 style="font-size:13px">🧥 کوٹ کا ناپ</h3>
 <div class="g2"><div style="font-size:11px">کوٹ لمبائی<input id="coatLambai" class="num-field" inputmode="decimal" placeholder="30"></div><div style="font-size:11px">بازو<input id="coatBazu" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">چھاتی<input id="coatChhati" class="num-field" inputmode="decimal"></div><div style="font-size:11px">کمر<input id="coatKamar" class="num-field" inputmode="decimal"></div></div>
@@ -139,14 +135,12 @@ details summary::-webkit-details-marker{display:none}
 <div style="font-size:11px;margin-top:6px">کوٹ قسم<div style="display:flex;gap:4px;margin-top:3px"><div class="o" data-tick="سنگل بٹن" style="flex:1" onclick="setOne(this,'coatQism','سنگل بٹن')">سنگل بٹن</div><div class="o" data-tick="ڈبل بٹن" style="flex:1" onclick="setOne(this,'coatQism','ڈبل بٹن')">ڈبل بٹن</div></div></div>
 </div>
 
-<!-- ===== SHERWANI SECTION ===== -->
 <div class="c" id="sherwaniSection" style="display:none;background:#F3E5F5;border:2px solid #7B1FA2"><h3 style="font-size:13px">👑 شیروانی کا ناپ</h3>
 <div class="g2"><div style="font-size:11px">شیروانی لمبائی<input id="sherLambai" class="num-field" inputmode="decimal" placeholder="38"></div><div style="font-size:11px">بازو<input id="sherBazu" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">چھاتی<input id="sherChhati" class="num-field" inputmode="decimal"></div><div style="font-size:11px">کمر<input id="sherKamar" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">تیرا<input id="sherTeera" class="num-field" inputmode="decimal"></div><div style="font-size:11px">کندھا<input id="sherKandha" class="num-field" inputmode="decimal"></div></div>
 </div>
 
-<!-- ===== SHIRT SECTION ===== -->
 <div class="c" id="shirtSection" style="display:none;background:#E8F5E9;border:2px solid #2E7D32"><h3 style="font-size:13px">👔 شرٹ کا ناپ</h3>
 <div class="g2"><div style="font-size:11px">شرٹ لمبائی<input id="shirtLambai" class="num-field" inputmode="decimal" placeholder="30"></div><div style="font-size:11px">بازو<input id="shirtBazu" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">چھاتی<input id="shirtChhati" class="num-field" inputmode="decimal"></div><div style="font-size:11px">کمر<input id="shirtKamar" class="num-field" inputmode="decimal"></div></div>
@@ -154,62 +148,18 @@ details summary::-webkit-details-marker{display:none}
 <div class="g2"><div style="font-size:11px">کالر<input id="shirtCollar" class="num-field" inputmode="decimal"></div><div style="font-size:11px">کف<input id="shirtKaff" placeholder="کف"></div></div>
 </div>
 
-<!-- ===== SAMPLE - SIRF QAMEEZ SHALWAR PAR ===== -->
-<div class="c" id="sampleSection"><h3 style="font-size:12px">📐 سیمپل - جیسا فوٹو میں ہے - Same to Same</h3>
+<div class="c" id="sampleSection"><h3 style="font-size:12px">📐 سیمپل - جیسا فوٹو میں ہے</h3>
 <div class="sample-wrap" dir="ltr">
-<div class="sample-mini">
-<h4>✂️ قمیض / چاک</h4>
-<div class="sample-diag" dir="ltr">
-<svg viewBox="0 0 230 150" style="width:100%;height:150px;display:block">
-<rect x="4" y="4" width="222" height="142" fill="#fff" stroke="#000" stroke-width="1.5"/>
-<path d="M30 24 Q30 18 36 18 L150 18 L150 128 L30 128 L30 102 Q48 96 46 82 Q44 68 30 62 L30 48 Q52 42 50 28 Q48 24 30 24 Z" fill="#FFFBEB" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M30 24 Q30 18 36 18" fill="none" stroke="#000" stroke-width="1.4"/>
-<line x1="14" y1="30" x2="30" y2="30" stroke="#000" stroke-width="1.4"/><line x1="14" y1="34" x2="30" y2="34" stroke="#000" stroke-width="1.4"/>
-<text x="4" y="36" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak4">4</tspan></text>
-<line x1="14" y1="60" x2="30" y2="60" stroke="#000" stroke-width="1.4"/><line x1="14" y1="64" x2="30" y2="64" stroke="#000" stroke-width="1.4"/>
-<text x="4" y="66" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak7">7</tspan></text>
-<line x1="14" y1="92" x2="30" y2="92" stroke="#000" stroke-width="1.4"/><line x1="14" y1="96" x2="30" y2="96" stroke="#000" stroke-width="1.4"/>
-<text x="4" y="98" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak14">14</tspan></text>
-<rect x="162" y="24" width="60" height="34" fill="#FFEB3B" stroke="#000" stroke-width="0.8" rx="4"/>
-<text x="192" y="38" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">فرنٹ پٹی کٹ</text>
-<text x="192" y="52" font-size="11" font-weight="bold" text-anchor="middle" fill="#000"><tspan id="svgPatti12">12</tspan></text>
-</svg>
-</div>
-<div class="g2"><div><label>اوپر 4</label><input id="chaakMark4" value="4" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>جیب والا 7</label><input id="chaakMark7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
-<div class="g2"><div><label>14</label><input id="chaakMark14" value="14" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>فرنٹ پٹی کٹ</label><input id="chaakPatti12" value="12" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
-</div>
-<div class="sample-mini">
-<h4>👖 سائیڈ جیب</h4>
-<div class="sample-diag" dir="ltr">
-<svg viewBox="0 0 200 150" style="width:100%;height:150px;display:block">
-<rect x="4" y="4" width="192" height="142" fill="#fff" stroke="#000" stroke-width="1.5"/>
-<path d="M32 20 L160 20 L150 45 L160 128 L32 128 Z" fill="#FFFBEB" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/>
-<path d="M42 30 L150 30 L142 48 L150 118 L42 118 Z" fill="none" stroke="#000" stroke-width="0.7"/>
-<text x="96" y="16" font-size="10" font-weight="bold" text-anchor="middle" fill="#000">↖ <tspan id="svgJebTop">7</tspan></text>
-<text x="12" y="75" font-size="9" font-weight="bold" fill="#000" transform="rotate(-90 12 75)">تھیلی <tspan id="svgJebTheli">6</tspan></text>
-<text x="96" y="72" font-size="10" font-weight="bold" text-anchor="middle" fill="#000">چوڑائی <tspan id="svgJebChorai">7</tspan></text>
-<line x1="160" y1="45" x2="174" y2="45" stroke="#000" stroke-width="1.4"/><line x1="160" y1="49" x2="174" y2="49" stroke="#000" stroke-width="1.4"/>
-<text x="177" y="51" font-size="8" fill="#000">7</text>
-<line x1="160" y1="85" x2="174" y2="85" stroke="#000" stroke-width="1.4"/><line x1="160" y1="89" x2="174" y2="89" stroke="#000" stroke-width="1.4"/>
-<text x="177" y="91" font-size="8" fill="#000">14</text>
-<text x="96" y="142" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">لمبائی <tspan id="svgJebLambai">20</tspan></text>
-</svg>
-</div>
-<div class="g2"><div><label>اوپر</label><input id="jebTop7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>چوڑائی</label><input id="jebChorai" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
-<div class="g2"><div><label>تھیلی</label><input id="jebTheli" value="6" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>لمبائی</label><input id="jebLambai" value="20" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
-</div>
-</div>
-<div style="font-size:10px;text-align:center;color:#666;margin-top:4px">👆 Neeche number badlo - Upar sample me khud badal jayega</div>
-</div>
+<div class="sample-mini"><h4>✂️ قمیض / چاک</h4><div class="sample-diag" dir="ltr"><svg viewBox="0 0 230 150" style="width:100%;height:150px;display:block"><rect x="4" y="4" width="222" height="142" fill="#fff" stroke="#000" stroke-width="1.5"/><path d="M30 24 Q30 18 36 18 L150 18 L150 128 L30 128 L30 102 Q48 96 46 82 Q44 68 30 62 L30 48 Q52 42 50 28 Q48 24 30 24 Z" fill="#FFFBEB" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><line x1="14" y1="30" x2="30" y2="30" stroke="#000" stroke-width="1.4"/><line x1="14" y1="34" x2="30" y2="34" stroke="#000" stroke-width="1.4"/><text x="4" y="36" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak4">4</tspan></text><line x1="14" y1="60" x2="30" y2="60" stroke="#000" stroke-width="1.4"/><line x1="14" y1="64" x2="30" y2="64" stroke="#000" stroke-width="1.4"/><text x="4" y="66" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak7">7</tspan></text><line x1="14" y1="92" x2="30" y2="92" stroke="#000" stroke-width="1.4"/><line x1="14" y1="96" x2="30" y2="96" stroke="#000" stroke-width="1.4"/><text x="4" y="98" font-size="10" font-weight="bold" fill="#000"><tspan id="svgChaak14">14</tspan></text><rect x="162" y="24" width="60" height="34" fill="#FFEB3B" stroke="#000" stroke-width="0.8" rx="4"/><text x="192" y="38" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">فرنٹ پٹی کٹ</text><text x="192" y="52" font-size="11" font-weight="bold" text-anchor="middle" fill="#000"><tspan id="svgPatti12">12</tspan></text></svg></div><div class="g2"><div><label>اوپر 4</label><input id="chaakMark4" value="4" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>جیب والا 7</label><input id="chaakMark7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div><div class="g2"><div><label>14</label><input id="chaakMark14" value="14" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>فرنٹ پٹی کٹ</label><input id="chaakPatti12" value="12" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div></div>
+<div class="sample-mini"><h4>👖 سائیڈ جیب</h4><div class="sample-diag" dir="ltr"><svg viewBox="0 0 200 150" style="width:100%;height:150px;display:block"><rect x="4" y="4" width="192" height="142" fill="#fff" stroke="#000" stroke-width="1.5"/><path d="M32 20 L160 20 L150 45 L160 128 L32 128 Z" fill="#FFFBEB" stroke="#000" stroke-width="1.4" stroke-linejoin="round"/><path d="M42 30 L150 30 L142 48 L150 118 L42 118 Z" fill="none" stroke="#000" stroke-width="0.7"/><text x="96" y="16" font-size="10" font-weight="bold" text-anchor="middle" fill="#000">↖ <tspan id="svgJebTop">7</tspan></text><text x="12" y="75" font-size="9" font-weight="bold" fill="#000" transform="rotate(-90 12 75)">تھیلی <tspan id="svgJebTheli">6</tspan></text><text x="96" y="72" font-size="10" font-weight="bold" text-anchor="middle" fill="#000">چوڑائی <tspan id="svgJebChorai">7</tspan></text><line x1="160" y1="45" x2="174" y2="45" stroke="#000" stroke-width="1.4"/><line x1="160" y1="49" x2="174" y2="49" stroke="#000" stroke-width="1.4"/><text x="177" y="51" font-size="8" fill="#000">7</text><line x1="160" y1="85" x2="174" y2="85" stroke="#000" stroke-width="1.4"/><line x1="160" y1="89" x2="174" y2="89" stroke="#000" stroke-width="1.4"/><text x="177" y="91" font-size="8" fill="#000">14</text><text x="96" y="142" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">لمبائی <tspan id="svgJebLambai">20</tspan></text></svg></div><div class="g2"><div><label>اوپر</label><input id="jebTop7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>چوڑائی</label><input id="jebChorai" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div><div class="g2"><div><label>تھیلی</label><input id="jebTheli" value="6" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>لمبائی</label><input id="jebLambai" value="20" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div></div>
+</div></div>
 
-<!-- ===== SHALWAR - SIRF QAMEEZ SHALWAR PAR ===== -->
 <div class="c" id="shalwarSection"><h3 style="font-size:13px">👖 شلوار</h3>
 <div class="g2"><div style="font-size:11px">لمبائی<input id="shalwarLambai" class="num-field" inputmode="decimal"></div><div style="font-size:11px">پانچہ<input id="pouncha" class="num-field" inputmode="decimal"></div></div>
 <div class="g2"><div style="font-size:11px">کوندے پلے<div class="mic-row"><input id="kondayTafseel" placeholder="مثلاً 8 انچ"><button class="mic-btn" onclick="voiceTo('kondayTafseel',this)">🎤</button></div></div><div style="font-size:11px">قسم - لازمی ٹک لگے گی<div style="display:flex;gap:2px"><div class="o" id="kondayBtn" data-tick="کوندے پلے" onclick="setShalwar(this,'کوندے پلے')">کوندے پلے</div><div class="o" id="onePcsBtn" data-tick="1 پیس" onclick="setShalwar(this,'1 پیس')">1 پیس ✅</div></div></div></div>
 <div id="onePieceBox"><b style="font-size:11px">🔷 1 پیس شلوار - منتخب ہے</b><div class="mic-row"><input id="onePieceDetail" placeholder="جیب والا، بیلٹ"><button class="mic-btn" onclick="voiceTo('onePieceDetail',this)">🎤</button></div><div style="display:flex;gap:2px;margin-top:4px"><div class="o" data-tick="جیب والا" onclick="setOne(this,'onePieceJeb','جیب والا')">جیب والا</div><div class="o" data-tick="بغیر" onclick="setOne(this,'onePieceJeb','بغیر')">بغیر</div></div></div>
 </div>
 
-<!-- ===== OTHER DESIGN - SIRF QAMEEZ SHALWAR PAR ===== -->
 <div class="c" id="otherDesignSection"><h3 style="font-size:13px">✨ دیگر ڈیزائن</h3>
 <div class="g2"><div style="font-size:11px">تیرا<div style="display:flex;gap:2px"><div class="o" data-tick="سادہ" onclick="setOne(this,'teeraQisam','سادہ')">سادہ</div><div class="o" data-tick="نوک" onclick="setOne(this,'teeraQisam','نوک')">نوک</div></div></div><div style="font-size:11px">سلائی<div style="display:flex;gap:2px"><div class="o" data-tick="سنگل" onclick="setOne(this,'silaiDesign','سنگل')">سنگل</div><div class="o" data-tick="ڈبل" onclick="setOne(this,'silaiDesign','ڈبل')">ڈبل</div></div></div></div>
 <div class="g2" style="margin-top:4px"><div style="font-size:11px">پانچہ جالی<div style="display:flex;gap:2px"><div class="o" data-tick="سنگل" onclick="setOne(this,'pounchaJali','سنگل')">سنگل</div><div class="o" data-tick="ڈبل" onclick="setOne(this,'pounchaJali','ڈبل')">ڈبل</div></div></div><div style="font-size:11px">دامن<div style="display:flex;gap:2px"><div class="o" data-tick="گول" onclick="setOne(this,'daman','گول')">گول</div><div class="o" data-tick="چورس" onclick="setOne(this,'daman','چورس')">چورس</div></div></div></div>
@@ -221,7 +171,7 @@ details summary::-webkit-details-marker{display:none}
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal"><button class="closeBtn" onclick="closePhoto()">❌</button><img id="photoBig" src=""><div class="hint">2 انگلی سے Zoom - 1 انگلی سے ہلاؤ</div></div>
 <script>
-var APP_VERSION='waistcoat1';
+var APP_VERSION='mukamalfix';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -233,23 +183,17 @@ DB=dedupeDB(DB);localStorage.setItem(DB_KEY,JSON.stringify(DB));
 var tapCount=0,lastTap=0;
 function tapLogo(){var now=Date.now();if(now-lastTap>1500)tapCount=0;lastTap=now;tapCount++;if(tapCount>=5){var d=document.getElementById('driveBox');d.style.display=d.style.display==='none'?'block':'none';tapCount=0;}}
 function lockSerialCheck(){if(!EDIT_SERIAL)return;var el=document.getElementById('serialNo');if(String(el.value)!==String(EDIT_SERIAL)){el.value=EDIT_SERIAL;}}
-// ===== SILAI CHANGE - SIRF US KA SECTION DIKHAO, BAQI CHUPAO =====
 function setSilai(v){document.getElementById('silaiQism').value=v;onSilaiChange();}
 function onSilaiChange(){
   var v=(document.getElementById('silaiQism').value||'').trim();
   var isQameez=(v===''||v.indexOf('قمیض')!==-1||v==='صرف قمیض'||v==='1 پیس شلوار');
-  var isWaist=(v==='واسکٹ');
-  var isCoat=(v==='کوٹ');
-  var isSher=(v==='شیروانی');
-  var isShirt=(v==='شرٹ');
-  // Buttons highlight
+  var isWaist=(v==='واسکٹ'); var isCoat=(v==='کوٹ'); var isSher=(v==='شیروانی'); var isShirt=(v==='شرٹ');
   ['btnQameez','btnWaist','btnCoat','btnSherwani','btnShirt'].forEach(function(id){var el=document.getElementById(id);if(el)el.classList.remove('a');});
-  if(isQameez){var b=document.getElementById('btnQameez');if(b)b.classList.add('a');}
-  if(isWaist){var b=document.getElementById('btnWaist');if(b)b.classList.add('a');}
-  if(isCoat){var b=document.getElementById('btnCoat');if(b)b.classList.add('a');}
-  if(isSher){var b=document.getElementById('btnSherwani');if(b)b.classList.add('a');}
-  if(isShirt){var b=document.getElementById('btnShirt');if(b)b.classList.add('a');}
-  // Sections
+  if(isQameez)document.getElementById('btnQameez').classList.add('a');
+  if(isWaist)document.getElementById('btnWaist').classList.add('a');
+  if(isCoat)document.getElementById('btnCoat').classList.add('a');
+  if(isSher)document.getElementById('btnSherwani').classList.add('a');
+  if(isShirt)document.getElementById('btnShirt').classList.add('a');
   document.getElementById('qameezSection').style.display=isQameez?'block':'none';
   document.getElementById('sampleSection').style.display=isQameez?'block':'none';
   document.getElementById('shalwarSection').style.display=isQameez?'block':'none';
@@ -273,8 +217,8 @@ function updateSample(){
 var SVAL={},JEB=[],custB64=null,designB64=[],voiceCustB64=null,voiceDesignB64=null,mediaRecorder=null,recordingType=null,audioChunks=[];
 var NUM_MODE=localStorage.getItem('dil_kbd_mode')||'decimal';
 var FIELD_ORDER=['serialNo','suitCount','customerName','mobile','pata','orderDate','deliveryDate','kapdaQism','silaiQism','lambai','bazu','teera','gala','chhati','kamar','gheera','moda','kaff','waistLambai','waistChhati','waistKamar','waistTeera','waistGala','waistKandha','coatLambai','coatBazu','coatChhati','coatKamar','coatTeera','coatKandha','sherLambai','sherBazu','sherChhati','sherKamar','sherTeera','sherKandha','shirtLambai','shirtBazu','shirtChhati','shirtKamar','shirtTeera','shirtKandha','shirtCollar','shirtKaff','jebTop7','jebChorai','jebTheli','jebLambai','chaakMark4','chaakMark7','chaakMark14','chaakPatti12','shalwarLambai','pouncha','kondayTafseel','onePieceDetail','totalPrice','advance','note'];
-function goNext(id){var idx=FIELD_ORDER.indexOf(id);if(idx===-1)return false;for(var i=idx+1;i<FIELD_ORDER.length;i++){var nel=document.getElementById(FIELD_ORDER[i]);if(!nel)continue;if(nel.parentElement&&nel.parentElement.offsetParent===null&&nel.closest('div.c')&&nel.closest('div.c').style.display==='none')continue;nel.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){nel.focus();},120);return true;}return false;}
-function voiceTo(fid,btn){try{var Rec=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Rec){alert('بھائی، مائک صرف Chrome میں چلے گا - Chrome میں کھولو');return;}var rec=new Rec();rec.lang='ur-PK';if(btn){btn.classList.add('listening');btn.textContent='🔴 سن رہا ہوں...';}rec.onresult=function(e){var txt=e.results[0][0].transcript;var el=document.getElementById(fid);if(el){el.value=(el.value?el.value+' ':'')+txt;convertOnBlur(el);el.focus();if(fid==='q')searchData();if(fid==='silaiQism')onSilaiChange();}};rec.onend=function(){if(btn){btn.classList.remove('listening');btn.textContent='🎤';}};rec.onerror=function(ev){if(btn){btn.classList.remove('listening');btn.textContent='🎤';}if(ev.error==='not-allowed')alert('Mic Allow کرو');};rec.start();}catch(e){alert('Mic: '+e.message);}}
+function goNext(id){var idx=FIELD_ORDER.indexOf(id);if(idx===-1)return false;for(var i=idx+1;i<FIELD_ORDER.length;i++){var nel=document.getElementById(FIELD_ORDER[i]);if(!nel)continue;nel.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){nel.focus();},120);return true;}return false;}
+function voiceTo(fid,btn){try{var Rec=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Rec){alert('بھائی، مائک صرف Chrome میں چلے گا');return;}var rec=new Rec();rec.lang='ur-PK';if(btn){btn.classList.add('listening');btn.textContent='🔴 سن رہا ہوں...';}rec.onresult=function(e){var txt=e.results[0][0].transcript;var el=document.getElementById(fid);if(el){el.value=(el.value?el.value+' ':'')+txt;convertOnBlur(el);el.focus();if(fid==='q')searchData();if(fid==='silaiQism')onSilaiChange();}};rec.onend=function(){if(btn){btn.classList.remove('listening');btn.textContent='🎤';}};rec.onerror=function(){if(btn){btn.classList.remove('listening');btn.textContent='🎤';}};rec.start();}catch(e){alert('Mic: '+e.message);}}
 async function toggleVoice(type){var btn=document.getElementById(type==='cust'?'voiceBtnCust':'voiceBtnDesign');if(mediaRecorder&&mediaRecorder.state==='recording'&&recordingType===type){mediaRecorder.stop();return;}try{var stream=await navigator.mediaDevices.getUserMedia({audio:true});mediaRecorder=new MediaRecorder(stream);recordingType=type;audioChunks=[];mediaRecorder.ondataavailable=function(e){if(e.data.size>0)audioChunks.push(e.data);};mediaRecorder.onstop=function(){var blob=new Blob(audioChunks,{type:'audio/webm'});var r=new FileReader();r.onload=function(){if(type==='cust'){voiceCustB64=r.result;renderVoice('cust');}else{voiceDesignB64=r.result;renderVoice('design');}alert('✅ Voice Save Ho Gaya');};r.readAsDataURL(blob);stream.getTracks().forEach(t=>t.stop());btn.textContent=type==='cust'?'🎙️ Voice Record شروع کرو':'🎙️ Design Voice Record';btn.classList.remove('rec');};mediaRecorder.start();btn.textContent='🔴 ریکارڈ ہو رہا ہے... دوبارہ دباؤ تو بند';btn.classList.add('rec');}catch(e){alert('Mic Allow karo');}}
 function renderVoice(t){var d=t==='cust'?voiceCustB64:voiceDesignB64;var box=document.getElementById(t==='cust'?'voiceCustPlayer':'voiceDesignPlayer');var del=document.getElementById(t==='cust'?'voiceCustDel':'voiceDesignDel');if(d){box.innerHTML='<audio controls style="width:100%" src="'+d+'"></audio>';del.style.display='block';}else{box.innerHTML='';del.style.display='none';}}
 function deleteVoice(t){if(!confirm('Voice delete?'))return;if(t==='cust')voiceCustB64=null;else voiceDesignB64=null;renderVoice(t);}
@@ -333,8 +277,7 @@ function restoreTicks(){
   JEB.forEach(function(j){ document.querySelectorAll('.o[data-tick]').forEach(function(o){ if(o.getAttribute('data-tick')===j && o.getAttribute('onclick') && o.getAttribute('onclick').indexOf('toggleJeb')!==-1) o.classList.add('a'); }); });
   if(SVAL.galaQisam==='کالر') document.getElementById('collarBox').classList.add('show');
   if(JEB.includes('فرنٹ')) document.getElementById('frontPocketBox').classList.add('show');
-  if(SVAL.shalwarQisam==='1 پیس') document.getElementById('onePieceBox').style.display='block';
-  else document.getElementById('onePieceBox').style.display='none';
+  if(SVAL.shalwarQisam==='1 پیس') document.getElementById('onePieceBox').style.display='block'; else document.getElementById('onePieceBox').style.display='none';
 }
 function saveData(){
   try{
@@ -345,24 +288,11 @@ function saveData(){
     if(!o.customerName || !o.customerName.trim()){alert('نام لکھیں');return;}
     var isEdit = EDIT_SERIAL!=null;
     var oldIdx = DB.findIndex(function(x){ return String(x.serialNo).trim()===String(serialVal).trim(); });
-    if(oldIdx>=0){ DB[oldIdx]=o; }
-    else { DB.push(o); DB=dedupeDB(DB); }
+    if(oldIdx>=0){ DB[oldIdx]=o; } else { DB.push(o); DB=dedupeDB(DB); }
     localStorage.setItem(DB_KEY,JSON.stringify(DB));localStorage.setItem('dil_FINAL_5_EMAIL',JSON.stringify(DB));
     autoSyncToDrive(false);updateCount();searchData();
-    if(isEdit){
-      document.getElementById('serialNo').value=serialVal;
-      alert('✅ Edit ہو گیا - '+serialVal+' ہی رہے گا');
-    } else {
-      EDIT_SERIAL=null;
-      document.getElementById('editBanner').style.display='none';
-      var sn=document.getElementById('serialNo'); sn.readOnly=false; sn.classList.remove('locked');
-      document.getElementById('serialHint').textContent='(نیا خود آئے گا - Edit میں لاک)';
-      clearFormOnly();
-      document.getElementById('serialNo').value=String((parseInt(DB[DB.length-1].serialNo)||0)+1);
-      var today2=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today2;
-      var nx2=new Date();nx2.setDate(nx2.getDate()+7);document.getElementById('deliveryDate').value=nx2.toISOString().split('T')[0];
-      alert('✅ محفوظ ہو گیا');
-    }
+    if(isEdit){ document.getElementById('serialNo').value=serialVal; alert('✅ Edit ہو گیا - '+serialVal+' ہی رہے گا'); }
+    else { EDIT_SERIAL=null; document.getElementById('editBanner').style.display='none'; var sn=document.getElementById('serialNo'); sn.readOnly=false; sn.classList.remove('locked'); document.getElementById('serialHint').textContent='(نیا خود آئے گا - Edit میں لاک)'; clearFormOnly(); document.getElementById('serialNo').value=String((parseInt(DB[DB.length-1].serialNo)||0)+1); var today2=new Date().toISOString().split('T')[0];document.getElementById('orderDate').value=today2; var nx2=new Date();nx2.setDate(nx2.getDate()+7);document.getElementById('deliveryDate').value=nx2.toISOString().split('T')[0]; alert('✅ محفوظ ہو گیا'); }
   }catch(err){ alert('Save me masla: '+err.message); }
 }
 function searchData(){convertOnBlur(document.getElementById('q'));var q=document.getElementById('q').value.toLowerCase();var r=document.getElementById('results');if(!q){r.innerHTML='';return;}var f=DB.filter(x=>(x.customerName+' '+x.mobile+' '+x.serialNo).toLowerCase().includes(q));var h='';f.reverse().slice(0,20).forEach(function(o){h+='<div style=border:1.5px solid #0A3D2E;padding:7px;margin-bottom:5px;border-radius:9px;background:#FFFBEB><b>'+o.serialNo+' - '+o.customerName+' ('+o.mobile+')</b><div style=font-size:10px;color:#666>'+(o.silaiQism||'')+' | '+o.suitCount+'</div><div style=display:flex;gap:3px;margin-top:4px><button class=b style=background:#0A3D2E;color:#fff;flex:1 onclick=viewFull(\''+o.serialNo+'\')>👁️ مکمل</button><button class=b style=background:#25D366;color:#fff onclick=sendWAId(\''+o.serialNo+'\')>WhatsApp</button><button class=b style=background:#FEF3C7 onclick=printSimple(\''+o.serialNo+'\')>پرچی</button><button class=b style=background:#E3F2FD onclick=editId(\''+o.serialNo+'\')>Edit</button></div></div>';});r.innerHTML=h||'کوئی نہیں';}
@@ -372,6 +302,7 @@ function printSimple(id){var o=DB.find(x=>String(x.serialNo)===String(id));if(!o
 function printSimpleCurrent(){var id=document.getElementById('serialNo').value;if(id)printSimple(id);}
 function sendWAId(id){var o=DB.find(x=>String(x.serialNo)===String(id));if(!o||!o.mobile){alert('موبائل نہیں');return;}window.open('https://wa.me/92'+o.mobile.replace(/^0/,'')+'?text='+encodeURIComponent('السلام علیکم '+o.customerName+' سوٹ تیار ہے - باقی: '+(o.baqaya||0)),'_blank');}
 function sendWA(){var id=document.getElementById('serialNo').value;var o=DB.find(x=>String(x.serialNo)===String(id));if(o)sendWAId(id);else{var m=document.getElementById('mobile').value;if(!m)return alert('موبائل');window.open('https://wa.me/92'+m.replace(/^0/,'')+'?text='+encodeURIComponent('Suit tayar hai'),' _blank');}}
+// ===== MUKAMAL NAAP - YAHAN FIX HAI - SAB SE UPAR SILAI QISM + US KA NAAP =====
 function viewFull(id){
   var o=DB.find(x=>String(x.serialNo)===String(id));if(!o)return;
   function has(v){return v!==''&&v!=null&&v!=='0'&&v!=='کوئی نہیں'&&String(v).trim()!=='';}
@@ -392,14 +323,18 @@ function viewFull(id){
     +'<div style="font-size:10px">اوپر '+(o.jebTop7||'7')+' | چوڑائی '+(o.jebChorai||'7')+' | تھیلی '+(o.jebTheli||'6')+' | لمبائی '+(o.jebLambai||'20')+'</div></div></div>';
   }
   var h='';
+  // UPAR - CUSTOMER + SILAI QISM TICK - SAB SE UPAR
   h+='<div class="c"><h3>👤 '+o.customerName+' - '+o.serialNo+'</h3>';
   if(o.custPhoto)h+='<div style="text-align:center"><img onclick="openPhoto(\''+o.custPhoto+'\')" src="'+o.custPhoto+'" style="width:120px;height:150px;object-fit:cover;border-radius:10px;border:2.5px solid #0A3D2E;cursor:pointer"></div>';
   if(o.voiceCust)h+='<audio controls style="width:100%" src="'+o.voiceCust+'"></audio>';
-  h+='<div class="g2" style="margin-top:5px">'+inp('نام',o.customerName)+inp('موبائل',o.mobile)+inp('سوٹ',o.suitCount)+inp('کپڑا',o.kapdaQism)+inp('سلائی',o.silaiQism)+inp('آرڈر',o.orderDate)+inp('ڈلیوری',o.deliveryDate)+inp('پتہ',o.pata)+'</div></div>';
+  h+='<div class="g2" style="margin-top:5px">'+inp('نام',o.customerName)+inp('موبائل',o.mobile)+inp('سوٹ',o.suitCount)+inp('کپڑا',o.kapdaQism)+inp('آرڈر',o.orderDate)+inp('ڈلیوری',o.deliveryDate)+inp('پتہ',o.pata)+'</div>';
+  // SILAI QISM - UPAR HI - TICK KE SATH
+  h+=tickRow('سلائی قسم - کس چیز کا ناپ ہے؟',o.silaiQism,['قمیض شلوار','واسکٹ','کوٹ','شیروانی','شرٹ']);
+  h+='</div>';
   if(o.designPhotos&&o.designPhotos.length){h+='<div class="c"><h3>🎨 ڈیزائن</h3><div style="display:flex;gap:4px;flex-wrap:wrap">';o.designPhotos.forEach(p=>{h+='<img onclick="openPhoto(\''+p+'\')" src="'+p+'" style="width:70px;height:85px;object-fit:cover;border-radius:7px;border:2px solid #C9A86A;cursor:pointer">';});h+='</div></div>';}
   if(o.voiceDesign)h+='<div class="c"><audio controls style="width:100%" src="'+o.voiceDesign+'"></audio></div>';
-  var sil=o.silaiQism||'';
-  if(sil.indexOf('قمیض')!==-1||sil===''){
+  // QAMEEZ - SIRF JAB QAMEEZ HO
+  if(!o.silaiQism || o.silaiQism.indexOf('قمیض')!==-1 || o.silaiQism==='صرف قمیض' || o.silaiQism==='1 پیس شلوار'){
     h+='<div class="c"><h3>📏 قمیض</h3><div class="g2">'+inp('لمبائی',o.lambai)+inp('بازو',o.bazu)+inp('تیرا',o.teera)+inp('گلہ',o.gala)+inp('چھاتی',o.chhati)+inp('کمر',o.kamar)+inp('گھیرا',o.gheera)+inp('موڈا',o.moda)+inp('کف',o.kaff)+'</div>';
     h+=tickRow('گلہ',o.galaQisam,['کالر','بین']);
     h+=tickRow('کالر کیسا',o.collarSize,['نارمل کالر','چھوٹا کالر','بڑا کالر']);
@@ -409,7 +344,7 @@ function viewFull(id){
     h+=tickRow('شلوار قسم',o.shalwarQisam,['کوندے پلے','1 پیس']);
     h+=tickRow('1 پیس جیب',o.onePieceJeb,['جیب والا','بغیر']);
     h+='</div>';
-    h+='<div class="c"><h3>✨ دیگر ڈیزائن</h3>';
+    h+='<div class="c"><h3>✨ دیگر ڈیزائن - سب ٹک کے ساتھ</h3>';
     h+=tickRow('تیرا',o.teeraQisam,['سادہ','نوک']);
     h+=tickRow('سلائی',o.silaiDesign,['سنگل','ڈبل']);
     h+=tickRow('پانچہ جالی',o.pounchaJali,['سنگل','ڈبل']);
@@ -420,22 +355,26 @@ function viewFull(id){
     h+=tickRow('رنگر بٹن',o.rangarQisam,['سادہ رنگر','نگ والا رنگر']);
     h+='</div>';
   }
-  if(sil==='واسکٹ'){
-    h+='<div class="c"><h3>🦺 واسکٹ کا ناپ</h3><div class="g2">'+inp('واسکٹ لمبائی',o.waistLambai)+inp('چھاتی',o.waistChhati)+inp('کمر',o.waistKamar)+inp('تیرا',o.waistTeera)+inp('گلہ',o.waistGala)+inp('کندھا',o.waistKandha)+'</div>';
+  // WAISTCOAT - MUKAMAL ME UPAR HI AAYEGA
+  if(o.silaiQism==='واسکٹ'){
+    h+='<div class="c" style="background:#FFF8E0;border:2px solid #FF9800"><h3>🦺 واسکٹ کا ناپ</h3><div class="g2">'+inp('واسکٹ لمبائی',o.waistLambai)+inp('چھاتی',o.waistChhati)+inp('کمر',o.waistKamar)+inp('تیرا',o.waistTeera)+inp('گلہ',o.waistGala)+inp('کندھا',o.waistKandha)+'</div>';
     h+=tickRow('واسکٹ قسم',o.waistQism,['سادہ','بٹن والی','جیب والی']);
     h+=tickRow('واسکٹ گلہ',o.waistGalaQism,['گول گلہ','گھیرا گلہ','چھوٹا کالر','V-Shape']);
     h+='</div>';
   }
-  if(sil==='کوٹ'){
-    h+='<div class="c"><h3>🧥 کوٹ کا ناپ</h3><div class="g2">'+inp('کوٹ لمبائی',o.coatLambai)+inp('بازو',o.coatBazu)+inp('چھاتی',o.coatChhati)+inp('کمر',o.coatKamar)+inp('تیرا',o.coatTeera)+inp('کندھا',o.coatKandha)+'</div>';
+  // COAT
+  if(o.silaiQism==='کوٹ'){
+    h+='<div class="c" style="background:#E3F2FD;border:2px solid #1565C0"><h3>🧥 کوٹ کا ناپ</h3><div class="g2">'+inp('کوٹ لمبائی',o.coatLambai)+inp('بازو',o.coatBazu)+inp('چھاتی',o.coatChhati)+inp('کمر',o.coatKamar)+inp('تیرا',o.coatTeera)+inp('کندھا',o.coatKandha)+'</div>';
     h+=tickRow('کوٹ قسم',o.coatQism,['سنگل بٹن','ڈبل بٹن']);
     h+='</div>';
   }
-  if(sil==='شیروانی'){
-    h+='<div class="c"><h3>👑 شیروانی کا ناپ</h3><div class="g2">'+inp('شیروانی لمبائی',o.sherLambai)+inp('بازو',o.sherBazu)+inp('چھاتی',o.sherChhati)+inp('کمر',o.sherKamar)+inp('تیرا',o.sherTeera)+inp('کندھا',o.sherKandha)+'</div></div>';
+  // SHERWANI
+  if(o.silaiQism==='شیروانی'){
+    h+='<div class="c" style="background:#F3E5F5;border:2px solid #7B1FA2"><h3>👑 شیروانی کا ناپ</h3><div class="g2">'+inp('شیروانی لمبائی',o.sherLambai)+inp('بازو',o.sherBazu)+inp('چھاتی',o.sherChhati)+inp('کمر',o.sherKamar)+inp('تیرا',o.sherTeera)+inp('کندھا',o.sherKandha)+'</div></div>';
   }
-  if(sil==='شرٹ'){
-    h+='<div class="c"><h3>👔 شرٹ کا ناپ</h3><div class="g2">'+inp('شرٹ لمبائی',o.shirtLambai)+inp('بازو',o.shirtBazu)+inp('چھاتی',o.shirtChhati)+inp('کمر',o.shirtKamar)+inp('تیرا',o.shirtTeera)+inp('کندھا',o.shirtKandha)+inp('کالر',o.shirtCollar)+inp('کف',o.shirtKaff)+'</div></div>';
+  // SHIRT
+  if(o.silaiQism==='شرٹ'){
+    h+='<div class="c" style="background:#E8F5E9;border:2px solid #2E7D32"><h3>👔 شرٹ کا ناپ</h3><div class="g2">'+inp('شرٹ لمبائی',o.shirtLambai)+inp('بازو',o.shirtBazu)+inp('چھاتی',o.shirtChhati)+inp('کمر',o.shirtKamar)+inp('تیرا',o.shirtTeera)+inp('کندھا',o.shirtKandha)+inp('کالر',o.shirtCollar)+inp('کف',o.shirtKaff)+'</div></div>';
   }
   h+='<div class="c"><h3>💰 حساب</h3><div class="g2">'+inp('کل',o.totalPrice?o.totalPrice+' Rs':'')+inp('ایڈوانس',o.advance?o.advance+' Rs':'')+inp('باقی',o.baqaya?o.baqaya+' Rs':'')+inp('نوٹ',o.note)+'</div></div>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:8px"><button class="b" style="background:#FF9800;color:#fff" onclick="editId(\''+o.serialNo+'\')">✏️ ایڈٹ</button><button class="b" style="background:#25D366;color:#fff" onclick="sendWAId(\''+o.serialNo+'\')">📱 WhatsApp</button><button class="b" style="background:#FEF3C7" onclick="printSimple(\''+o.serialNo+'\')">🖨️ پرچی</button><button class="b" style="background:#0A3D2E;color:#fff" onclick="closeView()">❌ بند</button></div>';
@@ -483,8 +422,8 @@ async function toggleWakeLock(){try{if(wakeIsOn){localStorage.setItem('dil_wake'
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&localStorage.getItem('dil_wake')==='on'&&!wakeIsOn){requestWake();}});
 if(localStorage.getItem('dil_wake')==='on'){setTimeout(function(){requestWake();},1000);}
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();updateSample();
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=waistcoat1').then(r=>r.update());}
-if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='waistcoat1'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('waistcoat1')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','waistcoat1');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=mukamalfix').then(r=>r.update());}
+if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='mukamalfix'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('mukamalfix')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','mukamalfix');}
 </script>
 </body>
 </html>
