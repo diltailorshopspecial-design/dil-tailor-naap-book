@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>Dil Tailor Shop - LIVE SAMPLE</title>
-<link rel="manifest" href="manifest.json?v=livefinal">
+<title>Dil Tailor Shop - FINAL FIX</title>
+<link rel="manifest" href="manifest.json?v=finalfix">
 <meta name="theme-color" content="#0A3D2E">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -70,7 +70,7 @@ details summary::-webkit-details-marker{display:none}
 </head>
 <body>
 <div class="t" onclick="tapLogo()">
-  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - LIVE SAMPLE</small></div></div>
+  <div class="left"><img src="logo.jpg" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'"><div id="logoFallback" class="logo-fallback" style="display:none">دل</div><div><b>دل ٹیلر شاپ - دل حسن</b><br><small>03463604869 - FINAL FIX</small></div></div>
   <div class="badge-small">Auto Backup<br>ON</div>
 </div>
 <div id="editBanner">✏️ EDIT MODE</div>
@@ -115,11 +115,11 @@ details summary::-webkit-details-marker{display:none}
 <div class="g2"><div style="font-size:11px">کف<div class="mic-row"><input id="kaff" placeholder="8fix = 8 فکس"><button class="mic-btn" onclick="voiceTo('kaff',this)">🎤</button></div></div><div style="font-size:11px">گلہ<div style="display:flex;gap:2px"><div class="o" data-tick="کالر" onclick="setGala(this,'کالر')">کالر</div><div class="o" data-tick="بین" onclick="setGala(this,'بین')">بین</div></div><div id="collarBox" class="sub-box"><div class="sub-title">کالر کیسا ہو؟</div><div style="display:flex;gap:4px"><div class="o" data-tick="نارمل کالر" style="flex:1" onclick="setOne(this,'collarSize','نارمل کالر')">نارمل</div><div class="o" data-tick="چھوٹا کالر" style="flex:1" onclick="setOne(this,'collarSize','چھوٹا کالر')">چھوٹا</div><div class="o" data-tick="بڑا کالر" style="flex:1" onclick="setOne(this,'collarSize','بڑا کالر')">بڑا</div></div></div></div></div>
 </div>
 
-<!-- ===== SAMPLE LIVE - JEB THEEK, QAMEEZ THEEK + FRONT PATTI CUT LINE WALA ===== -->
+<!-- ===== SAMPLE FINAL FIX - KEYBOARD + FRONT PATTI CUT KHALI JAGA PAR + KAPRE WALI SHAPE ===== -->
 <div class="c"><h3 style="font-size:12px">📐 سیمپل - جیسا آپ نے کاغذ پر بنایا - LIVE</h3>
 <div class="sample-wrap" dir="ltr">
 
-<!-- LEFT = JEB - THEEK HAI -->
+<!-- LEFT = JEB -->
 <div class="sample-mini">
 <h4>👖 سائیڈ جیب</h4>
 <div class="sample-diag" dir="ltr">
@@ -138,42 +138,46 @@ details summary::-webkit-details-marker{display:none}
 <text x="70" y="122" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">لمبائی <tspan id="svgJebLambai">20</tspan></text>
 </svg>
 </div>
-<div class="g2"><div><label>اوپر</label><input id="jebTop7" value="7" class="editable" oninput="updateSample()"></div><div><label>چوڑائی</label><input id="jebChorai" value="7" class="editable" oninput="updateSample()"></div></div>
-<div class="g2"><div><label>تھیلی</label><input id="jebTheli" value="6" class="editable" oninput="updateSample()"></div><div><label>لمبائی</label><input id="jebLambai" value="20" class="editable" oninput="updateSample()"></div></div>
+<!-- KEYBOARD FIX: num-field + inputmode decimal - ab Calculator hi aayega -->
+<div class="g2"><div><label>اوپر</label><input id="jebTop7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>چوڑائی</label><input id="jebChorai" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
+<div class="g2"><div><label>تھیلی</label><input id="jebTheli" value="6" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>لمبائی</label><input id="jebLambai" value="20" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
 </div>
 
-<!-- RIGHT = QAMEEZ - AB THEEK SHAPE + 4 WAPIS + FRONT PATTI CUT LINE WALA -->
+<!-- RIGHT = QAMEEZ - KAPRE WALE TUKRE JESI SHAPE + FRONT PATTI CUT KHALI JAGA PAR -->
 <div class="sample-mini">
 <h4>✂️ قمیض / چاک</h4>
 <div class="sample-diag" dir="ltr">
-<svg viewBox="0 0 170 130" style="width:100%;height:130px;display:block">
-<!-- Qameez shape - kagaz wali: ek side choti golai, doosri side khulai, neechy seedha -->
-<path d="M22 28 Q28 14 42 10 L48 8 L52 14 Q58 26 70 24 L78 18 L84 8 L92 10 Q108 14 112 28 L112 110 L22 110 Z" fill="#fff" stroke="#1a3aa0" stroke-width="1.6" stroke-linejoin="round"/>
-<!-- andar wali line -->
-<path d="M30 32 Q36 20 46 18 L50 24 Q56 32 68 30 L76 24 L82 16 Q98 18 104 30 L104 102 L30 102 Z" fill="none" stroke="#1a3aa0" stroke-width="0.8"/>
-<!-- Center golai - jesi aap ne kahi -->
-<ellipse cx="68" cy="26" rx="14" ry="7" fill="#fff" stroke="#1a3aa0" stroke-width="1"/>
-<!-- Left side CUT - 4, 7, 14 - jese kagaz par -->
-<line x1="8" y1="30" x2="22" y2="30" stroke="#000" stroke-width="1.4"/><line x1="8" y1="34" x2="22" y2="34" stroke="#000" stroke-width="1.4"/>
-<text x="2" y="36" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak4">4</tspan></text>
-<line x1="8" y1="58" x2="22" y2="58" stroke="#000" stroke-width="1.4"/><line x1="8" y1="62" x2="22" y2="62" stroke="#000" stroke-width="1.4"/>
-<text x="2" y="64" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak7">7</tspan></text>
-<line x1="8" y1="88" x2="22" y2="88" stroke="#000" stroke-width="1.4"/><line x1="8" y1="92" x2="22" y2="92" stroke="#000" stroke-width="1.4"/>
-<text x="2" y="94" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak14">14</tspan></text>
-<!-- Right side - LINE LAGA KAR FRONT PATTI CUT 12 - jese aap ne pen se dikhaya -->
-<line x1="112" y1="58" x2="128" y2="58" stroke="#000" stroke-width="1.2"/>
-<text x="130" y="50" font-size="8" font-weight="bold" fill="#000">فرنٹ</text>
-<text x="130" y="60" font-size="8" font-weight="bold" fill="#000">پٹی کٹ</text>
-<text x="130" y="72" font-size="10" font-weight="bold" fill="#000"><tspan id="svgPatti12">12</tspan></text>
-<line x1="112" y1="88" x2="128" y2="88" stroke="#000" stroke-width="1.2"/>
+<svg viewBox="0 0 200 130" style="width:100%;height:130px;display:block">
+<!-- Kapre wala tukra - jesa aap ne kaat kar dikhaya: upar tedha, ek side golai wali, doosri seedhi, neechy seedha -->
+<path d="M22 18 L120 18 L120 110 L22 110 Z" fill="#fff" stroke="#1a3aa0" stroke-width="1.6"/>
+<!-- Golai - gale wali - choti golai jesi kagaz par -->
+<path d="M22 18 Q38 18 42 30 Q44 42 34 48 Q24 48 22 38 Z" fill="#fff" stroke="#1a3aa0" stroke-width="1.2"/>
+<!-- Andar wali line -->
+<path d="M30 24 L112 24 L112 102 L30 102 Z" fill="none" stroke="#1a3aa0" stroke-width="0.7"/>
+<!-- Left side CUT - 4, 7, 14 -->
+<line x1="8" y1="28" x2="22" y2="28" stroke="#000" stroke-width="1.4"/><line x1="8" y1="32" x2="22" y2="32" stroke="#000" stroke-width="1.4"/>
+<text x="2" y="34" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak4">4</tspan></text>
+<line x1="8" y1="56" x2="22" y2="56" stroke="#000" stroke-width="1.4"/><line x1="8" y1="60" x2="22" y2="60" stroke="#000" stroke-width="1.4"/>
+<text x="2" y="62" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak7">7</tspan></text>
+<line x1="8" y1="86" x2="22" y2="86" stroke="#000" stroke-width="1.4"/><line x1="8" y1="90" x2="22" y2="90" stroke="#000" stroke-width="1.4"/>
+<text x="2" y="92" font-size="9" font-weight="bold" fill="#000"><tspan id="svgChaak14">14</tspan></text>
+<!-- Golai se LINE nikal kar KHALI JAGA tak - ab lafz line par nahi -->
+<line x1="42" y1="38" x2="128" y2="38" stroke="#000" stroke-width="1" stroke-dasharray="3,2"/>
+<circle cx="42" cy="38" r="2" fill="#000"/>
+<circle cx="128" cy="38" r="2" fill="#000"/>
+<!-- KHALI JAGA PAR SAAF LIKHA - LINE SE DOOR -->
+<rect x="132" y="22" width="64" height="32" fill="#FFEB3B" stroke="#000" stroke-width="0.8" rx="4"/>
+<text x="164" y="35" font-size="9" font-weight="bold" text-anchor="middle" fill="#000">فرنٹ پٹی کٹ</text>
+<text x="164" y="48" font-size="11" font-weight="bold" text-anchor="middle" fill="#000"><tspan id="svgPatti12">12</tspan></text>
 </svg>
 </div>
-<div class="g2"><div><label>اوپر 4</label><input id="chaakMark4" value="4" class="editable" oninput="updateSample()"></div><div><label>جیب والا 7</label><input id="chaakMark7" value="7" class="editable" oninput="updateSample()"></div></div>
-<div class="g2"><div><label>14</label><input id="chaakMark14" value="14" class="editable" oninput="updateSample()"></div><div><label>فرنٹ پٹی کٹ</label><input id="chaakPatti12" value="12" class="editable" oninput="updateSample()"></div></div>
+<!-- KEYBOARD FIX: yahan bhi Calculator hi aayega -->
+<div class="g2"><div><label>اوپر 4</label><input id="chaakMark4" value="4" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>جیب والا 7</label><input id="chaakMark7" value="7" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
+<div class="g2"><div><label>14</label><input id="chaakMark14" value="14" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div><div><label>فرنٹ پٹی کٹ</label><input id="chaakPatti12" value="12" class="editable num-field" inputmode="decimal" oninput="updateSample()"></div></div>
 </div>
 
 </div>
-<div style="font-size:10px;text-align:center;color:#666;margin-top:4px">👆 Neeche number badlo - Upar sample me khud badal jayega</div>
+<div style="font-size:10px;text-align:center;color:#666;margin-top:4px">👆 Neeche number badlo - Upar sample me khud badal jayega - Keyboard Calculator wala hi rahe ga</div>
 </div>
 <!-- ===== SAMPLE KHATAM ===== -->
 
@@ -193,7 +197,7 @@ details summary::-webkit-details-marker{display:none}
 <div id="viewModal" onclick="if(event.target.id=='viewModal')closeView()"><div class="view-box"><div class="view-head" id="viewHead">مکمل ناپ</div><div id="viewContent" style="padding:6px"></div></div></div>
 <div id="photoModal"><button class="closeBtn" onclick="closePhoto()">❌</button><img id="photoBig" src=""><div class="hint">2 انگلی سے Zoom - 1 انگلی سے ہلاؤ</div></div>
 <script>
-var APP_VERSION='livefinal';
+var APP_VERSION='finalfix';
 var DRIVE_URL = "https://script.google.com/macros/s/AKfycbxvwZbFbKXmTr6ZN8fSwwQe1U6SknVN9vSgd5PXKhsWWoLiaLOBMRII8NEvfrkZ8BjO/exec";
 var EMAILS=["dilhassanlasuri952@gmail.com","diltailornaapbook@gmail.com","diltailornaapb@gmail.com","arzidil40@gmail.com","diltailorshopspecial@gmail.com"];
 var curIdx=parseInt(localStorage.getItem('dil_email_index')||"0");if(curIdx>=EMAILS.length)curIdx=0;
@@ -205,7 +209,6 @@ DB=dedupeDB(DB);localStorage.setItem(DB_KEY,JSON.stringify(DB));
 var tapCount=0,lastTap=0;
 function tapLogo(){var now=Date.now();if(now-lastTap>1500)tapCount=0;lastTap=now;tapCount++;if(tapCount>=5){var d=document.getElementById('driveBox');d.style.display=d.style.display==='none'?'block':'none';tapCount=0;}}
 function lockSerialCheck(){if(!EDIT_SERIAL)return;var el=document.getElementById('serialNo');if(String(el.value)!==String(EDIT_SERIAL)){el.value=EDIT_SERIAL;}}
-// ===== LIVE SAMPLE - NEECHY BADLO, UPAR BADAL JAYEGA =====
 function updateSample(){
   function set(id,val){var el=document.getElementById(id);if(el)el.textContent=val||'';}
   set('svgJebTop',document.getElementById('jebTop7').value);
@@ -404,8 +407,8 @@ async function toggleWakeLock(){try{if(wakeIsOn){localStorage.setItem('dil_wake'
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&localStorage.getItem('dil_wake')==='on'&&!wakeIsOn){requestWake();}});
 if(localStorage.getItem('dil_wake')==='on'){setTimeout(function(){requestWake();},1000);}
 function updateCount(){document.getElementById('recordCount').textContent=DB.length+' ریکارڈ';}updateCount();updateSample();
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=livefinal').then(r=>r.update());}
-if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='livefinal'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('livefinal')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','livefinal');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js?v=finalfix').then(r=>r.update());}
+if('caches' in window){var sv=localStorage.getItem('dil_app_version');if(sv&&sv!=='finalfix'){caches.keys().then(ns=>ns.forEach(n=>{if(n.indexOf('finalfix')===-1)caches.delete(n);}));}localStorage.setItem('dil_app_version','finalfix');}
 </script>
 </body>
 </html>
